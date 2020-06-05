@@ -155,6 +155,6 @@ You should have received a copy of the GNU General Public License along with thi
 
 All Salesforce Documentation is © Copyright 2000–2020 salesforce.com, inc.
 
-Thanks to Marco Zeuli for his contributions to making extra types of documentation available in the plugin
+Thanks to [Marco Zeuli](https://github.com/maaaaarco) for his contributions to making extra types of documentation available in the plugin
 
-Credit to Luke McFarlane for the inspiration!
+Credit to [Luke McFarlane](https://github.com/lukemcfarlane) for the inspiration!
