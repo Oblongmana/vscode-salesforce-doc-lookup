@@ -6,6 +6,18 @@ If I ever find enough time, I'd like to accomplish the following:
 2) Try and open Doc in a browser
 3) Add the Metadata reference as a new option
 
+- [How to open docs in a browser](#how-to-open-docs-in-a-browser)
+- [How to get the actual Apex Documentation, not just open in browser](#how-to-get-the-actual-apex-documentation-not-just-open-in-browser)
+  - [How to render within VSCode](#how-to-render-within-vscode)
+  - [URL Format](#url-format)
+  - [Example URL:](#example-url)
+  - [Getting `:folder`](#getting-folder)
+  - [Getting `:id`](#getting-id)
+  - [Getting `:locale`](#getting-locale)
+  - [Getting `:version`](#getting-version)
+- [How to get the actual non-Apex Documentation, like the original plugin](#how-to-get-the-actual-non-apex-documentation-like-the-original-plugin)
+- [Other wacky ideas](#other-wacky-ideas)
+
 ## How to open docs in a browser
 
 See the old plugin
