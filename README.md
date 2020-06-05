@@ -6,8 +6,8 @@ If I ever find enough time, I'd like to accomplish the following:
 2) Try and open Doc in a browser
 3) Add the Metadata reference as a new option
 
+<!-- omit in toc -->
 ## Table of Contents
-- [Table of Contents](#table-of-contents)
 - [How to open docs in a browser](#how-to-open-docs-in-a-browser)
 - [How to get the actual Apex Documentation, not just open in browser](#how-to-get-the-actual-apex-documentation-not-just-open-in-browser)
   - [How to render within VSCode](#how-to-render-within-vscode)
