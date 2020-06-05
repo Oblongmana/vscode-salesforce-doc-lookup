@@ -34,7 +34,19 @@ Using the JSON ToC above, we can hit a different endpoint `get_document_content`
 
 ### Getting `:folder`
 
-apexcode
+Not exactly clear where this value comes from. The actual value is `apexcode`
+
+The most promising candidate is the top-level value `deliverable`
+
+    {
+        "deliverable": "apexcode"
+    }
+
+There's a similar value when viewing the Service Console ToC:
+
+    {
+        "deliverable": "api_console"
+    }
 
 ### Getting `:id`
 
