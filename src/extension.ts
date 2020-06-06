@@ -9,7 +9,7 @@ export async function activate(context: vscode.ExtensionContext) {
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
         vscode.window.showInformationMessage('Retrieving Salesforce Apex Reference Index...','OK');
 
-        var salesforceReferenceItems: SalesforceReferenceItem[] = SalesforceReferenceDocTypes.APEX.getSalesforceReferenceItems();
+        var salesforceReferenceItems: SalesforceReferenceItem[] = await SalesforceReferenceDocTypes.APEX.getSalesforceReferenceItems();
 
         //TODO handle errors
         vscode.window.showQuickPick(salesforceReferenceItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
@@ -25,7 +25,7 @@ export async function activate(context: vscode.ExtensionContext) {
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
         vscode.window.showInformationMessage('Retrieving Salesforce Visualforce Reference Index...','OK');
 
-        var salesforceReferenceItems: SalesforceReferenceItem[] = SalesforceReferenceDocTypes.VISUALFORCE.getSalesforceReferenceItems();
+        var salesforceReferenceItems: SalesforceReferenceItem[] = await SalesforceReferenceDocTypes.VISUALFORCE.getSalesforceReferenceItems();
 
         //TODO handle errors
         vscode.window.showQuickPick(salesforceReferenceItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
@@ -41,7 +41,7 @@ export async function activate(context: vscode.ExtensionContext) {
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
         vscode.window.showInformationMessage('Retrieving Salesforce Lightning Console Reference Index...','OK');
 
-        var salesforceReferenceItems: SalesforceReferenceItem[] = SalesforceReferenceDocTypes.LIGHTNING_CONSOLE.getSalesforceReferenceItems();
+        var salesforceReferenceItems: SalesforceReferenceItem[] = await SalesforceReferenceDocTypes.LIGHTNING_CONSOLE.getSalesforceReferenceItems();
 
         //TODO handle errors
         vscode.window.showQuickPick(salesforceReferenceItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
@@ -57,7 +57,7 @@ export async function activate(context: vscode.ExtensionContext) {
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
         vscode.window.showInformationMessage('Retrieving Salesforce Classic Console Reference Index...','OK');
 
-        var salesforceReferenceItems: SalesforceReferenceItem[] = SalesforceReferenceDocTypes.CLASSIC_CONSOLE.getSalesforceReferenceItems();
+        var salesforceReferenceItems: SalesforceReferenceItem[] = await SalesforceReferenceDocTypes.CLASSIC_CONSOLE.getSalesforceReferenceItems();
 
         //TODO handle errors
         vscode.window.showQuickPick(salesforceReferenceItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
@@ -73,7 +73,7 @@ export async function activate(context: vscode.ExtensionContext) {
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
         vscode.window.showInformationMessage('Retrieving Salesforce Metadata Reference Index...','OK');
 
-        var salesforceReferenceItems: SalesforceReferenceItem[] = SalesforceReferenceDocTypes.METADATA.getSalesforceReferenceItems();
+        var salesforceReferenceItems: SalesforceReferenceItem[] = await SalesforceReferenceDocTypes.METADATA.getSalesforceReferenceItems();
 
         //TODO handle errors
         vscode.window.showQuickPick(salesforceReferenceItems, {matchOnDetail: true}).then((selectedReferenceItem) => {

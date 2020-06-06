@@ -240,7 +240,9 @@ class MetadataSalesforceReferenceDocType extends SalesforceReferenceDocType {
     }
 }
 
-export const SalesforceReferenceDocTypes: any = {
+type DocTypeName = 'APEX' | 'VISUALFORCE' | 'LIGHTNING_CONSOLE' | 'CLASSIC_CONSOLE' | 'METADATA';
+
+export const SalesforceReferenceDocTypes: Record<DocTypeName, SalesforceReferenceDocType> = {
     APEX: new ApexSalesforceReferenceDocType(),
     VISUALFORCE: new VisualforceSalesforceReferenceDocType(),
     LIGHTNING_CONSOLE: new LightningConsoleSalesforceReferenceDocType(),
