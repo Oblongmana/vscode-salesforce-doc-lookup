@@ -11,6 +11,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - [0.1.1 - Beta](#011---beta)
 
 ## Unpublished
+- Backend fixes - better code reuse and structure
 
 ## 0.2.0 - Beta
 - Basic implementation of Visualforce Doc Lookup

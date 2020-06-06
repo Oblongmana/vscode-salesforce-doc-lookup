@@ -16,6 +16,11 @@ an update to the plugin_
 - [Installing](#installing)
 - [Current Features](#current-features)
 - [Limitations, Known Issues, and Notable Differences to the original ST3 version](#limitations-known-issues-and-notable-differences-to-the-original-st3-version)
+  - [Adblockers and loading links:](#adblockers-and-loading-links)
+  - [Wait time when running command - no caching](#wait-time-when-running-command---no-caching)
+  - [No "All Doc" search that covers all documentation types](#no-all-doc-search-that-covers-all-documentation-types)
+  - [Notable Change - More search results!](#notable-change---more-search-results)
+  - [Notable Change - Potential to include EVEN MORE search results](#notable-change---potential-to-include-even-more-search-results)
 - [Roadmap](#roadmap)
 - [Design Notes](#design-notes)
 - [Release Notes](#release-notes)
@@ -52,22 +57,33 @@ Adds the following new commands, allowing you to search Salesforce Dev documenta
 ![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup.gif)
 
 ## Limitations, Known Issues, and Notable Differences to the original ST3 version
-1. Because Salesforce's Doc website is an Angular app that dynamically loads content into the page after the page itself has loaded, anchor links
-    appear to be managed in such a way that the Angular app (rather than the browser) handles the scrolling to the requested item.
-    e.g. https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_string.htm#apex_System_String_substring - the
-    section after the `#` is the anchor link, trying to take you directly to substring. This Salesforce Angular App functionality may play a little
-    poorly with some adblockers such as "uBlock Origin". If you find commands are not scrolling you to the item you request, this may be fixed
-    by disabling your adblocker on the Salesforce doc site, if you are comfortable with doing so.
-2. There's no caching yet - every time you run a command, it retrieves the relevant doc table of contents from scratch. Adding caching is on the [Roadmap](#roadmap)
-3. The All Doc Types search is gone - this won't be reimplemented until caching is added - performance would be horrifying, in addition to needing a more
-    sophisticated breadcrumb strategy.
-4. The original plugin gave a list of certain nodes at a relatively low level of detail, due to technical limitations in Sublime -
-    e.g. searching for "String" in the Apex Doc would give you "String Methods". As in VSCode we can now show a breadcrumb in the picker, the same search will now
-    produce "String Class", "String Methods", and all of the actual methods under these headers!
-5. Now that the VSCode version of the extension has opened up what you can access (see above bullet point), there's the question of whether other
-    documentation should be opened up - rather than just limiting ourselves to the technical component/method/etc kind of reference. If you feel
-    passionately about this, feel free to open an issue - including your ideas on how this might be implemented without swamping our technical results.
-    Or maybe, providing evidence that it won't swamp our results - I haven't tested that!
+
+### Adblockers and loading links:
+Because Salesforce's Doc website is an Angular app that dynamically loads content into the page after the page itself has loaded, anchor links
+appear to be managed in such a way that the Angular app (rather than the browser) handles the scrolling to the requested item.
+e.g. https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_string.htm#apex_System_String_substring - the
+section after the `#` is the anchor link, trying to take you directly to substring. This Salesforce Angular App functionality may play a little
+poorly with some adblockers such as "uBlock Origin". If you find commands are not scrolling you to the item you request, this may be fixed
+by disabling your adblocker on the Salesforce doc site, if you are comfortable with doing so.
+
+### Wait time when running command - no caching
+There's no caching yet - every time you run a command, it retrieves the relevant doc table of contents from scratch. Adding caching is on the [Roadmap](#roadmap)
+
+
+### No "All Doc" search that covers all documentation types
+The All Doc Types search is gone - this won't be reimplemented until caching is added - performance would be horrifying, in addition to needing a more
+sophisticated breadcrumb strategy.
+
+### Notable Change - More search results!
+The original plugin gave a list of certain nodes at a relatively low level of detail, due to technical limitations in Sublime -
+e.g. searching for "String" in the Apex Doc would give you "String Methods". As in VSCode we can now show a breadcrumb in the picker, the same search will now
+produce "String Class", "String Methods", and all of the actual methods under these headers!
+
+### Notable Change - Potential to include EVEN MORE search results
+Now that the VSCode version of the extension has opened up what you can access (see above bullet point), there's the question of whether other
+documentation should be opened up - rather than just limiting ourselves to the technical component/method/etc kind of reference. If you feel
+passionately about this, feel free to open an issue - including your ideas on how this might be implemented without swamping our technical results.
+Or maybe, providing evidence that it won't swamp our results - I haven't tested that!
 
 
 ## Roadmap
@@ -76,8 +92,8 @@ In rough priority order
 - [X] Implement Basic Lightning Console Reference
 - [X] Implement Basic Classic Console Reference
 - [X] Implement Basic Metadata Reference
-- [ ] DRYing pass at the code - lots of pasta in there at the moment
-- [ ] Restructure the code - it's a big hacky pile, because it was from a hack session
+- [X] DRYing pass at the code - lots of pasta in there at the moment
+- [X] Restructure the code - it's a big hacky pile, because it was from a hack session
 - [ ] Implement some kind of on-load caching, as the old ST3 plugin had
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 - [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
@@ -95,6 +111,7 @@ Notes on design, future aims etc available in NOTES.MD
 ## Release Notes
 
 ### Unpublished
+- Backend fixes - better code reuse and structure
 
 ### 0.2.0 - Beta
 - Basic implementation of Visualforce Doc Lookup
