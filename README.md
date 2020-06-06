@@ -15,7 +15,6 @@ an update to the plugin_
 ## Table of Contents
 - [Installing](#installing)
 - [Current Features](#current-features)
-  - [Lookup Apex Reference Documentation](#lookup-apex-reference-documentation)
 - [Limitations, Known Issues, and Notable Differences to the original ST3 version](#limitations-known-issues-and-notable-differences-to-the-original-st3-version)
 - [Roadmap](#roadmap)
 - [Design Notes](#design-notes)
@@ -36,9 +35,13 @@ and download your desired version as a vsix file. Install it using the following
 Alternatively, you can build it yourself, but instructions for that are outside the scope of this README.
 
 ## Current Features
-### Lookup Apex Reference Documentation
 
-Adds a new command: "Salesforce Reference: Apex"
+Adds the following new commands, allowing you to search Salesforce Dev documentation in VSCode, and be taken directly to the corresponding entries in your browser:
+ - Salesforce Reference: Apex
+ - Salesforce Reference: Visualforce
+ - Salesforce Reference: Lightning Console
+ - Salesforce Reference: Classic Console
+ - Salesforce Reference: Metadata API
 
 ![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup.gif)
 
