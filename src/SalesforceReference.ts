@@ -55,22 +55,6 @@ export class SalesforceReferenceItem implements vscode.QuickPickItem {
 
 }
 
-export function convertDocNodeToSalesforceReferenceItem(referenceNode: any, breadcrumbString: string): SalesforceReferenceItem[] {
-    const referenceItems: SalesforceReferenceItem[] = [];
-    //Convert this node into a SalesforceReferenceItem, after run-time checking it has appropriate properties
-    if (referenceNode.hasOwnProperty('a_attr')) {
-        referenceItems.push(new SalesforceReferenceItem(referenceNode,breadcrumbString));
-    }
-    //Recursively convert children into SalesforceReferenceItems and add them to our list
-    if (referenceNode.hasOwnProperty('children')) {
-        const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${referenceNode.text}`;
-        referenceNode.children.forEach((childReferenceNode: any) => {
-            referenceItems.push(...convertDocNodeToSalesforceReferenceItem(childReferenceNode,breadcrumbStringForChildren));
-        });
-    }
-    return referenceItems;
-}
-
 abstract class SalesforceReferenceDocType {
 
     /**

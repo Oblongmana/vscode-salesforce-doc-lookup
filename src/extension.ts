@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import './SalesforceReference';
-import { SalesforceReferenceItem, convertDocNodeToSalesforceReferenceItem, SalesforceReferenceDocTypes } from './SalesforceReference';
+import { SalesforceReferenceItem, SalesforceReferenceDocTypes } from './SalesforceReference';
 
 export async function activate(context: vscode.ExtensionContext) {
 
