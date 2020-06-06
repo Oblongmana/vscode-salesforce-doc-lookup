@@ -37,6 +37,10 @@ export async function activate(context: vscode.ExtensionContext) {
     const SFCONSOLE_HUMAN_DOC_PATH = '/atlas.en-us.api_console.meta/api_console';
     const SFCONSOLE_DOC_TOC_URL = SF_DOC_ROOT_URL + SF_TOC_PATH + '/atlas.en-us.api_console.meta';
 
+    const METADATA_HUMAN_DOC_PATH = '/atlas.en-us.api_meta.meta/api_meta';
+    const METADATA_DOC_TOC_URL = SF_DOC_ROOT_URL + SF_TOC_PATH + '/atlas.en-us.api_meta.meta';
+
+
     async function getApexDocToc(): Promise<any> {
         const body: any = await got(APEX_DOC_TOC_URL).json();
         return body;
@@ -52,6 +56,11 @@ export async function activate(context: vscode.ExtensionContext) {
         return body;
     }
 
+    async function getMetadataDocToc(): Promise<any> {
+        const body: any = await got(METADATA_DOC_TOC_URL).json();
+        return body;
+    }
+
     function buildApexHumanDocURL(selectedReferenceItem: DocReferenceQuickPickItem) {
         return `${SF_DOC_ROOT_URL}${APEX_HUMAN_DOC_PATH}/${selectedReferenceItem.href}`;
     }
@@ -62,6 +71,10 @@ export async function activate(context: vscode.ExtensionContext) {
 
     function buildConsoleHumanDocURL(selectedReferenceItem: DocReferenceQuickPickItem) {
         return `${SF_DOC_ROOT_URL}${SFCONSOLE_HUMAN_DOC_PATH}/${selectedReferenceItem.href}`;
+    }
+
+    function buildMetadataHumanDocURL(selectedReferenceItem: DocReferenceQuickPickItem) {
+        return `${SF_DOC_ROOT_URL}${METADATA_HUMAN_DOC_PATH}/${selectedReferenceItem.href}`;
     }
 
     function buildApexRawDocURL(folder: string, id: string, locale: string, version: string): string {
@@ -181,9 +194,9 @@ export async function activate(context: vscode.ExtensionContext) {
         const lightningconsoleDocVersion: string = sfJSONDoc.version.doc_version;
         // console.log(lightningconsoleDocVersion);
         const lightningconsoleTopLevelToc: any = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
-        console.dir(lightningconsoleTopLevelToc);
+        // console.dir(lightningconsoleTopLevelToc);
         const lightningconsoleReferenceToc: any = lightningconsoleTopLevelToc.children.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
-        console.dir(lightningconsoleReferenceToc);
+        // console.dir(lightningconsoleReferenceToc);
 
         function convertLightningConsoleReferenceToQuickPickItem(referenceNode: any, breadcrumbString: string): DocReferenceQuickPickItem[] {
             const itemNodes: DocReferenceQuickPickItem[] = [];
@@ -229,9 +242,9 @@ export async function activate(context: vscode.ExtensionContext) {
         const classicconsoleDocVersion: string = sfJSONDoc.version.doc_version;
         // console.log(classicconsoleDocVersion);
         const classicconsoleTopLevelToc: any = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_intro');
-        console.dir(classicconsoleTopLevelToc);
+        // console.dir(classicconsoleTopLevelToc);
         const classicconsoleReferenceToc: any = classicconsoleTopLevelToc.children.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_classic');
-        console.dir(classicconsoleReferenceToc);
+        // console.dir(classicconsoleReferenceToc);
 
         function convertClassicConsoleReferenceToQuickPickItem(referenceNode: any, breadcrumbString: string): DocReferenceQuickPickItem[] {
             const itemNodes: DocReferenceQuickPickItem[] = [];
@@ -260,7 +273,56 @@ export async function activate(context: vscode.ExtensionContext) {
         });
     });
 
-    context.subscriptions.push(apexReferenceDisposable, vfReferenceDisposable, classicconsoleReferenceDisposable);
+    let metadataReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand('vscode-salesforce-doc-lookup.salesforce-reference-metadata', async () => {
+        //TODO: review icon usage in this command https://code.visualstudio.com/api/references/icons-in-labels
+        //TODO: caching
+
+        //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
+        // const statusBarMsg = vscode.window.setStatusBarMessage('Retrieving Salesforce Metadata Reference Index...Message');
+        vscode.window.showInformationMessage('Retrieving Salesforce Metadata Reference Index...','OK');
+        const sfJSONDoc: any = await getMetadataDocToc();
+        console.dir(sfJSONDoc);
+        // console.log(sfJSONDoc.content_document_id);
+        const metadataFolder: string = sfJSONDoc.deliverable;
+        // console.log(metadataFolder);
+        const metadataLocale: string = sfJSONDoc.language.locale;
+        // console.log(metadataLocale);
+        const metadataDocVersion: string = sfJSONDoc.version.doc_version;
+        // console.log(metadataDocVersion);
+        const metadataReferenceToc: any = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('text') && node.text === 'Reference');
+        console.dir(metadataReferenceToc);
+
+        function convertMetadataReferenceToQuickPickItem(referenceNode: any, breadcrumbString: string): DocReferenceQuickPickItem[] {
+            const itemNodes: DocReferenceQuickPickItem[] = [];
+            console.log('node: ', referenceNode);
+            if (referenceNode.hasOwnProperty('a_attr')) {
+                itemNodes.push({
+                    label: referenceNode.text,
+                    detail: breadcrumbString,
+                    href: referenceNode.a_attr.href
+                });
+            }
+            if (referenceNode.hasOwnProperty('children')) {
+                const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${referenceNode.text}`;
+                referenceNode.children.forEach((childReferenceNode: any) => {
+                    itemNodes.push(...convertMetadataReferenceToQuickPickItem(childReferenceNode,breadcrumbStringForChildren));
+                });
+            }
+            return itemNodes;
+        }
+
+        const referenceTocQuickPickItems = convertMetadataReferenceToQuickPickItem(metadataReferenceToc,'$(home)');
+
+        // statusBarMsg.dispose();
+
+        //TODO handle cancellation/errors
+        vscode.window.showQuickPick(referenceTocQuickPickItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
+            // console.log(selectedReferenceItem);
+            vscode.env.openExternal(vscode.Uri.parse(buildMetadataHumanDocURL(selectedReferenceItem!)));
+        });
+    });
+
+    context.subscriptions.push(apexReferenceDisposable, vfReferenceDisposable, classicconsoleReferenceDisposable, lightningconsoleReferenceDisposable, metadataReferenceDisposable);
 }
 
 export function deactivate() {}

@@ -18,7 +18,8 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-visualforce",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lightning-console",
-        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-classic-console"
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-classic-console",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-metadata"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -38,6 +39,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-classic-console",
                 "title": "Salesforce Reference: Classic Console"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-metadata",
+                "title": "Salesforce Reference: Metadata API"
             }
         ]
     },
