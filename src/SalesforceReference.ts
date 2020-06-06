@@ -29,7 +29,7 @@ export class SalesforceReferenceItem implements vscode.QuickPickItem {
      *
      * TODO: it'll need splitting if we want to get something we can use for the raw doc endpoint,
      *        and that's not useful until we work out a display-in-vscode-strategy - the feasibility
-     *        of which needs further consideration. See notes in this project.
+     *        of which needs further consideration. See notes in NOTES.md.
      *        If we do that, consider switching this to a class and building this from
      *        `href` instead, rather than leaving consumers to parse (assuming it doesn't differ
      *        between doc types)
