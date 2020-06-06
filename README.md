@@ -62,7 +62,7 @@ Adds the following new commands, allowing you to search Salesforce Dev documenta
 3. The All Doc Types search is gone - this won't be reimplemented until caching is added - performance would be horrifying, in addition to needing a more
     sophisticated breadcrumb strategy.
 4. The original plugin gave a list of certain nodes at a relatively low level of detail, due to technical limitations in Sublime -
-    e.g. searching for "String" in the Apex Doc would give you "String Methods". As in VSCode can now show a breadcrumb in the picker, the same search will now
+    e.g. searching for "String" in the Apex Doc would give you "String Methods". As in VSCode we can now show a breadcrumb in the picker, the same search will now
     produce "String Class", "String Methods", and all of the actual methods under these headers!
 5. Now that the VSCode version of the extension has opened up what you can access (see above bullet point), there's the question of whether other
     documentation should be opened up - rather than just limiting ourselves to the technical component/method/etc kind of reference. If you feel
@@ -83,6 +83,7 @@ In rough priority order
 - [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
 - [ ] Write some tests 😱
 - [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
+- [ ] Review Icon usage within the plugin - mostly in the breadcrumb
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing
 - [ ] Consider whether to expand into some of the non-technical documentation
 - [ ] Publish publicly
