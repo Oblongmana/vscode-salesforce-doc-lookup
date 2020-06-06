@@ -9,7 +9,9 @@ for details on aims. Notes can be found in NOTES.md. Any contributions welcome
 ## Table of Contents
 - [Notable Differences to the original ST3 version](#notable-differences-to-the-original-st3-version)
 - [Roadmap](#roadmap)
-- [Notes](#notes)
+- [Design Notes](#design-notes)
+- [Release Notes](#release-notes)
+  - [[Unreleased]](#unreleased)
 - [License](#license)
 - [Credits](#credits)
 
@@ -28,11 +30,17 @@ for details on aims. Notes can be found in NOTES.md. Any contributions welcome
 - [ ] Implement Basic Metadata Reference
 - [ ] Implement some kind of on-load caching, as the old ST3 plugin had
 - [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
+- [ ] Write some tests 😱
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing
 - [ ] Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser ofc.
 
-## Notes
+## Design Notes
 Notes on design, future aims etc available in NOTES.MD
+
+## Release Notes
+
+### [Unreleased]
+- Basic implementation of Apex Doc Lookup
 
 ## License
 

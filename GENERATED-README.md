@@ -1,6 +1,6 @@
 # vscode-salesforce-doc-lookup README
 
-Note: Handy template, maybe use this if/when this gets an actual release
+_Note: Handy template, maybe use this if/when this gets an actual release_
 
 This is the README for your extension "vscode-salesforce-doc-lookup". After writing up a brief description, we recommend including the following sections.
 
