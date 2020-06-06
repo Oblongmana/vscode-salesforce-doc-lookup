@@ -21,6 +21,7 @@ an update to the plugin_
 - [Design Notes](#design-notes)
 - [Release Notes](#release-notes)
   - [Unpublished](#unpublished)
+  - [0.2.0 - Beta](#020---beta)
   - [0.1.1 - Beta](#011---beta)
 - [License](#license)
 - [Credits](#credits)
@@ -84,6 +85,8 @@ Notes on design, future aims etc available in NOTES.MD
 ## Release Notes
 
 ### Unpublished
+
+### 0.2.0 - Beta
 - Basic implementation of Visualforce Doc Lookup
 - Basic implementation of Salesforce Lightning Console Lookup
 - Basic implementation of Salesforce Classic Console Lookup
