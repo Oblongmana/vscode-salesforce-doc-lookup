@@ -5,26 +5,6 @@ import { SalesforceReferenceItem, convertDocNodeToSalesforceReferenceItem } from
 
 export async function activate(context: vscode.ExtensionContext) {
 
-    interface DocReferenceQuickPickItem extends vscode.QuickPickItem {
-        /**
-         * The path supplied by the SF ToC for a given node, in a_attr.href
-         */
-        href: string;
-        /**
-         * The "id" needed for the raw doc endpoint (see SF_RAW_DOC_PATH in src code)
-         * At time of writing, this is a_attr.href on a given reference node, not
-         * the 'id' property, like you might expect, but is only everything before the `#`
-         *
-         * TODO: it'll need splitting if we want to get something we can use for the raw doc endpoint,
-         *        and that's not useful until we work out a display-in-vscode-strategy - the feasibility
-         *        of which needs further consideration. See notes in this project.
-         *        If we do that, consider switching this to a class and building this from
-         *        `href` instead, rather than leaving consumers to parse (assuming it doesn't differ
-         *        between doc types)
-         */
-        rawDocId?: string;
-    }
-
     const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
     const SF_TOC_PATH = '/get_document';
     const SF_RAW_DOC_PATH = '/get_document_content';
@@ -62,19 +42,19 @@ export async function activate(context: vscode.ExtensionContext) {
         return body;
     }
 
-    function buildApexHumanDocURL(selectedReferenceItem: DocReferenceQuickPickItem) {
+    function buildApexHumanDocURL(selectedReferenceItem: SalesforceReferenceItem) {
         return `${SF_DOC_ROOT_URL}${APEX_HUMAN_DOC_PATH}/${selectedReferenceItem.href}`;
     }
 
-    function buildVisualforceHumanDocURL(selectedReferenceItem: DocReferenceQuickPickItem) {
+    function buildVisualforceHumanDocURL(selectedReferenceItem: SalesforceReferenceItem) {
         return `${SF_DOC_ROOT_URL}${VF_HUMAN_DOC_PATH}/${selectedReferenceItem.href}`;
     }
 
-    function buildConsoleHumanDocURL(selectedReferenceItem: DocReferenceQuickPickItem) {
+    function buildConsoleHumanDocURL(selectedReferenceItem: SalesforceReferenceItem) {
         return `${SF_DOC_ROOT_URL}${SFCONSOLE_HUMAN_DOC_PATH}/${selectedReferenceItem.href}`;
     }
 
-    function buildMetadataHumanDocURL(selectedReferenceItem: DocReferenceQuickPickItem) {
+    function buildMetadataHumanDocURL(selectedReferenceItem: SalesforceReferenceItem) {
         return `${SF_DOC_ROOT_URL}${METADATA_HUMAN_DOC_PATH}/${selectedReferenceItem.href}`;
     }
 
