@@ -109,6 +109,7 @@ In rough priority order
 - [ ] Review Icon usage within the plugin - mostly in the breadcrumb
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing
 - [ ] Consider whether to expand into some of the non-technical documentation
+- [ ] Try to elegantly handle offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094)
 - [ ] Publish publicly
 - [ ] Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser ofc.
 
