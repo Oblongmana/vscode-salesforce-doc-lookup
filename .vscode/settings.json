@@ -12,11 +12,23 @@
         "Farlane",
         "Quickpick",
         "Zeuli",
-        "apexcode"
+        "apexcode",
+        "classicconsole",
+        "lightningconsole"
     ],
     "cSpell.ignoreWords": [
         "compref",
+        "disposable",
+        "doc",
         "pages",
-        "pages compref"
+        "pages compref",
+        "reference",
+        "sfconsole",
+        "sfconsole reference disposable",
+        "sforce",
+        "svccons",
+        "svccons doc toc url",
+        "toc",
+        "url"
     ]
 }
