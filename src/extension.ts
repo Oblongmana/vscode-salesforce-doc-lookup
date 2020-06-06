@@ -1,5 +1,7 @@
 import * as vscode from 'vscode';
 import got from 'got';
+import './SalesforceReference';
+import { SalesforceReferenceItem, convertDocNodeToSalesforceReferenceItem } from './SalesforceReference';
 
 export async function activate(context: vscode.ExtensionContext) {
 
@@ -81,50 +83,28 @@ export async function activate(context: vscode.ExtensionContext) {
     }
 
     let apexReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand('vscode-salesforce-doc-lookup.salesforce-reference-apex', async () => {
+        // var foo: SalesforceReferenceItem = new SalesforceReferenceItem({text: 'foo'},'bar');
+
         //TODO: review icon usage in this command https://code.visualstudio.com/api/references/icons-in-labels
         //TODO: caching
 
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
-        // const statusBarMsg = vscode.window.setStatusBarMessage('Retrieving Salesforce Apex Reference Index...Message');
         vscode.window.showInformationMessage('Retrieving Salesforce Apex Reference Index...','OK');
         const sfJSONDoc: any = await getApexDocToc();
-        // console.dir(sfJSONDoc);
-        // console.log(sfJSONDoc.content_document_id);
         const apexFolder: string = sfJSONDoc.deliverable;
-        // console.log(apexFolder);
         const apexLocale: string = sfJSONDoc.language.locale;
-        // console.log(apexLocale);
         const apexDocVersion: string = sfJSONDoc.version.doc_version;
-        // console.log(apexDocVersion);
-        const apexReferenceToc: any = sfJSONDoc.toc[0].children.find((node: any) => node.hasOwnProperty('id') && node.id === 'apex_reference');
-        // console.log(apexReferenceToc.a_attr);
+        const apexReferenceToc: SalesforceTOC.DocumentationNode = sfJSONDoc.toc[0].children.find((node: any) => node.hasOwnProperty('id') && node.id === 'apex_reference');
 
-        function convertApexReferenceToQuickPickItem(apexReferenceNode: any, breadcrumbString: string): DocReferenceQuickPickItem[] {
-            const itemNodes: DocReferenceQuickPickItem[] = [];
-            itemNodes.push({
-                label: apexReferenceNode.text,
-                detail: breadcrumbString,
-                href: apexReferenceNode.a_attr.href
-            });
-            if (apexReferenceNode.hasOwnProperty('children')) {
-                const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${apexReferenceNode.text}`;
-                apexReferenceNode.children.forEach((childReferenceNode: any) => {
-                    itemNodes.push(...convertApexReferenceToQuickPickItem(childReferenceNode,breadcrumbStringForChildren));
-                });
-            }
-            return itemNodes;
-        }
+        const apexReferenceTocQuickPickItems = convertDocNodeToSalesforceReferenceItem(apexReferenceToc ,'$(home)');
 
-        const apexReferenceTocQuickPickItems = convertApexReferenceToQuickPickItem(apexReferenceToc ,'$(home)');
+        var myNeatItems: SalesforceReferenceItem[] = apexReferenceTocQuickPickItems;
 
-        var myNeatItems: DocReferenceQuickPickItem[] = apexReferenceTocQuickPickItems;
-
-        // statusBarMsg.dispose();
-
-        //TODO handle cancellation/errors
+        //TODO handle errors
         vscode.window.showQuickPick(myNeatItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
-            // console.log(selectedReferenceItem);
-            vscode.env.openExternal(vscode.Uri.parse(buildApexHumanDocURL(selectedReferenceItem!)));
+            if (selectedReferenceItem !== undefined) {
+                vscode.env.openExternal(vscode.Uri.parse(buildApexHumanDocURL(selectedReferenceItem!)));
+            }
         });
     });
 
@@ -133,46 +113,22 @@ export async function activate(context: vscode.ExtensionContext) {
         //TODO: caching
 
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
-        // const statusBarMsg = vscode.window.setStatusBarMessage('Retrieving Salesforce Apex Reference Index...Message');
         vscode.window.showInformationMessage('Retrieving Salesforce Visualforce Reference Index...','OK');
         const sfJSONDoc: any = await getVisualforceDocToc();
-        // console.dir(sfJSONDoc);
-        // console.log(sfJSONDoc.content_document_id);
         const vfFolder: string = sfJSONDoc.deliverable;
-        // console.log(vfFolder);
         const vfLocale: string = sfJSONDoc.language.locale;
-        // console.log(vfLocale);
         const vfDocVersion: string = sfJSONDoc.version.doc_version;
-        // console.log(vfDocVersion);
-        const vfReferenceToc: any = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('id') && node.id === 'pages_compref');
-        // console.dir(vfReferenceToc);
+        const vfReferenceToc: SalesforceTOC.DocumentationNode = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('id') && node.id === 'pages_compref');
 
-        function convertVFReferenceToQuickPickItem(vfReferenceNode: any, breadcrumbString: string): DocReferenceQuickPickItem[] {
-            const itemNodes: DocReferenceQuickPickItem[] = [];
-            itemNodes.push({
-                label: vfReferenceNode.text,
-                detail: breadcrumbString,
-                href: vfReferenceNode.a_attr.href
-            });
-            if (vfReferenceNode.hasOwnProperty('children')) {
-                const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${vfReferenceNode.text}`;
-                vfReferenceNode.children.forEach((childReferenceNode: any) => {
-                    itemNodes.push(...convertVFReferenceToQuickPickItem(childReferenceNode,breadcrumbStringForChildren));
-                });
-            }
-            return itemNodes;
-        }
+        const vfReferenceTocQuickPickItems = convertDocNodeToSalesforceReferenceItem(vfReferenceToc ,'$(home)');
 
-        const vfReferenceTocQuickPickItems = convertVFReferenceToQuickPickItem(vfReferenceToc ,'$(home)');
+        var myNeatItems: SalesforceReferenceItem[] = vfReferenceTocQuickPickItems;
 
-        var myNeatItems: DocReferenceQuickPickItem[] = vfReferenceTocQuickPickItems;
-
-        // statusBarMsg.dispose();
-
-        //TODO handle cancellation/errors
+        //TODO handle errors
         vscode.window.showQuickPick(myNeatItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
-            // console.log(selectedReferenceItem);
-            vscode.env.openExternal(vscode.Uri.parse(buildVisualforceHumanDocURL(selectedReferenceItem!)));
+            if (selectedReferenceItem !== undefined) {
+                vscode.env.openExternal(vscode.Uri.parse(buildVisualforceHumanDocURL(selectedReferenceItem!)));
+            }
         });
     });
 
@@ -181,46 +137,21 @@ export async function activate(context: vscode.ExtensionContext) {
         //TODO: caching
 
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
-        // const statusBarMsg = vscode.window.setStatusBarMessage('Retrieving Salesforce Apex Reference Index...Message');
         vscode.window.showInformationMessage('Retrieving Salesforce Lightning Console Reference Index...','OK');
         const sfJSONDoc: any = await getServiceConsoleDocToc();
-        // console.dir(sfJSONDoc);
-        // console.log(sfJSONDoc.content_document_id);
         const lightningconsoleFolder: string = sfJSONDoc.deliverable;
-        // console.log(lightningconsoleFolder);
         const lightningconsoleLocale: string = sfJSONDoc.language.locale;
-        // console.log(lightningconsoleLocale);
         const lightningconsoleDocVersion: string = sfJSONDoc.version.doc_version;
-        // console.log(lightningconsoleDocVersion);
         const lightningconsoleTopLevelToc: any = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
-        // console.dir(lightningconsoleTopLevelToc);
-        const lightningconsoleReferenceToc: any = lightningconsoleTopLevelToc.children.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
-        // console.dir(lightningconsoleReferenceToc);
+        const lightningconsoleReferenceToc: SalesforceTOC.DocumentationNode = lightningconsoleTopLevelToc.children.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
 
-        function convertLightningConsoleReferenceToQuickPickItem(referenceNode: any, breadcrumbString: string): DocReferenceQuickPickItem[] {
-            const itemNodes: DocReferenceQuickPickItem[] = [];
-            itemNodes.push({
-                label: referenceNode.text,
-                detail: breadcrumbString,
-                href: referenceNode.a_attr.href
-            });
-            if (referenceNode.hasOwnProperty('children')) {
-                const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${referenceNode.text}`;
-                referenceNode.children.forEach((childReferenceNode: any) => {
-                    itemNodes.push(...convertLightningConsoleReferenceToQuickPickItem(childReferenceNode,breadcrumbStringForChildren));
-                });
-            }
-            return itemNodes;
-        }
+        const referenceTocQuickPickItems = convertDocNodeToSalesforceReferenceItem(lightningconsoleReferenceToc ,'$(home)');
 
-        const referenceTocQuickPickItems = convertLightningConsoleReferenceToQuickPickItem(lightningconsoleReferenceToc ,'$(home)');
-
-        // statusBarMsg.dispose();
-
-        //TODO handle cancellation/errors
+        //TODO handle errors
         vscode.window.showQuickPick(referenceTocQuickPickItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
-            // console.log(selectedReferenceItem);
-            vscode.env.openExternal(vscode.Uri.parse(buildConsoleHumanDocURL(selectedReferenceItem!)));
+            if (selectedReferenceItem !== undefined) {
+                vscode.env.openExternal(vscode.Uri.parse(buildConsoleHumanDocURL(selectedReferenceItem!)));
+            }
         });
     });
 
@@ -229,46 +160,21 @@ export async function activate(context: vscode.ExtensionContext) {
         //TODO: caching
 
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
-        // const statusBarMsg = vscode.window.setStatusBarMessage('Retrieving Salesforce Apex Reference Index...Message');
         vscode.window.showInformationMessage('Retrieving Salesforce Classic Console Reference Index...','OK');
         const sfJSONDoc: any = await getServiceConsoleDocToc();
-        // console.dir(sfJSONDoc);
-        // console.log(sfJSONDoc.content_document_id);
         const classicconsoleFolder: string = sfJSONDoc.deliverable;
-        // console.log(classicconsoleFolder);
         const classicconsoleLocale: string = sfJSONDoc.language.locale;
-        // console.log(classicconsoleLocale);
         const classicconsoleDocVersion: string = sfJSONDoc.version.doc_version;
-        // console.log(classicconsoleDocVersion);
         const classicconsoleTopLevelToc: any = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_intro');
-        // console.dir(classicconsoleTopLevelToc);
-        const classicconsoleReferenceToc: any = classicconsoleTopLevelToc.children.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_classic');
-        // console.dir(classicconsoleReferenceToc);
+        const classicconsoleReferenceToc: SalesforceTOC.DocumentationNode = classicconsoleTopLevelToc.children.find((node: any) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_classic');
 
-        function convertClassicConsoleReferenceToQuickPickItem(referenceNode: any, breadcrumbString: string): DocReferenceQuickPickItem[] {
-            const itemNodes: DocReferenceQuickPickItem[] = [];
-            itemNodes.push({
-                label: referenceNode.text,
-                detail: breadcrumbString,
-                href: referenceNode.a_attr.href
-            });
-            if (referenceNode.hasOwnProperty('children')) {
-                const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${referenceNode.text}`;
-                referenceNode.children.forEach((childReferenceNode: any) => {
-                    itemNodes.push(...convertClassicConsoleReferenceToQuickPickItem(childReferenceNode,breadcrumbStringForChildren));
-                });
-            }
-            return itemNodes;
-        }
+        const referenceTocQuickPickItems = convertDocNodeToSalesforceReferenceItem(classicconsoleReferenceToc ,'$(home)');
 
-        const referenceTocQuickPickItems = convertClassicConsoleReferenceToQuickPickItem(classicconsoleReferenceToc ,'$(home)');
-
-        // statusBarMsg.dispose();
-
-        //TODO handle cancellation/errors
+        //TODO handle errors
         vscode.window.showQuickPick(referenceTocQuickPickItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
-            // console.log(selectedReferenceItem);
-            vscode.env.openExternal(vscode.Uri.parse(buildConsoleHumanDocURL(selectedReferenceItem!)));
+            if (selectedReferenceItem !== undefined) {
+                vscode.env.openExternal(vscode.Uri.parse(buildConsoleHumanDocURL(selectedReferenceItem!)));
+            }
         });
     });
 
@@ -277,47 +183,22 @@ export async function activate(context: vscode.ExtensionContext) {
         //TODO: caching
 
         //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
-        // const statusBarMsg = vscode.window.setStatusBarMessage('Retrieving Salesforce Metadata Reference Index...Message');
         vscode.window.showInformationMessage('Retrieving Salesforce Metadata Reference Index...','OK');
         const sfJSONDoc: any = await getMetadataDocToc();
         console.dir(sfJSONDoc);
-        // console.log(sfJSONDoc.content_document_id);
         const metadataFolder: string = sfJSONDoc.deliverable;
-        // console.log(metadataFolder);
         const metadataLocale: string = sfJSONDoc.language.locale;
-        // console.log(metadataLocale);
         const metadataDocVersion: string = sfJSONDoc.version.doc_version;
-        // console.log(metadataDocVersion);
-        const metadataReferenceToc: any = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('text') && node.text === 'Reference');
+        const metadataReferenceToc: SalesforceTOC.DocumentationNode = sfJSONDoc.toc.find((node: any) => node.hasOwnProperty('text') && node.text === 'Reference');
         console.dir(metadataReferenceToc);
 
-        function convertMetadataReferenceToQuickPickItem(referenceNode: any, breadcrumbString: string): DocReferenceQuickPickItem[] {
-            const itemNodes: DocReferenceQuickPickItem[] = [];
-            console.log('node: ', referenceNode);
-            if (referenceNode.hasOwnProperty('a_attr')) {
-                itemNodes.push({
-                    label: referenceNode.text,
-                    detail: breadcrumbString,
-                    href: referenceNode.a_attr.href
-                });
-            }
-            if (referenceNode.hasOwnProperty('children')) {
-                const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${referenceNode.text}`;
-                referenceNode.children.forEach((childReferenceNode: any) => {
-                    itemNodes.push(...convertMetadataReferenceToQuickPickItem(childReferenceNode,breadcrumbStringForChildren));
-                });
-            }
-            return itemNodes;
-        }
+        const referenceTocQuickPickItems = convertDocNodeToSalesforceReferenceItem(metadataReferenceToc,'$(home)');
 
-        const referenceTocQuickPickItems = convertMetadataReferenceToQuickPickItem(metadataReferenceToc,'$(home)');
-
-        // statusBarMsg.dispose();
-
-        //TODO handle cancellation/errors
+        //TODO handle errors
         vscode.window.showQuickPick(referenceTocQuickPickItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
-            // console.log(selectedReferenceItem);
-            vscode.env.openExternal(vscode.Uri.parse(buildMetadataHumanDocURL(selectedReferenceItem!)));
+            if (selectedReferenceItem !== undefined) {
+                vscode.env.openExternal(vscode.Uri.parse(buildMetadataHumanDocURL(selectedReferenceItem!)));
+            }
         });
     });
 
