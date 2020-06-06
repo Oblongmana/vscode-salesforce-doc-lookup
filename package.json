@@ -1,6 +1,6 @@
 {
     "name": "vscode-salesforce-doc-lookup",
-    "displayName": "vscode-salesforce-doc-lookup",
+    "displayName": "Salesforce Reference",
     "description": "Lookup Salesforce Documentation from within VSCode",
     "version": "0.1.0",
     "engines": {

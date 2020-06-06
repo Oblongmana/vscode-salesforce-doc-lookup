@@ -1,4 +1,4 @@
-# VSCode Salesforce Doc Lookup
+# Salesforce Reference Extension for VSCode
 
 _Pre-release Extension_
 
@@ -31,8 +31,7 @@ and download your desired version as a vsix file. Install it using the following
 
     code --install-extension [path to the downloaded vsix]
 
-Alternatively, if you want to build it yourself, clone the repo and follow the instructions at https://code.visualstudio.com/api/working-with-extensions/publishing-extension#packaging-extensions
-to bundle and install.
+Alternatively, you can build it yourself, but instructions for that are outside the scope of this README.
 
 ## Current Features
 ### Lookup Apex Reference Documentation
@@ -65,6 +64,7 @@ In rough priority order
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 - [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
 - [ ] Write some tests 😱
+- [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing
 - [ ] Publish publicly
 - [ ] Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser ofc.
