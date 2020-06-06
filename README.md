@@ -62,9 +62,10 @@ Adds a new command: "Salesforce Reference: Apex"
 
 ## Roadmap
 In rough priority order
-- [ ] Implement Basic Visualforce Reference
-- [ ] Implement Basic Service Console Reference
-- [ ] Implement Basic Metadata Reference
+- [X] Implement Basic Visualforce Reference
+- [X] Implement Basic Lightning Console Reference
+- [X] Implement Basic Classic Console Reference
+- [X] Implement Basic Metadata Reference
 - [ ] DRYing pass at the code - lots of pasta in there at the moment
 - [ ] Restructure the code - it's a big hacky pile, because it was from a hack session
 - [ ] Implement some kind of on-load caching, as the old ST3 plugin had
@@ -86,6 +87,7 @@ Notes on design, future aims etc available in NOTES.MD
 - Basic implementation of Visualforce Doc Lookup
 - Basic implementation of Salesforce Lightning Console Lookup
 - Basic implementation of Salesforce Classic Console Lookup
+- Basic implementation of Salesforce Metadata Lookup
 
 ### 0.1.1 - Beta
 - Basic implementation of Apex Doc Lookup

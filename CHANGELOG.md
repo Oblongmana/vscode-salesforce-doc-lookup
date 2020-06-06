@@ -8,6 +8,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Basic implementation of Visualforce Doc Lookup
 - Basic implementation of Salesforce Lightning Console Lookup
 - Basic implementation of Salesforce Classic Console Lookup
+- Basic implementation of Salesforce Metadata Lookup
 
 ## 0.1.1 - Beta
 
