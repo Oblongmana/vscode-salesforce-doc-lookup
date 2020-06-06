@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import got from 'got/dist/source';
+import got from 'got';
 
 const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
 const SF_TOC_PATH = '/get_document';
