@@ -15,7 +15,8 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex"
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-visualforce"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -23,6 +24,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-apex",
                 "title": "Salesforce Reference: Apex"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-visualforce",
+                "title": "Salesforce Reference: Visualforce"
             }
         ]
     },
