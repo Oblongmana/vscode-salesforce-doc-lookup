@@ -94,12 +94,24 @@ abstract class SalesforceReferenceDocType {
      */
     private readonly docTOCUrl: string;
 
+    /**
+     *
+     * @param docTocPath The portion of the URL path giving the location of human readable doc for this doc type.
+     *                      e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
+     *                           this is "/atlas.en-us.apexcode.meta/apexcode"
+     * @param humanReadableDocPath The portion of the URL path giving the location of human readable doc for this doc type.
+     *                                e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
+     *                                      this is "/atlas.en-us.apexcode.meta/apexcode"
+     */
     constructor(docTocPath: string, humanReadableDocPath: string) {
         this.docTocPath = docTocPath;
         this.humanReadableDocPath = humanReadableDocPath;
         this.docTOCUrl = SF_DOC_ROOT_URL + SF_TOC_PATH + this.docTocPath;
     }
 
+    /**
+     * Get the SalesforceReferenceItem instances for this reference doc type
+     */
     public async getSalesforceReferenceItems(): Promise<SalesforceReferenceItem[]> {
         //TODO: handle any errors
         const rootDocumentationNode: any = await this.getRootDocumentationNode();

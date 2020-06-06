@@ -1,3 +1,6 @@
+/**
+ * Interfaces for the JSON nodes in the Salesforce Tables of Contents
+ */
 declare module SalesforceTOC {
     /**
      * An interface representing an object in one of the Salesforce
