@@ -15,9 +15,11 @@ an update to the plugin_
 ## Table of Contents
 - [Installing](#installing)
 - [Current Features](#current-features)
-- [Limitations, Known Issues, and Notable Differences to the original ST3 version](#limitations-known-issues-and-notable-differences-to-the-original-st3-version)
+- [Known Issues](#known-issues)
   - [Adblockers and loading links:](#adblockers-and-loading-links)
   - [Wait time when running command - no caching](#wait-time-when-running-command---no-caching)
+- [Notable Differences to the original ST3 version](#notable-differences-to-the-original-st3-version)
+  - [Wait time when running command - no caching](#wait-time-when-running-command---no-caching-1)
   - [No "All Doc" search that covers all documentation types](#no-all-doc-search-that-covers-all-documentation-types)
   - [Notable Change - More search results!](#notable-change---more-search-results)
   - [Notable Change - Potential to include EVEN MORE search results](#notable-change---potential-to-include-even-more-search-results)
@@ -56,7 +58,7 @@ Adds the following new commands, allowing you to search Salesforce Dev documenta
 
 ![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup.gif)
 
-## Limitations, Known Issues, and Notable Differences to the original ST3 version
+## Known Issues
 
 ### Adblockers and loading links:
 Because Salesforce's Doc website is an Angular app that dynamically loads content into the page after the page itself has loaded, anchor links
@@ -69,6 +71,11 @@ by disabling your adblocker on the Salesforce doc site, if you are comfortable w
 ### Wait time when running command - no caching
 There's no caching yet - every time you run a command, it retrieves the relevant doc table of contents from scratch. Adding caching is on the [Roadmap](#roadmap)
 
+
+## Notable Differences to the original ST3 version
+
+### Wait time when running command - no caching
+There's no caching yet - every time you run a command, it retrieves the relevant doc table of contents from scratch. Adding caching is on the [Roadmap](#roadmap)
 
 ### No "All Doc" search that covers all documentation types
 The All Doc Types search is gone - this won't be reimplemented until caching is added - performance would be horrifying, in addition to needing a more
