@@ -1,6 +1,6 @@
 # Salesforce Reference Extension for VSCode
 
-_Pre-release Extension_
+_Beta Extension - Not yet released to Marketplace_
 
 Repository Home: (https://github.com/Oblongmana/vscode-salesforce-doc-lookup)
 
@@ -20,7 +20,7 @@ an update to the plugin_
 - [Roadmap](#roadmap)
 - [Design Notes](#design-notes)
 - [Release Notes](#release-notes)
-  - [0.1.0 - Unreleased](#010---unreleased)
+  - [0.1.0 - Beta](#010---beta)
 - [License](#license)
 - [Credits](#credits)
 
@@ -74,7 +74,7 @@ Notes on design, future aims etc available in NOTES.MD
 
 ## Release Notes
 
-### 0.1.0 - Unreleased
+### 0.1.0 - Beta
 - Basic implementation of Apex Doc Lookup
 
 ## License
