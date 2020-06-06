@@ -42,7 +42,7 @@ Adds a new command: "Salesforce Reference: Apex"
 ![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup.gif)
 
 ## Limitations, Known Issues, and Notable Differences to the original ST3 version
-1. Because Salesforce's Doc website is Angular app that dynamically loads content into the page after the page itself has loaded, anchor links
+1. Because Salesforce's Doc website is an Angular app that dynamically loads content into the page after the page itself has loaded, anchor links
     appear to be managed in such a way that the Angular app (rather than the browser) handles the scrolling to the requested item.
     e.g. https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_string.htm#apex_System_String_substring - the
     section after the `#` is the anchor link, trying to take you directly to substring. This Salesforce Angular App functionality may play a little
