@@ -13,5 +13,10 @@
         "Quickpick",
         "Zeuli",
         "apexcode"
+    ],
+    "cSpell.ignoreWords": [
+        "compref",
+        "pages",
+        "pages compref"
     ]
 }
