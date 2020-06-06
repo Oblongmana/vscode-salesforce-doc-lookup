@@ -1,5 +1,4 @@
 import * as vscode from 'vscode';
-import { multiStepInput } from './multiStepInput';
 import got from 'got';
 
 export async function activate(context: vscode.ExtensionContext) {
