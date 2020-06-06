@@ -16,7 +16,9 @@
     ],
     "activationEvents": [
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex",
-        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-visualforce"
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-visualforce",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lightning-console",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-classic-console"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -28,6 +30,14 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-visualforce",
                 "title": "Salesforce Reference: Visualforce"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-lightning-console",
+                "title": "Salesforce Reference: Lightning Console"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-classic-console",
+                "title": "Salesforce Reference: Classic Console"
             }
         ]
     },
