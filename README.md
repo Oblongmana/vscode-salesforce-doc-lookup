@@ -27,13 +27,16 @@ an update to the plugin_
 
 ## Installing
 
-Currently this is in pre-release, and is not published to the VSCode Marketplace. You can still install it however! Go to https://github.com/Oblongmana/vscode-salesforce-doc-lookup/releases
-and download your desired version as a vsix file. Install it using the following command, and **RESTART VSCode AFTERWARDS**.
+Currently this is in pre-release, and is not published to the VSCode Marketplace. You can still install it however! Note that you will not automatically receive updates. Keep an eye on the release page for updates (or the Trineo Slack, if
+you work there). This will eventually be released to the Marketplace - see the [Roadmap](#roadmap).
+
+Go to https://github.com/Oblongmana/vscode-salesforce-doc-lookup/releases and download your desired version as a vsix file.
+
+Using the Install from VSIX command in the Extensions view command drop-down, or the Extensions: Install from VSIX command in the Command Palette, point to the .vsix file.
+
+Alternatively, install it using the following command, and **RESTART VSCode AFTERWARDS**.
 
     code --install-extension [path to the downloaded vsix]
-
-Note that you will not automatically receive updates. Keep an eye on the release page for updates (or the Trineo Slack, if
-you work there). This will eventually be released to the publicly - see the [Roadmap](#roadmap).
 
 Alternatively, you can build it yourself, but instructions for that are outside the scope of this README.
 
