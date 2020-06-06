@@ -20,7 +20,7 @@ an update to the plugin_
 - [Roadmap](#roadmap)
 - [Design Notes](#design-notes)
 - [Release Notes](#release-notes)
-  - [0.1.0 - Beta](#010---beta)
+  - [0.1.1 - Beta](#011---beta)
 - [License](#license)
 - [Credits](#credits)
 
@@ -74,7 +74,7 @@ Notes on design, future aims etc available in NOTES.MD
 
 ## Release Notes
 
-### 0.1.0 - Beta
+### 0.1.1 - Beta
 - Basic implementation of Apex Doc Lookup
 
 ## License
