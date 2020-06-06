@@ -20,6 +20,7 @@ an update to the plugin_
 - [Roadmap](#roadmap)
 - [Design Notes](#design-notes)
 - [Release Notes](#release-notes)
+  - [Unpublished](#unpublished)
   - [0.1.1 - Beta](#011---beta)
 - [License](#license)
 - [Credits](#credits)
@@ -48,11 +49,15 @@ Adds a new command: "Salesforce Reference: Apex"
     poorly with some adblockers such as "uBlock Origin". If you find commands are not scrolling you to the item you request, this may be fixed
     by disabling your adblocker on the Salesforce doc site, if you are comfortable with doing so.
 2. There's no caching yet - every time you run a command, it retrieves the relevant doc table of contents from scratch. Adding caching is on the [Roadmap](#roadmap)
-3. The original plugin gave a list of certain nodes at a relatively low level of detail, due to technical limitations in Sublime -
+3. The All Doc Types search is gone - this won't be reimplemented until caching is added - performance would be horrifying, in addition to needing a more
+    sophisticated breadcrumb strategy.
+4. The original plugin gave a list of certain nodes at a relatively low level of detail, due to technical limitations in Sublime -
     e.g. searching for "String" in the Apex Doc would give you "String Methods". As in VSCode can now show a breadcrumb in the picker, the same search will now
     produce "String Class", "String Methods", and all of the actual methods under these headers!
-4. The All Doc Types search is gone - this won't be reimplemented until caching is added - performance would be horrifying, in addition to needing a more
-    sophisticated breadcrumb strategy.
+5. Now that the VSCode version of the extension has opened up what you can access (see above bullet point), there's the question of whether other
+    documentation should be opened up - rather than just limiting ourselves to the technical component/method/etc kind of reference. If you feel
+    passionately about this, feel free to open an issue - including your ideas on how this might be implemented without swamping our technical results.
+    Or maybe, providing evidence that it won't swamp our results - I haven't tested that!
 
 
 ## Roadmap
@@ -60,12 +65,14 @@ In rough priority order
 - [ ] Implement Basic Visualforce Reference
 - [ ] Implement Basic Service Console Reference
 - [ ] Implement Basic Metadata Reference
+- [ ] DRYing pass at the code - lots of pasta in there at the moment
 - [ ] Implement some kind of on-load caching, as the old ST3 plugin had
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 - [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
 - [ ] Write some tests 😱
 - [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing
+- [ ] Consider whether to expand into some of the non-technical documentation
 - [ ] Publish publicly
 - [ ] Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser ofc.
 
@@ -73,6 +80,9 @@ In rough priority order
 Notes on design, future aims etc available in NOTES.MD
 
 ## Release Notes
+
+### Unpublished
+- Basic implementation of Visualforce Doc Lookup
 
 ### 0.1.1 - Beta
 - Basic implementation of Apex Doc Lookup
