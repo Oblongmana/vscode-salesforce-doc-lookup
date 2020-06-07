@@ -55,6 +55,8 @@ Alternatively, you can build it yourself, but instructions for that are outside 
 
 ### Choose a documentation type, and type in your search
 
+![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup2.gif)
+
 The following new commands allow you to search Salesforce Dev documentation in VSCode, and be taken directly to the corresponding entries in your browser:
  - Salesforce Reference: Apex
  - Salesforce Reference: Visualforce
@@ -67,14 +69,13 @@ The first time you call any of these commands, the Extension will call out to Sa
 If you need to invalidate the cache for any reason, there is a command for doing so:
  - Salesforce Reference: Invalidate Cache
 
-![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup2.gif)
-
 ### Search dev documentation for a word or selection in your editor
+
+![Using the command - "Salesforce Reference: Search for current word or selection"](images/CursorWordLookup.gif)
 
 With your cursor over a word in your editor, or with something in your editor selected, you can choose a documentation type and search for that string, using the new command:
  - Salesforce Reference: Search for current word or selection
 
-![Using the command - "Salesforce Reference: Search for current word or selection"](images/CursorWordLookup.gif)
 
 ## Known Issues
 
