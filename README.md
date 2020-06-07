@@ -119,6 +119,7 @@ In rough priority order
 - [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
 - [ ] Review Icon usage within the plugin - mostly in the breadcrumb
 - [ ] Examine our responsibilities around elegantly handling offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094)
+- [ ] Examine feasibility of caching indices in the background on first extension load. Will look at further after release if not easy
 - [ ] Publish publicly
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing, but also some backend and UX issues
 - [ ] Consider whether to expand into some of the non-technical documentation
