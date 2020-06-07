@@ -1,20 +1,24 @@
 # Salesforce Reference Extension for VSCode
 
-_Beta Extension - Not yet released to Marketplace_
+Search Salesforce Documentation entries in VSCode, and open it in your browser.
 
-Repository Home: (https://github.com/Oblongmana/vscode-salesforce-doc-lookup)
+_Beta Extension - Not yet released to Marketplace_
 
 This is a re-implementation of my old ST3 extension in VSCode: (https://github.com/Oblongmana/sublime-salesforce-reference). See the Roadmap below
 for details on aims. Notes can be found in NOTES.md. Contributions welcome, though I suggest opening an issue ticket on github to discuss before hand.
 
 _**Please Note**: this is a community-made plugin, and is not affiliated with Salesforce. If the extension breaks,
-please open a github issue here to let me know, there's a chance Salesforce may change it's doc approach, necessitating
+please open a github issue to let me know, there's a chance Salesforce may change it's doc approach, necessitating
 an update to the plugin_
+
+Repository Home: (https://github.com/Oblongmana/vscode-salesforce-doc-lookup)
 
 <!-- omit in toc -->
 ## Table of Contents
 - [Installing](#installing)
 - [Current Features](#current-features)
+  - [Choose a documentation type, and type in your search](#choose-a-documentation-type-and-type-in-your-search)
+  - [Search dev documentation for a word or selection in your editor](#search-dev-documentation-for-a-word-or-selection-in-your-editor)
 - [Known Issues](#known-issues)
   - [Adblockers and loading links:](#adblockers-and-loading-links)
   - [Wait time when running command - no caching](#wait-time-when-running-command---no-caching)
@@ -49,14 +53,28 @@ Alternatively, you can build it yourself, but instructions for that are outside 
 
 ## Current Features
 
-Adds the following new commands, allowing you to search Salesforce Dev documentation in VSCode, and be taken directly to the corresponding entries in your browser:
+### Choose a documentation type, and type in your search
+
+The following new commands allow you to search Salesforce Dev documentation in VSCode, and be taken directly to the corresponding entries in your browser:
  - Salesforce Reference: Apex
  - Salesforce Reference: Visualforce
  - Salesforce Reference: Lightning Console
  - Salesforce Reference: Classic Console
  - Salesforce Reference: Metadata API
 
-![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup.gif)
+The first time you call any of these commands, the Extension will call out to Salesforce to get an index of that documentation type. This will be cached, and future uses of the command will be instant.
+
+If you need to invalidate the cache for any reason, there is a command for doing so:
+ - Salesforce Reference: Invalidate Cache
+
+![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup2.gif)
+
+### Search dev documentation for a word or selection in your editor
+
+With your cursor over a word in your editor, or with something in your editor selected, you can choose a documentation type and search for that string, using the new command:
+ - Salesforce Reference: Search for current word or selection
+
+![Using the command - "Salesforce Reference: Search for current word or selection"](images/CursorWordLookup.gif)
 
 ## Known Issues
 
@@ -127,6 +145,7 @@ Notes on design, future aims etc available in NOTES.MD
 - Add a cache invalidation command
 - Add a command for searching for the current word, or selected text
 - Fix names for doc types that could appear in a few places, and tweak some command naming
+- Better gif for Apex lookup, and one for the new current word/selection command
 
 ### 0.2.0 - Beta
 - Basic implementation of Visualforce Doc Lookup
