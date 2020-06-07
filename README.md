@@ -102,14 +102,16 @@ In rough priority order
 - [X] DRYing pass at the code - lots of pasta in there at the moment
 - [X] Restructure the code - it's a big hacky pile, because it was from a hack session
 - [X] Implement some kind of on-load caching, as the old ST3 plugin had
-- [ ] Take a pass over the code to reduce `: any` usage
-- [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
+- [X] Implement selection-based searching - where you can search for the thing that you've selected in an editor
+- [X] Look into cursor-word-based searching - where you can search for the word that's under your cursor, e.g. using https://code.visualstudio.com/api/references/vscode-api#TextDocument.getWordRangeAtPosition with https://code.visualstudio.com/api/references/vscode-api#TextEditor
+- [X] Fix loading popup not converting the doctype name properly for console doctypes - due to underscore in name
 - [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
 - [ ] Review Icon usage within the plugin - mostly in the breadcrumb
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing
-- [ ] Consider whether to expand into some of the non-technical documentation
-- [ ] Try to elegantly handle offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094)
+- [ ] Examine our responsibilities around elegantly handling offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094)
 - [ ] Publish publicly
+- [ ] Consider whether to expand into some of the non-technical documentation
+- [ ] Take a pass over the code to reduce `: any` usage
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 - [ ] Write some tests 😱
 - [ ] Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser ofc.
@@ -123,6 +125,8 @@ Notes on design, future aims etc available in NOTES.MD
 - Backend fixes - better code reuse and structure
 - Add caching for documentation so repeated lookups won't require retrieving the index from Salesforce every time
 - Add a cache invalidation command
+- Add a command for searching for the current word, or selected text
+- Fix names for doc types that could appear in a few places, and tweak some command naming
 
 ### 0.2.0 - Beta
 - Basic implementation of Visualforce Doc Lookup

@@ -14,6 +14,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - Backend fixes - better code reuse and structure
 - Add caching for documentation so repeated lookups won't require retrieving the index from Salesforce every time
 - Add a cache invalidation command
+- Add a command for searching for the current word, or selected text
+- Fix names for doc types that could appear in a few places, and tweak some command naming
 
 ## 0.2.0 - Beta
 - Basic implementation of Visualforce Doc Lookup
