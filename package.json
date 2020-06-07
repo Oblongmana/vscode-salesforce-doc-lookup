@@ -20,7 +20,8 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lightning-console",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-classic-console",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-metadata",
-        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache"
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
     "main": "./out/extension.js",
     "contributes": {
@@ -48,6 +49,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
                 "title": "Salesforce Reference: Invalidate Cache"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-current-word-search",
+                "title": "Salesforce Reference: Search for current word or selection"
             }
         ]
     },

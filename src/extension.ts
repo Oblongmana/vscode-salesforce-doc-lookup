@@ -1,42 +1,36 @@
 import * as vscode from 'vscode';
-import { SalesforceReferenceItem, SalesforceReferenceDocTypes, invalidateSalesforceReferenceCache, DocTypeName } from './SalesforceReference';
+import { DocTypeName } from './SalesforceReference';
+import { EXTENSION_NAME, DocCommands, UtilityCommands } from './PackageIntrospection';
+import { openSalesforceDocQuickPick, invalidateSalesforceReferenceCache, openCurrentWordSearchQuickPick } from './SalesforceReferenceCommands';
 
 export async function activate(context: vscode.ExtensionContext) {
 
-    async function openSalesforceDocQuickPick(docType: DocTypeName, prefillValue?: string) {
-        //todo: handle errs with try catch fin, maybe show something dynamic in the message, like the bounce in the old ST3 plugin
-        let salesforceReferenceItems: SalesforceReferenceItem[] = await SalesforceReferenceDocTypes[docType].getSalesforceReferenceItems(context);
-
-        //TODO handle errors
-        vscode.window.showQuickPick(salesforceReferenceItems, {matchOnDetail: true}).then((selectedReferenceItem) => {
-            if (selectedReferenceItem !== undefined) {
-                vscode.env.openExternal(vscode.Uri.parse(SalesforceReferenceDocTypes[docType].humanDocURL(selectedReferenceItem!)));
-            }
-        });
-    }
-
-    let apexReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand('vscode-salesforce-doc-lookup.salesforce-reference-apex', async () => {
-        openSalesforceDocQuickPick(DocTypeName.APEX);
+    let apexReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.APEX}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.APEX, prefillValue);
     });
 
-    let vfReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand('vscode-salesforce-doc-lookup.salesforce-reference-visualforce', async () => {
-        openSalesforceDocQuickPick(DocTypeName.VISUALFORCE);
+    let vfReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.VISUALFORCE}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.VISUALFORCE, prefillValue);
     });
 
-    let lightningconsoleReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand('vscode-salesforce-doc-lookup.salesforce-reference-lightning-console', async () => {
-        openSalesforceDocQuickPick(DocTypeName.LIGHTNING_CONSOLE);
+    let lightningconsoleReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.LIGHTNING_CONSOLE}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.LIGHTNING_CONSOLE, prefillValue);
     });
 
-    let classicconsoleReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand('vscode-salesforce-doc-lookup.salesforce-reference-classic-console', async () => {
-        openSalesforceDocQuickPick(DocTypeName.CLASSIC_CONSOLE);
+    let classicconsoleReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.CLASSIC_CONSOLE}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.CLASSIC_CONSOLE, prefillValue);
     });
 
-    let metadataReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand('vscode-salesforce-doc-lookup.salesforce-reference-metadata', async () => {
-        openSalesforceDocQuickPick(DocTypeName.METADATA);
+    let metadataReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.METADATA}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.METADATA, prefillValue);
     });
 
-    let invalidateCacheDisposable: vscode.Disposable = vscode.commands.registerCommand('vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache', async () => {
+    let invalidateCacheDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${UtilityCommands.INVALIDATE_CACHE}`, async () => {
         invalidateSalesforceReferenceCache(context);
+    });
+
+    let currentWordSearchDisposable: vscode.Disposable = vscode.commands.registerTextEditorCommand(`${EXTENSION_NAME}.${UtilityCommands.CURRENT_WORD_SEARCH}`, async (textEditor: vscode.TextEditor) => {
+        openCurrentWordSearchQuickPick(context, textEditor);
     });
 
     context.subscriptions.push(
@@ -45,7 +39,8 @@ export async function activate(context: vscode.ExtensionContext) {
         classicconsoleReferenceDisposable,
         lightningconsoleReferenceDisposable,
         metadataReferenceDisposable,
-        invalidateCacheDisposable
+        invalidateCacheDisposable,
+        currentWordSearchDisposable
     );
 }
 

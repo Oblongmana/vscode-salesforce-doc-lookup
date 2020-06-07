@@ -13,21 +13,16 @@ export enum DocTypeName {
     METADATA = 'METADATA'
 }
 
-function docTypeNameTitleCase(docTypeName: DocTypeName) {
-    //From https://stackoverflow.com/a/5574446
-    return docTypeName.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
-}
-
-export function invalidateSalesforceReferenceCache(context: vscode.ExtensionContext) {
-    vscode.window.showWarningMessage("This will throw away the cached documentation index for each documentation type, " +
-        "so your next documentation lookup for each documentation type will need to re-retrieve the index from Salesforce. " +
-        "Do you want to proceed?",{modal: true},'OK').then((selectedButton: string | undefined)=>{
-            if (selectedButton === 'OK') {
-                Object.values(DocTypeName).forEach((currDocTypeString: string) => {
-                    context.globalState.update(currDocTypeString, undefined);
-                });
-            }
-        });
+export function docTypeNameTitleCase(docTypeName: DocTypeName) {
+    //I hate regex :)
+    const recasedAndSpaced: string = docTypeName.replace(
+        /([-_]*[a-zA-Z]*)/g,
+        (group) => {
+            const stripped: string = group.replace('-', '').replace('_', '');
+            return (stripped.charAt(0).toUpperCase() + stripped.substr(1).toLowerCase() + ' ');
+        }
+    );
+    return recasedAndSpaced.trim();
 }
 
 /**
