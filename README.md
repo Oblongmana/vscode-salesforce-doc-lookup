@@ -1,6 +1,6 @@
 # Salesforce Reference Extension for VSCode
 
-Search Salesforce Documentation entries in VSCode, and open it in your browser.
+Search Salesforce Documentation entries in VSCode, and open them in your browser.
 
 _Beta Extension - Not yet released to Marketplace_
 
