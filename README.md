@@ -122,6 +122,7 @@ In rough priority order
 - [ ] Examine feasibility of caching indices in the background on first extension load. Will look at further after release if not easy
 - [ ] Publish publicly
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing, but also some backend and UX issues
+- [ ] Examine possibility of alternative languages - see the notes in NOTES.md. Oriented towards a different end, but could likely be used for allowing user to switch to JP mode
 - [ ] Consider whether to expand into some of the non-technical documentation
 - [ ] Take a pass over the code to reduce `: any` usage
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
