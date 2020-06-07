@@ -5,7 +5,7 @@ const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
 const SF_TOC_PATH = '/get_document';
 const SF_RAW_DOC_PATH = '/get_document_content';
 
-enum DocTypeName {
+export enum DocTypeName {
     APEX = 'APEX',
     VISUALFORCE = 'VISUALFORCE',
     LIGHTNING_CONSOLE = 'LIGHTNING_CONSOLE',
