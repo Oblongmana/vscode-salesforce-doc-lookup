@@ -20,10 +20,8 @@ Repository Home: (https://github.com/Oblongmana/vscode-salesforce-doc-lookup)
   - [Choose a documentation type, and type in your search](#choose-a-documentation-type-and-type-in-your-search)
   - [Search dev documentation for a word or selection in your editor](#search-dev-documentation-for-a-word-or-selection-in-your-editor)
 - [Known Issues](#known-issues)
-  - [Adblockers and loading links:](#adblockers-and-loading-links)
-  - [Wait time when running command - no caching](#wait-time-when-running-command---no-caching)
+  - [Adblockers and loading links - NOFIX:](#adblockers-and-loading-links---nofix)
 - [Notable Differences to the original ST3 version](#notable-differences-to-the-original-st3-version)
-  - [Wait time when running command - no caching](#wait-time-when-running-command---no-caching-1)
   - [No "All Doc" search that covers all documentation types](#no-all-doc-search-that-covers-all-documentation-types)
   - [Notable Change - More search results!](#notable-change---more-search-results)
   - [Notable Change - Potential to include EVEN MORE search results](#notable-change---potential-to-include-even-more-search-results)
@@ -79,7 +77,7 @@ With your cursor over a word in your editor, or with something in your editor se
 
 ## Known Issues
 
-### Adblockers and loading links:
+### Adblockers and loading links - NOFIX:
 Because Salesforce's Doc website is an Angular app that dynamically loads content into the page after the page itself has loaded, anchor links
 appear to be managed in such a way that the Angular app (rather than the browser) handles the scrolling to the requested item.
 e.g. https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_string.htm#apex_System_String_substring - the
@@ -87,18 +85,11 @@ section after the `#` is the anchor link, trying to take you directly to substri
 poorly with some adblockers such as "uBlock Origin". If you find commands are not scrolling you to the item you request, this may be fixed
 by disabling your adblocker on the Salesforce doc site, if you are comfortable with doing so.
 
-### Wait time when running command - no caching
-There's no caching yet - every time you run a command, it retrieves the relevant doc table of contents from scratch. Adding caching is on the [Roadmap](#roadmap)
-
-
 ## Notable Differences to the original ST3 version
 
-### Wait time when running command - no caching
-There's no caching yet - every time you run a command, it retrieves the relevant doc table of contents from scratch. Adding caching is on the [Roadmap](#roadmap)
-
 ### No "All Doc" search that covers all documentation types
-The All Doc Types search is gone - this won't be reimplemented until caching is added - performance would be horrifying, in addition to needing a more
-sophisticated breadcrumb strategy.
+The All Doc Types search is gone - caching has been added, so the performance on this won't be horrific. However, this will need some examination
+of internal structure, and examination of how the breadcrumb is presented, and is currently a lower priority feature in the [Roadmap](#roadmap).
 
 ### Notable Change - More search results!
 The original plugin gave a list of certain nodes at a relatively low level of detail, due to technical limitations in Sublime -
@@ -126,9 +117,9 @@ In rough priority order
 - [X] Fix loading popup not converting the doctype name properly for console doctypes - due to underscore in name
 - [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
 - [ ] Review Icon usage within the plugin - mostly in the breadcrumb
-- [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing
 - [ ] Examine our responsibilities around elegantly handling offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094)
 - [ ] Publish publicly
+- [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing, but also some backend and UX issues
 - [ ] Consider whether to expand into some of the non-technical documentation
 - [ ] Take a pass over the code to reduce `: any` usage
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
