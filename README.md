@@ -103,6 +103,7 @@ In rough priority order
 - [X] Restructure the code - it's a big hacky pile, because it was from a hack session
 - [ ] Implement some kind of on-load caching, as the old ST3 plugin had
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
+- [ ] Take a pass over the code to reduce `: any` usage
 - [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
 - [ ] Write some tests 😱
 - [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)

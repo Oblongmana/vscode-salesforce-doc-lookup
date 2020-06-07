@@ -5,6 +5,31 @@ const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
 const SF_TOC_PATH = '/get_document';
 const SF_RAW_DOC_PATH = '/get_document_content';
 
+enum DocTypeName {
+    APEX = 'APEX',
+    VISUALFORCE = 'VISUALFORCE',
+    LIGHTNING_CONSOLE = 'LIGHTNING_CONSOLE',
+    CLASSIC_CONSOLE = 'CLASSIC_CONSOLE',
+    METADATA = 'METADATA'
+}
+
+function docTypeNameTitleCase(docTypeName: DocTypeName) {
+    //From https://stackoverflow.com/a/5574446
+    return docTypeName.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+export function invalidateSalesforceReferenceCache(context: vscode.ExtensionContext) {
+    vscode.window.showWarningMessage("This will throw away the cached documentation index for each documentation type, " +
+        "so your next documentation lookup for each documentation type will need to re-retrieve the index from Salesforce. " +
+        "Do you want to proceed?",{modal: true},'OK').then((selectedButton: string | undefined)=>{
+            if (selectedButton === 'OK') {
+                Object.values(DocTypeName).forEach((currDocTypeString: string) => {
+                    context.globalState.update(currDocTypeString, undefined);
+                });
+            }
+        });
+}
+
 /**
  * A Salesforce Reference Entry represents a Salesforce ToC entry that:
  * - we can open in a web browser;
@@ -79,6 +104,11 @@ abstract class SalesforceReferenceDocType {
     private readonly docTOCUrl: string;
 
     /**
+     * The DocTypeName this DocType is for
+     */
+    private readonly docTypeName: DocTypeName;
+
+    /**
      *
      * @param docTocPath The portion of the URL path giving the location of human readable doc for this doc type.
      *                      e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
@@ -87,7 +117,8 @@ abstract class SalesforceReferenceDocType {
      *                                e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
      *                                      this is "/atlas.en-us.apexcode.meta/apexcode"
      */
-    constructor(docTocPath: string, humanReadableDocPath: string) {
+    constructor(docTypeName: DocTypeName, docTocPath: string, humanReadableDocPath: string) {
+        this.docTypeName = docTypeName;
         this.docTocPath = docTocPath;
         this.humanReadableDocPath = humanReadableDocPath;
         this.docTOCUrl = SF_DOC_ROOT_URL + SF_TOC_PATH + this.docTocPath;
@@ -96,10 +127,18 @@ abstract class SalesforceReferenceDocType {
     /**
      * Get the SalesforceReferenceItem instances for this reference doc type
      */
-    public async getSalesforceReferenceItems(): Promise<SalesforceReferenceItem[]> {
+    public async getSalesforceReferenceItems(context: vscode.ExtensionContext): Promise<SalesforceReferenceItem[]> {
+        //Try to use existing cached values, and populate the cache if not available
+        let referenceItems: SalesforceReferenceItem[] | undefined = context.globalState.get(this.docTypeName);
+        if (referenceItems === undefined) {
+            console.log(`Cache miss for ${this.docTypeName} entries. Retrieving from web`);
+            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeNameTitleCase(this.docTypeName)} Reference Index...`,'OK');
+            const rootDocumentationNode: any = await this.getRootDocumentationNode();
+            referenceItems = this.convertDocNodeToSalesforceReferenceItems(rootDocumentationNode, '$(home)');
+            context.globalState.update(this.docTypeName, referenceItems);
+        }
         //TODO: handle any errors
-        const rootDocumentationNode: any = await this.getRootDocumentationNode();
-        return this.convertDocNodeToSalesforceReferenceItems(rootDocumentationNode, '$(home)');
+        return referenceItems;
     }
 
     /**
@@ -171,6 +210,7 @@ abstract class SalesforceReferenceDocType {
 class ApexSalesforceReferenceDocType extends SalesforceReferenceDocType {
     constructor() {
         super(
+            DocTypeName.APEX,
             '/atlas.en-us.apexcode.meta',
             '/atlas.en-us.apexcode.meta/apexcode'
         );
@@ -185,6 +225,7 @@ class ApexSalesforceReferenceDocType extends SalesforceReferenceDocType {
 class VisualforceSalesforceReferenceDocType extends SalesforceReferenceDocType {
     constructor() {
         super(
+            DocTypeName.VISUALFORCE,
             '/atlas.en-us.pages.meta',
             '/atlas.en-us.pages.meta/pages'
         );
@@ -199,6 +240,7 @@ class VisualforceSalesforceReferenceDocType extends SalesforceReferenceDocType {
 class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceDocType {
     constructor() {
         super(
+            DocTypeName.LIGHTNING_CONSOLE,
             '/atlas.en-us.api_console.meta',
             '/atlas.en-us.api_console.meta/api_console'
         );
@@ -214,6 +256,7 @@ class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceDocT
 class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenceDocType {
     constructor() {
         super(
+            DocTypeName.CLASSIC_CONSOLE,
             '/atlas.en-us.api_console.meta',
             '/atlas.en-us.api_console.meta/api_console'
         );
@@ -229,6 +272,7 @@ class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenceDocTyp
 class MetadataSalesforceReferenceDocType extends SalesforceReferenceDocType {
     constructor() {
         super(
+            DocTypeName.METADATA,
             '/atlas.en-us.api_meta.meta',
             '/atlas.en-us.api_meta.meta/api_meta'
         );
@@ -239,8 +283,6 @@ class MetadataSalesforceReferenceDocType extends SalesforceReferenceDocType {
         return metadataDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
     }
 }
-
-type DocTypeName = 'APEX' | 'VISUALFORCE' | 'LIGHTNING_CONSOLE' | 'CLASSIC_CONSOLE' | 'METADATA';
 
 export const SalesforceReferenceDocTypes: Record<DocTypeName, SalesforceReferenceDocType> = {
     APEX: new ApexSalesforceReferenceDocType(),
