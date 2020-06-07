@@ -12,6 +12,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## Unpublished
 - Backend fixes - better code reuse and structure
+- Add caching for documentation so repeated lookups won't require retrieving the index from Salesforce every time
+- Add a cache invalidation command
 
 ## 0.2.0 - Beta
 - Basic implementation of Visualforce Doc Lookup

@@ -101,7 +101,7 @@ In rough priority order
 - [X] Implement Basic Metadata Reference
 - [X] DRYing pass at the code - lots of pasta in there at the moment
 - [X] Restructure the code - it's a big hacky pile, because it was from a hack session
-- [ ] Implement some kind of on-load caching, as the old ST3 plugin had
+- [X] Implement some kind of on-load caching, as the old ST3 plugin had
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 - [ ] Take a pass over the code to reduce `: any` usage
 - [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
@@ -121,6 +121,8 @@ Notes on design, future aims etc available in NOTES.MD
 
 ### Unpublished
 - Backend fixes - better code reuse and structure
+- Add caching for documentation so repeated lookups won't require retrieving the index from Salesforce every time
+- Add a cache invalidation command
 
 ### 0.2.0 - Beta
 - Basic implementation of Visualforce Doc Lookup
