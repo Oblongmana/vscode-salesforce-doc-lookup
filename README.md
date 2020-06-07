@@ -102,16 +102,16 @@ In rough priority order
 - [X] DRYing pass at the code - lots of pasta in there at the moment
 - [X] Restructure the code - it's a big hacky pile, because it was from a hack session
 - [X] Implement some kind of on-load caching, as the old ST3 plugin had
-- [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 - [ ] Take a pass over the code to reduce `: any` usage
 - [ ] Implement context-based searching - where you can search for the thing that's under your cursor in your editor
-- [ ] Write some tests 😱
 - [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
 - [ ] Review Icon usage within the plugin - mostly in the breadcrumb
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing
 - [ ] Consider whether to expand into some of the non-technical documentation
 - [ ] Try to elegantly handle offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094)
 - [ ] Publish publicly
+- [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
+- [ ] Write some tests 😱
 - [ ] Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser ofc.
 
 ## Design Notes
