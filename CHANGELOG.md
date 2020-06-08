@@ -10,6 +10,7 @@ All notable changes to the "vscode-salesforce-doc-lookup" extension will be docu
 - [0.1.1 - Beta](#011---beta)
 
 ## Unpublished
+- Add an extension icon
 
 ## 0.3.0 - Beta
 - Add a command for searching for the current word, or selected text

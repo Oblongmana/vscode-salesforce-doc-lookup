@@ -116,7 +116,7 @@ In rough priority order
 - [X] Implement selection-based searching - where you can search for the thing that you've selected in an editor
 - [X] Look into cursor-word-based searching - where you can search for the word that's under your cursor, e.g. using https://code.visualstudio.com/api/references/vscode-api#TextDocument.getWordRangeAtPosition with https://code.visualstudio.com/api/references/vscode-api#TextEditor
 - [X] Fix loading popup not converting the doctype name properly for console doctypes - due to underscore in name
-- [ ] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
+- [X] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
 - [ ] Review Icon usage within the plugin - mostly in the breadcrumb
 - [ ] Examine our responsibilities around elegantly handling offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094)
 - [ ] Examine feasibility of caching indices in the background on first extension load. Will look at further after release if not easy
@@ -135,6 +135,7 @@ Notes on design, future aims etc available in NOTES.MD
 ## Release Notes
 
 ### Unpublished
+- Add an extension icon
 
 ### 0.3.0 - Beta
 - Add a command for searching for the current word, or selected text
