@@ -1,62 +1,40 @@
 # Salesforce Reference Extension for VSCode
 
-Search Salesforce Documentation entries in VSCode, and open them in your browser.
-
-_Beta Extension - Not yet released to Marketplace_
-
-This is a re-implementation of my old ST3 extension in VSCode: (https://github.com/Oblongmana/sublime-salesforce-reference). See the Roadmap below
-for details on aims. Notes can be found in NOTES.md. Contributions welcome, though I suggest opening an issue ticket on github to discuss before hand.
+**Search Salesforce Developer Documentation entries in VSCode, and open them in your browser.**
 
 _**Please Note**: this is a community-made plugin, and is not affiliated with Salesforce. If the extension breaks,
-please open a github issue to let me know, there's a chance Salesforce may change it's doc approach, necessitating
+please open a github issue to let me know, there's a chance Salesforce may change its doc approach, necessitating
 an update to the plugin_
 
 Repository Home: (https://github.com/Oblongmana/vscode-salesforce-doc-lookup)
 
+A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/sublime-salesforce-reference)
+
 <!-- omit in toc -->
 ## Table of Contents
-- [Installing](#installing)
 - [Current Features](#current-features)
   - [Choose a documentation type, and type in your search](#choose-a-documentation-type-and-type-in-your-search)
   - [Search dev documentation for a word or selection in your editor](#search-dev-documentation-for-a-word-or-selection-in-your-editor)
+- [Installing](#installing)
+  - [In VSCode or the Extension Marketplace](#in-vscode-or-the-extension-marketplace)
+  - [Manually (with use cases/caveats)](#manually-with-use-casescaveats)
 - [Known Issues](#known-issues)
   - [Adblockers and loading links - NOFIX:](#adblockers-and-loading-links---nofix)
-- [Notable Differences to the original ST3 version](#notable-differences-to-the-original-st3-version)
-  - [No "All Doc" search that covers all documentation types](#no-all-doc-search-that-covers-all-documentation-types)
-  - [Notable Change - More search results!](#notable-change---more-search-results)
-  - [Notable Change - Potential to include EVEN MORE search results](#notable-change---potential-to-include-even-more-search-results)
-- [Roadmap](#roadmap)
-  - [Removed from roadmap](#removed-from-roadmap)
-- [Design Notes](#design-notes)
+- [Notable Differences to the original Sublime Text 3 version](#notable-differences-to-the-original-sublime-text-3-version)
 - [Release Notes](#release-notes)
   - [Unpublished](#unpublished)
   - [0.3.0 - Beta](#030---beta)
   - [0.2.0 - Beta](#020---beta)
   - [0.1.1 - Beta](#011---beta)
+- [Roadmap](#roadmap)
+- [Contributing](#contributing)
+- [Design Notes](#design-notes)
 - [License](#license)
 - [Credits](#credits)
-
-## Installing
-
-Currently this is in pre-release, and is not published to the VSCode Marketplace. You can still install it however! Note that you will not automatically receive updates. Keep an eye on the release page for updates (or the Trineo Slack, if
-you work there). This will eventually be released to the Marketplace - see the [Roadmap](#roadmap).
-
-Go to https://github.com/Oblongmana/vscode-salesforce-doc-lookup/releases and download your desired version as a vsix file.
-
-Using the Install from VSIX command in the Extensions view command drop-down, or the Extensions: Install from VSIX command in the Command Palette, point to the .vsix file.
-
-Alternatively, install it using the following command, and **RESTART VSCode AFTERWARDS**.
-
-    code --install-extension [path to the downloaded vsix]
-
-Alternatively, you can build it yourself, but instructions for that are outside the scope of this README.
 
 ## Current Features
 
 ### Choose a documentation type, and type in your search
-
-![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup2.gif)
-
 The following new commands allow you to search Salesforce Dev documentation in VSCode, and be taken directly to the corresponding entries in your browser:
  - Salesforce Reference: Apex
  - Salesforce Reference: Visualforce
@@ -64,17 +42,44 @@ The following new commands allow you to search Salesforce Dev documentation in V
  - Salesforce Reference: Classic Console
  - Salesforce Reference: Metadata API
 
+![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup2.gif)
+
 The first time you call any of these commands, the Extension will call out to Salesforce to get an index of that documentation type. This will be cached, and future uses of the command will be instant.
 
 If you need to invalidate the cache for any reason, there is a command for doing so:
  - Salesforce Reference: Invalidate Cache
 
 ### Search dev documentation for a word or selection in your editor
+With your cursor over a word in your editor, or with something in your editor selected, you can choose a documentation type and search for that string, using the new command:
+ - Salesforce Reference: Search for current word or selection
 
 ![Using the command - "Salesforce Reference: Search for current word or selection"](images/CursorWordLookup.gif)
 
-With your cursor over a word in your editor, or with something in your editor selected, you can choose a documentation type and search for that string, using the new command:
- - Salesforce Reference: Search for current word or selection
+
+## Installing
+
+### In VSCode or the Extension Marketplace
+Search for "Salesforce Reference" in the Extensions view (Ctrl + Shift + X) in VSCode, or install at [our VSCode Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=oblongmana.vscode-salesforce-doc-lookup)
+
+### Manually (with use cases/caveats)
+If you would prefer to install outside of the VSCode Marketplace, I'll try to make `vsix` files available with each release. If I forget, just open an issue on github. If you're doing this, you're likely already aware (and this
+may be the reason you're installing manually!), but installing this way will mean you do not receive automatic updates.
+
+If you are operating in an environment without an internet connection, or a limited connection, please note that this plugin interacts with the web in the following ways:
+1. When using any of the documentation commands for the first time after install or running the cache invalidation command, the documentation Table of Contents will be retrieved from developer.salesforce.com
+2. When choosing an item from a documentation command, the documentation page will open in your default web browser
+
+If you feel passionately about being able to access doc offline, note there are some ideas in [NOTES.md](NOTES.md) and [ROADMAP.md](ROADMAP.md)
+
+Go to https://github.com/Oblongmana/vscode-salesforce-doc-lookup/releases and download your desired version as a vsix file.
+
+Using the `Install from VSIX` command in the Extensions view command drop-down, or the `Extensions: Install from VSIX` command in the Command Palette, point to the .vsix file.
+
+Alternatively, install it using the following command, and **RESTART VSCode AFTERWARDS**.
+
+    code --install-extension [path to the downloaded vsix]
+
+Alternatively, you can build it yourself, but instructions for that are outside the scope of this README.
 
 
 ## Known Issues
@@ -87,55 +92,11 @@ section after the `#` is the anchor link, trying to take you directly to substri
 poorly with some adblockers such as "uBlock Origin". If you find commands are not scrolling you to the item you request, this may be fixed
 by disabling your adblocker on the Salesforce doc site, if you are comfortable with doing so.
 
-## Notable Differences to the original ST3 version
 
-### No "All Doc" search that covers all documentation types
-The All Doc Types search is gone - caching has been added, so the performance on this won't be horrific. However, this will need some examination
-of internal structure, and examination of how the breadcrumb is presented, and is currently a lower priority feature in the [Roadmap](#roadmap).
+## Notable Differences to the original Sublime Text 3 version
 
-### Notable Change - More search results!
-The original plugin gave a list of certain nodes at a relatively low level of detail, due to technical limitations in Sublime -
-e.g. searching for "String" in the Apex Doc would give you "String Methods". As in VSCode we can now show a breadcrumb in the picker, the same search will now
-produce "String Class", "String Methods", and all of the actual methods under these headers!
+See [DIFFERENCES.md](DIFFERENCES.md) for information on the differences between this and the original plugin. Also note the [Current Features](#current-features) list above.
 
-### Notable Change - Potential to include EVEN MORE search results
-Now that the VSCode version of the extension has opened up what you can access (see above bullet point), there's the question of whether other
-documentation should be opened up - rather than just limiting ourselves to the technical component/method/etc kind of reference. If you feel
-passionately about this, feel free to open an issue - including your ideas on how this might be implemented without swamping our technical results.
-Or maybe, providing evidence that it won't swamp our results - I haven't tested that!
-
-
-## Roadmap
-In rough priority order
-- [X] Implement Basic Visualforce Reference
-- [X] Implement Basic Lightning Console Reference
-- [X] Implement Basic Classic Console Reference
-- [X] Implement Basic Metadata Reference
-- [X] DRYing pass at the code - lots of pasta in there at the moment
-- [X] Restructure the code - it's a big hacky pile, because it was from a hack session
-- [X] Implement some kind of on-load caching, as the old ST3 plugin had
-- [X] Implement selection-based searching - where you can search for the thing that you've selected in an editor
-- [X] Look into cursor-word-based searching - where you can search for the word that's under your cursor, e.g. using https://code.visualstudio.com/api/references/vscode-api#TextDocument.getWordRangeAtPosition with https://code.visualstudio.com/api/references/vscode-api#TextEditor
-- [X] Fix loading popup not converting the doctype name properly for console doctypes - due to underscore in name
-- [X] Add an Icon (cf. https://code.visualstudio.com/api/references/extension-manifest)
-- [X] Review Icon usage within the plugin - mostly in the breadcrumb
-- [X] Examine our responsibilities around elegantly handling offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094) (fixed by JIT showing decent errors)
-- [ ] Update README for Marketplace release
-- [ ] Publish publicly
-- [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing, but also some backend and UX issues
-- [ ] Examine possibility of alternative languages - see the notes in NOTES.md. Oriented towards a different end, but could likely be used for allowing user to switch to JP mode
-- [ ] Consider whether to expand into some of the non-technical documentation
-- [ ] Take a pass over the code to reduce `: any` usage
-- [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
-- [ ] Write some tests 😱
-- [ ] Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser ofc.
-
-### Removed from roadmap
-- [ ] Examine feasibility of caching indices in the background on first extension load. Will look at further after release if not easy
-  - The retrieve operation is not too bad, and not too time-consuming - as such, we should probably avoid introducing prolonged unexpected loading by retrieving multiple ToCs. When implementing the "ALL" command, we can just pop a courtesy warning that the first time may take a while, if necessary, after checking what's in the globalState already.
-
-## Design Notes
-Notes on design, future aims etc available in NOTES.MD
 
 ## Release Notes
 
@@ -160,6 +121,22 @@ Notes on design, future aims etc available in NOTES.MD
 ### 0.1.1 - Beta
 - Basic implementation of Apex Doc Lookup
 
+
+
+## Roadmap
+A rough roadmap is available at [ROADMAP.md](ROADMAP.md)
+
+
+## Contributing
+
+See the Roadmap in [ROADMAP.md](ROADMAP.md) for details on existing aims. Some not-particularly-tidy notes can be found in NOTES.md. Contributions welcome, though I suggest
+opening an issue ticket on github to discuss before hand.
+
+
+## Design Notes
+Notes on design, future aims etc available in [NOTES.md](NOTES.md)
+
+
 ## License
 
 Salesforce Reference VSCode Extension
@@ -171,6 +148,7 @@ This program is free software: you can redistribute it and/or modify it under th
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with this program. If not, see http://www.gnu.org/licenses/.
+
 
 ## Credits
 

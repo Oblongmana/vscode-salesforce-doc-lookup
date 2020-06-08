@@ -1,12 +1,12 @@
 # Notes
 
-_Note that anything in here may be well and truly outdated_
+_Note that anything in here may be well and truly outdated - this is a scratchpad of ideas, some of which may be related to roadmap items, past or future_
 
 <!-- omit in toc -->
 ## Table of Contents
 - [Aims](#aims)
 - [How to open docs in a browser](#how-to-open-docs-in-a-browser)
-- [How to get the actual Apex Documentation, not just open in browser](#how-to-get-the-actual-apex-documentation-not-just-open-in-browser)
+- [How to get the actual Apex Documentation, not just open in browser (could also possibly be an offline caching approach)](#how-to-get-the-actual-apex-documentation-not-just-open-in-browser-could-also-possibly-be-an-offline-caching-approach)
   - [How to render within VSCode](#how-to-render-within-vscode)
   - [URL Format](#url-format)
   - [Example URL:](#example-url)
@@ -17,6 +17,7 @@ _Note that anything in here may be well and truly outdated_
 - [How to get the actual non-Apex Documentation, like the original plugin](#how-to-get-the-actual-non-apex-documentation-like-the-original-plugin)
 - [Other wacky ideas](#other-wacky-ideas)
   - [Grouping](#grouping)
+  - [Opening PDF Documentation? An offline mode of some sort?](#opening-pdf-documentation-an-offline-mode-of-some-sort)
 
 ## Aims
 If I ever find enough time, I'd like to accomplish the following:
@@ -29,7 +30,7 @@ If I ever find enough time, I'd like to accomplish the following:
 
 See the old plugin
 
-## How to get the actual Apex Documentation, not just open in browser
+## How to get the actual Apex Documentation, not just open in browser (could also possibly be an offline caching approach)
 
 Note that this is driven by parsing the JSON ToC at https://developer.salesforce.com/docs/get_document/atlas.en-us.apexcode.meta - just like the old ST3 plugin. Difference is, we might actually
 be able to render content within VSCode
@@ -181,3 +182,11 @@ VSCode Quickpick fuzzy matching kind of sucks. Possibly for performance reasons,
       $(arrow-small-right) System Class
         $(arrow-small-right) System Methods
           $(arrow-small-right) resetPasswordWithEmailTemplate(userId, sendUserEmail, emailTemplateName
+
+### Opening PDF Documentation? An offline mode of some sort?
+Salesforce have traditionally published Developer documentation in PDFs as well. Not sure whether this is currently the case, but if it is, there's a very slim possibility we could
+get some sort of offline mode going by bundling a pdf.
+
+Would likely require the following:
+ - Anchors in the files, or perhaps opening certain pages (see e.g. https://helpx.adobe.com/acrobat/kb/link-html-pdf-page-acrobat.html, https://helpx.adobe.com/acrobat/kb/link-html-pdf-page-acrobat.html. Likely requires more research)
+ - Some way to open the PDF - probably not _inside_ VSCode, but perhaps in a web browser
