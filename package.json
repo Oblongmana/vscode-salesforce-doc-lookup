@@ -3,6 +3,7 @@
     "displayName": "Salesforce Reference",
     "description": "Lookup Salesforce Documentation from within VSCode",
     "publisher": "Oblongmana",
+    "icon": "images/SalesforceReferenceIcon.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/Oblongmana/vscode-salesforce-doc-lookup"
