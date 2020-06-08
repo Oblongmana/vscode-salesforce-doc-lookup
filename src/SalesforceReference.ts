@@ -160,7 +160,7 @@ abstract class SalesforceReferenceDocType {
         }
         //Recursively convert children into SalesforceReferenceItems and add them to our list
         if (documentationNode.hasOwnProperty('children') && documentationNode.children !== undefined) {
-            const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${documentationNode.text}`;
+            const breadcrumbStringForChildren = `${breadcrumbString}$(breadcrumb-separator)${documentationNode.text}`;
             documentationNode.children.forEach((childDocumentationNode: SalesforceTOC.DocumentationNode) => {
                 referenceItems.push(...this.convertDocNodeToSalesforceReferenceItems(childDocumentationNode, breadcrumbStringForChildren));
             });
