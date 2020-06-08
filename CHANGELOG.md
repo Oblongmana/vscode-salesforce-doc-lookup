@@ -1,6 +1,6 @@
-# Change Log
+# Salesforce Reference Extension - Change Log
 
-All notable changes to the "vscode-salesforce-doc-lookup" extension will be documented in this file.
+Notable changes to the Salesforce Reference Extension.
 
 <!-- omit in toc -->
 ## Table of Contents
