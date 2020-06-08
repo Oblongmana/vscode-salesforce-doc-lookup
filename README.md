@@ -23,6 +23,7 @@ A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/su
 - [Notable Differences to the original Sublime Text 3 version](#notable-differences-to-the-original-sublime-text-3-version)
 - [Release Notes](#release-notes)
   - [Unpublished](#unpublished)
+  - [0.4.0 - Beta](#040---beta)
   - [0.3.0 - Beta](#030---beta)
   - [0.2.0 - Beta](#020---beta)
   - [0.1.1 - Beta](#011---beta)
@@ -101,6 +102,8 @@ See [DIFFERENCES.md](DIFFERENCES.md) for information on the differences between 
 ## Release Notes
 
 ### Unpublished
+
+### 0.4.0 - Beta
 - Add an extension icon
 - Show error if trying to retrieve reference Tables of Contents while offline, and another message if unexpected errors occur
 

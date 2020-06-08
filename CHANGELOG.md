@@ -5,12 +5,16 @@ Notable changes to the Salesforce Reference Extension.
 <!-- omit in toc -->
 ## Table of Contents
 - [Unpublished](#unpublished)
+- [0.4.0 - Beta](#040---beta)
 - [0.3.0 - Beta](#030---beta)
 - [0.2.0 - Beta](#020---beta)
 - [0.1.1 - Beta](#011---beta)
 
 ## Unpublished
+
+## 0.4.0 - Beta
 - Add an extension icon
+- Show error if trying to retrieve reference Tables of Contents while offline, and another message if unexpected errors occur
 
 ## 0.3.0 - Beta
 - Add a command for searching for the current word, or selected text
