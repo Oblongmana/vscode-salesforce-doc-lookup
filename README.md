@@ -64,10 +64,9 @@ With your cursor over a word in your editor, or with something in your editor se
 Search for "Salesforce Reference" in the Extensions view (Ctrl + Shift + X) in VSCode, or install at [our VSCode Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=oblongmana.vscode-salesforce-doc-lookup)
 
 ### Manually (with use cases/caveats)
-If you would prefer to install outside of the VSCode Marketplace, I'll try to make `vsix` files available with each release. If I forget, just open an issue on github. If you're doing this, you're likely already aware (and this
-may be the reason you're installing manually!), but installing this way will mean you do not receive automatic updates.
+If you would prefer to install outside of the VSCode Marketplace, I'll try to make `vsix` files available with each release. If I forget, just open an issue on github.
 
-If you are operating in an environment without an internet connection, or a limited connection, please note that this plugin interacts with the web in the following ways:
+If you're doing this for use in an environment without an internet connection, or a limited connection, please note that this plugin interacts with the web in the following ways:
 1. When using any of the documentation commands for the first time after install or running the cache invalidation command, the documentation Table of Contents will be retrieved from developer.salesforce.com
 2. When choosing an item from a documentation command, the documentation page will open in your default web browser
 
