@@ -22,6 +22,7 @@ A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/su
   - [Adblockers and loading links - NOFIX:](#adblockers-and-loading-links---nofix)
 - [Notable Differences to the original Sublime Text 3 version](#notable-differences-to-the-original-sublime-text-3-version)
 - [Release Notes](#release-notes)
+  - [1.0.0 - Initial Release](#100---initial-release)
   - [Unpublished](#unpublished)
   - [0.4.0 - Beta](#040---beta)
   - [0.3.0 - Beta](#030---beta)
@@ -101,7 +102,18 @@ See [DIFFERENCES.md](DIFFERENCES.md) for information on the differences between 
 
 ## Release Notes
 
+### 1.0.0 - Initial Release
+ - New command: `Salesforce Reference: Apex`
+ - New command: `Salesforce Reference: Visualforce`
+ - New command: `Salesforce Reference: Lightning Console`
+ - New command: `Salesforce Reference: Classic Console`
+ - New command: `Salesforce Reference: Metadata API`
+ - New command: `Salesforce Reference: Search for current word or selection`
+ - New command: `Salesforce Reference: Invalidate Cache`
+ - Tables of Contents for each Documentation type are cached after first use. This cache can be wiped by running the `Salesforce Reference: Invalidate Cache` command
+
 ### Unpublished
+ - All up-to-date
 
 ### 0.4.0 - Beta
 - Add an extension icon
