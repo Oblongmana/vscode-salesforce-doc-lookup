@@ -121,18 +121,19 @@ abstract class SalesforceReferenceDocType {
 
     /**
      * Get the SalesforceReferenceItem instances for this reference doc type
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails
      */
     public async getSalesforceReferenceItems(context: vscode.ExtensionContext): Promise<SalesforceReferenceItem[]> {
         //Try to use existing cached values, and populate the cache if not available
         let referenceItems: SalesforceReferenceItem[] | undefined = context.globalState.get(this.docTypeName);
         if (referenceItems === undefined) {
-            console.log(`Cache miss for ${this.docTypeName} entries. Retrieving from web`);
+            console.log(`Cache miss for ${this.docTypeName} Salesforce Reference entries. Retrieving from web`);
             vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeNameTitleCase(this.docTypeName)} Reference Index...`,'OK');
             const rootDocumentationNode: any = await this.getRootDocumentationNode();
             referenceItems = this.convertDocNodeToSalesforceReferenceItems(rootDocumentationNode, '$(home)');
             context.globalState.update(this.docTypeName, referenceItems);
         }
-        //TODO: handle any errors
         return referenceItems;
     }
 
@@ -174,15 +175,19 @@ abstract class SalesforceReferenceDocType {
      *
      * TODO: In the event that we decide to expand what we pull from Docs in future,
      *       this may need to account for multiple "root" nodes
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails
      */
     protected abstract async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode>;
 
     /**
      * Get the Table of Contents used by tools to get document structure for this documentation type
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
     protected async getDocTOC(): Promise<any> {
         //TODO: Similar to the SalesforceTOC.DocumentationNode - the root node should be loaded into something with a defined interface
-        const body: any = await got(this.docTOCUrl).json();
+        let body: any = await got(this.docTOCUrl).json();
         return body;
     }
 
@@ -210,8 +215,13 @@ class ApexSalesforceReferenceDocType extends SalesforceReferenceDocType {
             '/atlas.en-us.apexcode.meta/apexcode'
         );
     }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
     protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
-        //TODO: handle any errors
         const apexDocToc: any = await this.getDocTOC();
         return apexDocToc.toc[0].children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'apex_reference');
     }
@@ -225,8 +235,13 @@ class VisualforceSalesforceReferenceDocType extends SalesforceReferenceDocType {
             '/atlas.en-us.pages.meta/pages'
         );
     }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
     protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
-        //TODO: handle any errors
         const vfDocToc: any = await this.getDocTOC();
         return vfDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'pages_compref');
     }
@@ -240,8 +255,13 @@ class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceDocT
             '/atlas.en-us.api_console.meta/api_console'
         );
     }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
     protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
-        //TODO: handle any errors
         const lightningConsoleDocToc: any = await this.getDocTOC();
         const lightningconsoleTopLevelToc: any = lightningConsoleDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
         return lightningconsoleTopLevelToc.children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
@@ -256,8 +276,13 @@ class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenceDocTyp
             '/atlas.en-us.api_console.meta/api_console'
         );
     }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
     protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
-        //TODO: handle any errors
         const classicConsoleDocToc: any = await this.getDocTOC();
         const classicconsoleTopLevelToc: any = classicConsoleDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_intro');
         return classicconsoleTopLevelToc.children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_classic');
@@ -272,8 +297,13 @@ class MetadataSalesforceReferenceDocType extends SalesforceReferenceDocType {
             '/atlas.en-us.api_meta.meta/api_meta'
         );
     }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
     protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
-        //TODO: handle any errors
         const metadataDocToc: any = await this.getDocTOC();
         return metadataDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
     }
