@@ -25,6 +25,10 @@ export async function activate(context: vscode.ExtensionContext) {
         openSalesforceDocQuickPick(context, DocTypeName.METADATA, prefillValue);
     });
 
+    let objectReferenceReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.OBJECT_REFERENCE}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.OBJECT_REFERENCE, prefillValue);
+    });
+
     let invalidateCacheDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${UtilityCommands.INVALIDATE_CACHE}`, async () => {
         invalidateSalesforceReferenceCache(context);
     });
@@ -39,6 +43,7 @@ export async function activate(context: vscode.ExtensionContext) {
         classicconsoleReferenceDisposable,
         lightningconsoleReferenceDisposable,
         metadataReferenceDisposable,
+        objectReferenceReferenceDisposable,
         invalidateCacheDisposable,
         currentWordSearchDisposable
     );

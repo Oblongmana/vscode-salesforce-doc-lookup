@@ -3,12 +3,16 @@
 Notable changes to the Salesforce Reference Extension.
 
 ## Table of Contents
-- [1.0.0 - Initial Release](#100---initial-release)
 - [Unpublished](#unpublished)
+- [1.0.0 - Initial Release](#100---initial-release)
 - [0.4.0 - Beta](#040---beta)
 - [0.3.0 - Beta](#030---beta)
 - [0.2.0 - Beta](#020---beta)
 - [0.1.1 - Beta](#011---beta)
+
+## Unpublished
+### Added
+ - New command: `Salesforce Reference: Object Reference`
 
 ## 1.0.0 - Initial Release
 ### Added
@@ -20,9 +24,6 @@ Notable changes to the Salesforce Reference Extension.
  - New command: `Salesforce Reference: Search for current word or selection`
  - New command: `Salesforce Reference: Invalidate Cache`
  - Tables of Contents for each Documentation type are cached after first use. This cache can be wiped by running the `Salesforce Reference: Invalidate Cache` command
-
-## Unpublished
- - All up-to-date
 
 ## 0.4.0 - Beta
 ### Added

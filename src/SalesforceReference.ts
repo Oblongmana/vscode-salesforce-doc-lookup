@@ -6,11 +6,12 @@ const SF_TOC_PATH = '/get_document';
 const SF_RAW_DOC_PATH = '/get_document_content';
 
 export enum DocTypeName {
-    APEX = 'APEX',
-    VISUALFORCE = 'VISUALFORCE',
+    APEX              = 'APEX',
+    VISUALFORCE       = 'VISUALFORCE',
     LIGHTNING_CONSOLE = 'LIGHTNING_CONSOLE',
-    CLASSIC_CONSOLE = 'CLASSIC_CONSOLE',
-    METADATA = 'METADATA'
+    CLASSIC_CONSOLE   = 'CLASSIC_CONSOLE',
+    METADATA          = 'METADATA',
+    OBJECT_REFERENCE  = 'OBJECT_REFERENCE'
 }
 
 export function docTypeNameTitleCase(docTypeName: DocTypeName) {
@@ -309,10 +310,31 @@ class MetadataSalesforceReferenceDocType extends SalesforceReferenceDocType {
     }
 }
 
+class ObjectReferenceSalesforceReferenceDocType extends SalesforceReferenceDocType {
+    constructor() {
+        super(
+            DocTypeName.OBJECT_REFERENCE,
+            '/atlas.en-us.object_reference.meta',
+            '/atlas.en-us.object_reference.meta/object_reference'
+        );
+    }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
+    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+        const objReferenceDocToc: any = await this.getDocTOC();
+        return objReferenceDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
+    }
+}
+
 export const SalesforceReferenceDocTypes: Record<DocTypeName, SalesforceReferenceDocType> = {
-    APEX: new ApexSalesforceReferenceDocType(),
-    VISUALFORCE: new VisualforceSalesforceReferenceDocType(),
+    APEX:              new ApexSalesforceReferenceDocType(),
+    VISUALFORCE:       new VisualforceSalesforceReferenceDocType(),
     LIGHTNING_CONSOLE: new LightningConsoleSalesforceReferenceDocType(),
-    CLASSIC_CONSOLE: new ClassicConsoleSalesforceReferenceDocType(),
-    METADATA: new MetadataSalesforceReferenceDocType(),
+    CLASSIC_CONSOLE:   new ClassicConsoleSalesforceReferenceDocType(),
+    METADATA:          new MetadataSalesforceReferenceDocType(),
+    OBJECT_REFERENCE:  new ObjectReferenceSalesforceReferenceDocType(),
 };

@@ -11,6 +11,7 @@ export enum DocCommands {
     LIGHTNING_CONSOLE    = 'salesforce-reference-lightning-console',
     CLASSIC_CONSOLE      = 'salesforce-reference-classic-console',
     METADATA             = 'salesforce-reference-metadata',
+    OBJECT_REFERENCE     = 'salesforce-reference-object-reference',
 }
 const DocCommandsValues: string[] = Object.values(DocCommands);
 
