@@ -21,7 +21,8 @@ In rough priority order
 - [X] Examine our responsibilities around elegantly handling offline state, bearing in mind caching, but also limited connectivity detection capability (https://github.com/microsoft/vscode/issues/73094) (fixed by JIT showing decent errors)
 - [X] Update README for Marketplace release
 - [X] Publish publicly
-- [ ] Add Object Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/)
+- [X] Add Object Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/)
+- [ ] Add SFDX CLI Command Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/)
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing, but also some backend and UX issues
 - [ ] Examine possibility of alternative languages - see the notes in NOTES.md. Oriented towards a different end, but could likely be used for allowing user to switch to JP mode
 - [ ] Consider whether to expand into some of the non-technical documentation
