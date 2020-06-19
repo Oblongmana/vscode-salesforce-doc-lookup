@@ -36,5 +36,19 @@
         "svccons doc toc url",
         "toc",
         "vsix"
-    ]
+    ],
+    "markdown.extension.toc.omittedFromToc": {
+        "CHANGELOG.md": [
+            "## Table of Contents",
+            "### Added",
+            "### Changed",
+            "### Fixed",
+        ],
+        "README.md": [
+            "## Table of Contents",
+        ],
+        "NOTES.md": [
+            "## Table of Contents",
+        ]
+    }
 }

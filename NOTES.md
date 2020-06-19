@@ -2,7 +2,6 @@
 
 _Note that anything in here may be well and truly outdated - this is a scratchpad of ideas, some of which may be related to roadmap items, past or future_
 
-<!-- omit in toc -->
 ## Table of Contents
 - [Aims](#aims)
 - [How to open docs in a browser](#how-to-open-docs-in-a-browser)

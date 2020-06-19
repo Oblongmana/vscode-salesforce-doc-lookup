@@ -10,7 +10,6 @@ Repository Home: (https://github.com/Oblongmana/vscode-salesforce-doc-lookup)
 
 A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/sublime-salesforce-reference)
 
-<!-- omit in toc -->
 ## Table of Contents
 - [Current Features](#current-features)
   - [Choose a documentation type, and type in your search](#choose-a-documentation-type-and-type-in-your-search)
