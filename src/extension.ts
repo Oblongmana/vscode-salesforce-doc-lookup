@@ -29,6 +29,14 @@ export async function activate(context: vscode.ExtensionContext) {
         openSalesforceDocQuickPick(context, DocTypeName.OBJECT_REFERENCE, prefillValue);
     });
 
+    let restApiReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.REST_API}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.REST_API, prefillValue);
+    });
+
+    let soapApiReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.SOAP_API}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.SOAP_API, prefillValue);
+    });
+
     let invalidateCacheDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${UtilityCommands.INVALIDATE_CACHE}`, async () => {
         invalidateSalesforceReferenceCache(context);
     });
@@ -45,7 +53,9 @@ export async function activate(context: vscode.ExtensionContext) {
         metadataReferenceDisposable,
         objectReferenceReferenceDisposable,
         invalidateCacheDisposable,
-        currentWordSearchDisposable
+        currentWordSearchDisposable,
+        restApiReferenceDisposable,
+        soapApiReferenceDisposable,
     );
 }
 

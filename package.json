@@ -32,6 +32,8 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-classic-console",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-metadata",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-object-reference",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-rest-api",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-soap-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
@@ -61,6 +63,14 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-object-reference",
                 "title": "Salesforce Reference: Object Reference"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-rest-api",
+                "title": "Salesforce Reference: REST API"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-soap-api",
+                "title": "Salesforce Reference: SOAP API"
             },
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",

@@ -12,6 +12,8 @@ export const DocCommands: Record<DocTypeName, string> = {
     CLASSIC_CONSOLE      : 'salesforce-reference-classic-console',
     METADATA             : 'salesforce-reference-metadata',
     OBJECT_REFERENCE     : 'salesforce-reference-object-reference',
+    REST_API             : 'salesforce-reference-rest-api',
+    SOAP_API             : 'salesforce-reference-soap-api',
 }
 const DocCommandsValues: string[] = Object.values(DocCommands);
 

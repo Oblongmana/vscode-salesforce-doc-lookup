@@ -11,7 +11,9 @@ export enum DocTypeName {
     LIGHTNING_CONSOLE = 'LIGHTNING_CONSOLE',
     CLASSIC_CONSOLE   = 'CLASSIC_CONSOLE',
     METADATA          = 'METADATA',
-    OBJECT_REFERENCE  = 'OBJECT_REFERENCE'
+    OBJECT_REFERENCE  = 'OBJECT_REFERENCE',
+    REST_API          = 'REST_API',
+    SOAP_API          = 'SOAP_API'
 }
 
 export function docTypeNameTitleCase(docTypeName: DocTypeName) {
@@ -330,11 +332,54 @@ class ObjectReferenceSalesforceReferenceDocType extends SalesforceReferenceDocTy
     }
 }
 
+class RestAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
+    constructor() {
+        super(
+            DocTypeName.REST_API,
+            '/atlas.en-us.api_rest.meta',
+            '/atlas.en-us.api_rest.meta/api_rest'
+        );
+    }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
+    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+        const docToc: any = await this.getDocTOC();
+        return docToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'resources_list');
+    }
+}
+
+class SOAPAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
+    constructor() {
+        super(
+            DocTypeName.SOAP_API,
+            '/atlas.en-us.api.meta',
+            '/atlas.en-us.api.meta/api'
+        );
+    }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
+    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+        const docToc: any = await this.getDocTOC();
+        return docToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
+    }
+}
+
+
 export const SalesforceReferenceDocTypes: Record<DocTypeName, SalesforceReferenceDocType> = {
-    APEX:              new ApexSalesforceReferenceDocType(),
-    VISUALFORCE:       new VisualforceSalesforceReferenceDocType(),
-    LIGHTNING_CONSOLE: new LightningConsoleSalesforceReferenceDocType(),
-    CLASSIC_CONSOLE:   new ClassicConsoleSalesforceReferenceDocType(),
-    METADATA:          new MetadataSalesforceReferenceDocType(),
-    OBJECT_REFERENCE:  new ObjectReferenceSalesforceReferenceDocType(),
+    APEX:               new ApexSalesforceReferenceDocType(),
+    VISUALFORCE:        new VisualforceSalesforceReferenceDocType(),
+    LIGHTNING_CONSOLE:  new LightningConsoleSalesforceReferenceDocType(),
+    CLASSIC_CONSOLE:    new ClassicConsoleSalesforceReferenceDocType(),
+    METADATA:           new MetadataSalesforceReferenceDocType(),
+    OBJECT_REFERENCE:   new ObjectReferenceSalesforceReferenceDocType(),
+    REST_API:           new RestAPISalesforceReferenceDocType(),
+    SOAP_API:           new SOAPAPISalesforceReferenceDocType(),
 };
