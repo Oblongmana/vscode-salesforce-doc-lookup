@@ -37,6 +37,8 @@ The following new commands allow you to search Salesforce Dev documentation in V
  - Salesforce Reference: Classic Console
  - Salesforce Reference: Metadata API
  - Salesforce Reference: Object Reference
+ - Salesforce Reference: REST API
+ - Salesforce Reference: SOAP API
 
 ![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup2.gif)
 
