@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import got from 'got';
+import { SalesforceReferenceOutputChannel } from './Logging';
 // import { SalesforceReferenceOutputChannel } from './Logging';
 
 const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
@@ -83,20 +84,20 @@ export class SalesforceReferenceItem implements vscode.QuickPickItem {
 abstract class SalesforceReferenceDocType {
 
     /**
-     * The portion of the URL path giving the location of human readable doc for this doc type.
-     *
-     * e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
-     *      this is "/atlas.en-us.apexcode.meta/apexcode"
-     */
-    private readonly humanReadableDocPath: string;
-
-    /**
-     * The portion of the URL path giving the location of the Table of Contents used by tools to get document structure
+     * The portion of the URL path giving the location of the "atlas" for this doc type
      *
      * e.g. in the URL "https://developer.salesforce.com/docs/get_document/atlas.en-us.apexcode.meta"
      *      this is "/atlas.en-us.apexcode.meta"
      */
-    private readonly docTocPath: string;
+    private readonly atlasPath: string;
+
+    /**
+     * The portion of the URL path giving the location of doc for this doc type.
+     *
+     * e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
+     *      this is "/apexcode"
+     */
+    private readonly docPath: string;
 
     /**
      * The full URL to get the Table of Contents used by tools to get document structure
@@ -110,18 +111,18 @@ abstract class SalesforceReferenceDocType {
 
     /**
      *
-     * @param docTocPath The portion of the URL path giving the location of human readable doc for this doc type.
+     * @param atlasPath The portion of the URL path giving the location of the "atlas" for this doc type.
      *                      e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
-     *                           this is "/atlas.en-us.apexcode.meta/apexcode"
-     * @param humanReadableDocPath The portion of the URL path giving the location of human readable doc for this doc type.
+     *                           this is "/atlas.en-us.apexcode.meta"
+     * @param docPath The portion of the URL path giving the location of doc for this doc type.
      *                                e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
-     *                                      this is "/atlas.en-us.apexcode.meta/apexcode"
+     *                                      this is "/apexcode"
      */
-    constructor(docTypeName: DocTypeName, docTocPath: string, humanReadableDocPath: string) {
+    constructor(docTypeName: DocTypeName, atlasPath: string, docPath: string) {
         this.docTypeName = docTypeName;
-        this.docTocPath = docTocPath;
-        this.humanReadableDocPath = humanReadableDocPath;
-        this.docTOCUrl = SF_DOC_ROOT_URL + SF_TOC_PATH + this.docTocPath;
+        this.atlasPath = atlasPath;
+        this.docPath = docPath;
+        this.docTOCUrl = SF_DOC_ROOT_URL + SF_TOC_PATH + this.atlasPath;
     }
 
     /**
@@ -148,7 +149,7 @@ abstract class SalesforceReferenceDocType {
      * @param selectedReferenceItem A SalesforceReferenceItem to be loaded in the browser
      */
     public humanDocURL(selectedReferenceItem: SalesforceReferenceItem): string {
-        return `${SF_DOC_ROOT_URL}${this.humanReadableDocPath}/${selectedReferenceItem.href}`;
+        return `${SF_DOC_ROOT_URL}${this.atlasPath}${this.docPath}/${selectedReferenceItem.href}`;
     }
 
     /**
@@ -199,9 +200,11 @@ abstract class SalesforceReferenceDocType {
     }
 
     /**
-     * UNIMPLEMENTED: Get a URL for a machine-readable page containing doc, given the supplied parameters
+     * Get the URL for a the raw doc - a page returning a json object with documentation conent
      */
-    private rawDocURL(folder: string, id: string, locale: string, version: string): string {
+    public rawDocURL(selectedReferenceItem: SalesforceReferenceItem): string {
+        //todo: original notes, will be useful when removing hardcoding of locale and version
+        // private rawDocURL(folder: string, id: string, locale: string, version: string): string {
         // The required params can be obtained from the following things on the root Node.
         //  See the NOTES.md file for further detail on possible future plans
 
@@ -210,7 +213,26 @@ abstract class SalesforceReferenceDocType {
         // const vfDocVersion: string = sfJSONDoc.version.doc_version;
 
         // return `${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}/${folder}/${id}/${locale}/${version}`;
-        throw new Error('This method is not yet implemented');
+        //todo improve on hardcoding
+        //Extract the path ONLY from the href - as some hrefs may include fragments, which are not used for raw doc urls (they're only used for jumping to anchors in human doc)
+        // SalesforceReferenceOutputChannel.appendLine(`${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}${this.docPath}${docHrefWithoutFragment}/en-us/232.0`);
+        let docHrefWithoutFragment = vscode.Uri.parse(selectedReferenceItem.href).path;
+        return `${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}${this.docPath}${docHrefWithoutFragment}/en-us/232.0`;
+    }
+
+    /**
+     * Extract the fragment from a Salesforce Reference Item
+     *
+     * e.g. in https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete,
+     *      this is "apex_dml_undelete"
+     *
+     * @param selectedReferenceItem the SalesforceReferenceItem to extract the fragment from
+     * @returns the fragment, if there is one
+     */
+    public getFragment(selectedReferenceItem: SalesforceReferenceItem): string {
+        //Extract the fragment ONLY from the href - some hrefs may include fragments, which are not used for raw doc (they're only used for jumping to anchors in human doc)
+        SalesforceReferenceOutputChannel.appendLine(vscode.Uri.parse(selectedReferenceItem.href).fragment);
+        return vscode.Uri.parse(selectedReferenceItem.href).fragment;
     }
 }
 
@@ -219,7 +241,7 @@ class ApexSalesforceReferenceDocType extends SalesforceReferenceDocType {
         super(
             DocTypeName.APEX,
             '/atlas.en-us.apexcode.meta',
-            '/atlas.en-us.apexcode.meta/apexcode'
+            '/apexcode'
         );
     }
     /**
@@ -239,7 +261,7 @@ class VisualforceSalesforceReferenceDocType extends SalesforceReferenceDocType {
         super(
             DocTypeName.VISUALFORCE,
             '/atlas.en-us.pages.meta',
-            '/atlas.en-us.pages.meta/pages'
+            '/pages'
         );
     }
     /**
@@ -259,7 +281,7 @@ class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceDocT
         super(
             DocTypeName.LIGHTNING_CONSOLE,
             '/atlas.en-us.api_console.meta',
-            '/atlas.en-us.api_console.meta/api_console'
+            '/api_console'
         );
     }
     /**
@@ -280,7 +302,7 @@ class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenceDocTyp
         super(
             DocTypeName.CLASSIC_CONSOLE,
             '/atlas.en-us.api_console.meta',
-            '/atlas.en-us.api_console.meta/api_console'
+            '/api_console'
         );
     }
     /**
@@ -301,7 +323,7 @@ class MetadataSalesforceReferenceDocType extends SalesforceReferenceDocType {
         super(
             DocTypeName.METADATA,
             '/atlas.en-us.api_meta.meta',
-            '/atlas.en-us.api_meta.meta/api_meta'
+            '/api_meta'
         );
     }
     /**
@@ -321,7 +343,7 @@ class ObjectReferenceSalesforceReferenceDocType extends SalesforceReferenceDocTy
         super(
             DocTypeName.OBJECT_REFERENCE,
             '/atlas.en-us.object_reference.meta',
-            '/atlas.en-us.object_reference.meta/object_reference'
+            '/object_reference'
         );
     }
     /**
@@ -341,7 +363,7 @@ class RestAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
         super(
             DocTypeName.REST_API,
             '/atlas.en-us.api_rest.meta',
-            '/atlas.en-us.api_rest.meta/api_rest'
+            '/api_rest'
         );
     }
     /**
@@ -361,7 +383,7 @@ class SOAPAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
         super(
             DocTypeName.SOAP_API,
             '/atlas.en-us.api.meta',
-            '/atlas.en-us.api.meta/api'
+            '/api'
         );
     }
     /**
@@ -381,7 +403,7 @@ class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceDocType {
         super(
             DocTypeName.SFDX_CLI,
             '/atlas.en-us.sfdx_cli_reference.meta',
-            '/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference'
+            '/sfdx_cli_reference'
         );
     }
     /**

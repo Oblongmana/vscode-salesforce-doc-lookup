@@ -85,7 +85,18 @@
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-current-word-search",
                 "title": "Salesforce Reference: Search for current word or selection"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Salesforce Reference Configuration",
+            "properties": {
+                "vscode-salesforce-doc-lookup.EXPERIMENTAL.useWebview": {
+                    "type": "boolean",
+                    "default": false,
+                    "markdownDescription": "EXPERIMENTAL: If set to `true`, results will be retrieved and rendered in a WebView inside VSCode."
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "yarn run compile",
@@ -97,6 +108,7 @@
     },
     "devDependencies": {
         "@types/glob": "^7.1.1",
+        "@types/jsdom": "^16.2.12",
         "@types/mocha": "^7.0.2",
         "@types/node": "^13.11.0",
         "@types/vscode": "^1.45.0",
@@ -109,6 +121,7 @@
         "vscode-test": "^1.3.0"
     },
     "dependencies": {
-        "got": "^11.3.0"
+        "got": "^11.3.0",
+        "jsdom": "^16.6.0"
     }
 }

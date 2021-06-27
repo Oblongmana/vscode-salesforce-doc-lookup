@@ -2,13 +2,14 @@ import * as vscode from 'vscode';
 import { DocTypeName, SalesforceReferenceItem, SalesforceReferenceDocTypes } from './SalesforceReference';
 import { getDocCommandQuickPickItems } from './PackageIntrospection';
 import { SalesforceReferenceOutputChannel } from './Logging';
+import { showDocInWebView } from './SalesforceDocWebView';
+import { getConfig } from './Config';
 
 //Minor design note - everything that can throw exceptions will generally be expected not to handle them unless it can recover.
 // Otherwise error handling is left to these top-level commands, which should give the user appropriate feedback
 const EXCEPTION_OFFLINE_ERROR = 'getaddrinfo ENOTFOUND developer.salesforce.com';
 const HUMAN_MESSAGE_OFFLINE_ERROR = 'You appear to be offline or unable to reach developer.salesforce.com. Please check your connection and try again.';
 const HUMAN_MESSAGE_UNEXPECTED_ERROR = 'Unexpected error while trying to access Salesforce doc. Please log an issue and repro steps at https://github.com/Oblongmana/vscode-salesforce-doc-lookup/issues';
-
 
 export async function openSalesforceDocQuickPick(context: vscode.ExtensionContext, docType: DocTypeName, prefillValue?: string) {
     try {
@@ -21,7 +22,14 @@ export async function openSalesforceDocQuickPick(context: vscode.ExtensionContex
         }
         docTypeQuickPick.onDidAccept(() => {
             const selectedReferenceItem = docTypeQuickPick.activeItems[0];
-            vscode.env.openExternal(vscode.Uri.parse(SalesforceReferenceDocTypes[docType].humanDocURL(selectedReferenceItem!)));
+            if (getConfig()?.EXPERIMENTAL?.useWebview) {
+                const rawDocURL = SalesforceReferenceDocTypes[docType].rawDocURL(selectedReferenceItem!);
+                const fragment = SalesforceReferenceDocTypes[docType].getFragment(selectedReferenceItem!);
+                showDocInWebView(context, vscode.Uri.parse(rawDocURL), fragment);
+            } else {
+                vscode.env.openExternal(vscode.Uri.parse(SalesforceReferenceDocTypes[docType].humanDocURL(selectedReferenceItem!)));
+            }
+
             docTypeQuickPick.hide();
             docTypeQuickPick.dispose();
         });
