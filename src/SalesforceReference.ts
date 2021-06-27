@@ -1,7 +1,6 @@
 import * as vscode from 'vscode';
 import got from 'got';
 import { SalesforceReferenceOutputChannel } from './Logging';
-// import { SalesforceReferenceOutputChannel } from './Logging';
 
 const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
 const SF_TOC_PATH = '/get_document';
@@ -231,7 +230,7 @@ abstract class SalesforceReferenceDocType {
      */
     public getFragment(selectedReferenceItem: SalesforceReferenceItem): string {
         //Extract the fragment ONLY from the href - some hrefs may include fragments, which are not used for raw doc (they're only used for jumping to anchors in human doc)
-        SalesforceReferenceOutputChannel.appendLine(vscode.Uri.parse(selectedReferenceItem.href).fragment);
+        // SalesforceReferenceOutputChannel.appendLine(vscode.Uri.parse(selectedReferenceItem.href).fragment);
         return vscode.Uri.parse(selectedReferenceItem.href).fragment;
     }
 }
@@ -240,8 +239,8 @@ class ApexSalesforceReferenceDocType extends SalesforceReferenceDocType {
     constructor() {
         super(
             DocTypeName.APEX,
-            '/atlas.en-us.apexcode.meta',
-            '/apexcode'
+            '/atlas.en-us.apexref.meta',
+            '/apexref'
         );
     }
     /**
@@ -252,7 +251,7 @@ class ApexSalesforceReferenceDocType extends SalesforceReferenceDocType {
      */
     protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
         const apexDocToc: any = await this.getDocTOC();
-        return apexDocToc.toc[0].children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'apex_reference');
+        return apexDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'apex_ref_guide');
     }
 }
 
