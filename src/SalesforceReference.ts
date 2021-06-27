@@ -1,19 +1,21 @@
 import * as vscode from 'vscode';
 import got from 'got';
+// import { SalesforceReferenceOutputChannel } from './Logging';
 
 const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
 const SF_TOC_PATH = '/get_document';
 const SF_RAW_DOC_PATH = '/get_document_content';
 
 export enum DocTypeName {
-    APEX              = 'APEX',
-    VISUALFORCE       = 'VISUALFORCE',
-    LIGHTNING_CONSOLE = 'LIGHTNING_CONSOLE',
-    CLASSIC_CONSOLE   = 'CLASSIC_CONSOLE',
-    METADATA          = 'METADATA',
-    OBJECT_REFERENCE  = 'OBJECT_REFERENCE',
-    REST_API          = 'REST_API',
-    SOAP_API          = 'SOAP_API'
+    APEX                = 'APEX',
+    VISUALFORCE         = 'VISUALFORCE',
+    LIGHTNING_CONSOLE   = 'LIGHTNING_CONSOLE',
+    CLASSIC_CONSOLE     = 'CLASSIC_CONSOLE',
+    METADATA            = 'METADATA',
+    OBJECT_REFERENCE    = 'OBJECT_REFERENCE',
+    REST_API            = 'REST_API',
+    SOAP_API            = 'SOAP_API',
+    SFDX_CLI            = 'SFDX_CLI',
 }
 
 export function docTypeNameTitleCase(docTypeName: DocTypeName) {
@@ -134,6 +136,7 @@ abstract class SalesforceReferenceDocType {
             console.log(`Cache miss for ${this.docTypeName} Salesforce Reference entries. Retrieving from web`);
             vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeNameTitleCase(this.docTypeName)} Reference Index...`,'OK');
             const rootDocumentationNode: any = await this.getRootDocumentationNode();
+            // SalesforceReferenceOutputChannel.appendLine('rootDocumentationNode: ' + rootDocumentationNode);
             referenceItems = this.convertDocNodeToSalesforceReferenceItems(rootDocumentationNode, '$(home)');
             context.globalState.update(this.docTypeName, referenceItems);
         }
@@ -158,6 +161,7 @@ abstract class SalesforceReferenceDocType {
      */
     private convertDocNodeToSalesforceReferenceItems(documentationNode: SalesforceTOC.DocumentationNode, breadcrumbString: string): SalesforceReferenceItem[] {
         const referenceItems: SalesforceReferenceItem[] = [];
+        // SalesforceReferenceOutputChannel.appendLine('documentationNode: ' + documentationNode);
         //Convert this node into a SalesforceReferenceItem, after run-time checking it has appropriate properties
         if (documentationNode.hasOwnProperty('a_attr')) {
             referenceItems.push(new SalesforceReferenceItem(documentationNode, breadcrumbString));
@@ -181,7 +185,7 @@ abstract class SalesforceReferenceDocType {
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails
      */
-    protected abstract async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode>;
+    protected abstract getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode>;
 
     /**
      * Get the Table of Contents used by tools to get document structure for this documentation type
@@ -372,6 +376,25 @@ class SOAPAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
     }
 }
 
+class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceDocType {
+    constructor() {
+        super(
+            DocTypeName.SFDX_CLI,
+            '/atlas.en-us.sfdx_cli_reference.meta',
+            '/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference'
+        );
+    }
+    /**
+     * Get the root documentation node for this Documentation Type - its children
+     * will be the actual documentation we want to obtain
+     *
+     * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
+     */
+    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+        const docToc: any = await this.getDocTOC();
+        return docToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'cli_reference');
+    }
+}
 
 export const SalesforceReferenceDocTypes: Record<DocTypeName, SalesforceReferenceDocType> = {
     APEX:               new ApexSalesforceReferenceDocType(),
@@ -382,4 +405,5 @@ export const SalesforceReferenceDocTypes: Record<DocTypeName, SalesforceReferenc
     OBJECT_REFERENCE:   new ObjectReferenceSalesforceReferenceDocType(),
     REST_API:           new RestAPISalesforceReferenceDocType(),
     SOAP_API:           new SOAPAPISalesforceReferenceDocType(),
+    SFDX_CLI:           new SFDXCLISalesforceReferenceDocType(),
 };

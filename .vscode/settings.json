@@ -20,6 +20,7 @@
     ],
     "cSpell.ignoreWords": [
         "apexcode",
+        "casescaveats",
         "classicconsole",
         "compref",
         "doc",
@@ -31,6 +32,7 @@
         "recased",
         "sfconsole",
         "sfconsole reference disposable",
+        "sfdxcli",
         "sforce",
         "soapapi",
         "svccons",

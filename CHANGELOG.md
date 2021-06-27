@@ -15,6 +15,7 @@ Notable changes to the Salesforce Reference Extension.
  - New command: `Salesforce Reference: Object Reference`
  - New command: `Salesforce Reference: SOAP API`
  - New command: `Salesforce Reference: REST API`
+ - New command: `Salesforce Reference: SFDX CLI`
 
 ## 1.0.0 - Initial Release
 ### Added

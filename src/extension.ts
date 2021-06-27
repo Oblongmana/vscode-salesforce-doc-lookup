@@ -37,6 +37,10 @@ export async function activate(context: vscode.ExtensionContext) {
         openSalesforceDocQuickPick(context, DocTypeName.SOAP_API, prefillValue);
     });
 
+    let sfdxCliReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.SFDX_CLI}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.SFDX_CLI, prefillValue);
+    });
+
     let invalidateCacheDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${UtilityCommands.INVALIDATE_CACHE}`, async () => {
         invalidateSalesforceReferenceCache(context);
     });
@@ -56,6 +60,7 @@ export async function activate(context: vscode.ExtensionContext) {
         currentWordSearchDisposable,
         restApiReferenceDisposable,
         soapApiReferenceDisposable,
+        sfdxCliReferenceDisposable,
     );
 }
 

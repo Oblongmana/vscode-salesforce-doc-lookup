@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { DocTypeName, SalesforceReferenceItem, SalesforceReferenceDocTypes } from './SalesforceReference';
 import { getDocCommandQuickPickItems } from './PackageIntrospection';
+import { SalesforceReferenceOutputChannel } from './Logging';
 
 //Minor design note - everything that can throw exceptions will generally be expected not to handle them unless it can recover.
 // Otherwise error handling is left to these top-level commands, which should give the user appropriate feedback
@@ -28,8 +29,10 @@ export async function openSalesforceDocQuickPick(context: vscode.ExtensionContex
         docTypeQuickPick.show();
     } catch (error) {
         if (error.message.includes(EXCEPTION_OFFLINE_ERROR)) {
+            SalesforceReferenceOutputChannel.appendLine('Offline Error: ' + error + error.stack);
             vscode.window.showErrorMessage(HUMAN_MESSAGE_OFFLINE_ERROR,'OK');
         } else {
+            SalesforceReferenceOutputChannel.appendLine('Unexpected Error: ' + error + error.stack);
             vscode.window.showErrorMessage(HUMAN_MESSAGE_UNEXPECTED_ERROR,'OK');
         }
     }
@@ -61,8 +64,10 @@ export function openCurrentWordSearchQuickPick(context: vscode.ExtensionContext,
         }
     } catch (error) {
         if (error.message.includes(EXCEPTION_OFFLINE_ERROR)) {
+            SalesforceReferenceOutputChannel.appendLine('Offline Error: ' + error + error.stack);
             vscode.window.showErrorMessage(HUMAN_MESSAGE_OFFLINE_ERROR,'OK');
         } else {
+            SalesforceReferenceOutputChannel.appendLine('Unexpected Error: ' + error + error.stack);
             vscode.window.showErrorMessage(HUMAN_MESSAGE_UNEXPECTED_ERROR,'OK');
         }
     }
