@@ -36,7 +36,7 @@ export async function showDocInWebView(context: vscode.ExtensionContext, docUri:
 
 async function populateWebView(docUri: vscode.Uri, fragment?: string) {
     currentSFDocPanel!.webview.html = getLoadingWebviewContent();
-    currentSFDocPanel!.webview.html = await getWebviewContent(docUri, fragment);
+    currentSFDocPanel!.webview.html = await getWebviewContent(docUri);
     //Disabling rule, so we can check for both null and undefined
     // eslint-disable-next-line eqeqeq
     if (fragment != null) {
@@ -66,7 +66,7 @@ function getLoadingWebviewContent() {
             </html>`;
 }
 
-async function getWebviewContent(docUri: vscode.Urig) {
+async function getWebviewContent(docUri: vscode.Uri) {
     const docContent: string = await getSFDocContent(docUri);
 
     //Get a year for the Copyright notice
