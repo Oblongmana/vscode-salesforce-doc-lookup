@@ -27,7 +27,7 @@ const UtilityCommandsValues: string[] = Object.values(UtilityCommands);
 
 //Introspected Package Values
 
-const PackageJSON: any = vscode.extensions.getExtension(`${PUBLISHER}.${EXTENSION_NAME}`)?.packageJSON;
+export const PackageJSON: any = vscode.extensions.getExtension(`${PUBLISHER}.${EXTENSION_NAME}`)?.packageJSON;
 
 interface PackageJSONCommand {
     command: string;

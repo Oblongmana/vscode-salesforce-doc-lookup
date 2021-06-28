@@ -111,6 +111,7 @@
         "@types/jsdom": "^16.2.12",
         "@types/mocha": "^7.0.2",
         "@types/node": "^13.11.0",
+        "@types/semver": "^7.3.6",
         "@types/vscode": "^1.45.0",
         "@typescript-eslint/eslint-plugin": "^2.30.0",
         "@typescript-eslint/parser": "^2.30.0",
@@ -122,6 +123,7 @@
     },
     "dependencies": {
         "got": "^11.3.0",
-        "jsdom": "^16.6.0"
+        "jsdom": "^16.6.0",
+        "semver": "^7.3.5"
     }
 }

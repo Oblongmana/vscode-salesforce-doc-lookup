@@ -2,9 +2,45 @@ import * as vscode from 'vscode';
 import { DocTypeName } from './SalesforceReference';
 import { EXTENSION_NAME, DocCommands, UtilityCommands } from './PackageIntrospection';
 import { openSalesforceDocQuickPick, invalidateSalesforceReferenceCache, openCurrentWordSearchQuickPick } from './SalesforceReferenceCommands';
+import { SalesforceReferenceOutputChannel } from './Logging';
+import { versionGlobalStateKey } from './Config';
+import { PackageJSON } from './PackageIntrospection';
+import * as semver from "semver";
+
 
 export async function activate(context: vscode.ExtensionContext) {
+    // SalesforceReferenceOutputChannel.appendLine('Activate function running');
 
+    // Handle any upgrade-specific action
+    let existingVersionNumber: string | undefined = context.globalState.get(versionGlobalStateKey);
+    let currentVersionNumber: string = PackageJSON.version;
+    let isVersionChanging: boolean = false;
+    if (existingVersionNumber === undefined) {
+        SalesforceReferenceOutputChannel.appendLine(`No existing extension version, current version is ${currentVersionNumber}`);
+        //Store the current version in our global state
+        context.globalState.update(versionGlobalStateKey, currentVersionNumber);
+        isVersionChanging = true;
+    } else if (existingVersionNumber !== currentVersionNumber) {
+        SalesforceReferenceOutputChannel.appendLine(`Version changing from ${existingVersionNumber} to ${currentVersionNumber}`);
+        //check if we're upgrading, and update the stored version.
+        //  Technically could also be a downgrade. Distinction doesn't matter at the moment,
+        //  but we're putting this here just to be explicit (instead of combinined with the `undefined` case)
+        context.globalState.update(versionGlobalStateKey, currentVersionNumber);
+        isVersionChanging = true;
+    }
+
+
+    if (isVersionChanging) {
+        //Any specific actions we need to take - e.g. clearing cache due to breaking changes to the SF doc, or breaking changes to our extension
+        let normalisedExistingVersionNumber = existingVersionNumber || "0.0.0";
+        if (semver.gt(currentVersionNumber, normalisedExistingVersionNumber)) {
+            //Upgrading
+        } if (semver.lt(currentVersionNumber, normalisedExistingVersionNumber)) {
+            //Downgrading
+        }
+    }
+
+    //Build all of our User-facing commands
     let apexReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.APEX}`, async (prefillValue?: string) => {
         openSalesforceDocQuickPick(context, DocTypeName.APEX, prefillValue);
     });
