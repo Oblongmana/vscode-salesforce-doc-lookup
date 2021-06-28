@@ -38,6 +38,15 @@ export async function activate(context: vscode.ExtensionContext) {
         } if (semver.lt(currentVersionNumber, normalisedExistingVersionNumber)) {
             //Downgrading
         }
+
+        //SF changed a few things between the 1.0.1 and 1.1.0 releases of this plugin
+        //   Anything before the 1.1.0 release needs the apex ref cache invalidated as address changed
+        //   Anything before the 1.1.0 release needs the Lightning console ref cache invalidated as toc was restructured
+        if (semver.lte(normalisedExistingVersionNumber, '1.1.0')) {
+            SalesforceReferenceOutputChannel.appendLine(`Extension version changed. Detected Apex Cache out of date after Salesforce relocated Reference doc. Force-clearing Apex Reference cache.`);
+            context.globalState.update(DocTypeName.APEX, undefined);
+            context.globalState.update(DocTypeName.LIGHTNING_CONSOLE, undefined);
+        }
     }
 
     //Build all of our User-facing commands
