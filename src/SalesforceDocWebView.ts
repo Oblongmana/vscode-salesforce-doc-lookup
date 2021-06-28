@@ -7,7 +7,7 @@ import { SalesforceReferenceOutputChannel } from './Logging';
 let currentSFDocPanel: vscode.WebviewPanel | undefined = undefined;
 
 export async function showDocInWebView(context: vscode.ExtensionContext, docUri: vscode.Uri, fragment?: string) {
-    SalesforceReferenceOutputChannel.appendLine('hmm' + docUri.toString());
+    // SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri' + docUri.toString());
     if (currentSFDocPanel) {
         currentSFDocPanel.reveal(vscode.ViewColumn.One);
         populateWebView(docUri, fragment);
@@ -40,7 +40,7 @@ async function populateWebView(docUri: vscode.Uri, fragment?: string) {
     //Disabling rule, so we can check for both null and undefined
     // eslint-disable-next-line eqeqeq
     if (fragment != null) {
-        SalesforceReferenceOutputChannel.appendLine('attempting to nav to fragment: ' + fragment);
+        // SalesforceReferenceOutputChannel.appendLine('attempting to nav to fragment: ' + fragment);
         currentSFDocPanel!.webview.postMessage(fragment);
     }
 }
