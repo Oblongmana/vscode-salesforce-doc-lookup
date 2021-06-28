@@ -1,7 +1,7 @@
 {
     "name": "vscode-salesforce-doc-lookup",
     "displayName": "Salesforce Reference",
-    "description": "Lookup Salesforce Dev Documentation from VSCode",
+    "description": "Lookup Salesforce Documentation quickly from VSCode",
     "publisher": "Oblongmana",
     "icon": "images/SalesforceReferenceIcon.png",
     "galleryBanner": {
@@ -24,6 +24,12 @@
     },
     "categories": [
         "Other"
+    ],
+    "keywords": [
+        "Salesforce",
+        "Documentation",
+        "Apex",
+        "SFDX"
     ],
     "activationEvents": [
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex",
