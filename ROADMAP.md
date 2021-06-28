@@ -25,6 +25,8 @@ In rough priority order
 - [X] Add REST API DocType (https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest)
 - [X] Add SOAP API DocType (https://developer.salesforce.com/docs/atlas.en-us.api.meta/api)
 - [X] Add SFDX CLI Command Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference)
+- [X] Wacky ideas: Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser.
+- [ ] Improve WebView approach, especially noting it's currently locked to ver 232
 - [ ] Add Field Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef)
 - [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing, but also some backend and UX issues
 - [ ] Examine possibility of alternative languages - see the notes in NOTES.md. Oriented towards a different end, but could likely be used for allowing user to switch to JP mode
@@ -32,7 +34,7 @@ In rough priority order
 - [ ] Take a pass over the code to reduce `: any` usage
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 - [ ] Write some tests 😱
-- [ ] Wacky ideas: Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser. Also examine the feasibility of some sort of offline mode
+- [ ] Wacky ideas: Also examine the feasibility of some sort of offline mode
 
 ## Removed from roadmap
 - [ ] Examine feasibility of caching indices in the background on first extension load. Will look at further after release if not easy

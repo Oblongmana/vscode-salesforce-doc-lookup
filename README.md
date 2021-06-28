@@ -1,6 +1,6 @@
 # Salesforce Reference Extension for VSCode
 
-**Search Salesforce Developer Documentation entries in VSCode, and open them in your browser.**
+**Search Salesforce Developer Documentation entries in VSCode, and open them in your browser (or with experimental features: in VSCode itself!).**
 
 _**Please Note**: this is a community-made plugin, and is not affiliated with Salesforce. If the extension breaks,
 please open a github issue to let me know, there's a chance Salesforce may change its doc approach, necessitating
@@ -14,11 +14,13 @@ A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/su
 - [Current Features](#current-features)
   - [Choose a documentation type, and type in your search](#choose-a-documentation-type-and-type-in-your-search)
   - [Search dev documentation for a word or selection in your editor](#search-dev-documentation-for-a-word-or-selection-in-your-editor)
+- [Experimental Features](#experimental-features)
+  - [EXPERIMENTAL: Load Documentation in VSCode](#experimental-load-documentation-in-vscode)
 - [Installing](#installing)
   - [In VSCode or the Extension Marketplace](#in-vscode-or-the-extension-marketplace)
   - [Manually (with use cases/caveats)](#manually-with-use-casescaveats)
 - [Known Issues](#known-issues)
-  - [Adblockers and loading links - NOFIX:](#adblockers-and-loading-links---nofix)
+  - [Adblockers and loading links in Browser - NOFIX:](#adblockers-and-loading-links-in-browser---nofix)
 - [Notable Differences to the original Sublime Text 3 version](#notable-differences-to-the-original-sublime-text-3-version)
 - [Release Notes](#release-notes)
 - [Roadmap](#roadmap)
@@ -55,6 +57,13 @@ With your cursor over a word in your editor, or with something in your editor se
 ![Using the command - "Salesforce Reference: Search for current word or selection"](images/CursorWordLookup.gif)
 
 
+## Experimental Features
+
+### EXPERIMENTAL: Load Documentation in VSCode
+Load documentation directly in VSCode. Enable the "Use WebView" option in your Settings to use this. Please note this is in active development, and is not fully supported. If you encounter bugs, please post an issue on github.
+
+![Using the command "Salesforce Reference: SFDX CLI" to access documentation in a VSCode Webview](images/WebviewDoc.gif)
+
 ## Installing
 
 ### In VSCode or the Extension Marketplace
@@ -82,7 +91,7 @@ Alternatively, you can build it yourself, but instructions for that are outside 
 
 ## Known Issues
 
-### Adblockers and loading links - NOFIX:
+### Adblockers and loading links in Browser - NOFIX:
 Because Salesforce's Doc website is an Angular app that dynamically loads content into the page after the page itself has loaded, anchor links
 appear to be managed in such a way that the Angular app (rather than the browser) handles the scrolling to the requested item.
 e.g. https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_string.htm#apex_System_String_substring - the

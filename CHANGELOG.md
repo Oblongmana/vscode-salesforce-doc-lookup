@@ -3,6 +3,7 @@
 Notable changes to the Salesforce Reference Extension.
 
 ## Table of Contents
+- [1.1.0](#110)
 - [Unpublished](#unpublished)
 - [1.0.0 - Initial Release](#100---initial-release)
 - [0.4.0 - Beta](#040---beta)
@@ -10,13 +11,18 @@ Notable changes to the Salesforce Reference Extension.
 - [0.2.0 - Beta](#020---beta)
 - [0.1.1 - Beta](#011---beta)
 
-## Unpublished
+## 1.1.0
 ### Added
  - New command: `Salesforce Reference: Object Reference`
  - New command: `Salesforce Reference: SOAP API`
  - New command: `Salesforce Reference: REST API`
  - New command: `Salesforce Reference: SFDX CLI`
-
+ - EXPERIMENTAL: Load documentation directly in VSCode. Enable the "Use WebView" option in your Settings to use this. Please note this is in active development, and is not fully supported. If you encounter bugs, please post an issue on github.
+### Changed
+ - Upgrading to or past 1.1.0 will force a refresh of the Apex and Lightning Console cached links - Salesforce has updated the url and structure of these
+ - Added version change detection
+## Unpublished
+ - All up-to-date
 ## 1.0.0 - Initial Release
 ### Added
  - New command: `Salesforce Reference: Apex`
