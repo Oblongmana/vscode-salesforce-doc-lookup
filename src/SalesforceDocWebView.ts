@@ -1,5 +1,5 @@
 import got from 'got/dist/source';
-import { JSDOM } from 'jsdom';
+// import { JSDOM } from 'jsdom';
 import * as vscode from 'vscode';
 import { SalesforceReferenceOutputChannel } from './Logging';
 
@@ -7,7 +7,7 @@ import { SalesforceReferenceOutputChannel } from './Logging';
 let currentSFDocPanel: vscode.WebviewPanel | undefined = undefined;
 
 export async function showDocInWebView(context: vscode.ExtensionContext, docUri: vscode.Uri, fragment?: string) {
-    // SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri' + docUri.toString());
+    SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri: ' + docUri.toString());
     if (currentSFDocPanel) {
         currentSFDocPanel.reveal(vscode.ViewColumn.One);
         populateWebView(docUri, fragment);
@@ -40,7 +40,7 @@ async function populateWebView(docUri: vscode.Uri, fragment?: string) {
     //Disabling rule, so we can check for both null and undefined
     // eslint-disable-next-line eqeqeq
     if (fragment != null) {
-        // SalesforceReferenceOutputChannel.appendLine('attempting to nav to fragment: ' + fragment);
+        SalesforceReferenceOutputChannel.appendLine('attempting to nav to fragment: ' + fragment);
         currentSFDocPanel!.webview.postMessage(fragment);
     }
 }
@@ -106,17 +106,25 @@ function countNewlines(theString: string): number {
 async function getSFDocContent(docUri: vscode.Uri) {
     //TODO: this is extremely experimental, see Notes in SalesforceReferenceDocType.rawDocURL for future path
     //  review security constraints, poss including CSP stuff on the webview itself
-    let body: any = await got(docUri.toString()).json();
+    SalesforceReferenceOutputChannel.appendLine('getSFDocContent: about to call out arg');
+    // let body: any = await got(docUri.toString()).json();
+    let body: any = await got('https://developer.salesforce.com/docs/get_document_content/sfdx_cli_reference/cli_reference_auth_jwt.htm/en-us/232.0');
+    SalesforceReferenceOutputChannel.appendLine('getSFDocContent: got something' + body.toString());
+    // let body: any = await got('https://developer.salesforce.com/docs/get_document_content/sfdx_cli_reference/cli_reference_auth_jwt.htm/en-us/232.0').json();
+
+
+    SalesforceReferenceOutputChannel.appendLine('getSFDocContent: called out');
 
     // Salesforce includes "seealso" links, which usually go to internal anchors. Rewrite them to work for us
     //  todo: this doesn't handle links that don't go to in-page anchors - such as "Namespace" pages in the doc
     //   - possibilities include using Command URIs to run an appropriate command to load the right doc? https://code.visualstudio.com/api/extension-guides/command#command-uris
-    const docContentDOM = new JSDOM(body.content);
+    /*const docContentDOM = new JSDOM(body.content);
     const seeAlsoLinks: NodeListOf<Element> = docContentDOM.window.document.querySelectorAll('#sfdc\\:seealso a');
     seeAlsoLinks.forEach((seeAlsoLink: Element) => {
         //Extract the fragment from the href, and set the link to ONLY be the fragment, so it works in our webview
         seeAlsoLink.setAttribute('href', '#' + vscode.Uri.parse(seeAlsoLink.getAttribute('href')!).fragment);
     });
 
-    return docContentDOM.window.document.body.innerHTML;
+    return docContentDOM.window.document.body.innerHTML;*/
+    return '';
 }
