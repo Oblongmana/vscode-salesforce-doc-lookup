@@ -291,8 +291,9 @@ class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceDocT
      */
     protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
         const lightningConsoleDocToc: any = await this.getDocTOC();
-        const lightningconsoleTopLevelToc: any = lightningConsoleDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
-        return lightningconsoleTopLevelToc.children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
+        const lightningconsoleTopLevelToc: any = lightningConsoleDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_lex_getting_started');
+        const lightningconsoleJSAPILevelToc: any = lightningconsoleTopLevelToc.children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
+        return lightningconsoleJSAPILevelToc.children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
     }
 }
 
