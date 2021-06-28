@@ -60,7 +60,6 @@ With your cursor over a word in your editor, or with something in your editor se
 ## Experimental Features
 
 ### EXPERIMENTAL: Load Documentation in VSCode
-TEMPORARILY DISABLED DUE TO ISSUES WITH LIBRARIES USED.
 Load documentation directly in VSCode. Enable the "Use WebView" option in your Settings to use this. Please note this is in active development, and is not fully supported. If you encounter bugs, please post an issue on github.
 
 ![Using the command "Salesforce Reference: SFDX CLI" to access documentation in a VSCode Webview](images/WebviewDoc.gif)
