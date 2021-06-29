@@ -6,7 +6,9 @@ _**Please Note**: this is a community-made plugin, and is not affiliated with Sa
 please open a github issue to let me know, there's a chance Salesforce may change its doc approach, necessitating
 an update to the plugin_
 
-Repository Home: (https://github.com/Oblongmana/vscode-salesforce-doc-lookup)
+Repository Home: https://github.com/Oblongmana/vscode-salesforce-doc-lookup
+
+VSCode Marketplace Install: https://marketplace.visualstudio.com/items?itemName=Oblongmana.vscode-salesforce-doc-lookup
 
 A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/sublime-salesforce-reference)
 
