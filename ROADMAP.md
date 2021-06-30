@@ -27,9 +27,11 @@ In rough priority order
 - [X] Add SFDX CLI Command Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference)
 - [X] Wacky ideas: Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser.
 - [ ] Improve WebView approach, especially noting it's currently locked to ver 232
-- [ ] Add Field Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef)
-- [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing, but also some backend and UX issues
 - [ ] Examine possibility of alternative languages - see the notes in NOTES.md. Oriented towards a different end, but could likely be used for allowing user to switch to JP mode
+- [ ] Is there an index of the Atlases? E.g. a further ToC file, maybe on a Doc home page? That could possibly simplify identifying future doc candidates and possible gaps
+- [ ] Examine current state for each doc type: what's available as search options, vs what's viewable in SF. May raise questions of what non-technical doc to expose in this extension?
+- [ ] Add Field Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.sfFieldRef.meta/sfFieldRef)
+- [ ] Implement ALL DOC searching - combine all the things together. Will be extremely reliant on caching existing, but also some backend and UX issues. Reasonable chance this is a non-starter, esp as support for other doc types grows
 - [ ] Consider whether to expand into some of the non-technical documentation
 - [ ] Take a pass over the code to reduce `: any` usage
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
