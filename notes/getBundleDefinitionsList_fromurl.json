@@ -1,0 +1,2590 @@
+{
+    "actions": [
+        {
+            "state": "SUCCESS",
+            "returnValue": {
+                "lightning:verticalNavigationOverflow": {
+                    "descriptorName": "lightning:verticalNavigationOverflow",
+                    "namespace": "lightning",
+                    "name": "verticalNavigationOverflow",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:path": {
+                    "descriptorName": "lightning:path",
+                    "namespace": "lightning",
+                    "name": "path",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:map": {
+                    "descriptorName": "lightning:map",
+                    "namespace": "lightning",
+                    "name": "map",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:tabClosed": {
+                    "descriptorName": "lightning:tabClosed",
+                    "namespace": "lightning",
+                    "name": "tabClosed",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "aura:renderIf": {
+                    "descriptorName": "aura:renderIf",
+                    "namespace": "aura",
+                    "name": "renderIf",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "forceChatter:fullFeed": {
+                    "descriptorName": "forceChatter:fullFeed",
+                    "namespace": "forceChatter",
+                    "name": "fullFeed",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-ui-apps-api": {
+                    "descriptorName": "lightning-ui-apps-api",
+                    "namespace": "lightning",
+                    "name": "ui-apps-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:menuItemSeparator": {
+                    "descriptorName": "ui:menuItemSeparator",
+                    "namespace": "ui",
+                    "name": "menuItemSeparator",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:button": {
+                    "descriptorName": "lightning:button",
+                    "namespace": "lightning",
+                    "name": "button",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:routeChange": {
+                    "descriptorName": "forceCommunity:routeChange",
+                    "namespace": "forceCommunity",
+                    "name": "routeChange",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin-base-chat-header": {
+                    "descriptorName": "lightningsnapin-base-chat-header",
+                    "namespace": "lightningsnapin",
+                    "name": "base-chat-header",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "wave:discoverResponse": {
+                    "descriptorName": "wave:discoverResponse",
+                    "namespace": "wave",
+                    "name": "discoverResponse",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "aura:valueRender": {
+                    "descriptorName": "aura:valueRender",
+                    "namespace": "aura",
+                    "name": "valueRender",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:navigation": {
+                    "descriptorName": "lightning:navigation",
+                    "namespace": "lightning",
+                    "name": "navigation",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:openFiles": {
+                    "descriptorName": "lightning:openFiles",
+                    "namespace": "lightning",
+                    "name": "openFiles",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:layout": {
+                    "descriptorName": "forceCommunity:layout",
+                    "namespace": "forceCommunity",
+                    "name": "layout",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:conversationNewMessage": {
+                    "descriptorName": "lightning:conversationNewMessage",
+                    "namespace": "lightning",
+                    "name": "conversationNewMessage",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:input": {
+                    "descriptorName": "lightning:input",
+                    "namespace": "lightning",
+                    "name": "input",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-helptext": {
+                    "descriptorName": "lightning-helptext",
+                    "namespace": "lightning",
+                    "name": "helptext",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:checkboxGroup": {
+                    "descriptorName": "lightning:checkboxGroup",
+                    "namespace": "lightning",
+                    "name": "checkboxGroup",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-name": {
+                    "descriptorName": "lightning-formatted-name",
+                    "namespace": "lightning",
+                    "name": "formatted-name",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-textarea": {
+                    "descriptorName": "lightning-textarea",
+                    "namespace": "lightning",
+                    "name": "textarea",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:spinner": {
+                    "descriptorName": "ui:spinner",
+                    "namespace": "ui",
+                    "name": "spinner",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-analytics-wave-api": {
+                    "descriptorName": "lightning-analytics-wave-api",
+                    "namespace": "lightning",
+                    "name": "analytics-wave-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:conversationToolkitAPI": {
+                    "descriptorName": "lightning:conversationToolkitAPI",
+                    "namespace": "lightning",
+                    "name": "conversationToolkitAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-vertical-navigation-item-badge": {
+                    "descriptorName": "lightning-vertical-navigation-item-badge",
+                    "namespace": "lightning",
+                    "name": "vertical-navigation-item-badge",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:carousel": {
+                    "descriptorName": "lightning:carousel",
+                    "namespace": "lightning",
+                    "name": "carousel",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin-base-chat-message": {
+                    "descriptorName": "lightningsnapin-base-chat-message",
+                    "namespace": "lightningsnapin",
+                    "name": "base-chat-message",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "aura:html": {
+                    "descriptorName": "aura:html",
+                    "namespace": "aura",
+                    "name": "html",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-card": {
+                    "descriptorName": "lightning-card",
+                    "namespace": "lightning",
+                    "name": "card",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:dualListbox": {
+                    "descriptorName": "lightning:dualListbox",
+                    "namespace": "lightning",
+                    "name": "dualListbox",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:progressStep": {
+                    "descriptorName": "lightning:progressStep",
+                    "namespace": "lightning",
+                    "name": "progressStep",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-input-rich-text": {
+                    "descriptorName": "lightning-input-rich-text",
+                    "namespace": "lightning",
+                    "name": "input-rich-text",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "force:showToast": {
+                    "descriptorName": "force:showToast",
+                    "namespace": "force",
+                    "name": "showToast",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:treeGrid": {
+                    "descriptorName": "lightning:treeGrid",
+                    "namespace": "lightning",
+                    "name": "treeGrid",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniChannelWorkAssigned": {
+                    "descriptorName": "lightning:omniChannelWorkAssigned",
+                    "namespace": "lightning",
+                    "name": "omniChannelWorkAssigned",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin:prechatUI": {
+                    "descriptorName": "lightningsnapin:prechatUI",
+                    "namespace": "lightningsnapin",
+                    "name": "prechatUI",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "force:navigateToList": {
+                    "descriptorName": "force:navigateToList",
+                    "namespace": "force",
+                    "name": "navigateToList",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:layoutItem": {
+                    "descriptorName": "lightning:layoutItem",
+                    "namespace": "lightning",
+                    "name": "layoutItem",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "wave:discover": {
+                    "descriptorName": "wave:discover",
+                    "namespace": "wave",
+                    "name": "discover",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-progress-bar": {
+                    "descriptorName": "lightning-progress-bar",
+                    "namespace": "lightning",
+                    "name": "progress-bar",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:notifications": {
+                    "descriptorName": "forceCommunity:notifications",
+                    "namespace": "forceCommunity",
+                    "name": "notifications",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:waiting": {
+                    "descriptorName": "aura:waiting",
+                    "namespace": "aura",
+                    "name": "waiting",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin:minimizedAPI": {
+                    "descriptorName": "lightningsnapin:minimizedAPI",
+                    "namespace": "lightningsnapin",
+                    "name": "minimizedAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:navigateToURL": {
+                    "descriptorName": "force:navigateToURL",
+                    "namespace": "force",
+                    "name": "navigateToURL",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:avatar": {
+                    "descriptorName": "lightning:avatar",
+                    "namespace": "lightning",
+                    "name": "avatar",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:navigateHome": {
+                    "descriptorName": "force:navigateHome",
+                    "namespace": "force",
+                    "name": "navigateHome",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-phone": {
+                    "descriptorName": "lightning-formatted-phone",
+                    "namespace": "lightning",
+                    "name": "formatted-phone",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin-base-prechat": {
+                    "descriptorName": "lightningsnapin-base-prechat",
+                    "namespace": "lightningsnapin",
+                    "name": "base-prechat",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-menu-item": {
+                    "descriptorName": "lightning-menu-item",
+                    "namespace": "lightning",
+                    "name": "menu-item",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:layout": {
+                    "descriptorName": "lightning:layout",
+                    "namespace": "lightning",
+                    "name": "layout",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:waveDashboard": {
+                    "descriptorName": "forceCommunity:waveDashboard",
+                    "namespace": "forceCommunity",
+                    "name": "waveDashboard",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-ui-object-info-api": {
+                    "descriptorName": "lightning-ui-object-info-api",
+                    "namespace": "lightning",
+                    "name": "ui-object-info-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:outputCheckbox": {
+                    "descriptorName": "ui:outputCheckbox",
+                    "namespace": "ui",
+                    "name": "outputCheckbox",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:utilityItem": {
+                    "descriptorName": "lightning:utilityItem",
+                    "namespace": "lightning",
+                    "name": "utilityItem",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-pill": {
+                    "descriptorName": "lightning-pill",
+                    "namespace": "lightning",
+                    "name": "pill",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-rich-text-toolbar-button": {
+                    "descriptorName": "lightning-rich-text-toolbar-button",
+                    "namespace": "lightning",
+                    "name": "rich-text-toolbar-button",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "aura:component": {
+                    "descriptorName": "aura:component",
+                    "namespace": "aura",
+                    "name": "component",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:actionMenuItem": {
+                    "descriptorName": "ui:actionMenuItem",
+                    "namespace": "ui",
+                    "name": "actionMenuItem",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:outputRichText": {
+                    "descriptorName": "ui:outputRichText",
+                    "namespace": "ui",
+                    "name": "outputRichText",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-button-icon": {
+                    "descriptorName": "lightning-button-icon",
+                    "namespace": "lightning",
+                    "name": "button-icon",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniToolkitAPI": {
+                    "descriptorName": "lightning:omniToolkitAPI",
+                    "namespace": "lightning",
+                    "name": "omniToolkitAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "wave:pageChange": {
+                    "descriptorName": "wave:pageChange",
+                    "namespace": "wave",
+                    "name": "pageChange",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "forceChatter:publisher": {
+                    "descriptorName": "forceChatter:publisher",
+                    "namespace": "forceChatter",
+                    "name": "publisher",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:tab": {
+                    "descriptorName": "lightning:tab",
+                    "namespace": "lightning",
+                    "name": "tab",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-progress-ring": {
+                    "descriptorName": "lightning-progress-ring",
+                    "namespace": "lightning",
+                    "name": "progress-ring",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:inputCheckbox": {
+                    "descriptorName": "ui:inputCheckbox",
+                    "namespace": "ui",
+                    "name": "inputCheckbox",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:inputCurrency": {
+                    "descriptorName": "ui:inputCurrency",
+                    "namespace": "ui",
+                    "name": "inputCurrency",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-service-cloud-voice-toolkit-api": {
+                    "descriptorName": "lightning-service-cloud-voice-toolkit-api",
+                    "namespace": "lightning",
+                    "name": "service-cloud-voice-toolkit-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:inputEmail": {
+                    "descriptorName": "ui:inputEmail",
+                    "namespace": "ui",
+                    "name": "inputEmail",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:verticalNavigationSection": {
+                    "descriptorName": "lightning:verticalNavigationSection",
+                    "namespace": "lightning",
+                    "name": "verticalNavigationSection",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:inputLocation": {
+                    "descriptorName": "lightning:inputLocation",
+                    "namespace": "lightning",
+                    "name": "inputLocation",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-carousel-image": {
+                    "descriptorName": "lightning-carousel-image",
+                    "namespace": "lightning",
+                    "name": "carousel-image",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:buttonIcon": {
+                    "descriptorName": "lightning:buttonIcon",
+                    "namespace": "lightning",
+                    "name": "buttonIcon",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-input-address": {
+                    "descriptorName": "lightning-input-address",
+                    "namespace": "lightning",
+                    "name": "input-address",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedAddress": {
+                    "descriptorName": "lightning:formattedAddress",
+                    "namespace": "lightning",
+                    "name": "formattedAddress",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:homeTemplate": {
+                    "descriptorName": "lightning:homeTemplate",
+                    "namespace": "lightning",
+                    "name": "homeTemplate",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniChannelWorkDeclined": {
+                    "descriptorName": "lightning:omniChannelWorkDeclined",
+                    "namespace": "lightning",
+                    "name": "omniChannelWorkDeclined",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:tabUpdated": {
+                    "descriptorName": "lightning:tabUpdated",
+                    "namespace": "lightning",
+                    "name": "tabUpdated",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "force:navigateToObjectHome": {
+                    "descriptorName": "force:navigateToObjectHome",
+                    "namespace": "force",
+                    "name": "navigateToObjectHome",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:badge": {
+                    "descriptorName": "lightning:badge",
+                    "namespace": "lightning",
+                    "name": "badge",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin:prechatAPI": {
+                    "descriptorName": "lightningsnapin:prechatAPI",
+                    "namespace": "lightningsnapin",
+                    "name": "prechatAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:outputDateTime": {
+                    "descriptorName": "ui:outputDateTime",
+                    "namespace": "ui",
+                    "name": "outputDateTime",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:inputNumber": {
+                    "descriptorName": "ui:inputNumber",
+                    "namespace": "ui",
+                    "name": "inputNumber",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-date-time": {
+                    "descriptorName": "lightning-formatted-date-time",
+                    "namespace": "lightning",
+                    "name": "formatted-date-time",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-checkbox-group": {
+                    "descriptorName": "lightning-checkbox-group",
+                    "namespace": "lightning",
+                    "name": "checkbox-group",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:analyticsInteractionGtag": {
+                    "descriptorName": "forceCommunity:analyticsInteractionGtag",
+                    "namespace": "forceCommunity",
+                    "name": "analyticsInteractionGtag",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:verticalNavigationItemBadge": {
+                    "descriptorName": "lightning:verticalNavigationItemBadge",
+                    "namespace": "lightning",
+                    "name": "verticalNavigationItemBadge",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:profileMenuInterface": {
+                    "descriptorName": "forceCommunity:profileMenuInterface",
+                    "namespace": "forceCommunity",
+                    "name": "profileMenuInterface",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-accordion-section": {
+                    "descriptorName": "lightning-accordion-section",
+                    "namespace": "lightning",
+                    "name": "accordion-section",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "clients:hasEventContext": {
+                    "descriptorName": "clients:hasEventContext",
+                    "namespace": "clients",
+                    "name": "hasEventContext",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "ui:button": {
+                    "descriptorName": "ui:button",
+                    "namespace": "ui",
+                    "name": "button",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-vertical-navigation-item-icon": {
+                    "descriptorName": "lightning-vertical-navigation-item-icon",
+                    "namespace": "lightning",
+                    "name": "vertical-navigation-item-icon",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:searchInterface": {
+                    "descriptorName": "forceCommunity:searchInterface",
+                    "namespace": "forceCommunity",
+                    "name": "searchInterface",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-radio-group": {
+                    "descriptorName": "lightning-radio-group",
+                    "namespace": "lightning",
+                    "name": "radio-group",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:inputSecret": {
+                    "descriptorName": "ui:inputSecret",
+                    "namespace": "ui",
+                    "name": "inputSecret",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:themeLayout": {
+                    "descriptorName": "forceCommunity:themeLayout",
+                    "namespace": "forceCommunity",
+                    "name": "themeLayout",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:empApi": {
+                    "descriptorName": "lightning:empApi",
+                    "namespace": "lightning",
+                    "name": "empApi",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:outputNumber": {
+                    "descriptorName": "ui:outputNumber",
+                    "namespace": "ui",
+                    "name": "outputNumber",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:backgroundUtilityItem": {
+                    "descriptorName": "lightning:backgroundUtilityItem",
+                    "namespace": "lightning",
+                    "name": "backgroundUtilityItem",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-pill-container": {
+                    "descriptorName": "lightning-pill-container",
+                    "namespace": "lightning",
+                    "name": "pill-container",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:clickToDial": {
+                    "descriptorName": "lightning:clickToDial",
+                    "namespace": "lightning",
+                    "name": "clickToDial",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedTime": {
+                    "descriptorName": "lightning:formattedTime",
+                    "namespace": "lightning",
+                    "name": "formattedTime",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ltng:beforeLoadingResources": {
+                    "descriptorName": "ltng:beforeLoadingResources",
+                    "namespace": "ltng",
+                    "name": "beforeLoadingResources",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:navigationItemAPI": {
+                    "descriptorName": "lightning:navigationItemAPI",
+                    "namespace": "lightning",
+                    "name": "navigationItemAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:closeQuickAction": {
+                    "descriptorName": "force:closeQuickAction",
+                    "namespace": "force",
+                    "name": "closeQuickAction",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin:settingsAPI": {
+                    "descriptorName": "lightningsnapin:settingsAPI",
+                    "namespace": "lightningsnapin",
+                    "name": "settingsAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-badge": {
+                    "descriptorName": "lightning-badge",
+                    "namespace": "lightning",
+                    "name": "badge",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "aura:template": {
+                    "descriptorName": "aura:template",
+                    "namespace": "aura",
+                    "name": "template",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:componentEvent": {
+                    "descriptorName": "aura:componentEvent",
+                    "namespace": "aura",
+                    "name": "componentEvent",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "aura:methodCall": {
+                    "descriptorName": "aura:methodCall",
+                    "namespace": "aura",
+                    "name": "methodCall",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedPhone": {
+                    "descriptorName": "lightning:formattedPhone",
+                    "namespace": "lightning",
+                    "name": "formattedPhone",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:noAccess": {
+                    "descriptorName": "aura:noAccess",
+                    "namespace": "aura",
+                    "name": "noAccess",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:dynamicIcon": {
+                    "descriptorName": "lightning:dynamicIcon",
+                    "namespace": "lightning",
+                    "name": "dynamicIcon",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:accordionSection": {
+                    "descriptorName": "lightning:accordionSection",
+                    "namespace": "lightning",
+                    "name": "accordionSection",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:tree": {
+                    "descriptorName": "lightning:tree",
+                    "namespace": "lightning",
+                    "name": "tree",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:appHomeTemplate": {
+                    "descriptorName": "lightning:appHomeTemplate",
+                    "namespace": "lightning",
+                    "name": "appHomeTemplate",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "aura:doneRendering": {
+                    "descriptorName": "aura:doneRendering",
+                    "namespace": "aura",
+                    "name": "doneRendering",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightningcommunity:deflectionSignal": {
+                    "descriptorName": "lightningcommunity:deflectionSignal",
+                    "namespace": "lightningcommunity",
+                    "name": "deflectionSignal",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-cms-delivery-api": {
+                    "descriptorName": "lightning-cms-delivery-api",
+                    "namespace": "lightning",
+                    "name": "cms-delivery-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniChannelWorkClosed": {
+                    "descriptorName": "lightning:omniChannelWorkClosed",
+                    "namespace": "lightning",
+                    "name": "omniChannelWorkClosed",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:breadcrumbs": {
+                    "descriptorName": "lightning:breadcrumbs",
+                    "namespace": "lightning",
+                    "name": "breadcrumbs",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:message": {
+                    "descriptorName": "ui:message",
+                    "namespace": "ui",
+                    "name": "message",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:verticalNavigationItemIcon": {
+                    "descriptorName": "lightning:verticalNavigationItemIcon",
+                    "namespace": "lightning",
+                    "name": "verticalNavigationItemIcon",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-tab": {
+                    "descriptorName": "lightning-tab",
+                    "namespace": "lightning",
+                    "name": "tab",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniChannelLoginSuccess": {
+                    "descriptorName": "lightning:omniChannelLoginSuccess",
+                    "namespace": "lightning",
+                    "name": "omniChannelLoginSuccess",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-flow-support": {
+                    "descriptorName": "lightning-flow-support",
+                    "namespace": "lightning",
+                    "name": "flow-support",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:notificationsLibrary": {
+                    "descriptorName": "lightning:notificationsLibrary",
+                    "namespace": "lightning",
+                    "name": "notificationsLibrary",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:doneWaiting": {
+                    "descriptorName": "aura:doneWaiting",
+                    "namespace": "aura",
+                    "name": "doneWaiting",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-button-group": {
+                    "descriptorName": "lightning-button-group",
+                    "namespace": "lightning",
+                    "name": "button-group",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:recordViewForm": {
+                    "descriptorName": "lightning:recordViewForm",
+                    "namespace": "lightning",
+                    "name": "recordViewForm",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:inputName": {
+                    "descriptorName": "lightning:inputName",
+                    "namespace": "lightning",
+                    "name": "inputName",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:progressIndicator": {
+                    "descriptorName": "lightning:progressIndicator",
+                    "namespace": "lightning",
+                    "name": "progressIndicator",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-message-service": {
+                    "descriptorName": "lightning-message-service",
+                    "namespace": "lightning",
+                    "name": "message-service",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:actionOverride": {
+                    "descriptorName": "lightning:actionOverride",
+                    "namespace": "lightning",
+                    "name": "actionOverride",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-button-stateful": {
+                    "descriptorName": "lightning-button-stateful",
+                    "namespace": "lightning",
+                    "name": "button-stateful",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-dynamic-icon": {
+                    "descriptorName": "lightning-dynamic-icon",
+                    "namespace": "lightning",
+                    "name": "dynamic-icon",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-tabset": {
+                    "descriptorName": "lightning-tabset",
+                    "namespace": "lightning",
+                    "name": "tabset",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedName": {
+                    "descriptorName": "lightning:formattedName",
+                    "namespace": "lightning",
+                    "name": "formattedName",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:relativeDateTime": {
+                    "descriptorName": "lightning:relativeDateTime",
+                    "namespace": "lightning",
+                    "name": "relativeDateTime",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-breadcrumb": {
+                    "descriptorName": "lightning-breadcrumb",
+                    "namespace": "lightning",
+                    "name": "breadcrumb",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-breadcrumbs": {
+                    "descriptorName": "lightning-breadcrumbs",
+                    "namespace": "lightning",
+                    "name": "breadcrumbs",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "aura:systemError": {
+                    "descriptorName": "aura:systemError",
+                    "namespace": "aura",
+                    "name": "systemError",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:inputSelect": {
+                    "descriptorName": "ui:inputSelect",
+                    "namespace": "ui",
+                    "name": "inputSelect",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:buttonGroup": {
+                    "descriptorName": "lightning:buttonGroup",
+                    "namespace": "lightning",
+                    "name": "buttonGroup",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:outputField": {
+                    "descriptorName": "lightning:outputField",
+                    "namespace": "lightning",
+                    "name": "outputField",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-ui-lists-api": {
+                    "descriptorName": "lightning-ui-lists-api",
+                    "namespace": "lightning",
+                    "name": "ui-lists-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:menuSelect": {
+                    "descriptorName": "ui:menuSelect",
+                    "namespace": "ui",
+                    "name": "menuSelect",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-relative-date-time": {
+                    "descriptorName": "lightning-relative-date-time",
+                    "namespace": "lightning",
+                    "name": "relative-date-time",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ltng:sendMessage": {
+                    "descriptorName": "ltng:sendMessage",
+                    "namespace": "ltng",
+                    "name": "sendMessage",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-rich-text": {
+                    "descriptorName": "lightning-formatted-rich-text",
+                    "namespace": "lightning",
+                    "name": "formatted-rich-text",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-tree": {
+                    "descriptorName": "lightning-tree",
+                    "namespace": "lightning",
+                    "name": "tree",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:analyticsInteraction": {
+                    "descriptorName": "forceCommunity:analyticsInteraction",
+                    "namespace": "forceCommunity",
+                    "name": "analyticsInteraction",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:isUrlAddressable": {
+                    "descriptorName": "lightning:isUrlAddressable",
+                    "namespace": "lightning",
+                    "name": "isUrlAddressable",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:tabset": {
+                    "descriptorName": "lightning:tabset",
+                    "namespace": "lightning",
+                    "name": "tabset",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:picklistPath": {
+                    "descriptorName": "lightning:picklistPath",
+                    "namespace": "lightning",
+                    "name": "picklistPath",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-file-upload": {
+                    "descriptorName": "lightning-file-upload",
+                    "namespace": "lightning",
+                    "name": "file-upload",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "force:recordView": {
+                    "descriptorName": "force:recordView",
+                    "namespace": "force",
+                    "name": "recordView",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-time": {
+                    "descriptorName": "lightning-formatted-time",
+                    "namespace": "lightning",
+                    "name": "formatted-time",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniChannelWorkloadChanged": {
+                    "descriptorName": "lightning:omniChannelWorkloadChanged",
+                    "namespace": "lightning",
+                    "name": "omniChannelWorkloadChanged",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:progressBar": {
+                    "descriptorName": "lightning:progressBar",
+                    "namespace": "lightning",
+                    "name": "progressBar",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:inputField": {
+                    "descriptorName": "force:inputField",
+                    "namespace": "force",
+                    "name": "inputField",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:menuList": {
+                    "descriptorName": "ui:menuList",
+                    "namespace": "ui",
+                    "name": "menuList",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:inputText": {
+                    "descriptorName": "ui:inputText",
+                    "namespace": "ui",
+                    "name": "inputText",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:outputEmail": {
+                    "descriptorName": "ui:outputEmail",
+                    "namespace": "ui",
+                    "name": "outputEmail",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:pillContainer": {
+                    "descriptorName": "lightning:pillContainer",
+                    "namespace": "lightning",
+                    "name": "pillContainer",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-progress-step": {
+                    "descriptorName": "lightning-progress-step",
+                    "namespace": "lightning",
+                    "name": "progress-step",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:recordForm": {
+                    "descriptorName": "lightning:recordForm",
+                    "namespace": "lightning",
+                    "name": "recordForm",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:availableForFlowScreens": {
+                    "descriptorName": "lightning:availableForFlowScreens",
+                    "namespace": "lightning",
+                    "name": "availableForFlowScreens",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-tree-grid": {
+                    "descriptorName": "lightning-tree-grid",
+                    "namespace": "lightning",
+                    "name": "tree-grid",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:menuTriggerPress": {
+                    "descriptorName": "ui:menuTriggerPress",
+                    "namespace": "ui",
+                    "name": "menuTriggerPress",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "aura:expression": {
+                    "descriptorName": "aura:expression",
+                    "namespace": "aura",
+                    "name": "expression",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:pageReferenceUtils": {
+                    "descriptorName": "lightning:pageReferenceUtils",
+                    "namespace": "lightning",
+                    "name": "pageReferenceUtils",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:tabRefreshed": {
+                    "descriptorName": "lightning:tabRefreshed",
+                    "namespace": "lightning",
+                    "name": "tabRefreshed",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-platform-show-toast-event": {
+                    "descriptorName": "lightning-platform-show-toast-event",
+                    "namespace": "lightning",
+                    "name": "platform-show-toast-event",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:buttonStateful": {
+                    "descriptorName": "lightning:buttonStateful",
+                    "namespace": "lightning",
+                    "name": "buttonStateful",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:locationChange": {
+                    "descriptorName": "aura:locationChange",
+                    "namespace": "aura",
+                    "name": "locationChange",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:outputURL": {
+                    "descriptorName": "ui:outputURL",
+                    "namespace": "ui",
+                    "name": "outputURL",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "wave:waveDashboard": {
+                    "descriptorName": "wave:waveDashboard",
+                    "namespace": "wave",
+                    "name": "waveDashboard",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-input-location": {
+                    "descriptorName": "lightning-input-location",
+                    "namespace": "lightning",
+                    "name": "input-location",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-input-field": {
+                    "descriptorName": "lightning-input-field",
+                    "namespace": "lightning",
+                    "name": "input-field",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:card": {
+                    "descriptorName": "lightning:card",
+                    "namespace": "lightning",
+                    "name": "card",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:inputField": {
+                    "descriptorName": "lightning:inputField",
+                    "namespace": "lightning",
+                    "name": "inputField",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:unescapedHtml": {
+                    "descriptorName": "aura:unescapedHtml",
+                    "namespace": "aura",
+                    "name": "unescapedHtml",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedLocation": {
+                    "descriptorName": "lightning:formattedLocation",
+                    "namespace": "lightning",
+                    "name": "formattedLocation",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:fileUpload": {
+                    "descriptorName": "lightning:fileUpload",
+                    "namespace": "lightning",
+                    "name": "fileUpload",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:recordSaveSuccess": {
+                    "descriptorName": "force:recordSaveSuccess",
+                    "namespace": "force",
+                    "name": "recordSaveSuccess",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "force:lightningQuickActionWithoutHeader": {
+                    "descriptorName": "force:lightningQuickActionWithoutHeader",
+                    "namespace": "force",
+                    "name": "lightningQuickActionWithoutHeader",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:availableForChatterExtensionRenderer": {
+                    "descriptorName": "lightning:availableForChatterExtensionRenderer",
+                    "namespace": "lightning",
+                    "name": "availableForChatterExtensionRenderer",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:appLauncher": {
+                    "descriptorName": "forceCommunity:appLauncher",
+                    "namespace": "forceCommunity",
+                    "name": "appLauncher",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:flow": {
+                    "descriptorName": "lightning:flow",
+                    "namespace": "lightning",
+                    "name": "flow",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-quick-action-panel": {
+                    "descriptorName": "lightning-quick-action-panel",
+                    "namespace": "lightning",
+                    "name": "quick-action-panel",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:menuItem": {
+                    "descriptorName": "ui:menuItem",
+                    "namespace": "ui",
+                    "name": "menuItem",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedText": {
+                    "descriptorName": "lightning:formattedText",
+                    "namespace": "lightning",
+                    "name": "formattedText",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:valueDestroy": {
+                    "descriptorName": "aura:valueDestroy",
+                    "namespace": "aura",
+                    "name": "valueDestroy",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "forceChatter:feed": {
+                    "descriptorName": "forceChatter:feed",
+                    "namespace": "forceChatter",
+                    "name": "feed",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:lightningQuickAction": {
+                    "descriptorName": "force:lightningQuickAction",
+                    "namespace": "force",
+                    "name": "lightningQuickAction",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-address": {
+                    "descriptorName": "lightning-formatted-address",
+                    "namespace": "lightning",
+                    "name": "formatted-address",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:verticalNavigationItem": {
+                    "descriptorName": "lightning:verticalNavigationItem",
+                    "namespace": "lightning",
+                    "name": "verticalNavigationItem",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniChannelStatusChanged": {
+                    "descriptorName": "lightning:omniChannelStatusChanged",
+                    "namespace": "lightning",
+                    "name": "omniChannelStatusChanged",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightningcommunity:backButton": {
+                    "descriptorName": "lightningcommunity:backButton",
+                    "namespace": "lightningcommunity",
+                    "name": "backButton",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-combobox": {
+                    "descriptorName": "lightning-combobox",
+                    "namespace": "lightning",
+                    "name": "combobox",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:listView": {
+                    "descriptorName": "lightning:listView",
+                    "namespace": "lightning",
+                    "name": "listView",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-avatar": {
+                    "descriptorName": "lightning-avatar",
+                    "namespace": "lightning",
+                    "name": "avatar",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:inputPhone": {
+                    "descriptorName": "ui:inputPhone",
+                    "namespace": "ui",
+                    "name": "inputPhone",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:accordion": {
+                    "descriptorName": "lightning:accordion",
+                    "namespace": "lightning",
+                    "name": "accordion",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:pill": {
+                    "descriptorName": "lightning:pill",
+                    "namespace": "lightning",
+                    "name": "pill",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-url": {
+                    "descriptorName": "lightning-formatted-url",
+                    "namespace": "lightning",
+                    "name": "formatted-url",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "force:recordSave": {
+                    "descriptorName": "force:recordSave",
+                    "namespace": "force",
+                    "name": "recordSave",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:scrollerWrapper": {
+                    "descriptorName": "ui:scrollerWrapper",
+                    "namespace": "ui",
+                    "name": "scrollerWrapper",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:appHostable": {
+                    "descriptorName": "force:appHostable",
+                    "namespace": "force",
+                    "name": "appHostable",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:hasPageReference": {
+                    "descriptorName": "lightning:hasPageReference",
+                    "namespace": "lightning",
+                    "name": "hasPageReference",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "ui:inputTextArea": {
+                    "descriptorName": "ui:inputTextArea",
+                    "namespace": "ui",
+                    "name": "inputTextArea",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "clients:hasItemContext": {
+                    "descriptorName": "clients:hasItemContext",
+                    "namespace": "clients",
+                    "name": "hasItemContext",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-text": {
+                    "descriptorName": "lightning-formatted-text",
+                    "namespace": "lightning",
+                    "name": "formatted-text",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:workspaceAPI": {
+                    "descriptorName": "lightning:workspaceAPI",
+                    "namespace": "lightning",
+                    "name": "workspaceAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:buttonMenu": {
+                    "descriptorName": "lightning:buttonMenu",
+                    "namespace": "lightning",
+                    "name": "buttonMenu",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedEmail": {
+                    "descriptorName": "lightning:formattedEmail",
+                    "namespace": "lightning",
+                    "name": "formattedEmail",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:tabReplaced": {
+                    "descriptorName": "lightning:tabReplaced",
+                    "namespace": "lightning",
+                    "name": "tabReplaced",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:inputSelectOption": {
+                    "descriptorName": "ui:inputSelectOption",
+                    "namespace": "ui",
+                    "name": "inputSelectOption",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:editRecord": {
+                    "descriptorName": "force:editRecord",
+                    "namespace": "force",
+                    "name": "editRecord",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:radioMenuItem": {
+                    "descriptorName": "ui:radioMenuItem",
+                    "namespace": "ui",
+                    "name": "radioMenuItem",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:applicationEvent": {
+                    "descriptorName": "aura:applicationEvent",
+                    "namespace": "aura",
+                    "name": "applicationEvent",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:inputDateTime": {
+                    "descriptorName": "ui:inputDateTime",
+                    "namespace": "ui",
+                    "name": "inputDateTime",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:menu": {
+                    "descriptorName": "ui:menu",
+                    "namespace": "ui",
+                    "name": "menu",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:inputRichText": {
+                    "descriptorName": "ui:inputRichText",
+                    "namespace": "ui",
+                    "name": "inputRichText",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-vertical-navigation": {
+                    "descriptorName": "lightning-vertical-navigation",
+                    "namespace": "lightning",
+                    "name": "vertical-navigation",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedNumber": {
+                    "descriptorName": "lightning:formattedNumber",
+                    "namespace": "lightning",
+                    "name": "formattedNumber",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ltng:afterScriptsLoaded": {
+                    "descriptorName": "ltng:afterScriptsLoaded",
+                    "namespace": "ltng",
+                    "name": "afterScriptsLoaded",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:overlayLibrary": {
+                    "descriptorName": "lightning:overlayLibrary",
+                    "namespace": "lightning",
+                    "name": "overlayLibrary",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-button-icon-stateful": {
+                    "descriptorName": "lightning-button-icon-stateful",
+                    "namespace": "lightning",
+                    "name": "button-icon-stateful",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:navigationMenuBase": {
+                    "descriptorName": "forceCommunity:navigationMenuBase",
+                    "namespace": "forceCommunity",
+                    "name": "navigationMenuBase",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:outputPhone": {
+                    "descriptorName": "ui:outputPhone",
+                    "namespace": "ui",
+                    "name": "outputPhone",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:createRecord": {
+                    "descriptorName": "force:createRecord",
+                    "namespace": "force",
+                    "name": "createRecord",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:inputURL": {
+                    "descriptorName": "ui:inputURL",
+                    "namespace": "ui",
+                    "name": "inputURL",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:inputDefaultError": {
+                    "descriptorName": "ui:inputDefaultError",
+                    "namespace": "ui",
+                    "name": "inputDefaultError",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:checkboxMenuItem": {
+                    "descriptorName": "ui:checkboxMenuItem",
+                    "namespace": "ui",
+                    "name": "checkboxMenuItem",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-record-form": {
+                    "descriptorName": "lightning-record-form",
+                    "namespace": "lightning",
+                    "name": "record-form",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:menuTrigger": {
+                    "descriptorName": "ui:menuTrigger",
+                    "namespace": "ui",
+                    "name": "menuTrigger",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:valueInit": {
+                    "descriptorName": "aura:valueInit",
+                    "namespace": "aura",
+                    "name": "valueInit",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniChannelLogout": {
+                    "descriptorName": "lightning:omniChannelLogout",
+                    "namespace": "lightning",
+                    "name": "omniChannelLogout",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "forceChatter:customOpenFile": {
+                    "descriptorName": "forceChatter:customOpenFile",
+                    "namespace": "forceChatter",
+                    "name": "customOpenFile",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:inputDate": {
+                    "descriptorName": "ui:inputDate",
+                    "namespace": "ui",
+                    "name": "inputDate",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:spinner": {
+                    "descriptorName": "lightning:spinner",
+                    "namespace": "lightning",
+                    "name": "spinner",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-button-menu": {
+                    "descriptorName": "lightning-button-menu",
+                    "namespace": "lightning",
+                    "name": "button-menu",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-ui-list-api": {
+                    "descriptorName": "lightning-ui-list-api",
+                    "namespace": "lightning",
+                    "name": "ui-list-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:verticalNavigation": {
+                    "descriptorName": "lightning:verticalNavigation",
+                    "namespace": "lightning",
+                    "name": "verticalNavigation",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:carouselImage": {
+                    "descriptorName": "lightning:carouselImage",
+                    "namespace": "lightning",
+                    "name": "carouselImage",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:outputDate": {
+                    "descriptorName": "ui:outputDate",
+                    "namespace": "ui",
+                    "name": "outputDate",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedRichText": {
+                    "descriptorName": "lightning:formattedRichText",
+                    "namespace": "lightning",
+                    "name": "formattedRichText",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:breadcrumb": {
+                    "descriptorName": "lightning:breadcrumb",
+                    "namespace": "lightning",
+                    "name": "breadcrumb",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:rootComponent": {
+                    "descriptorName": "aura:rootComponent",
+                    "namespace": "aura",
+                    "name": "rootComponent",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:conversationAgentSend": {
+                    "descriptorName": "lightning:conversationAgentSend",
+                    "namespace": "lightning",
+                    "name": "conversationAgentSend",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "aura:valueEvent": {
+                    "descriptorName": "aura:valueEvent",
+                    "namespace": "aura",
+                    "name": "valueEvent",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:outputTextArea": {
+                    "descriptorName": "ui:outputTextArea",
+                    "namespace": "ui",
+                    "name": "outputTextArea",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedUrl": {
+                    "descriptorName": "lightning:formattedUrl",
+                    "namespace": "lightning",
+                    "name": "formattedUrl",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:messageChannel": {
+                    "descriptorName": "lightning:messageChannel",
+                    "namespace": "lightning",
+                    "name": "messageChannel",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:fileCard": {
+                    "descriptorName": "lightning:fileCard",
+                    "namespace": "lightning",
+                    "name": "fileCard",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ltng:allowGuestAccess": {
+                    "descriptorName": "ltng:allowGuestAccess",
+                    "namespace": "ltng",
+                    "name": "allowGuestAccess",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-map": {
+                    "descriptorName": "lightning-map",
+                    "namespace": "lightning",
+                    "name": "map",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin-minimized": {
+                    "descriptorName": "lightningsnapin-minimized",
+                    "namespace": "lightningsnapin",
+                    "name": "minimized",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-input-name": {
+                    "descriptorName": "lightning-input-name",
+                    "namespace": "lightning",
+                    "name": "input-name",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "force:navigateToComponent": {
+                    "descriptorName": "force:navigateToComponent",
+                    "namespace": "force",
+                    "name": "navigateToComponent",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:inputRadio": {
+                    "descriptorName": "ui:inputRadio",
+                    "namespace": "ui",
+                    "name": "inputRadio",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:availableForAllPageTypes": {
+                    "descriptorName": "forceCommunity:availableForAllPageTypes",
+                    "namespace": "forceCommunity",
+                    "name": "availableForAllPageTypes",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:inputRichText": {
+                    "descriptorName": "lightning:inputRichText",
+                    "namespace": "lightning",
+                    "name": "inputRichText",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-spinner": {
+                    "descriptorName": "lightning-spinner",
+                    "namespace": "lightning",
+                    "name": "spinner",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:quickActionAPI": {
+                    "descriptorName": "lightning:quickActionAPI",
+                    "namespace": "lightning",
+                    "name": "quickActionAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:inputAddress": {
+                    "descriptorName": "lightning:inputAddress",
+                    "namespace": "lightning",
+                    "name": "inputAddress",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:availableForChatterExtensionComposer": {
+                    "descriptorName": "lightning:availableForChatterExtensionComposer",
+                    "namespace": "lightning",
+                    "name": "availableForChatterExtensionComposer",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-platform-resource-loader": {
+                    "descriptorName": "lightning-platform-resource-loader",
+                    "namespace": "lightning",
+                    "name": "platform-resource-loader",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-ui-record-api": {
+                    "descriptorName": "lightning-ui-record-api",
+                    "namespace": "lightning",
+                    "name": "ui-record-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-icon": {
+                    "descriptorName": "lightning-icon",
+                    "namespace": "lightning",
+                    "name": "icon",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightningsnapin:minimizedUI": {
+                    "descriptorName": "lightningsnapin:minimizedUI",
+                    "namespace": "lightningsnapin",
+                    "name": "minimizedUI",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-click-to-dial": {
+                    "descriptorName": "lightning-click-to-dial",
+                    "namespace": "lightning",
+                    "name": "click-to-dial",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:tile": {
+                    "descriptorName": "lightning:tile",
+                    "namespace": "lightning",
+                    "name": "tile",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:navigateToSObject": {
+                    "descriptorName": "force:navigateToSObject",
+                    "namespace": "force",
+                    "name": "navigateToSObject",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:datatable": {
+                    "descriptorName": "lightning:datatable",
+                    "namespace": "lightning",
+                    "name": "datatable",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-rich-text-toolbar-button-group": {
+                    "descriptorName": "lightning-rich-text-toolbar-button-group",
+                    "namespace": "lightning",
+                    "name": "rich-text-toolbar-button-group",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightningcommunity:allowInRelaxedCSP": {
+                    "descriptorName": "lightningcommunity:allowInRelaxedCSP",
+                    "namespace": "lightningcommunity",
+                    "name": "allowInRelaxedCSP",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "flexipage:availableForAllPageTypes": {
+                    "descriptorName": "flexipage:availableForAllPageTypes",
+                    "namespace": "flexipage",
+                    "name": "availableForAllPageTypes",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-vertical-navigation-item": {
+                    "descriptorName": "lightning-vertical-navigation-item",
+                    "namespace": "lightning",
+                    "name": "vertical-navigation-item",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ui:menuTriggerLink": {
+                    "descriptorName": "ui:menuTriggerLink",
+                    "namespace": "ui",
+                    "name": "menuTriggerLink",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-number": {
+                    "descriptorName": "lightning-formatted-number",
+                    "namespace": "lightning",
+                    "name": "formatted-number",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:container": {
+                    "descriptorName": "lightning:container",
+                    "namespace": "lightning",
+                    "name": "container",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:navigateToRelatedList": {
+                    "descriptorName": "force:navigateToRelatedList",
+                    "namespace": "force",
+                    "name": "navigateToRelatedList",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "wave:selectionChanged": {
+                    "descriptorName": "wave:selectionChanged",
+                    "namespace": "wave",
+                    "name": "selectionChanged",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:helptext": {
+                    "descriptorName": "lightning:helptext",
+                    "namespace": "lightning",
+                    "name": "helptext",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:conversationChatEnded": {
+                    "descriptorName": "lightning:conversationChatEnded",
+                    "namespace": "lightning",
+                    "name": "conversationChatEnded",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:availableForFlowActions": {
+                    "descriptorName": "lightning:availableForFlowActions",
+                    "namespace": "lightning",
+                    "name": "availableForFlowActions",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-datatable": {
+                    "descriptorName": "lightning-datatable",
+                    "namespace": "lightning",
+                    "name": "datatable",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:select": {
+                    "descriptorName": "lightning:select",
+                    "namespace": "lightning",
+                    "name": "select",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:outputCurrency": {
+                    "descriptorName": "ui:outputCurrency",
+                    "namespace": "ui",
+                    "name": "outputCurrency",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:valueChange": {
+                    "descriptorName": "aura:valueChange",
+                    "namespace": "aura",
+                    "name": "valueChange",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-button": {
+                    "descriptorName": "lightning-button",
+                    "namespace": "lightning",
+                    "name": "button",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:combobox": {
+                    "descriptorName": "lightning:combobox",
+                    "namespace": "lightning",
+                    "name": "combobox",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:conversationCustomEvent": {
+                    "descriptorName": "lightning:conversationCustomEvent",
+                    "namespace": "lightning",
+                    "name": "conversationCustomEvent",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:collapse": {
+                    "descriptorName": "ui:collapse",
+                    "namespace": "ui",
+                    "name": "collapse",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:radioGroup": {
+                    "descriptorName": "lightning:radioGroup",
+                    "namespace": "lightning",
+                    "name": "radioGroup",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:text": {
+                    "descriptorName": "aura:text",
+                    "namespace": "aura",
+                    "name": "text",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "wave:assetLoaded": {
+                    "descriptorName": "wave:assetLoaded",
+                    "namespace": "wave",
+                    "name": "assetLoaded",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-emp-api": {
+                    "descriptorName": "lightning-emp-api",
+                    "namespace": "lightning",
+                    "name": "emp-api",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:quipCard": {
+                    "descriptorName": "lightning:quipCard",
+                    "namespace": "lightning",
+                    "name": "quipCard",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:recordEdit": {
+                    "descriptorName": "force:recordEdit",
+                    "namespace": "force",
+                    "name": "recordEdit",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:expand": {
+                    "descriptorName": "ui:expand",
+                    "namespace": "ui",
+                    "name": "expand",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:sendChatterExtensionPayload": {
+                    "descriptorName": "lightning:sendChatterExtensionPayload",
+                    "namespace": "lightning",
+                    "name": "sendChatterExtensionPayload",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "flexipage:availableForRecordHome": {
+                    "descriptorName": "flexipage:availableForRecordHome",
+                    "namespace": "flexipage",
+                    "name": "availableForRecordHome",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "force:refreshView": {
+                    "descriptorName": "force:refreshView",
+                    "namespace": "force",
+                    "name": "refreshView",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "force:outputField": {
+                    "descriptorName": "force:outputField",
+                    "namespace": "force",
+                    "name": "outputField",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-carousel": {
+                    "descriptorName": "lightning-carousel",
+                    "namespace": "lightning",
+                    "name": "carousel",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "forceChatter:postCreated": {
+                    "descriptorName": "forceChatter:postCreated",
+                    "namespace": "forceChatter",
+                    "name": "postCreated",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-layout": {
+                    "descriptorName": "lightning-layout",
+                    "namespace": "lightning",
+                    "name": "layout",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-record-view-form": {
+                    "descriptorName": "lightning-record-view-form",
+                    "namespace": "lightning",
+                    "name": "record-view-form",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:formattedDateTime": {
+                    "descriptorName": "lightning:formattedDateTime",
+                    "namespace": "lightning",
+                    "name": "formattedDateTime",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:omniChannelWorkAccepted": {
+                    "descriptorName": "lightning:omniChannelWorkAccepted",
+                    "namespace": "lightning",
+                    "name": "omniChannelWorkAccepted",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-dual-listbox": {
+                    "descriptorName": "lightning-dual-listbox",
+                    "namespace": "lightning",
+                    "name": "dual-listbox",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "aura:if": {
+                    "descriptorName": "aura:if",
+                    "namespace": "aura",
+                    "name": "if",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-email": {
+                    "descriptorName": "lightning-formatted-email",
+                    "namespace": "lightning",
+                    "name": "formatted-email",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-navigation": {
+                    "descriptorName": "lightning-navigation",
+                    "namespace": "lightning",
+                    "name": "navigation",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "wave:update": {
+                    "descriptorName": "wave:update",
+                    "namespace": "wave",
+                    "name": "update",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "force:canvasApp": {
+                    "descriptorName": "force:canvasApp",
+                    "namespace": "force",
+                    "name": "canvasApp",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-page-reference-utils": {
+                    "descriptorName": "lightning-page-reference-utils",
+                    "namespace": "lightning",
+                    "name": "page-reference-utils",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:recordEditForm": {
+                    "descriptorName": "lightning:recordEditForm",
+                    "namespace": "lightning",
+                    "name": "recordEditForm",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:menuItem": {
+                    "descriptorName": "lightning:menuItem",
+                    "namespace": "lightning",
+                    "name": "menuItem",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-tile": {
+                    "descriptorName": "lightning-tile",
+                    "namespace": "lightning",
+                    "name": "tile",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:progressRing": {
+                    "descriptorName": "lightning:progressRing",
+                    "namespace": "lightning",
+                    "name": "progressRing",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-progress-indicator": {
+                    "descriptorName": "lightning-progress-indicator",
+                    "namespace": "lightning",
+                    "name": "progress-indicator",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:textarea": {
+                    "descriptorName": "lightning:textarea",
+                    "namespace": "lightning",
+                    "name": "textarea",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ltng:require": {
+                    "descriptorName": "ltng:require",
+                    "namespace": "ltng",
+                    "name": "require",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "aura:iteration": {
+                    "descriptorName": "aura:iteration",
+                    "namespace": "aura",
+                    "name": "iteration",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-input": {
+                    "descriptorName": "lightning-input",
+                    "namespace": "lightning",
+                    "name": "input",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "ltng:selectSObject": {
+                    "descriptorName": "ltng:selectSObject",
+                    "namespace": "ltng",
+                    "name": "selectSObject",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:flexipageRegionInfo": {
+                    "descriptorName": "lightning:flexipageRegionInfo",
+                    "namespace": "lightning",
+                    "name": "flexipageRegionInfo",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:outputText": {
+                    "descriptorName": "ui:outputText",
+                    "namespace": "ui",
+                    "name": "outputText",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "wave:sdk": {
+                    "descriptorName": "wave:sdk",
+                    "namespace": "wave",
+                    "name": "sdk",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "force:recordData": {
+                    "descriptorName": "force:recordData",
+                    "namespace": "force",
+                    "name": "recordData",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "forceCommunity:routeLink": {
+                    "descriptorName": "forceCommunity:routeLink",
+                    "namespace": "forceCommunity",
+                    "name": "routeLink",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:menuFocusChange": {
+                    "descriptorName": "ui:menuFocusChange",
+                    "namespace": "ui",
+                    "name": "menuFocusChange",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning:recordHomeTemplate": {
+                    "descriptorName": "lightning:recordHomeTemplate",
+                    "namespace": "lightning",
+                    "name": "recordHomeTemplate",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning-output-field": {
+                    "descriptorName": "lightning-output-field",
+                    "namespace": "lightning",
+                    "name": "output-field",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:insertImageButton": {
+                    "descriptorName": "lightning:insertImageButton",
+                    "namespace": "lightning",
+                    "name": "insertImageButton",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "clients:availableForMailAppAppPage": {
+                    "descriptorName": "clients:availableForMailAppAppPage",
+                    "namespace": "clients",
+                    "name": "availableForMailAppAppPage",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:icon": {
+                    "descriptorName": "lightning:icon",
+                    "namespace": "lightning",
+                    "name": "icon",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "ui:clearErrors": {
+                    "descriptorName": "ui:clearErrors",
+                    "namespace": "ui",
+                    "name": "clearErrors",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "force:hasSObjectName": {
+                    "descriptorName": "force:hasSObjectName",
+                    "namespace": "force",
+                    "name": "hasSObjectName",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:buttonIconStateful": {
+                    "descriptorName": "lightning:buttonIconStateful",
+                    "namespace": "lightning",
+                    "name": "buttonIconStateful",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:unsavedChanges": {
+                    "descriptorName": "lightning:unsavedChanges",
+                    "namespace": "lightning",
+                    "name": "unsavedChanges",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-layout-item": {
+                    "descriptorName": "lightning-layout-item",
+                    "namespace": "lightning",
+                    "name": "layout-item",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:tabFocused": {
+                    "descriptorName": "lightning:tabFocused",
+                    "namespace": "lightning",
+                    "name": "tabFocused",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "ui:validationError": {
+                    "descriptorName": "ui:validationError",
+                    "namespace": "ui",
+                    "name": "validationError",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "lightning-accordion": {
+                    "descriptorName": "lightning-accordion",
+                    "namespace": "lightning",
+                    "name": "accordion",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-formatted-location": {
+                    "descriptorName": "lightning-formatted-location",
+                    "namespace": "lightning",
+                    "name": "formatted-location",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning:utilityBarAPI": {
+                    "descriptorName": "lightning:utilityBarAPI",
+                    "namespace": "lightning",
+                    "name": "utilityBarAPI",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning:tabCreated": {
+                    "descriptorName": "lightning:tabCreated",
+                    "namespace": "lightning",
+                    "name": "tabCreated",
+                    "defType": "event",
+                    "owner": "Salesforce"
+                },
+                "force:hasRecordId": {
+                    "descriptorName": "force:hasRecordId",
+                    "namespace": "force",
+                    "name": "hasRecordId",
+                    "defType": "interface",
+                    "owner": "Salesforce"
+                },
+                "lightning:slider": {
+                    "descriptorName": "lightning:slider",
+                    "namespace": "lightning",
+                    "name": "slider",
+                    "defType": "component",
+                    "owner": "Salesforce"
+                },
+                "lightning-record-edit-form": {
+                    "descriptorName": "lightning-record-edit-form",
+                    "namespace": "lightning",
+                    "name": "record-edit-form",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                },
+                "lightning-slider": {
+                    "descriptorName": "lightning-slider",
+                    "namespace": "lightning",
+                    "name": "slider",
+                    "defType": "module",
+                    "owner": "Salesforce"
+                }
+            },
+            "error": []
+        }
+    ],
+    "context": {
+        "mode": "PROD",
+        "contextPath": "/docs/component-library",
+        "pathPrefix": "",
+        "fwuid": "0lEhuHYJBRuSnxadQW0Iww",
+        "mlr": 1,
+        "uad": 1,
+        "descriptorUids": {
+            "markup://aura:clientOutOfSync": "3T-NcsvqrXTQzhkPDqGPgw",
+            "markup://aura:valueDestroy": "wONg1KDw-4yJkviO9Dn8MA",
+            "markup://aura:initialized": "8aEeePCx_ahJfO_LfElDoA",
+            "markup://aura:applicationRefreshed": "KVMc_e41Ji7Xq1S_tv4Mfw",
+            "markup://aura:customerError": "HQ8JJBoslO01jl17PeJ-LA",
+            "markup://aura:noAccess": "T7_JM_YlRAceRyvnzqSQtQ",
+            "markup://aura:operationComplete": "ohaqgIkvHe7ypwpNi9LaSQ",
+            "markup://aura:applicationEvent": "v0ZTIcLGBloLT7fyNjRaqA",
+            "markup://aura:valueChange": "GOIx91ilUBsVZ2Sw16rqnQ",
+            "markup://aura:waiting": "WHZrzdJISfWNE-PdOc_SuA",
+            "markup://aura:text": "lVv2684OpGPVODrARGlImA",
+            "markup://aura:placeholder": "4F4yY3D1ouamVxiW9Ap95A",
+            "markup://aura:expression": "YZR_Nbz3EV7DtWiW_rgopg",
+            "markup://aura:valueInit": "itZBe7xjbAsP3xoeByMhuw",
+            "markup://aura:component": "l_SxRwSNHL4agD8cafHR9Q",
+            "markup://aura:html": "2txAuacNpA7OzeHbXltsHA",
+            "markup://aura:template": "cpt8kBKSdGbx43Z2svq3iQ",
+            "markup://aura:invalidSession": "gYgAzWiVefMU9ahLPZAykg",
+            "markup://aura:systemError": "dG8LyWubcoM49apDXKtdMg",
+            "markup://auradev:blankTemplate": "s_JUO_xQiHtY_x00DkuRRQ",
+            "markup://aura:locationChange": "hA1qW6PpWbHKLI1PLN6X3Q",
+            "markup://aura:componentEvent": "ySO5MwDEUPmO1uQiaZEDkg",
+            "markup://aura:connectionResumed": "aMk-a8ym8EdY_kL8Za0onA",
+            "markup://aura:valueRender": "joPyDD5eZo4_ZOLsNL8D-g",
+            "markup://aura:methodCall": "Hz9pDCdYTZaGigBqY30kpg",
+            "markup://aura:doneWaiting": "aScd3CEZGjM2Hwd57Yv3_g",
+            "markup://aura:debugLog": "ze-4Iyq-hOnVKzK4qqTjEA",
+            "markup://aura:doneRendering": "sCr_f8s7H3EI2EyAfuS17g",
+            "markup://aura:clientRedirect": "_hyZNStihc5cqhSGWwLwPg",
+            "markup://aura:valueEvent": "lXlwk4wo0_pcpZdDFSdvgw",
+            "markup://aura:connectionLost": "aKcXTAULH19hB7dy-ax0fA"
+        },
+        "globalValueProviders": [
+            {
+                "type": "$Global",
+                "values": {
+                    "isVoiceOver": {
+                        "writable": true,
+                        "defaultValue": false
+                    },
+                    "dynamicTypeSize": {
+                        "writable": true,
+                        "defaultValue": ""
+                    }
+                }
+            }
+        ],
+        "enableAccessChecks": true,
+        "ls": 1,
+        "csp": 1,
+        "fr": 1,
+        "mna": {
+            "lightning": "interop"
+        }
+    },
+    "perfSummary": {
+        "version": "aura",
+        "actions": [
+            {
+                "name": "1$serviceComponent://ui.lightning.docs.components.aura.components.controllers.ComponentLibraryDataProviderController/ACTION$getBundleDefinitionsList",
+                "entryLatency.ms": "17",
+                "defVisitCount": "3",
+                "auraRunTime": "17"
+            }
+        ]
+    }
+}

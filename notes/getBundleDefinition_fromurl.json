@@ -1,0 +1,107 @@
+{
+    "actions": [
+        {
+            "state": "SUCCESS",
+            "returnValue": {
+                "descriptorName": "flexipage:availableForAllPageTypes",
+                "namespace": "flexipage",
+                "name": "availableForAllPageTypes",
+                "defType": "interface",
+                "access": "global",
+                "description": "Marks a component as being able to be used inside a Lightning App Builder page",
+                "isExtensible": false,
+                "isAbstract": false,
+                "support": "GA",
+                "interfaces": [],
+                "attributes": [],
+                "methods": [],
+                "slots": [],
+                "docDef": {
+                    "descriptor": "flexipage:availableForAllPageTypes",
+                    "descriptions": [
+                        "<p>To make your component available for record pages and any other type of page, implement the <code>flexipage:availableForAllPageTypes</code> interface.</p>\n<p>If your component is designed for record pages only, use the <code>flexipage:availableForRecordHome</code> interface instead.</p>\n<p>Here's the sample code for a &quot;Hello World&quot; component.</p>\n<pre>&lt;aura:component implements=&quot;flexipage:availableForAllPageTypes&quot; access=&quot;global&quot;&gt;\n    &lt;aura:attribute name=&quot;greeting&quot; type=&quot;String&quot; default=&quot;Hello&quot; access=&quot;global&quot; /&gt;\n    &lt;aura:attribute name=&quot;subject&quot; type=&quot;String&quot; default=&quot;World&quot; access=&quot;global&quot; /&gt;\n\n    &lt;div style=&quot;box&quot;&gt;\n      &lt;span class=&quot;greeting&quot;&gt;{!v.greeting}&lt;/span&gt;, {!v.subject}!\n    &lt;/div&gt;\n&lt;/aura:component&gt;</pre>\n<p>For more information, see the <a href=\"https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/components_config_for_app_builder.htm\" rel=\"nofollow\">Lightning Components Developer Guide</a>.</p>"
+                    ],
+                    "exampleDefs": []
+                },
+                "hideSupportLevel": false,
+                "owner": "Salesforce",
+                "moduleExamples": []
+            },
+            "error": []
+        }
+    ],
+    "context": {
+        "mode": "PROD",
+        "contextPath": "/docs/component-library",
+        "pathPrefix": "",
+        "fwuid": "0lEhuHYJBRuSnxadQW0Iww",
+        "mlr": 1,
+        "uad": 1,
+        "descriptorUids": {
+            "markup://aura:clientOutOfSync": "3T-NcsvqrXTQzhkPDqGPgw",
+            "markup://aura:valueDestroy": "wONg1KDw-4yJkviO9Dn8MA",
+            "markup://aura:initialized": "8aEeePCx_ahJfO_LfElDoA",
+            "markup://aura:applicationRefreshed": "KVMc_e41Ji7Xq1S_tv4Mfw",
+            "markup://aura:customerError": "HQ8JJBoslO01jl17PeJ-LA",
+            "markup://aura:noAccess": "T7_JM_YlRAceRyvnzqSQtQ",
+            "markup://aura:operationComplete": "ohaqgIkvHe7ypwpNi9LaSQ",
+            "markup://aura:applicationEvent": "v0ZTIcLGBloLT7fyNjRaqA",
+            "markup://aura:valueChange": "GOIx91ilUBsVZ2Sw16rqnQ",
+            "markup://aura:waiting": "WHZrzdJISfWNE-PdOc_SuA",
+            "markup://aura:text": "lVv2684OpGPVODrARGlImA",
+            "markup://aura:placeholder": "4F4yY3D1ouamVxiW9Ap95A",
+            "markup://aura:expression": "YZR_Nbz3EV7DtWiW_rgopg",
+            "markup://aura:valueInit": "itZBe7xjbAsP3xoeByMhuw",
+            "markup://aura:component": "l_SxRwSNHL4agD8cafHR9Q",
+            "markup://aura:html": "2txAuacNpA7OzeHbXltsHA",
+            "markup://aura:template": "cpt8kBKSdGbx43Z2svq3iQ",
+            "markup://aura:invalidSession": "gYgAzWiVefMU9ahLPZAykg",
+            "markup://aura:systemError": "dG8LyWubcoM49apDXKtdMg",
+            "markup://auradev:blankTemplate": "s_JUO_xQiHtY_x00DkuRRQ",
+            "markup://aura:locationChange": "hA1qW6PpWbHKLI1PLN6X3Q",
+            "markup://aura:componentEvent": "ySO5MwDEUPmO1uQiaZEDkg",
+            "markup://aura:connectionResumed": "aMk-a8ym8EdY_kL8Za0onA",
+            "markup://aura:valueRender": "joPyDD5eZo4_ZOLsNL8D-g",
+            "markup://aura:methodCall": "Hz9pDCdYTZaGigBqY30kpg",
+            "markup://aura:doneWaiting": "aScd3CEZGjM2Hwd57Yv3_g",
+            "markup://aura:debugLog": "ze-4Iyq-hOnVKzK4qqTjEA",
+            "markup://aura:doneRendering": "sCr_f8s7H3EI2EyAfuS17g",
+            "markup://aura:clientRedirect": "_hyZNStihc5cqhSGWwLwPg",
+            "markup://aura:valueEvent": "lXlwk4wo0_pcpZdDFSdvgw",
+            "markup://aura:connectionLost": "aKcXTAULH19hB7dy-ax0fA"
+        },
+        "globalValueProviders": [
+            {
+                "type": "$Global",
+                "values": {
+                    "isVoiceOver": {
+                        "writable": true,
+                        "defaultValue": false
+                    },
+                    "dynamicTypeSize": {
+                        "writable": true,
+                        "defaultValue": ""
+                    }
+                }
+            }
+        ],
+        "enableAccessChecks": true,
+        "ls": 1,
+        "csp": 1,
+        "fr": 1,
+        "mna": {
+            "lightning": "interop"
+        }
+    },
+    "perfSummary": {
+        "version": "aura",
+        "actions": [
+            {
+                "name": "1$serviceComponent://ui.lightning.docs.components.aura.components.controllers.ComponentLibraryDataProviderController/ACTION$getBundleDefinition",
+                "entryLatency.ms": "17",
+                "defVisitCount": "3",
+                "auraRunTime": "17"
+            }
+        ]
+    }
+}

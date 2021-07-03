@@ -1,0 +1,5281 @@
+{
+    "lightning:verticalNavigationOverflow": {
+      "descriptorName": "lightning:verticalNavigationOverflow",
+      "namespace": "lightning",
+      "name": "verticalNavigationOverflow",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/verticalNavigationOverflow.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "lightning:path": {
+      "descriptorName": "lightning:path",
+      "namespace": "lightning",
+      "name": "path",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/path.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Process/Workflow",
+      "framework": "Aura Components"
+    },
+    "lightning:map": {
+      "descriptorName": "lightning:map",
+      "namespace": "lightning",
+      "name": "map",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:tabClosed": {
+      "descriptorName": "lightning:tabClosed",
+      "namespace": "lightning",
+      "name": "tabClosed",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "aura:renderIf": {
+      "descriptorName": "aura:renderIf",
+      "namespace": "aura",
+      "name": "renderIf",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Logic",
+      "framework": "Aura Components"
+    },
+    "forceChatter:fullFeed": {
+      "descriptorName": "forceChatter:fullFeed",
+      "namespace": "forceChatter",
+      "name": "fullFeed",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Feed",
+      "framework": "Aura Components"
+    },
+    "lightning-ui-apps-api": {
+      "descriptorName": "lightning-ui-apps-api",
+      "namespace": "lightning",
+      "name": "ui-apps-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:uiAppsApi",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "ui:menuItemSeparator": {
+      "descriptorName": "ui:menuItemSeparator",
+      "namespace": "ui",
+      "name": "menuItemSeparator",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning:button": {
+      "descriptorName": "lightning:button",
+      "namespace": "lightning",
+      "name": "button",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/button.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "forceCommunity:routeChange": {
+      "descriptorName": "forceCommunity:routeChange",
+      "namespace": "forceCommunity",
+      "name": "routeChange",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightningsnapin-base-chat-header": {
+      "descriptorName": "lightningsnapin-base-chat-header",
+      "namespace": "lightningsnapin",
+      "name": "base-chat-header",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightningsnapin:baseChatHeader",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Embedded Service Chat"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "wave:discoverResponse": {
+      "descriptorName": "wave:discoverResponse",
+      "namespace": "wave",
+      "name": "discoverResponse",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "aura:valueRender": {
+      "descriptorName": "aura:valueRender",
+      "namespace": "aura",
+      "name": "valueRender",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:navigation": {
+      "descriptorName": "lightning:navigation",
+      "namespace": "lightning",
+      "name": "navigation",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "lightning:openFiles": {
+      "descriptorName": "lightning:openFiles",
+      "namespace": "lightning",
+      "name": "openFiles",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "forceCommunity:layout": {
+      "descriptorName": "forceCommunity:layout",
+      "namespace": "forceCommunity",
+      "name": "layout",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:conversationNewMessage": {
+      "descriptorName": "lightning:conversationNewMessage",
+      "namespace": "lightning",
+      "name": "conversationNewMessage",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:input": {
+      "descriptorName": "lightning:input",
+      "namespace": "lightning",
+      "name": "input",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/input.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning-helptext": {
+      "descriptorName": "lightning-helptext",
+      "namespace": "lightning",
+      "name": "helptext",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:helptext",
+      "image": "/docs/component-library/app/images/components/helptext.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:checkboxGroup": {
+      "descriptorName": "lightning:checkboxGroup",
+      "namespace": "lightning",
+      "name": "checkboxGroup",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/checkboxGroup.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-name": {
+      "descriptorName": "lightning-formatted-name",
+      "namespace": "lightning",
+      "name": "formatted-name",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedName",
+      "image": "/docs/component-library/app/images/components/formattedName.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-textarea": {
+      "descriptorName": "lightning-textarea",
+      "namespace": "lightning",
+      "name": "textarea",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:textarea",
+      "image": "/docs/component-library/app/images/components/textarea.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "ui:spinner": {
+      "descriptorName": "ui:spinner",
+      "namespace": "ui",
+      "name": "spinner",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "Unknown",
+      "category": "Unknown",
+      "framework": "Aura Components"
+    },
+    "lightning-analytics-wave-api": {
+      "descriptorName": "lightning-analytics-wave-api",
+      "namespace": "lightning",
+      "name": "analytics-wave-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:analyticsWaveApi",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "Unknown",
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:conversationToolkitAPI": {
+      "descriptorName": "lightning:conversationToolkitAPI",
+      "namespace": "lightning",
+      "name": "conversationToolkitAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "lightning-vertical-navigation-item-badge": {
+      "descriptorName": "lightning-vertical-navigation-item-badge",
+      "namespace": "lightning",
+      "name": "vertical-navigation-item-badge",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:verticalNavigationItemBadge",
+      "image": "/docs/component-library/app/images/components/verticalNavigationItemBadge.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:carousel": {
+      "descriptorName": "lightning:carousel",
+      "namespace": "lightning",
+      "name": "carousel",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/carousel.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Aura Components"
+    },
+    "lightningsnapin-base-chat-message": {
+      "descriptorName": "lightningsnapin-base-chat-message",
+      "namespace": "lightningsnapin",
+      "name": "base-chat-message",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightningsnapin:baseChatMessage",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Embedded Service Chat"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "aura:html": {
+      "descriptorName": "aura:html",
+      "namespace": "aura",
+      "name": "html",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Logic",
+      "framework": "Aura Components"
+    },
+    "lightning-card": {
+      "descriptorName": "lightning-card",
+      "namespace": "lightning",
+      "name": "card",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:card",
+      "image": "/docs/component-library/app/images/components/card.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:dualListbox": {
+      "descriptorName": "lightning:dualListbox",
+      "namespace": "lightning",
+      "name": "dualListbox",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/dualListBox.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:progressStep": {
+      "descriptorName": "lightning:progressStep",
+      "namespace": "lightning",
+      "name": "progressStep",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Unknown",
+      "framework": "Aura Components"
+    },
+    "lightning-input-rich-text": {
+      "descriptorName": "lightning-input-rich-text",
+      "namespace": "lightning",
+      "name": "input-rich-text",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:inputRichText",
+      "image": "/docs/component-library/app/images/components/inputRichText.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "force:showToast": {
+      "descriptorName": "force:showToast",
+      "namespace": "force",
+      "name": "showToast",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:treeGrid": {
+      "descriptorName": "lightning:treeGrid",
+      "namespace": "lightning",
+      "name": "treeGrid",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/treeGrid.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:omniChannelWorkAssigned": {
+      "descriptorName": "lightning:omniChannelWorkAssigned",
+      "namespace": "lightning",
+      "name": "omniChannelWorkAssigned",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightningsnapin:prechatUI": {
+      "descriptorName": "lightningsnapin:prechatUI",
+      "namespace": "lightningsnapin",
+      "name": "prechatUI",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "force:navigateToList": {
+      "descriptorName": "force:navigateToList",
+      "namespace": "force",
+      "name": "navigateToList",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:layoutItem": {
+      "descriptorName": "lightning:layoutItem",
+      "namespace": "lightning",
+      "name": "layoutItem",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/layoutItem.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "wave:discover": {
+      "descriptorName": "wave:discover",
+      "namespace": "wave",
+      "name": "discover",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-progress-bar": {
+      "descriptorName": "lightning-progress-bar",
+      "namespace": "lightning",
+      "name": "progress-bar",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:progressBar",
+      "image": "/docs/component-library/app/images/components/progressBar.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Process/Workflow",
+      "framework": "Lightning Web Components"
+    },
+    "forceCommunity:notifications": {
+      "descriptorName": "forceCommunity:notifications",
+      "namespace": "forceCommunity",
+      "name": "notifications",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Messaging",
+      "framework": "Aura Components"
+    },
+    "aura:waiting": {
+      "descriptorName": "aura:waiting",
+      "namespace": "aura",
+      "name": "waiting",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightningsnapin:minimizedAPI": {
+      "descriptorName": "lightningsnapin:minimizedAPI",
+      "namespace": "lightningsnapin",
+      "name": "minimizedAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Embedded Service Chat"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "force:navigateToURL": {
+      "descriptorName": "force:navigateToURL",
+      "namespace": "force",
+      "name": "navigateToURL",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:avatar": {
+      "descriptorName": "lightning:avatar",
+      "namespace": "lightning",
+      "name": "avatar",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/avatar.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Aura Components"
+    },
+    "force:navigateHome": {
+      "descriptorName": "force:navigateHome",
+      "namespace": "force",
+      "name": "navigateHome",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-phone": {
+      "descriptorName": "lightning-formatted-phone",
+      "namespace": "lightning",
+      "name": "formatted-phone",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedPhone",
+      "image": "/docs/component-library/app/images/components/formattedPhone.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightningsnapin-base-prechat": {
+      "descriptorName": "lightningsnapin-base-prechat",
+      "namespace": "lightningsnapin",
+      "name": "base-prechat",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightningsnapin:basePrechat",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Embedded Service Chat"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-menu-item": {
+      "descriptorName": "lightning-menu-item",
+      "namespace": "lightning",
+      "name": "menu-item",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:menuItem",
+      "image": "/docs/component-library/app/images/components/menuItem.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:layout": {
+      "descriptorName": "lightning:layout",
+      "namespace": "lightning",
+      "name": "layout",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/layout.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "forceCommunity:waveDashboard": {
+      "descriptorName": "forceCommunity:waveDashboard",
+      "namespace": "forceCommunity",
+      "name": "waveDashboard",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Experience Builder Sites"
+      ],
+      "category": "Analytics",
+      "framework": "Aura Components"
+    },
+    "lightning-ui-object-info-api": {
+      "descriptorName": "lightning-ui-object-info-api",
+      "namespace": "lightning",
+      "name": "ui-object-info-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:uiObjectInfoApi",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "ui:outputCheckbox": {
+      "descriptorName": "ui:outputCheckbox",
+      "namespace": "ui",
+      "name": "outputCheckbox",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:utilityItem": {
+      "descriptorName": "lightning:utilityItem",
+      "namespace": "lightning",
+      "name": "utilityItem",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-pill": {
+      "descriptorName": "lightning-pill",
+      "namespace": "lightning",
+      "name": "pill",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:pill",
+      "image": "/docs/component-library/app/images/components/pill.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-rich-text-toolbar-button": {
+      "descriptorName": "lightning-rich-text-toolbar-button",
+      "namespace": "lightning",
+      "name": "rich-text-toolbar-button",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:richTextToolbarButton",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "aura:component": {
+      "descriptorName": "aura:component",
+      "namespace": "aura",
+      "name": "component",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Logic",
+      "framework": "Aura Components"
+    },
+    "ui:actionMenuItem": {
+      "descriptorName": "ui:actionMenuItem",
+      "namespace": "ui",
+      "name": "actionMenuItem",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "ui:outputRichText": {
+      "descriptorName": "ui:outputRichText",
+      "namespace": "ui",
+      "name": "outputRichText",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning-button-icon": {
+      "descriptorName": "lightning-button-icon",
+      "namespace": "lightning",
+      "name": "button-icon",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:buttonIcon",
+      "image": "/docs/component-library/app/images/components/buttonIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:omniToolkitAPI": {
+      "descriptorName": "lightning:omniToolkitAPI",
+      "namespace": "lightning",
+      "name": "omniToolkitAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "wave:pageChange": {
+      "descriptorName": "wave:pageChange",
+      "namespace": "wave",
+      "name": "pageChange",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "forceChatter:publisher": {
+      "descriptorName": "forceChatter:publisher",
+      "namespace": "forceChatter",
+      "name": "publisher",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites"
+      ],
+      "category": "Feed",
+      "framework": "Aura Components"
+    },
+    "lightning:tab": {
+      "descriptorName": "lightning:tab",
+      "namespace": "lightning",
+      "name": "tab",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/tab.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "lightning-progress-ring": {
+      "descriptorName": "lightning-progress-ring",
+      "namespace": "lightning",
+      "name": "progress-ring",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:progressRing",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "ui:inputCheckbox": {
+      "descriptorName": "ui:inputCheckbox",
+      "namespace": "ui",
+      "name": "inputCheckbox",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/ui-inputCheckbox.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "ui:inputCurrency": {
+      "descriptorName": "ui:inputCurrency",
+      "namespace": "ui",
+      "name": "inputCurrency",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/ui-inputCurrency.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning-service-cloud-voice-toolkit-api": {
+      "descriptorName": "lightning-service-cloud-voice-toolkit-api",
+      "namespace": "lightning",
+      "name": "service-cloud-voice-toolkit-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:serviceCloudVoiceToolkitApi",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "Unknown",
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "ui:inputEmail": {
+      "descriptorName": "ui:inputEmail",
+      "namespace": "ui",
+      "name": "inputEmail",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/ui-inputEmail.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:verticalNavigationSection": {
+      "descriptorName": "lightning:verticalNavigationSection",
+      "namespace": "lightning",
+      "name": "verticalNavigationSection",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/verticalNavigationSection.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "lightning:inputLocation": {
+      "descriptorName": "lightning:inputLocation",
+      "namespace": "lightning",
+      "name": "inputLocation",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/inputLocation.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning-carousel-image": {
+      "descriptorName": "lightning-carousel-image",
+      "namespace": "lightning",
+      "name": "carousel-image",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:carouselImage",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:buttonIcon": {
+      "descriptorName": "lightning:buttonIcon",
+      "namespace": "lightning",
+      "name": "buttonIcon",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/buttonIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning-input-address": {
+      "descriptorName": "lightning-input-address",
+      "namespace": "lightning",
+      "name": "input-address",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:inputAddress",
+      "image": "/docs/component-library/app/images/components/inputAddress.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:formattedAddress": {
+      "descriptorName": "lightning:formattedAddress",
+      "namespace": "lightning",
+      "name": "formattedAddress",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedAddress.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:homeTemplate": {
+      "descriptorName": "lightning:homeTemplate",
+      "namespace": "lightning",
+      "name": "homeTemplate",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:omniChannelWorkDeclined": {
+      "descriptorName": "lightning:omniChannelWorkDeclined",
+      "namespace": "lightning",
+      "name": "omniChannelWorkDeclined",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:tabUpdated": {
+      "descriptorName": "lightning:tabUpdated",
+      "namespace": "lightning",
+      "name": "tabUpdated",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "force:navigateToObjectHome": {
+      "descriptorName": "force:navigateToObjectHome",
+      "namespace": "force",
+      "name": "navigateToObjectHome",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:badge": {
+      "descriptorName": "lightning:badge",
+      "namespace": "lightning",
+      "name": "badge",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/badge.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Aura Components"
+    },
+    "lightningsnapin:prechatAPI": {
+      "descriptorName": "lightningsnapin:prechatAPI",
+      "namespace": "lightningsnapin",
+      "name": "prechatAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Embedded Service Chat"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "ui:outputDateTime": {
+      "descriptorName": "ui:outputDateTime",
+      "namespace": "ui",
+      "name": "outputDateTime",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "ui:inputNumber": {
+      "descriptorName": "ui:inputNumber",
+      "namespace": "ui",
+      "name": "inputNumber",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/ui-inputNumber.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-date-time": {
+      "descriptorName": "lightning-formatted-date-time",
+      "namespace": "lightning",
+      "name": "formatted-date-time",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedDateTime",
+      "image": "/docs/component-library/app/images/components/formattedDateTime.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-checkbox-group": {
+      "descriptorName": "lightning-checkbox-group",
+      "namespace": "lightning",
+      "name": "checkbox-group",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:checkboxGroup",
+      "image": "/docs/component-library/app/images/components/checkboxGroup.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "forceCommunity:analyticsInteractionGtag": {
+      "descriptorName": "forceCommunity:analyticsInteractionGtag",
+      "namespace": "forceCommunity",
+      "name": "analyticsInteractionGtag",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:verticalNavigationItemBadge": {
+      "descriptorName": "lightning:verticalNavigationItemBadge",
+      "namespace": "lightning",
+      "name": "verticalNavigationItemBadge",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/verticalNavigationItemBadge.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "forceCommunity:profileMenuInterface": {
+      "descriptorName": "forceCommunity:profileMenuInterface",
+      "namespace": "forceCommunity",
+      "name": "profileMenuInterface",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-accordion-section": {
+      "descriptorName": "lightning-accordion-section",
+      "namespace": "lightning",
+      "name": "accordion-section",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:accordionSection",
+      "image": "/docs/component-library/app/images/components/accordionSection.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Lightning Web Components"
+    },
+    "clients:hasEventContext": {
+      "descriptorName": "clients:hasEventContext",
+      "namespace": "clients",
+      "name": "hasEventContext",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:button": {
+      "descriptorName": "ui:button",
+      "namespace": "ui",
+      "name": "button",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/ui-button.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning-vertical-navigation-item-icon": {
+      "descriptorName": "lightning-vertical-navigation-item-icon",
+      "namespace": "lightning",
+      "name": "vertical-navigation-item-icon",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:verticalNavigationItemIcon",
+      "image": "/docs/component-library/app/images/components/verticalNavigationItemIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Lightning Web Components"
+    },
+    "forceCommunity:searchInterface": {
+      "descriptorName": "forceCommunity:searchInterface",
+      "namespace": "forceCommunity",
+      "name": "searchInterface",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-radio-group": {
+      "descriptorName": "lightning-radio-group",
+      "namespace": "lightning",
+      "name": "radio-group",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:radioGroup",
+      "image": "/docs/component-library/app/images/components/radioGroup.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "ui:inputSecret": {
+      "descriptorName": "ui:inputSecret",
+      "namespace": "ui",
+      "name": "inputSecret",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "forceCommunity:themeLayout": {
+      "descriptorName": "forceCommunity:themeLayout",
+      "namespace": "forceCommunity",
+      "name": "themeLayout",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:empApi": {
+      "descriptorName": "lightning:empApi",
+      "namespace": "lightning",
+      "name": "empApi",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Salesforce Mobile App"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "ui:outputNumber": {
+      "descriptorName": "ui:outputNumber",
+      "namespace": "ui",
+      "name": "outputNumber",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:backgroundUtilityItem": {
+      "descriptorName": "lightning:backgroundUtilityItem",
+      "namespace": "lightning",
+      "name": "backgroundUtilityItem",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-pill-container": {
+      "descriptorName": "lightning-pill-container",
+      "namespace": "lightning",
+      "name": "pill-container",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:pillContainer",
+      "image": "/docs/component-library/app/images/components/pillContainer.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:clickToDial": {
+      "descriptorName": "lightning:clickToDial",
+      "namespace": "lightning",
+      "name": "clickToDial",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/clickToDial.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:formattedTime": {
+      "descriptorName": "lightning:formattedTime",
+      "namespace": "lightning",
+      "name": "formattedTime",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedTime.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "ltng:beforeLoadingResources": {
+      "descriptorName": "ltng:beforeLoadingResources",
+      "namespace": "ltng",
+      "name": "beforeLoadingResources",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:navigationItemAPI": {
+      "descriptorName": "lightning:navigationItemAPI",
+      "namespace": "lightning",
+      "name": "navigationItemAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "force:closeQuickAction": {
+      "descriptorName": "force:closeQuickAction",
+      "namespace": "force",
+      "name": "closeQuickAction",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightningsnapin:settingsAPI": {
+      "descriptorName": "lightningsnapin:settingsAPI",
+      "namespace": "lightningsnapin",
+      "name": "settingsAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Embedded Service Chat"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "lightning-badge": {
+      "descriptorName": "lightning-badge",
+      "namespace": "lightning",
+      "name": "badge",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:badge",
+      "image": "/docs/component-library/app/images/components/badge.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Lightning Web Components"
+    },
+    "aura:template": {
+      "descriptorName": "aura:template",
+      "namespace": "aura",
+      "name": "template",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Logic",
+      "framework": "Aura Components"
+    },
+    "aura:componentEvent": {
+      "descriptorName": "aura:componentEvent",
+      "namespace": "aura",
+      "name": "componentEvent",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "aura:methodCall": {
+      "descriptorName": "aura:methodCall",
+      "namespace": "aura",
+      "name": "methodCall",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:formattedPhone": {
+      "descriptorName": "lightning:formattedPhone",
+      "namespace": "lightning",
+      "name": "formattedPhone",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedPhone.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "aura:noAccess": {
+      "descriptorName": "aura:noAccess",
+      "namespace": "aura",
+      "name": "noAccess",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:dynamicIcon": {
+      "descriptorName": "lightning:dynamicIcon",
+      "namespace": "lightning",
+      "name": "dynamicIcon",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/dynamicIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Aura Components"
+    },
+    "lightning:accordionSection": {
+      "descriptorName": "lightning:accordionSection",
+      "namespace": "lightning",
+      "name": "accordionSection",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/accordionSection.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "lightning:tree": {
+      "descriptorName": "lightning:tree",
+      "namespace": "lightning",
+      "name": "tree",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/tree.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:appHomeTemplate": {
+      "descriptorName": "lightning:appHomeTemplate",
+      "namespace": "lightning",
+      "name": "appHomeTemplate",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "aura:doneRendering": {
+      "descriptorName": "aura:doneRendering",
+      "namespace": "aura",
+      "name": "doneRendering",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightningcommunity:deflectionSignal": {
+      "descriptorName": "lightningcommunity:deflectionSignal",
+      "namespace": "lightningcommunity",
+      "name": "deflectionSignal",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-cms-delivery-api": {
+      "descriptorName": "lightning-cms-delivery-api",
+      "namespace": "lightning",
+      "name": "cms-delivery-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:cmsDeliveryApi",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "Unknown",
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:omniChannelWorkClosed": {
+      "descriptorName": "lightning:omniChannelWorkClosed",
+      "namespace": "lightning",
+      "name": "omniChannelWorkClosed",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:breadcrumbs": {
+      "descriptorName": "lightning:breadcrumbs",
+      "namespace": "lightning",
+      "name": "breadcrumbs",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/breadcrumbs.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "ui:message": {
+      "descriptorName": "ui:message",
+      "namespace": "ui",
+      "name": "message",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Messaging",
+      "framework": "Aura Components"
+    },
+    "lightning:verticalNavigationItemIcon": {
+      "descriptorName": "lightning:verticalNavigationItemIcon",
+      "namespace": "lightning",
+      "name": "verticalNavigationItemIcon",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/verticalNavigationItemIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "lightning-tab": {
+      "descriptorName": "lightning-tab",
+      "namespace": "lightning",
+      "name": "tab",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:tab",
+      "image": "/docs/component-library/app/images/components/tab.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:omniChannelLoginSuccess": {
+      "descriptorName": "lightning:omniChannelLoginSuccess",
+      "namespace": "lightning",
+      "name": "omniChannelLoginSuccess",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-flow-support": {
+      "descriptorName": "lightning-flow-support",
+      "namespace": "lightning",
+      "name": "flow-support",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:flowSupport",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:notificationsLibrary": {
+      "descriptorName": "lightning:notificationsLibrary",
+      "namespace": "lightning",
+      "name": "notificationsLibrary",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Messaging",
+      "framework": "Aura Components"
+    },
+    "aura:doneWaiting": {
+      "descriptorName": "aura:doneWaiting",
+      "namespace": "aura",
+      "name": "doneWaiting",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-button-group": {
+      "descriptorName": "lightning-button-group",
+      "namespace": "lightning",
+      "name": "button-group",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:buttonGroup",
+      "image": "/docs/component-library/app/images/components/buttonGroup.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:recordViewForm": {
+      "descriptorName": "lightning:recordViewForm",
+      "namespace": "lightning",
+      "name": "recordViewForm",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Forms",
+      "framework": "Aura Components"
+    },
+    "lightning:inputName": {
+      "descriptorName": "lightning:inputName",
+      "namespace": "lightning",
+      "name": "inputName",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/inputName.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:progressIndicator": {
+      "descriptorName": "lightning:progressIndicator",
+      "namespace": "lightning",
+      "name": "progressIndicator",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/progressIndicator.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Process/Workflow",
+      "framework": "Aura Components"
+    },
+    "lightning-message-service": {
+      "descriptorName": "lightning-message-service",
+      "namespace": "lightning",
+      "name": "message-service",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:messageService",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "Unknown",
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:actionOverride": {
+      "descriptorName": "lightning:actionOverride",
+      "namespace": "lightning",
+      "name": "actionOverride",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-button-stateful": {
+      "descriptorName": "lightning-button-stateful",
+      "namespace": "lightning",
+      "name": "button-stateful",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:buttonStateful",
+      "image": "/docs/component-library/app/images/components/buttonStateful.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-dynamic-icon": {
+      "descriptorName": "lightning-dynamic-icon",
+      "namespace": "lightning",
+      "name": "dynamic-icon",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:dynamicIcon",
+      "image": "/docs/component-library/app/images/components/dynamicIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-tabset": {
+      "descriptorName": "lightning-tabset",
+      "namespace": "lightning",
+      "name": "tabset",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:tabset",
+      "image": "/docs/component-library/app/images/components/tabset.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:formattedName": {
+      "descriptorName": "lightning:formattedName",
+      "namespace": "lightning",
+      "name": "formattedName",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedName.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:relativeDateTime": {
+      "descriptorName": "lightning:relativeDateTime",
+      "namespace": "lightning",
+      "name": "relativeDateTime",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/relativeDateTime.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning-breadcrumb": {
+      "descriptorName": "lightning-breadcrumb",
+      "namespace": "lightning",
+      "name": "breadcrumb",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:breadcrumb",
+      "image": "/docs/component-library/app/images/components/breadcrumb.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-breadcrumbs": {
+      "descriptorName": "lightning-breadcrumbs",
+      "namespace": "lightning",
+      "name": "breadcrumbs",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:breadcrumbs",
+      "image": "/docs/component-library/app/images/components/breadcrumbs.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Lightning Web Components"
+    },
+    "aura:systemError": {
+      "descriptorName": "aura:systemError",
+      "namespace": "aura",
+      "name": "systemError",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:inputSelect": {
+      "descriptorName": "ui:inputSelect",
+      "namespace": "ui",
+      "name": "inputSelect",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:buttonGroup": {
+      "descriptorName": "lightning:buttonGroup",
+      "namespace": "lightning",
+      "name": "buttonGroup",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/buttonGroup.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning:outputField": {
+      "descriptorName": "lightning:outputField",
+      "namespace": "lightning",
+      "name": "outputField",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning-ui-lists-api": {
+      "descriptorName": "lightning-ui-lists-api",
+      "namespace": "lightning",
+      "name": "ui-lists-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:uiListsApi",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "Unknown",
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "ui:menuSelect": {
+      "descriptorName": "ui:menuSelect",
+      "namespace": "ui",
+      "name": "menuSelect",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-relative-date-time": {
+      "descriptorName": "lightning-relative-date-time",
+      "namespace": "lightning",
+      "name": "relative-date-time",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:relativeDateTime",
+      "image": "/docs/component-library/app/images/components/relativeDateTime.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "ltng:sendMessage": {
+      "descriptorName": "ltng:sendMessage",
+      "namespace": "ltng",
+      "name": "sendMessage",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-rich-text": {
+      "descriptorName": "lightning-formatted-rich-text",
+      "namespace": "lightning",
+      "name": "formatted-rich-text",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedRichText",
+      "image": "/docs/component-library/app/images/components/formattedRichText.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-tree": {
+      "descriptorName": "lightning-tree",
+      "namespace": "lightning",
+      "name": "tree",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:tree",
+      "image": "/docs/component-library/app/images/components/tree.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "forceCommunity:analyticsInteraction": {
+      "descriptorName": "forceCommunity:analyticsInteraction",
+      "namespace": "forceCommunity",
+      "name": "analyticsInteraction",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:isUrlAddressable": {
+      "descriptorName": "lightning:isUrlAddressable",
+      "namespace": "lightning",
+      "name": "isUrlAddressable",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:tabset": {
+      "descriptorName": "lightning:tabset",
+      "namespace": "lightning",
+      "name": "tabset",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/tabset.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "lightning:picklistPath": {
+      "descriptorName": "lightning:picklistPath",
+      "namespace": "lightning",
+      "name": "picklistPath",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/picklistPath.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Process/Workflow",
+      "framework": "Aura Components"
+    },
+    "lightning-file-upload": {
+      "descriptorName": "lightning-file-upload",
+      "namespace": "lightning",
+      "name": "file-upload",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:fileUpload",
+      "image": "/docs/component-library/app/images/components/fileUpload.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Files",
+      "framework": "Lightning Web Components"
+    },
+    "force:recordView": {
+      "descriptorName": "force:recordView",
+      "namespace": "force",
+      "name": "recordView",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Forms",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-time": {
+      "descriptorName": "lightning-formatted-time",
+      "namespace": "lightning",
+      "name": "formatted-time",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedTime",
+      "image": "/docs/component-library/app/images/components/formattedTime.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:omniChannelWorkloadChanged": {
+      "descriptorName": "lightning:omniChannelWorkloadChanged",
+      "namespace": "lightning",
+      "name": "omniChannelWorkloadChanged",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:progressBar": {
+      "descriptorName": "lightning:progressBar",
+      "namespace": "lightning",
+      "name": "progressBar",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/progressBar.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Process/Workflow",
+      "framework": "Aura Components"
+    },
+    "force:inputField": {
+      "descriptorName": "force:inputField",
+      "namespace": "force",
+      "name": "inputField",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "ui:menuList": {
+      "descriptorName": "ui:menuList",
+      "namespace": "ui",
+      "name": "menuList",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "ui:inputText": {
+      "descriptorName": "ui:inputText",
+      "namespace": "ui",
+      "name": "inputText",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "ui:outputEmail": {
+      "descriptorName": "ui:outputEmail",
+      "namespace": "ui",
+      "name": "outputEmail",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:pillContainer": {
+      "descriptorName": "lightning:pillContainer",
+      "namespace": "lightning",
+      "name": "pillContainer",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/pillContainer.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning-progress-step": {
+      "descriptorName": "lightning-progress-step",
+      "namespace": "lightning",
+      "name": "progress-step",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:progressStep",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:recordForm": {
+      "descriptorName": "lightning:recordForm",
+      "namespace": "lightning",
+      "name": "recordForm",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce"
+      ],
+      "category": "Forms",
+      "framework": "Aura Components"
+    },
+    "lightning:availableForFlowScreens": {
+      "descriptorName": "lightning:availableForFlowScreens",
+      "namespace": "lightning",
+      "name": "availableForFlowScreens",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-tree-grid": {
+      "descriptorName": "lightning-tree-grid",
+      "namespace": "lightning",
+      "name": "tree-grid",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:treeGrid",
+      "image": "/docs/component-library/app/images/components/treeGrid.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "ui:menuTriggerPress": {
+      "descriptorName": "ui:menuTriggerPress",
+      "namespace": "ui",
+      "name": "menuTriggerPress",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "aura:expression": {
+      "descriptorName": "aura:expression",
+      "namespace": "aura",
+      "name": "expression",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Logic",
+      "framework": "Aura Components"
+    },
+    "lightning:pageReferenceUtils": {
+      "descriptorName": "lightning:pageReferenceUtils",
+      "namespace": "lightning",
+      "name": "pageReferenceUtils",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Unknown",
+      "framework": "Aura Components"
+    },
+    "lightning:tabRefreshed": {
+      "descriptorName": "lightning:tabRefreshed",
+      "namespace": "lightning",
+      "name": "tabRefreshed",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-platform-show-toast-event": {
+      "descriptorName": "lightning-platform-show-toast-event",
+      "namespace": "lightning",
+      "name": "platform-show-toast-event",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:platformShowToastEvent",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Messaging",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:buttonStateful": {
+      "descriptorName": "lightning:buttonStateful",
+      "namespace": "lightning",
+      "name": "buttonStateful",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/buttonStateful.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "aura:locationChange": {
+      "descriptorName": "aura:locationChange",
+      "namespace": "aura",
+      "name": "locationChange",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:outputURL": {
+      "descriptorName": "ui:outputURL",
+      "namespace": "ui",
+      "name": "outputURL",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "wave:waveDashboard": {
+      "descriptorName": "wave:waveDashboard",
+      "namespace": "wave",
+      "name": "waveDashboard",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "Analytics",
+      "framework": "Aura Components"
+    },
+    "lightning-input-location": {
+      "descriptorName": "lightning-input-location",
+      "namespace": "lightning",
+      "name": "input-location",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:inputLocation",
+      "image": "/docs/component-library/app/images/components/inputLocation.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-input-field": {
+      "descriptorName": "lightning-input-field",
+      "namespace": "lightning",
+      "name": "input-field",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:inputField",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:card": {
+      "descriptorName": "lightning:card",
+      "namespace": "lightning",
+      "name": "card",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/card.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "lightning:inputField": {
+      "descriptorName": "lightning:inputField",
+      "namespace": "lightning",
+      "name": "inputField",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "aura:unescapedHtml": {
+      "descriptorName": "aura:unescapedHtml",
+      "namespace": "aura",
+      "name": "unescapedHtml",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:formattedLocation": {
+      "descriptorName": "lightning:formattedLocation",
+      "namespace": "lightning",
+      "name": "formattedLocation",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedLocation.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:fileUpload": {
+      "descriptorName": "lightning:fileUpload",
+      "namespace": "lightning",
+      "name": "fileUpload",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/fileUpload.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Files",
+      "framework": "Aura Components"
+    },
+    "force:recordSaveSuccess": {
+      "descriptorName": "force:recordSaveSuccess",
+      "namespace": "force",
+      "name": "recordSaveSuccess",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "force:lightningQuickActionWithoutHeader": {
+      "descriptorName": "force:lightningQuickActionWithoutHeader",
+      "namespace": "force",
+      "name": "lightningQuickActionWithoutHeader",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Salesforce Mobile App"
+      ],
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:availableForChatterExtensionRenderer": {
+      "descriptorName": "lightning:availableForChatterExtensionRenderer",
+      "namespace": "lightning",
+      "name": "availableForChatterExtensionRenderer",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "forceCommunity:appLauncher": {
+      "descriptorName": "forceCommunity:appLauncher",
+      "namespace": "forceCommunity",
+      "name": "appLauncher",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Experience Builder Sites"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "lightning:flow": {
+      "descriptorName": "lightning:flow",
+      "namespace": "lightning",
+      "name": "flow",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Process/Workflow",
+      "framework": "Aura Components"
+    },
+    "lightning-quick-action-panel": {
+      "descriptorName": "lightning-quick-action-panel",
+      "namespace": "lightning",
+      "name": "quick-action-panel",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:quickActionPanel",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "ui:menuItem": {
+      "descriptorName": "ui:menuItem",
+      "namespace": "ui",
+      "name": "menuItem",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning:formattedText": {
+      "descriptorName": "lightning:formattedText",
+      "namespace": "lightning",
+      "name": "formattedText",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedText.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "aura:valueDestroy": {
+      "descriptorName": "aura:valueDestroy",
+      "namespace": "aura",
+      "name": "valueDestroy",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "forceChatter:feed": {
+      "descriptorName": "forceChatter:feed",
+      "namespace": "forceChatter",
+      "name": "feed",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites"
+      ],
+      "category": "Feed",
+      "framework": "Aura Components"
+    },
+    "force:lightningQuickAction": {
+      "descriptorName": "force:lightningQuickAction",
+      "namespace": "force",
+      "name": "lightningQuickAction",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Salesforce Mobile App"
+      ],
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-address": {
+      "descriptorName": "lightning-formatted-address",
+      "namespace": "lightning",
+      "name": "formatted-address",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedAddress",
+      "image": "/docs/component-library/app/images/components/formattedAddress.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:verticalNavigationItem": {
+      "descriptorName": "lightning:verticalNavigationItem",
+      "namespace": "lightning",
+      "name": "verticalNavigationItem",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/verticalNavigationItem.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "lightning:omniChannelStatusChanged": {
+      "descriptorName": "lightning:omniChannelStatusChanged",
+      "namespace": "lightning",
+      "name": "omniChannelStatusChanged",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightningcommunity:backButton": {
+      "descriptorName": "lightningcommunity:backButton",
+      "namespace": "lightningcommunity",
+      "name": "backButton",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Salesforce Mobile App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "lightning-combobox": {
+      "descriptorName": "lightning-combobox",
+      "namespace": "lightning",
+      "name": "combobox",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:combobox",
+      "image": "/docs/component-library/app/images/components/combobox.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:listView": {
+      "descriptorName": "lightning:listView",
+      "namespace": "lightning",
+      "name": "listView",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/listview.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning-avatar": {
+      "descriptorName": "lightning-avatar",
+      "namespace": "lightning",
+      "name": "avatar",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:avatar",
+      "image": "/docs/component-library/app/images/components/avatar.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Lightning Web Components"
+    },
+    "ui:inputPhone": {
+      "descriptorName": "ui:inputPhone",
+      "namespace": "ui",
+      "name": "inputPhone",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:accordion": {
+      "descriptorName": "lightning:accordion",
+      "namespace": "lightning",
+      "name": "accordion",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/accordion.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "lightning:pill": {
+      "descriptorName": "lightning:pill",
+      "namespace": "lightning",
+      "name": "pill",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/pill.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-url": {
+      "descriptorName": "lightning-formatted-url",
+      "namespace": "lightning",
+      "name": "formatted-url",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedUrl",
+      "image": "/docs/component-library/app/images/components/formattedUrl.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "force:recordSave": {
+      "descriptorName": "force:recordSave",
+      "namespace": "force",
+      "name": "recordSave",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:scrollerWrapper": {
+      "descriptorName": "ui:scrollerWrapper",
+      "namespace": "ui",
+      "name": "scrollerWrapper",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Salesforce Mobile App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "force:appHostable": {
+      "descriptorName": "force:appHostable",
+      "namespace": "force",
+      "name": "appHostable",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Salesforce Mobile App"
+      ],
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:hasPageReference": {
+      "descriptorName": "lightning:hasPageReference",
+      "namespace": "lightning",
+      "name": "hasPageReference",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:inputTextArea": {
+      "descriptorName": "ui:inputTextArea",
+      "namespace": "ui",
+      "name": "inputTextArea",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "clients:hasItemContext": {
+      "descriptorName": "clients:hasItemContext",
+      "namespace": "clients",
+      "name": "hasItemContext",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-text": {
+      "descriptorName": "lightning-formatted-text",
+      "namespace": "lightning",
+      "name": "formatted-text",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedText",
+      "image": "/docs/component-library/app/images/components/formattedText.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:workspaceAPI": {
+      "descriptorName": "lightning:workspaceAPI",
+      "namespace": "lightning",
+      "name": "workspaceAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "lightning:buttonMenu": {
+      "descriptorName": "lightning:buttonMenu",
+      "namespace": "lightning",
+      "name": "buttonMenu",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/buttonMenu.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning:formattedEmail": {
+      "descriptorName": "lightning:formattedEmail",
+      "namespace": "lightning",
+      "name": "formattedEmail",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedEmail.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:tabReplaced": {
+      "descriptorName": "lightning:tabReplaced",
+      "namespace": "lightning",
+      "name": "tabReplaced",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:inputSelectOption": {
+      "descriptorName": "ui:inputSelectOption",
+      "namespace": "ui",
+      "name": "inputSelectOption",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "force:editRecord": {
+      "descriptorName": "force:editRecord",
+      "namespace": "force",
+      "name": "editRecord",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:radioMenuItem": {
+      "descriptorName": "ui:radioMenuItem",
+      "namespace": "ui",
+      "name": "radioMenuItem",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "aura:applicationEvent": {
+      "descriptorName": "aura:applicationEvent",
+      "namespace": "aura",
+      "name": "applicationEvent",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:inputDateTime": {
+      "descriptorName": "ui:inputDateTime",
+      "namespace": "ui",
+      "name": "inputDateTime",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "ui:menu": {
+      "descriptorName": "ui:menu",
+      "namespace": "ui",
+      "name": "menu",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "ui:inputRichText": {
+      "descriptorName": "ui:inputRichText",
+      "namespace": "ui",
+      "name": "inputRichText",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning-vertical-navigation": {
+      "descriptorName": "lightning-vertical-navigation",
+      "namespace": "lightning",
+      "name": "vertical-navigation",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:verticalNavigation",
+      "image": "/docs/component-library/app/images/components/verticalNavigation.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:formattedNumber": {
+      "descriptorName": "lightning:formattedNumber",
+      "namespace": "lightning",
+      "name": "formattedNumber",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedNumber.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "ltng:afterScriptsLoaded": {
+      "descriptorName": "ltng:afterScriptsLoaded",
+      "namespace": "ltng",
+      "name": "afterScriptsLoaded",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:overlayLibrary": {
+      "descriptorName": "lightning:overlayLibrary",
+      "namespace": "lightning",
+      "name": "overlayLibrary",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "lightning-button-icon-stateful": {
+      "descriptorName": "lightning-button-icon-stateful",
+      "namespace": "lightning",
+      "name": "button-icon-stateful",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:buttonIconStateful",
+      "image": "/docs/component-library/app/images/components/buttonIconStateful.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Lightning Web Components"
+    },
+    "forceCommunity:navigationMenuBase": {
+      "descriptorName": "forceCommunity:navigationMenuBase",
+      "namespace": "forceCommunity",
+      "name": "navigationMenuBase",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Experience Builder Sites"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "ui:outputPhone": {
+      "descriptorName": "ui:outputPhone",
+      "namespace": "ui",
+      "name": "outputPhone",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "force:createRecord": {
+      "descriptorName": "force:createRecord",
+      "namespace": "force",
+      "name": "createRecord",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:inputURL": {
+      "descriptorName": "ui:inputURL",
+      "namespace": "ui",
+      "name": "inputURL",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "ui:inputDefaultError": {
+      "descriptorName": "ui:inputDefaultError",
+      "namespace": "ui",
+      "name": "inputDefaultError",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "ui:checkboxMenuItem": {
+      "descriptorName": "ui:checkboxMenuItem",
+      "namespace": "ui",
+      "name": "checkboxMenuItem",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/ui-checkboxMenuItem.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning-record-form": {
+      "descriptorName": "lightning-record-form",
+      "namespace": "lightning",
+      "name": "record-form",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:recordForm",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Forms",
+      "framework": "Lightning Web Components"
+    },
+    "ui:menuTrigger": {
+      "descriptorName": "ui:menuTrigger",
+      "namespace": "ui",
+      "name": "menuTrigger",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "aura:valueInit": {
+      "descriptorName": "aura:valueInit",
+      "namespace": "aura",
+      "name": "valueInit",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:omniChannelLogout": {
+      "descriptorName": "lightning:omniChannelLogout",
+      "namespace": "lightning",
+      "name": "omniChannelLogout",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "forceChatter:customOpenFile": {
+      "descriptorName": "forceChatter:customOpenFile",
+      "namespace": "forceChatter",
+      "name": "customOpenFile",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:inputDate": {
+      "descriptorName": "ui:inputDate",
+      "namespace": "ui",
+      "name": "inputDate",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/ui-inputDate.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:spinner": {
+      "descriptorName": "lightning:spinner",
+      "namespace": "lightning",
+      "name": "spinner",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/spinner.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Aura Components"
+    },
+    "lightning-button-menu": {
+      "descriptorName": "lightning-button-menu",
+      "namespace": "lightning",
+      "name": "button-menu",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:buttonMenu",
+      "image": "/docs/component-library/app/images/components/buttonMenu.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-ui-list-api": {
+      "descriptorName": "lightning-ui-list-api",
+      "namespace": "lightning",
+      "name": "ui-list-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:uiListApi",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:verticalNavigation": {
+      "descriptorName": "lightning:verticalNavigation",
+      "namespace": "lightning",
+      "name": "verticalNavigation",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/verticalNavigation.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "lightning:carouselImage": {
+      "descriptorName": "lightning:carouselImage",
+      "namespace": "lightning",
+      "name": "carouselImage",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Unknown",
+      "framework": "Aura Components"
+    },
+    "ui:outputDate": {
+      "descriptorName": "ui:outputDate",
+      "namespace": "ui",
+      "name": "outputDate",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:formattedRichText": {
+      "descriptorName": "lightning:formattedRichText",
+      "namespace": "lightning",
+      "name": "formattedRichText",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedRichText.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:breadcrumb": {
+      "descriptorName": "lightning:breadcrumb",
+      "namespace": "lightning",
+      "name": "breadcrumb",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/breadcrumb.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "aura:rootComponent": {
+      "descriptorName": "aura:rootComponent",
+      "namespace": "aura",
+      "name": "rootComponent",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:conversationAgentSend": {
+      "descriptorName": "lightning:conversationAgentSend",
+      "namespace": "lightning",
+      "name": "conversationAgentSend",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "aura:valueEvent": {
+      "descriptorName": "aura:valueEvent",
+      "namespace": "aura",
+      "name": "valueEvent",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:outputTextArea": {
+      "descriptorName": "ui:outputTextArea",
+      "namespace": "ui",
+      "name": "outputTextArea",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:formattedUrl": {
+      "descriptorName": "lightning:formattedUrl",
+      "namespace": "lightning",
+      "name": "formattedUrl",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedUrl.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:messageChannel": {
+      "descriptorName": "lightning:messageChannel",
+      "namespace": "lightning",
+      "name": "messageChannel",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "Unknown",
+      "category": "Unknown",
+      "framework": "Aura Components"
+    },
+    "lightning:fileCard": {
+      "descriptorName": "lightning:fileCard",
+      "namespace": "lightning",
+      "name": "fileCard",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/fileCard.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Files",
+      "framework": "Aura Components"
+    },
+    "ltng:allowGuestAccess": {
+      "descriptorName": "ltng:allowGuestAccess",
+      "namespace": "ltng",
+      "name": "allowGuestAccess",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-map": {
+      "descriptorName": "lightning-map",
+      "namespace": "lightning",
+      "name": "map",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:map",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightningsnapin-minimized": {
+      "descriptorName": "lightningsnapin-minimized",
+      "namespace": "lightningsnapin",
+      "name": "minimized",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightningsnapin:minimized",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Embedded Service Chat"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-input-name": {
+      "descriptorName": "lightning-input-name",
+      "namespace": "lightning",
+      "name": "input-name",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:inputName",
+      "image": "/docs/component-library/app/images/components/inputName.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "force:navigateToComponent": {
+      "descriptorName": "force:navigateToComponent",
+      "namespace": "force",
+      "name": "navigateToComponent",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:inputRadio": {
+      "descriptorName": "ui:inputRadio",
+      "namespace": "ui",
+      "name": "inputRadio",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "forceCommunity:availableForAllPageTypes": {
+      "descriptorName": "forceCommunity:availableForAllPageTypes",
+      "namespace": "forceCommunity",
+      "name": "availableForAllPageTypes",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:inputRichText": {
+      "descriptorName": "lightning:inputRichText",
+      "namespace": "lightning",
+      "name": "inputRichText",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/inputRichText.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning-spinner": {
+      "descriptorName": "lightning-spinner",
+      "namespace": "lightning",
+      "name": "spinner",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:spinner",
+      "image": "/docs/component-library/app/images/components/spinner.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:quickActionAPI": {
+      "descriptorName": "lightning:quickActionAPI",
+      "namespace": "lightning",
+      "name": "quickActionAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "lightning:inputAddress": {
+      "descriptorName": "lightning:inputAddress",
+      "namespace": "lightning",
+      "name": "inputAddress",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/inputAddress.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:availableForChatterExtensionComposer": {
+      "descriptorName": "lightning:availableForChatterExtensionComposer",
+      "namespace": "lightning",
+      "name": "availableForChatterExtensionComposer",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-platform-resource-loader": {
+      "descriptorName": "lightning-platform-resource-loader",
+      "namespace": "lightning",
+      "name": "platform-resource-loader",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:platformResourceLoader",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-ui-record-api": {
+      "descriptorName": "lightning-ui-record-api",
+      "namespace": "lightning",
+      "name": "ui-record-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:uiRecordApi",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-icon": {
+      "descriptorName": "lightning-icon",
+      "namespace": "lightning",
+      "name": "icon",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:icon",
+      "image": "/docs/component-library/app/images/components/icon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Lightning Web Components"
+    },
+    "lightningsnapin:minimizedUI": {
+      "descriptorName": "lightningsnapin:minimizedUI",
+      "namespace": "lightningsnapin",
+      "name": "minimizedUI",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-click-to-dial": {
+      "descriptorName": "lightning-click-to-dial",
+      "namespace": "lightning",
+      "name": "click-to-dial",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:clickToDial",
+      "image": "/docs/component-library/app/images/components/clickToDial.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:tile": {
+      "descriptorName": "lightning:tile",
+      "namespace": "lightning",
+      "name": "tile",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/tile.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "force:navigateToSObject": {
+      "descriptorName": "force:navigateToSObject",
+      "namespace": "force",
+      "name": "navigateToSObject",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:datatable": {
+      "descriptorName": "lightning:datatable",
+      "namespace": "lightning",
+      "name": "datatable",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/datatable.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning-rich-text-toolbar-button-group": {
+      "descriptorName": "lightning-rich-text-toolbar-button-group",
+      "namespace": "lightning",
+      "name": "rich-text-toolbar-button-group",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:richTextToolbarButtonGroup",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "lightningcommunity:allowInRelaxedCSP": {
+      "descriptorName": "lightningcommunity:allowInRelaxedCSP",
+      "namespace": "lightningcommunity",
+      "name": "allowInRelaxedCSP",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "flexipage:availableForAllPageTypes": {
+      "descriptorName": "flexipage:availableForAllPageTypes",
+      "namespace": "flexipage",
+      "name": "availableForAllPageTypes",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-vertical-navigation-item": {
+      "descriptorName": "lightning-vertical-navigation-item",
+      "namespace": "lightning",
+      "name": "vertical-navigation-item",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:verticalNavigationItem",
+      "image": "/docs/component-library/app/images/components/verticalNavigationItem.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Navigation",
+      "framework": "Lightning Web Components"
+    },
+    "ui:menuTriggerLink": {
+      "descriptorName": "ui:menuTriggerLink",
+      "namespace": "ui",
+      "name": "menuTriggerLink",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-number": {
+      "descriptorName": "lightning-formatted-number",
+      "namespace": "lightning",
+      "name": "formatted-number",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedNumber",
+      "image": "/docs/component-library/app/images/components/formattedNumber.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:container": {
+      "descriptorName": "lightning:container",
+      "namespace": "lightning",
+      "name": "container",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Service",
+      "framework": "Aura Components"
+    },
+    "force:navigateToRelatedList": {
+      "descriptorName": "force:navigateToRelatedList",
+      "namespace": "force",
+      "name": "navigateToRelatedList",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "wave:selectionChanged": {
+      "descriptorName": "wave:selectionChanged",
+      "namespace": "wave",
+      "name": "selectionChanged",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:helptext": {
+      "descriptorName": "lightning:helptext",
+      "namespace": "lightning",
+      "name": "helptext",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/helptext.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:conversationChatEnded": {
+      "descriptorName": "lightning:conversationChatEnded",
+      "namespace": "lightning",
+      "name": "conversationChatEnded",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:availableForFlowActions": {
+      "descriptorName": "lightning:availableForFlowActions",
+      "namespace": "lightning",
+      "name": "availableForFlowActions",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-datatable": {
+      "descriptorName": "lightning-datatable",
+      "namespace": "lightning",
+      "name": "datatable",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:datatable",
+      "image": "/docs/component-library/app/images/components/datatable.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:select": {
+      "descriptorName": "lightning:select",
+      "namespace": "lightning",
+      "name": "select",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/select.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "ui:outputCurrency": {
+      "descriptorName": "ui:outputCurrency",
+      "namespace": "ui",
+      "name": "outputCurrency",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "aura:valueChange": {
+      "descriptorName": "aura:valueChange",
+      "namespace": "aura",
+      "name": "valueChange",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-button": {
+      "descriptorName": "lightning-button",
+      "namespace": "lightning",
+      "name": "button",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:button",
+      "image": "/docs/component-library/app/images/components/button.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:combobox": {
+      "descriptorName": "lightning:combobox",
+      "namespace": "lightning",
+      "name": "combobox",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/combobox.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning:conversationCustomEvent": {
+      "descriptorName": "lightning:conversationCustomEvent",
+      "namespace": "lightning",
+      "name": "conversationCustomEvent",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:collapse": {
+      "descriptorName": "ui:collapse",
+      "namespace": "ui",
+      "name": "collapse",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:radioGroup": {
+      "descriptorName": "lightning:radioGroup",
+      "namespace": "lightning",
+      "name": "radioGroup",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/radioGroup.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "aura:text": {
+      "descriptorName": "aura:text",
+      "namespace": "aura",
+      "name": "text",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "wave:assetLoaded": {
+      "descriptorName": "wave:assetLoaded",
+      "namespace": "wave",
+      "name": "assetLoaded",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-emp-api": {
+      "descriptorName": "lightning-emp-api",
+      "namespace": "lightning",
+      "name": "emp-api",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:empApi",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Salesforce Mobile App"
+      ],
+      "category": "API",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:quipCard": {
+      "descriptorName": "lightning:quipCard",
+      "namespace": "lightning",
+      "name": "quipCard",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Files",
+      "framework": "Aura Components"
+    },
+    "force:recordEdit": {
+      "descriptorName": "force:recordEdit",
+      "namespace": "force",
+      "name": "recordEdit",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Forms",
+      "framework": "Aura Components"
+    },
+    "ui:expand": {
+      "descriptorName": "ui:expand",
+      "namespace": "ui",
+      "name": "expand",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:sendChatterExtensionPayload": {
+      "descriptorName": "lightning:sendChatterExtensionPayload",
+      "namespace": "lightning",
+      "name": "sendChatterExtensionPayload",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "flexipage:availableForRecordHome": {
+      "descriptorName": "flexipage:availableForRecordHome",
+      "namespace": "flexipage",
+      "name": "availableForRecordHome",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "force:refreshView": {
+      "descriptorName": "force:refreshView",
+      "namespace": "force",
+      "name": "refreshView",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "force:outputField": {
+      "descriptorName": "force:outputField",
+      "namespace": "force",
+      "name": "outputField",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning-carousel": {
+      "descriptorName": "lightning-carousel",
+      "namespace": "lightning",
+      "name": "carousel",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:carousel",
+      "image": "/docs/component-library/app/images/components/carousel.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Lightning Web Components"
+    },
+    "forceChatter:postCreated": {
+      "descriptorName": "forceChatter:postCreated",
+      "namespace": "forceChatter",
+      "name": "postCreated",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-layout": {
+      "descriptorName": "lightning-layout",
+      "namespace": "lightning",
+      "name": "layout",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:layout",
+      "image": "/docs/component-library/app/images/components/layout.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-record-view-form": {
+      "descriptorName": "lightning-record-view-form",
+      "namespace": "lightning",
+      "name": "record-view-form",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:recordViewForm",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Forms",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:formattedDateTime": {
+      "descriptorName": "lightning:formattedDateTime",
+      "namespace": "lightning",
+      "name": "formattedDateTime",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/formattedDateTime.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "lightning:omniChannelWorkAccepted": {
+      "descriptorName": "lightning:omniChannelWorkAccepted",
+      "namespace": "lightning",
+      "name": "omniChannelWorkAccepted",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-dual-listbox": {
+      "descriptorName": "lightning-dual-listbox",
+      "namespace": "lightning",
+      "name": "dual-listbox",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:dualListbox",
+      "image": "/docs/component-library/app/images/components/dualListBox.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "aura:if": {
+      "descriptorName": "aura:if",
+      "namespace": "aura",
+      "name": "if",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Logic",
+      "framework": "Aura Components"
+    },
+    "lightning-formatted-email": {
+      "descriptorName": "lightning-formatted-email",
+      "namespace": "lightning",
+      "name": "formatted-email",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedEmail",
+      "image": "/docs/component-library/app/images/components/formattedEmail.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-navigation": {
+      "descriptorName": "lightning-navigation",
+      "namespace": "lightning",
+      "name": "navigation",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:navigation",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Navigation",
+      "framework": "Lightning Web Components"
+    },
+    "wave:update": {
+      "descriptorName": "wave:update",
+      "namespace": "wave",
+      "name": "update",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "force:canvasApp": {
+      "descriptorName": "force:canvasApp",
+      "namespace": "force",
+      "name": "canvasApp",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Service",
+      "framework": "Aura Components"
+    },
+    "lightning-page-reference-utils": {
+      "descriptorName": "lightning-page-reference-utils",
+      "namespace": "lightning",
+      "name": "page-reference-utils",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:pageReferenceUtils",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Unknown",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:recordEditForm": {
+      "descriptorName": "lightning:recordEditForm",
+      "namespace": "lightning",
+      "name": "recordEditForm",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Forms",
+      "framework": "Aura Components"
+    },
+    "lightning:menuItem": {
+      "descriptorName": "lightning:menuItem",
+      "namespace": "lightning",
+      "name": "menuItem",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/menuItem.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning-tile": {
+      "descriptorName": "lightning-tile",
+      "namespace": "lightning",
+      "name": "tile",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:tile",
+      "image": "/docs/component-library/app/images/components/tile.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:progressRing": {
+      "descriptorName": "lightning:progressRing",
+      "namespace": "lightning",
+      "name": "progressRing",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Unknown",
+      "framework": "Aura Components"
+    },
+    "lightning-progress-indicator": {
+      "descriptorName": "lightning-progress-indicator",
+      "namespace": "lightning",
+      "name": "progress-indicator",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:progressIndicator",
+      "image": "/docs/component-library/app/images/components/progressIndicator.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Process/Workflow",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:textarea": {
+      "descriptorName": "lightning:textarea",
+      "namespace": "lightning",
+      "name": "textarea",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/textarea.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "ltng:require": {
+      "descriptorName": "ltng:require",
+      "namespace": "ltng",
+      "name": "require",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Logic",
+      "framework": "Aura Components"
+    },
+    "aura:iteration": {
+      "descriptorName": "aura:iteration",
+      "namespace": "aura",
+      "name": "iteration",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Logic",
+      "framework": "Aura Components"
+    },
+    "lightning-input": {
+      "descriptorName": "lightning-input",
+      "namespace": "lightning",
+      "name": "input",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:input",
+      "image": "/docs/component-library/app/images/components/input.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    },
+    "ltng:selectSObject": {
+      "descriptorName": "ltng:selectSObject",
+      "namespace": "ltng",
+      "name": "selectSObject",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:flexipageRegionInfo": {
+      "descriptorName": "lightning:flexipageRegionInfo",
+      "namespace": "lightning",
+      "name": "flexipageRegionInfo",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Salesforce Mobile App"
+      ],
+      "category": "Layout",
+      "framework": "Aura Components"
+    },
+    "ui:outputText": {
+      "descriptorName": "ui:outputText",
+      "namespace": "ui",
+      "name": "outputText",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Aura Components"
+    },
+    "wave:sdk": {
+      "descriptorName": "wave:sdk",
+      "namespace": "wave",
+      "name": "sdk",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Analytics",
+      "framework": "Aura Components"
+    },
+    "force:recordData": {
+      "descriptorName": "force:recordData",
+      "namespace": "force",
+      "name": "recordData",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Service",
+      "framework": "Aura Components"
+    },
+    "forceCommunity:routeLink": {
+      "descriptorName": "forceCommunity:routeLink",
+      "namespace": "forceCommunity",
+      "name": "routeLink",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Experience Builder Sites"
+      ],
+      "category": "Navigation",
+      "framework": "Aura Components"
+    },
+    "ui:menuFocusChange": {
+      "descriptorName": "ui:menuFocusChange",
+      "namespace": "ui",
+      "name": "menuFocusChange",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:recordHomeTemplate": {
+      "descriptorName": "lightning:recordHomeTemplate",
+      "namespace": "lightning",
+      "name": "recordHomeTemplate",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-output-field": {
+      "descriptorName": "lightning-output-field",
+      "namespace": "lightning",
+      "name": "output-field",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:outputField",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:insertImageButton": {
+      "descriptorName": "lightning:insertImageButton",
+      "namespace": "lightning",
+      "name": "insertImageButton",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/insertImageButton.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "clients:availableForMailAppAppPage": {
+      "descriptorName": "clients:availableForMailAppAppPage",
+      "namespace": "clients",
+      "name": "availableForMailAppAppPage",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:icon": {
+      "descriptorName": "lightning:icon",
+      "namespace": "lightning",
+      "name": "icon",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/icon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Visual",
+      "framework": "Aura Components"
+    },
+    "ui:clearErrors": {
+      "descriptorName": "ui:clearErrors",
+      "namespace": "ui",
+      "name": "clearErrors",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "force:hasSObjectName": {
+      "descriptorName": "force:hasSObjectName",
+      "namespace": "force",
+      "name": "hasSObjectName",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:buttonIconStateful": {
+      "descriptorName": "lightning:buttonIconStateful",
+      "namespace": "lightning",
+      "name": "buttonIconStateful",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/buttonIconStateful.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Buttons",
+      "framework": "Aura Components"
+    },
+    "lightning:unsavedChanges": {
+      "descriptorName": "lightning:unsavedChanges",
+      "namespace": "lightning",
+      "name": "unsavedChanges",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "lightning-layout-item": {
+      "descriptorName": "lightning-layout-item",
+      "namespace": "lightning",
+      "name": "layout-item",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:layoutItem",
+      "image": "/docs/component-library/app/images/components/layoutItem.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:tabFocused": {
+      "descriptorName": "lightning:tabFocused",
+      "namespace": "lightning",
+      "name": "tabFocused",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "ui:validationError": {
+      "descriptorName": "ui:validationError",
+      "namespace": "ui",
+      "name": "validationError",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning-accordion": {
+      "descriptorName": "lightning-accordion",
+      "namespace": "lightning",
+      "name": "accordion",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:accordion",
+      "image": "/docs/component-library/app/images/components/accordion.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Layout",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-formatted-location": {
+      "descriptorName": "lightning-formatted-location",
+      "namespace": "lightning",
+      "name": "formatted-location",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:formattedLocation",
+      "image": "/docs/component-library/app/images/components/formattedLocation.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Displaying Data",
+      "framework": "Lightning Web Components"
+    },
+    "lightning:utilityBarAPI": {
+      "descriptorName": "lightning:utilityBarAPI",
+      "namespace": "lightning",
+      "name": "utilityBarAPI",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericHeadlessIcon.png",
+      "experience": [
+        "Lightning Experience"
+      ],
+      "category": "API",
+      "framework": "Aura Components"
+    },
+    "lightning:tabCreated": {
+      "descriptorName": "lightning:tabCreated",
+      "namespace": "lightning",
+      "name": "tabCreated",
+      "defType": "event",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": "N/A",
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "force:hasRecordId": {
+      "descriptorName": "force:hasRecordId",
+      "namespace": "force",
+      "name": "hasRecordId",
+      "defType": "interface",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/genericIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "N/A",
+      "framework": "Aura Components"
+    },
+    "lightning:slider": {
+      "descriptorName": "lightning:slider",
+      "namespace": "lightning",
+      "name": "slider",
+      "defType": "component",
+      "owner": "Salesforce",
+      "image": "/docs/component-library/app/images/components/slider.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Lightning Out / Visualforce",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Aura Components"
+    },
+    "lightning-record-edit-form": {
+      "descriptorName": "lightning-record-edit-form",
+      "namespace": "lightning",
+      "name": "record-edit-form",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:recordEditForm",
+      "image": "/docs/component-library/app/images/components/genericFormIcon.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App"
+      ],
+      "category": "Forms",
+      "framework": "Lightning Web Components"
+    },
+    "lightning-slider": {
+      "descriptorName": "lightning-slider",
+      "namespace": "lightning",
+      "name": "slider",
+      "defType": "module",
+      "owner": "Salesforce",
+      "auraDescriptor": "lightning:slider",
+      "image": "/docs/component-library/app/images/components/slider.png",
+      "experience": [
+        "Lightning Experience",
+        "Experience Builder Sites",
+        "Salesforce Mobile App",
+        "Standalone Lightning App"
+      ],
+      "category": "Data Entry",
+      "framework": "Lightning Web Components"
+    }
+  }
