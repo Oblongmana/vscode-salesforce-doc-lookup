@@ -17,6 +17,7 @@ export async function openSalesforceDocQuickPick(context: vscode.ExtensionContex
 
         const docTypeQuickPick: vscode.QuickPick<SalesforceReferenceItem> = vscode.window.createQuickPick();;
         docTypeQuickPick.items = salesforceReferenceItems;
+        docTypeQuickPick.matchOnDetail = true;
         if (prefillValue !== undefined) {
             docTypeQuickPick.value = prefillValue;
         }
