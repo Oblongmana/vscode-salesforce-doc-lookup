@@ -26,7 +26,7 @@ In rough priority order
 - [X] Add SOAP API DocType (https://developer.salesforce.com/docs/atlas.en-us.api.meta/api)
 - [X] Add SFDX CLI Command Reference DocType (https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference)
 - [X] Wacky ideas: Examine the feasibility of displaying doc in VSCode. Want to avoid showing a full-blown web browser.
-- [ ] Implement LWC/Aura Component Reference - very different to all other docs - it's a "dogfood" aura app. See the feature branch [feature/lwc-aura-doc](https://github.com/Oblongmana/vscode-salesforce-doc-lookup/tree/feature/lwc-aura-doc) for details
+- [X] Implement LWC/Aura Component Reference - very different to all other docs - it's a "dogfood" aura app. See the feature branch [feature/lwc-aura-doc](https://github.com/Oblongmana/vscode-salesforce-doc-lookup/tree/feature/lwc-aura-doc) for details
 - [X] Show busy when loading raw doc - using the QuickPick `busy` prop
 - [X] Examine breadcrumb path searching - e.g. if I search String methods, can I see the actual methods, or just the "String Methods" page? Is there a way to enhance this? Is it desirable? Edit: not sure when this was added, or if was always there, but `matchOnDetail` does exactly this, and looks and feels great.
 - [ ] Also implement LWC Dev Guide Reference - see above
