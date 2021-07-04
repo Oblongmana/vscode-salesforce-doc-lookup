@@ -41,6 +41,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-rest-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-soap-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
@@ -82,6 +83,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli",
                 "title": "Salesforce Reference: SFDX CLI"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
+                "title": "Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)"
             },
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",

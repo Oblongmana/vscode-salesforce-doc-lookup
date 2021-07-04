@@ -86,6 +86,10 @@ export async function activate(context: vscode.ExtensionContext) {
         openSalesforceDocQuickPick(context, DocTypeName.SFDX_CLI, prefillValue);
     });
 
+    let lwcAuraComponentLibReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.LWC_AND_AURA_COMPONENT_LIBRARY}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.LWC_AND_AURA_COMPONENT_LIBRARY, prefillValue);
+    });
+
     let invalidateCacheDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${UtilityCommands.INVALIDATE_CACHE}`, async () => {
         invalidateSalesforceReferenceCache(context);
     });
@@ -106,6 +110,7 @@ export async function activate(context: vscode.ExtensionContext) {
         restApiReferenceDisposable,
         soapApiReferenceDisposable,
         sfdxCliReferenceDisposable,
+        lwcAuraComponentLibReferenceDisposable,
     );
 }
 

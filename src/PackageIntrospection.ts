@@ -6,15 +6,16 @@ export const PUBLISHER = 'Oblongmana';
 
 //General Command Types
 export const DocCommands: Record<DocTypeName, string> = {
-    APEX                    : 'salesforce-reference-apex',
-    VISUALFORCE             : 'salesforce-reference-visualforce',
-    LIGHTNING_CONSOLE       : 'salesforce-reference-lightning-console',
-    CLASSIC_CONSOLE         : 'salesforce-reference-classic-console',
-    METADATA                : 'salesforce-reference-metadata',
-    OBJECT_REFERENCE        : 'salesforce-reference-object-reference',
-    REST_API                : 'salesforce-reference-rest-api',
-    SOAP_API                : 'salesforce-reference-soap-api',
-    SFDX_CLI                : 'salesforce-reference-sfdx-cli',
+    APEX                            : 'salesforce-reference-apex',
+    VISUALFORCE                     : 'salesforce-reference-visualforce',
+    LIGHTNING_CONSOLE               : 'salesforce-reference-lightning-console',
+    CLASSIC_CONSOLE                 : 'salesforce-reference-classic-console',
+    METADATA                        : 'salesforce-reference-metadata',
+    OBJECT_REFERENCE                : 'salesforce-reference-object-reference',
+    REST_API                        : 'salesforce-reference-rest-api',
+    SOAP_API                        : 'salesforce-reference-soap-api',
+    SFDX_CLI                        : 'salesforce-reference-sfdx-cli',
+    LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
 };
 const DocCommandsValues: string[] = Object.values(DocCommands);
 

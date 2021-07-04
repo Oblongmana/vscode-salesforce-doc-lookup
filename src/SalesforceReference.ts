@@ -3,20 +3,30 @@ import * as cheerio from 'cheerio';
 import got from 'got/dist/source';
 import { SalesforceReferenceOutputChannel } from './Logging';
 
+//Universal constants
 const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
-const SF_TOC_PATH = '/get_document';
-const SF_RAW_DOC_PATH = '/get_document_content';
+//Constants related to Atlas-based documentation
+const SF_ATLAS_TOC_PATH = '/get_document';
+const SF_ATLAS_RAW_DOC_PATH = '/get_document_content';
+//Constants related to Aura app based documentation
+const SF_AURA_PATH = '/component-library/aura';
+const SF_AURA_BUNDLE_PATH = '/component-library/bundle';
+const SF_AURA_FWUID = '0lEhuHYJBRuSnxadQW0Iww'; //Appears to be the current version of the Aura framework itself. Will likely need updating over time. See notes/aura_lwc_component_docs.md.
+const SF_AURA_ACTION_DESCRIPTOR_URI = 'serviceComponent://ui.lightning.docs.components.aura.components.controllers.ComponentLibraryDataProviderController/ACTION$';
+const SF_AURA_TOC_ACTION = 'getBundleDefinitionsList';
+const SF_AURA_RAW_DOC_ACTION = 'getBundleDefinition';
 
 export enum DocTypeName {
-    APEX                = 'APEX',
-    VISUALFORCE         = 'VISUALFORCE',
-    LIGHTNING_CONSOLE   = 'LIGHTNING_CONSOLE',
-    CLASSIC_CONSOLE     = 'CLASSIC_CONSOLE',
-    METADATA            = 'METADATA',
-    OBJECT_REFERENCE    = 'OBJECT_REFERENCE',
-    REST_API            = 'REST_API',
-    SOAP_API            = 'SOAP_API',
-    SFDX_CLI            = 'SFDX_CLI',
+    APEX                            = 'APEX',
+    VISUALFORCE                     = 'VISUALFORCE',
+    LIGHTNING_CONSOLE               = 'LIGHTNING_CONSOLE',
+    CLASSIC_CONSOLE                 = 'CLASSIC_CONSOLE',
+    METADATA                        = 'METADATA',
+    OBJECT_REFERENCE                = 'OBJECT_REFERENCE',
+    REST_API                        = 'REST_API',
+    SOAP_API                        = 'SOAP_API',
+    SFDX_CLI                        = 'SFDX_CLI',
+    LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
 }
 
 export function docTypeNameTitleCase(docTypeName: DocTypeName) {
@@ -36,23 +46,34 @@ export function docTypeNameTitleCase(docTypeName: DocTypeName) {
  * - we can open in a web browser;
  * - has a human-readable breadcrumb string indicating how we got to this node;
  * - can be displayed in a VSCode QuickPick
+ *
+ * todo: update doc to describe more generically - still refers to SalesforceAtlasTOC specific stuff like a_attr
  */
 export class SalesforceReferenceItem implements vscode.QuickPickItem {
-    label: string;
+    //QuickPick Interface fields
+    label!: string;
     description?: string | undefined;
     detail?: string | undefined;
     picked?: boolean | undefined;
     alwaysShow?: boolean | undefined;
 
     /**
-     * The path supplied by the SF ToC for a given node, in a_attr.href
+     * The final part of the URL for a given reference item - from a technical perspective,
+     * this is the slug, query, and fragment.
+     *
+     * E.g. in https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete
+     *          this is `apex_dml_section.htm#apex_dml_undelete`
+     * E.g. in https://developer.salesforce.com/docs/component-library/bundle/lightning:carousel
+     *          this is `lightning:carousel`
      */
-    href: string;
+    resource!: string;
+
     /**
      * The "id" needed for the raw doc endpoint (see SF_RAW_DOC_PATH in src code)
      * At time of writing, this is a_attr.href on a given reference node, not
      * the 'id' property, like you might expect, but is only everything before the `#`
      *
+     * todo: marked for deletion
      * TODO: it'll need splitting if we want to get something we can use for the raw doc endpoint,
      *        and that's not useful until we work out a display-in-vscode-strategy - the feasibility
      *        of which needs further consideration. See notes in NOTES.md.
@@ -63,20 +84,71 @@ export class SalesforceReferenceItem implements vscode.QuickPickItem {
     rawDocId?: string;
 
     /**
-     * Construct an instance of SalesforceReferenceItem
-     * @param docNode A documentationNode from a Salesforce ToC, which must have both label and a_attr.href populated
+     * Construct an instance of SalesforceReferenceItem from a SalesforceAtlasTOC.DocumentationNode
+     *
+     * @param docNode A documentationNode from an Atlas-based ToC, which must have both label and a_attr.href populated
      * @param breadcrumb A human-readable breadcrumb string, indicating to the user where in the ToC this node sits (e.g. "$(home) $(breadcrumb-separator) Apex Language Reference")
      */
-    constructor(docNode: SalesforceTOC.DocumentationNode, breadcrumb: string) {
-        this.label = docNode.text;
+    static constructFromAtlasNode(docNode: SalesforceAtlasTOC.DocumentationNode, breadcrumb: string): SalesforceReferenceItem {
+        var refItem = new SalesforceReferenceItem();
+        if (!docNode.hasOwnProperty('text') || docNode.text === undefined) {
+            throw new Error('Supplied DocumentationNode had a missing or undefined `text`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+        }
         if (!docNode.hasOwnProperty('a_attr') || docNode.a_attr === undefined) {
             throw new Error('Supplied DocumentationNode had a missing or undefined `a_attr`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build links and must have this populated');
         }
         if (!docNode.a_attr.hasOwnProperty('href') || docNode.a_attr.href === undefined) {
             throw new Error('Supplied DocumentationNode had a missing or undefined `a_attr.href`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build links and must have this populated');
         }
-        this.href = docNode.a_attr.href;
-        this.detail = breadcrumb;
+        refItem.label = docNode.text;
+        refItem.resource = docNode.a_attr.href;
+        refItem.detail = breadcrumb;
+        return refItem;
+    }
+
+
+    /**
+     * Construct an instance of SalesforceReferenceItem from a  SalesforceAuraTOC.DocumentationNode
+     *
+     * @param docNode A documentationNode from an Aura-based ToC, which must have descriptorName, namespace, name, defType populated
+     */
+    static constructFromAuraNode(docNode: SalesforceAuraTOC.DocumentationNode): SalesforceReferenceItem {
+        var refItem = new SalesforceReferenceItem();
+        if (!docNode.hasOwnProperty('descriptorName') || docNode.descriptorName === undefined) {
+            throw new Error('Supplied DocumentationNode had a missing or undefined `descriptorName`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+        }
+        if (!docNode.hasOwnProperty('namespace') || docNode.namespace === undefined) {
+            throw new Error('Supplied DocumentationNode had a missing or undefined `namespace`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+        }
+        if (!docNode.hasOwnProperty('name') || docNode.name === undefined) {
+            throw new Error('Supplied DocumentationNode had a missing or undefined `name`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+        }
+        if (!docNode.hasOwnProperty('defType') || docNode.defType === undefined) {
+            throw new Error('Supplied DocumentationNode had a missing or undefined `defType`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+        }
+        refItem.label = docNode.descriptorName;
+        refItem.resource = `${docNode.descriptorName}`;
+        //DefTypes map a little differently in the interface, from their underlying strings to their display values. This transform reflects the display values
+        var processedDefType = docNode.defType;
+        switch (processedDefType) {
+            case 'component':
+                processedDefType = 'Aura';
+                break;
+            case 'event':
+                    processedDefType = 'Events';
+                break;
+            case 'module':
+                    processedDefType = 'Lightning';
+                break;
+            case 'interface':
+                    processedDefType = 'Interfaces';
+                    break;
+            default:
+                //Just leave it as the supplied defType. Shouldn't happen, but ok enough if it does
+                break;
+        }
+        refItem.detail = `$(home) $(breadcrumb-separator) ${processedDefType} $(breadcrumb-separator) ${docNode.namespace} $(breadcrumb-separator) ${docNode.name}`;
+        return refItem;
     }
 
 }
@@ -147,6 +219,7 @@ abstract class SalesforceReferenceAtlasBasedDocType implements SalesforceReferen
     private readonly docTypeName: DocTypeName;
 
     /**
+     * todo: finish this documentation
      *
      * @param atlasPath The portion of the URL path giving the location of the "atlas" for this doc type.
      *                      e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete"
@@ -159,7 +232,7 @@ abstract class SalesforceReferenceAtlasBasedDocType implements SalesforceReferen
         this.docTypeName = docTypeName;
         this.atlasPath = atlasPath;
         this.docPath = docPath;
-        this.docTOCUrl = SF_DOC_ROOT_URL + SF_TOC_PATH + this.atlasPath;
+        this.docTOCUrl = SF_DOC_ROOT_URL + SF_ATLAS_TOC_PATH + this.atlasPath;
     }
 
     /**
@@ -187,7 +260,7 @@ abstract class SalesforceReferenceAtlasBasedDocType implements SalesforceReferen
      * @param selectedReferenceItem A SalesforceReferenceItem to be loaded in the browser
      */
     public humanDocURL(selectedReferenceItem: SalesforceReferenceItem): string {
-        return `${SF_DOC_ROOT_URL}${this.atlasPath}${this.docPath}/${selectedReferenceItem.href}`;
+        return `${SF_DOC_ROOT_URL}${this.atlasPath}${this.docPath}/${selectedReferenceItem.resource}`;
     }
 
     /**
@@ -198,17 +271,17 @@ abstract class SalesforceReferenceAtlasBasedDocType implements SalesforceReferen
      * @param documentationNode The node from the ToC to convert to Salesforce Reference Items
      * @param breadcrumbString A human-readable breadcrumb string, indicating to the user where in the ToC this node sits (e.g. "$(home) $(breadcrumb-separator) Apex Language Reference")
      */
-    private convertDocNodeToSalesforceReferenceItems(documentationNode: SalesforceTOC.DocumentationNode, breadcrumbString: string): SalesforceReferenceItem[] {
+    private convertDocNodeToSalesforceReferenceItems(documentationNode: SalesforceAtlasTOC.DocumentationNode, breadcrumbString: string): SalesforceReferenceItem[] {
         const referenceItems: SalesforceReferenceItem[] = [];
         // SalesforceReferenceOutputChannel.appendLine('documentationNode: ' + documentationNode);
         //Convert this node into a SalesforceReferenceItem, after run-time checking it has appropriate properties
         if (documentationNode.hasOwnProperty('a_attr')) {
-            referenceItems.push(new SalesforceReferenceItem(documentationNode, breadcrumbString));
+            referenceItems.push(SalesforceReferenceItem.constructFromAtlasNode(documentationNode, breadcrumbString));
         }
         //Recursively convert children into SalesforceReferenceItems and add them to our list
         if (documentationNode.hasOwnProperty('children') && documentationNode.children !== undefined) {
-            const breadcrumbStringForChildren = `${breadcrumbString}$(breadcrumb-separator)${documentationNode.text}`;
-            documentationNode.children.forEach((childDocumentationNode: SalesforceTOC.DocumentationNode) => {
+            const breadcrumbStringForChildren = `${breadcrumbString} $(breadcrumb-separator) ${documentationNode.text}`;
+            documentationNode.children.forEach((childDocumentationNode: SalesforceAtlasTOC.DocumentationNode) => {
                 referenceItems.push(...this.convertDocNodeToSalesforceReferenceItems(childDocumentationNode, breadcrumbStringForChildren));
             });
         }
@@ -224,7 +297,7 @@ abstract class SalesforceReferenceAtlasBasedDocType implements SalesforceReferen
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails
      */
-    protected abstract getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode>;
+    protected abstract getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode>;
 
     /**
      * Get the Table of Contents used by tools to get document structure for this documentation type
@@ -254,16 +327,9 @@ abstract class SalesforceReferenceAtlasBasedDocType implements SalesforceReferen
         // const vfDocVersion: string = sfJSONDoc.version.doc_version;
 
         // return `${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}/${folder}/${id}/${locale}/${version}`;
-        //todo improve on hardcoding
-        //Extract the path ONLY from the href - as some hrefs may include fragments, which are not used for raw doc urls (they're only used for jumping to anchors in human doc)
-        // SalesforceReferenceOutputChannel.appendLine(`${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}${this.docPath}${docHrefWithoutFragment}/en-us/232.0`);
 
-        // const rawDocURL = SalesforceReferenceDocTypes[docType].rawDocURL(selectedReferenceItem!);
-        // const fragment = SalesforceReferenceDocTypes[docType].getFragment(selectedReferenceItem!);
-        // showDocInWebView(context, vscode.Uri.parse(rawDocURL), fragment);
-
-        const docHrefWithoutFragment = vscode.Uri.parse(selectedReferenceItem.href).path;
-        const docUri = `${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}${this.docPath}${docHrefWithoutFragment}/en-us/232.0`;
+        const docHrefWithoutFragment = vscode.Uri.parse(selectedReferenceItem.resource).path;
+        const docUri = `${SF_DOC_ROOT_URL}${SF_ATLAS_RAW_DOC_PATH}${this.docPath}${docHrefWithoutFragment}/en-us/232.0`;
 
         //TODO: this is extremely experimental, see Notes in SalesforceReferenceDocType.rawDocURL for future path
         //  review security constraints, poss including CSP stuff on the webview itself
@@ -293,10 +359,206 @@ abstract class SalesforceReferenceAtlasBasedDocType implements SalesforceReferen
      */
     public getFragment(selectedReferenceItem: SalesforceReferenceItem): string {
         //Extract the fragment ONLY from the href - some hrefs may include fragments, which are not used for raw doc (they're only used for jumping to anchors in human doc)
-        // SalesforceReferenceOutputChannel.appendLine(vscode.Uri.parse(selectedReferenceItem.href).fragment);
-        return vscode.Uri.parse(selectedReferenceItem.href).fragment;
+        // SalesforceReferenceOutputChannel.appendLine(vscode.Uri.parse(selectedReferenceItem.resource).fragment);
+        return vscode.Uri.parse(selectedReferenceItem.resource).fragment;
     }
 }
+
+
+enum AuraAction {
+    GET_TOC_MESSAGE,
+    GET_RAW_DOC_MESSAGE,
+}
+/**
+ * EXPERIMENTAL
+ */
+abstract class SalesforceReferenceAuraBasedDocType implements SalesforceReferenceDocType {
+    private readonly AURA_CONTEXT = encodeURIComponent(JSON.stringify({ "fwuid": `${SF_AURA_FWUID}` }));
+    private readonly AURA_TOKEN = 'aura';
+
+    /**
+     * The DocTypeName this DocType is for
+     */
+    private readonly docTypeName: DocTypeName;
+
+    /**
+     *
+     * @param docTypeName the DocTypeName instance for this Documentation type - e.g. DocTypeName.LWC_AND_AURA_COMPONENT_LIBRARY
+     */
+    constructor(docTypeName: DocTypeName) {
+        this.docTypeName = docTypeName;
+    }
+
+    private buildAuraActionBody(auraAction: AuraAction, params?: Record<string,string>): string {
+        var actionString: string;
+        switch (auraAction) {
+            case AuraAction.GET_TOC_MESSAGE:
+                actionString = SF_AURA_TOC_ACTION;
+                break;
+            case AuraAction.GET_RAW_DOC_MESSAGE:
+                actionString = SF_AURA_RAW_DOC_ACTION;
+                break;
+            default:
+                throw new Error('Unexpected Aura Action');
+        }
+        var message: any = {
+            "actions": [
+                {
+                    "descriptor": `${SF_AURA_ACTION_DESCRIPTOR_URI}${actionString}`
+                }
+            ]
+        };
+        if (params !== undefined) {
+            message.actions[0].params = {};
+            Object.entries(params).forEach(([key, value]) => {
+                message.actions[0].params[key] = value;
+            });
+            // SalesforceReferenceOutputChannel.appendLine(''+message);
+        }
+        const finalBody: string = `message=${encodeURIComponent(JSON.stringify(message))}&aura.context=${this.AURA_CONTEXT}&aura.token=${this.AURA_TOKEN}`;
+        // SalesforceReferenceOutputChannel.appendLine('buildAuraActionBody: ' + finalBody);
+        return finalBody;
+    }
+
+    /**
+     * Get the SalesforceReferenceItem instances for this reference doc type
+     *
+     * @param context the extension context, used for accessing/populating the cache
+     */
+    public async getSalesforceReferenceItems(context: vscode.ExtensionContext): Promise<SalesforceReferenceItem[]> {
+        //Try to use existing cached values, and populate the cache if not available
+        let referenceItems: SalesforceReferenceItem[] | undefined = context.globalState.get(this.docTypeName);
+        if (referenceItems === undefined) {
+            console.log(`Cache miss for ${this.docTypeName} Salesforce Reference entries. Retrieving from web`);
+            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeNameTitleCase(this.docTypeName)} Reference Index...`, 'OK');
+
+            const body = this.buildAuraActionBody(AuraAction.GET_TOC_MESSAGE);
+
+            var tocResponse: object = await got.post(`${SF_DOC_ROOT_URL}${SF_AURA_PATH}`, {
+                "headers": {
+                    "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+                },
+                "body": `${body}`
+            }).json();
+
+            // //Useful debugs
+            // SalesforceReferenceOutputChannel.appendLine((await myRequest).request.options.body as string);
+            // SalesforceReferenceOutputChannel.appendLine(JSON.stringify(tocResponse));
+
+            var parsedTocResponse: SalesforceAuraTOC.GetBundleDefinitionsListResponse = tocResponse as SalesforceAuraTOC.GetBundleDefinitionsListResponse;
+
+            // SalesforceReferenceOutputChannel.appendLine(JSON.stringify(parsedTocResponse.actions[0].returnValue));
+
+            var bundleDefinitionList: SalesforceAuraTOC.BundleDefinitionList = parsedTocResponse.actions[0].returnValue;
+            referenceItems = Object.entries(bundleDefinitionList).sort().map(([, currDocNode]) => {
+                // SalesforceReferenceOutputChannel.appendLine('currDocNode: ' + currDocNode);
+                return SalesforceReferenceItem.constructFromAuraNode(currDocNode);
+            });
+
+            context.globalState.update(this.docTypeName, referenceItems);
+        }
+        return referenceItems;
+    }
+
+    /**
+     * Get a URL for a human-readable page that can be loaded into the browser, for a given SalesforceReferenceItem
+     * @param selectedReferenceItem A SalesforceReferenceItem to be loaded in the browser
+     */
+    public humanDocURL(selectedReferenceItem: SalesforceReferenceItem): string {
+        return `${SF_DOC_ROOT_URL}${SF_AURA_BUNDLE_PATH}/${selectedReferenceItem.resource}`;
+    }
+
+    /**
+     * DOUBLY-EXPERIMENTAL: Get the raw doc as HTML that can be displayed in a webview
+     *
+     * DOUBLY-EXPERIMENTAL as it relates to two experimental features - WebView, and Aura-app based doc
+     *
+     * @param selectedReferenceItem the SalesforceReferenceItem to get the raw doc for
+     * @returns a promise that will resolve to a string of html that can be merged into a WebView
+     */
+    public async rawDoc(selectedReferenceItem: SalesforceReferenceItem): Promise<string> {
+        //todo: when doing other locale/version things for Atlas, see if there are any locale/version options here
+
+        const body = this.buildAuraActionBody(AuraAction.GET_RAW_DOC_MESSAGE, { "descriptor": selectedReferenceItem.label } );
+
+        var tocResponse: object = await got.post(`${SF_DOC_ROOT_URL}${SF_AURA_PATH}`, {
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
+            },
+            "body": `${body}`
+        }).json();
+
+        // //Useful debug
+        // SalesforceReferenceOutputChannel.appendLine((await myRequest).request.options.body as string);
+
+        var parsedBundleResponse: SalesforceAuraTOC.GetBundleDefinitionResponse = tocResponse as SalesforceAuraTOC.GetBundleDefinitionResponse;
+        // SalesforceReferenceOutputChannel.appendLine(JSON.stringify(parsedBundleResponse));
+        var bundleDefinition: SalesforceAuraTOC.BundleDefinition = parsedBundleResponse.actions[0].returnValue;
+
+        //docDef can be empty - docDef is specifically the documentation tab, which some things don't have (e.g.aura:componentEvent, which only has Specification)
+        var documentationDoc = cheerio.load('', null, false); //start empty
+        // SalesforceReferenceOutputChannel.appendLine('bundleDefinition.docDef: ' + JSON.stringify(bundleDefinition.docDef));
+        if (bundleDefinition.docDef !== undefined) {
+            documentationDoc = cheerio.load('<div id="documentation"></div>', null, false); // run in fragment mode so it doesn't add html/head etc
+            documentationDoc('#documentation').append(`<h1 style="font-weight: bold">Documentation</h1>`);// Add a Documentation Header to represent the tab
+            bundleDefinition.docDef.descriptions.forEach(descriptionHtml => {
+                //These are already html
+                documentationDoc('#documentation').append(descriptionHtml);
+            });
+        }
+
+        //Description is always populated, and goes onto the header, and into the Specification tab
+        // We're going to reconstruct something similar to the html for the Specification tab - as that's not too heinous, and is built in page from the response
+        var specificationDoc = cheerio.load('<div id="specification"></div>', null, false); // run in fragment mode so it doesn't add html/head etc
+        specificationDoc('#specification').append(`<h1 style="font-weight: bold">Specification</h1>`);// Add a Specification Header to represent the tab
+        specificationDoc('#specification').append(`<h3>${bundleDefinition.descriptorName} (${bundleDefinition.defType})</h3>`);
+        specificationDoc('#specification').append(`<p>${bundleDefinition.description}</p>`);
+        specificationDoc('#specification').append(`<table id="keyInfoTable"><tbody id="keyInfoTableBody"></tbody></table>`);
+        specificationDoc('#keyInfoTableBody').append(`<tr><td>Support:   </td>     <td>${bundleDefinition.support}     </td></tr>`);
+        specificationDoc('#keyInfoTableBody').append(`<tr><td>Access:    </td>     <td>${bundleDefinition.access}      </td></tr>`);
+        specificationDoc('#keyInfoTableBody').append(`<tr><td>Abstract:  </td>     <td>${bundleDefinition.isAbstract}  </td></tr>`);
+        specificationDoc('#keyInfoTableBody').append(`<tr><td>Extensible:</td>     <td>${bundleDefinition.isExtensible}</td></tr>`);
+        if (bundleDefinition.attributes.length > 0) {
+            specificationDoc('#specification').append(`<h4>Attributes</h4>`);
+            specificationDoc('#specification').append(`<table id="attributesTable"></table>`);
+            specificationDoc('#attributesTable').append(`<thead><tr style="text-transform:uppercase"><th>Name</th><th>Type</th><th>Access</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>`);
+            specificationDoc('#attributesTable').append(`<tbody id="attributesTableBody"></tbody>`);
+            bundleDefinition.attributes.forEach((attributeDefinition: SalesforceAuraTOC.BundleAttribute) => {
+                specificationDoc('#attributesTableBody').append(`
+                    <tr>
+                        <td>${attributeDefinition.name}</td>
+                        <td>${attributeDefinition.type}</td>
+                        <td>${attributeDefinition.access}</td>
+                        <td>${attributeDefinition.required}</td>
+                        <td>${attributeDefinition.defaultValue !== undefined ? attributeDefinition.defaultValue : ''}</td>
+                        <td>${attributeDefinition.description}</td>
+                    </tr>
+                `);
+                //todo: doesn't include the `inherited from` badge. Need to dig further into how that's built. It's less crucial however.
+            });
+        }
+
+        var finalDoc = cheerio.load('<div id="fullDoc"></div>');
+        finalDoc('#fullDoc').append(documentationDoc.html());
+        finalDoc('#fullDoc').append(specificationDoc.html());
+
+        // SalesforceReferenceOutputChannel.appendLine('finalDoc: ' + finalDoc.html());
+
+        return finalDoc.html();
+    }
+
+    /**
+     * At present, always returns an empty string, as there is no fragment included in Aura Tables of Contents/Bundle Descriptors,
+     * so no way to nav direct to a specific header from a ToC type menu
+     *
+     * @param selectedReferenceItem the reference item to get the fragment from
+     * @returns empty string
+     */
+    getFragment(selectedReferenceItem: SalesforceReferenceItem): string {
+        return '';
+    }
+}
+
 
 class ApexSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
@@ -312,9 +574,9 @@ class ApexSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocTyp
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const apexDocToc: any = await this.getDocTOC();
-        return apexDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'apex_ref_guide');
+        return apexDocToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'apex_ref_guide');
     }
 }
 
@@ -332,9 +594,9 @@ class VisualforceSalesforceReferenceDocType extends SalesforceReferenceAtlasBase
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const vfDocToc: any = await this.getDocTOC();
-        return vfDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'pages_compref');
+        return vfDocToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'pages_compref');
     }
 }
 
@@ -352,11 +614,11 @@ class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceAtla
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const lightningConsoleDocToc: any = await this.getDocTOC();
-        const lightningconsoleTopLevelToc: any = lightningConsoleDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_lex_getting_started');
-        const lightningconsoleJSAPILevelToc: any = lightningconsoleTopLevelToc.children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
-        return lightningconsoleJSAPILevelToc.children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
+        const lightningconsoleTopLevelToc: any = lightningConsoleDocToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_lex_getting_started');
+        const lightningconsoleJSAPILevelToc: any = lightningconsoleTopLevelToc.children.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
+        return lightningconsoleJSAPILevelToc.children.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
     }
 }
 
@@ -374,10 +636,10 @@ class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenceAtlasB
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const classicConsoleDocToc: any = await this.getDocTOC();
-        const classicconsoleTopLevelToc: any = classicConsoleDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_intro');
-        return classicconsoleTopLevelToc.children.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_classic');
+        const classicconsoleTopLevelToc: any = classicConsoleDocToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_intro');
+        return classicconsoleTopLevelToc.children.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_classic');
     }
 }
 
@@ -395,9 +657,9 @@ class MetadataSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDo
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const metadataDocToc: any = await this.getDocTOC();
-        return metadataDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
+        return metadataDocToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
     }
 }
 
@@ -415,9 +677,9 @@ class ObjectReferenceSalesforceReferenceDocType extends SalesforceReferenceAtlas
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const objReferenceDocToc: any = await this.getDocTOC();
-        return objReferenceDocToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
+        return objReferenceDocToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
     }
 }
 
@@ -435,9 +697,9 @@ class RestAPISalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDoc
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const docToc: any = await this.getDocTOC();
-        return docToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'resources_list');
+        return docToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'resources_list');
     }
 }
 
@@ -455,9 +717,9 @@ class SOAPAPISalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDoc
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const docToc: any = await this.getDocTOC();
-        return docToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
+        return docToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
     }
 }
 
@@ -475,20 +737,29 @@ class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDoc
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const docToc: any = await this.getDocTOC();
-        return docToc.toc.find((node: SalesforceTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'cli_reference');
+        return docToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'cli_reference');
+    }
+}
+
+class AuraLWCComponentLibrarySalesforceReferenceDocType extends SalesforceReferenceAuraBasedDocType {
+    constructor() {
+        super(
+            DocTypeName.LWC_AND_AURA_COMPONENT_LIBRARY
+        );
     }
 }
 
 export const SalesforceReferenceDocTypes: Record<DocTypeName, SalesforceReferenceDocType> = {
-    APEX:               new ApexSalesforceReferenceDocType(),
-    VISUALFORCE:        new VisualforceSalesforceReferenceDocType(),
-    LIGHTNING_CONSOLE:  new LightningConsoleSalesforceReferenceDocType(),
-    CLASSIC_CONSOLE:    new ClassicConsoleSalesforceReferenceDocType(),
-    METADATA:           new MetadataSalesforceReferenceDocType(),
-    OBJECT_REFERENCE:   new ObjectReferenceSalesforceReferenceDocType(),
-    REST_API:           new RestAPISalesforceReferenceDocType(),
-    SOAP_API:           new SOAPAPISalesforceReferenceDocType(),
-    SFDX_CLI:           new SFDXCLISalesforceReferenceDocType(),
+    APEX:                             new ApexSalesforceReferenceDocType(),
+    VISUALFORCE:                      new VisualforceSalesforceReferenceDocType(),
+    LIGHTNING_CONSOLE:                new LightningConsoleSalesforceReferenceDocType(),
+    CLASSIC_CONSOLE:                  new ClassicConsoleSalesforceReferenceDocType(),
+    METADATA:                         new MetadataSalesforceReferenceDocType(),
+    OBJECT_REFERENCE:                 new ObjectReferenceSalesforceReferenceDocType(),
+    REST_API:                         new RestAPISalesforceReferenceDocType(),
+    SOAP_API:                         new SOAPAPISalesforceReferenceDocType(),
+    SFDX_CLI:                         new SFDXCLISalesforceReferenceDocType(),
+    LWC_AND_AURA_COMPONENT_LIBRARY:   new AuraLWCComponentLibrarySalesforceReferenceDocType(),
 };
