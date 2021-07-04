@@ -6,11 +6,11 @@ import { SalesforceReferenceOutputChannel } from './Logging';
 //Only support a single WebView for salesforce doc viewing
 let currentSFDocPanel: vscode.WebviewPanel | undefined = undefined;
 
-export async function showDocInWebView(context: vscode.ExtensionContext, docUri: vscode.Uri, fragment?: string) {
-    // SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri: ' + docUri.toString());
+export function showDocInWebView(context: vscode.ExtensionContext, rawDoc: string, fragment?: string) {
+    // SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri: ' + rawDoc.toString());
     if (currentSFDocPanel) {
         currentSFDocPanel.reveal(vscode.ViewColumn.One);
-        populateWebView(docUri, fragment);
+        populateWebView(rawDoc, fragment);
     } else {
         currentSFDocPanel = vscode.window.createWebviewPanel(
             'sfDocWebview',
@@ -22,7 +22,7 @@ export async function showDocInWebView(context: vscode.ExtensionContext, docUri:
             }
 
         );
-        populateWebView(docUri, fragment);
+        populateWebView(rawDoc, fragment);
         currentSFDocPanel.onDidDispose(
             () => {
                 currentSFDocPanel = undefined;
@@ -34,9 +34,9 @@ export async function showDocInWebView(context: vscode.ExtensionContext, docUri:
 }
 
 
-async function populateWebView(docUri: vscode.Uri, fragment?: string) {
+function populateWebView(rawDoc: string, fragment?: string) {
     currentSFDocPanel!.webview.html = getLoadingWebviewContent();
-    currentSFDocPanel!.webview.html = await getWebviewContent(docUri);
+    currentSFDocPanel!.webview.html = getWebviewContent(rawDoc);
     //Disabling rule, so we can check for both null and undefined
     // eslint-disable-next-line eqeqeq
     if (fragment != null) {
@@ -66,8 +66,7 @@ function getLoadingWebviewContent() {
             </html>`;
 }
 
-async function getWebviewContent(docUri: vscode.Uri) {
-    const docContent: string = await getSFDocContent(docUri);
+function getWebviewContent(rawDoc: string) {
 
     //Get a year for the Copyright notice
     let year: number = new Date().getUTCFullYear();
@@ -91,32 +90,8 @@ async function getWebviewContent(docUri: vscode.Uri) {
                     </script>
                 </head>
                 <body>
-                    ${docContent}
+                    ${rawDoc}
                     <div style="font-style: italic">Salesforce Documentation is © Copyright 2000–${year} salesforce.com, inc. Salesforce is a registered trademark of salesforce.com, inc., as are other names and marks. Other marks appearing herein may be trademarks of their respective owners.</div>
                 </body>
             </html>`;
-}
-
-function countNewlines(theString: string): number {
-    //https://stackoverflow.com/questions/881085/count-the-number-of-occurrences-of-a-character-in-a-string-in-javascript
-    return ((theString.match(/\n/g) || []).length);
-}
-
-
-async function getSFDocContent(docUri: vscode.Uri): Promise<string> {
-    //TODO: this is extremely experimental, see Notes in SalesforceReferenceDocType.rawDocURL for future path
-    //  review security constraints, poss including CSP stuff on the webview itself
-    let body: any = await got(docUri.toString()).json();
-
-    // Salesforce includes "seealso" links, which usually go to internal anchors. Rewrite them to work for us
-    //  todo: this doesn't handle links that don't go to in-page anchors - such as "Namespace" pages in the doc
-    //   - possibilities include using Command URIs to run an appropriate command to load the right doc? https://code.visualstudio.com/api/extension-guides/command#command-uris
-    const docContentDOM2: cheerio.CheerioAPI = cheerio.load(body.content);
-    const seeAlsoLinks2: cheerio.Cheerio<cheerio.Element> = docContentDOM2('#sfdc\\:seealso a');
-    seeAlsoLinks2.each((index, element) => {
-        //Extract the fragment from the href, and set the link to ONLY be the fragment, so it works in our webview
-        docContentDOM2(element).attr('href', '#' + vscode.Uri.parse(docContentDOM2(element).attr('href')!).fragment);
-    });
-
-    return docContentDOM2.xml();
 }

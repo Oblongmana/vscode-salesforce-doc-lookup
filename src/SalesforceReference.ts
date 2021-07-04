@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
-import got from 'got';
+import * as cheerio from 'cheerio';
+import got from 'got/dist/source';
 import { SalesforceReferenceOutputChannel } from './Logging';
 
 const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
@@ -80,7 +81,44 @@ export class SalesforceReferenceItem implements vscode.QuickPickItem {
 
 }
 
-abstract class SalesforceReferenceDocType {
+interface SalesforceReferenceDocType {
+    /**
+     * Get the SalesforceReferenceItem instances for this reference doc type.
+     *
+     * Implementers should make use of the cache.
+     *
+     * @param context the extension context, provided so you can access/populate the cache.
+     */
+    getSalesforceReferenceItems(context: vscode.ExtensionContext): Promise<SalesforceReferenceItem[]>;
+
+    /**
+     * Get a URL for a human-readable page that can be loaded into the browser, for a given SalesforceReferenceItem
+     *
+     * @param selectedReferenceItem A SalesforceReferenceItem to be loaded in the browser
+     */
+    humanDocURL(selectedReferenceItem: SalesforceReferenceItem): string;
+
+    /**
+     * EXPERIMENTAL: Get the raw doc as HTML that can be displayed in a webview
+     *
+     * @param selectedReferenceItem the SalesforceReferenceItem to get the raw doc for
+     * @returns a promise that will resolve to a string of html that can be merged into a WebView
+     */
+    rawDoc(selectedReferenceItem: SalesforceReferenceItem): Promise<string>;
+
+    /**
+     * Extract the fragment from a Salesforce Reference Item
+     *
+     * e.g. in https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete,
+     *      this is "apex_dml_undelete"
+     *
+     * @param selectedReferenceItem the SalesforceReferenceItem to extract the fragment from
+     * @returns the fragment, if there is one
+     */
+    getFragment(selectedReferenceItem: SalesforceReferenceItem): string
+}
+
+abstract class SalesforceReferenceAtlasBasedDocType implements SalesforceReferenceDocType {
 
     /**
      * The portion of the URL path giving the location of the "atlas" for this doc type
@@ -127,6 +165,7 @@ abstract class SalesforceReferenceDocType {
     /**
      * Get the SalesforceReferenceItem instances for this reference doc type
      *
+     * @param context the extension context, used for accessing/populating the cache
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails
      */
     public async getSalesforceReferenceItems(context: vscode.ExtensionContext): Promise<SalesforceReferenceItem[]> {
@@ -199,9 +238,12 @@ abstract class SalesforceReferenceDocType {
     }
 
     /**
-     * Get the URL for a the raw doc - a page returning a json object with documentation conent
+     * EXPERIMENTAL: Get the raw doc as HTML that can be displayed in a webview
+     *
+     * @param selectedReferenceItem the SalesforceReferenceItem to get the raw doc for
+     * @returns a promise that will resolve to a string of html that can be merged into a WebView
      */
-    public rawDocURL(selectedReferenceItem: SalesforceReferenceItem): string {
+    public async rawDoc(selectedReferenceItem: SalesforceReferenceItem): Promise<string> {
         //todo: original notes, will be useful when removing hardcoding of locale and version
         // private rawDocURL(folder: string, id: string, locale: string, version: string): string {
         // The required params can be obtained from the following things on the root Node.
@@ -215,8 +257,29 @@ abstract class SalesforceReferenceDocType {
         //todo improve on hardcoding
         //Extract the path ONLY from the href - as some hrefs may include fragments, which are not used for raw doc urls (they're only used for jumping to anchors in human doc)
         // SalesforceReferenceOutputChannel.appendLine(`${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}${this.docPath}${docHrefWithoutFragment}/en-us/232.0`);
-        let docHrefWithoutFragment = vscode.Uri.parse(selectedReferenceItem.href).path;
-        return `${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}${this.docPath}${docHrefWithoutFragment}/en-us/232.0`;
+
+        // const rawDocURL = SalesforceReferenceDocTypes[docType].rawDocURL(selectedReferenceItem!);
+        // const fragment = SalesforceReferenceDocTypes[docType].getFragment(selectedReferenceItem!);
+        // showDocInWebView(context, vscode.Uri.parse(rawDocURL), fragment);
+
+        const docHrefWithoutFragment = vscode.Uri.parse(selectedReferenceItem.href).path;
+        const docUri = `${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}${this.docPath}${docHrefWithoutFragment}/en-us/232.0`;
+
+        //TODO: this is extremely experimental, see Notes in SalesforceReferenceDocType.rawDocURL for future path
+        //  review security constraints, poss including CSP stuff on the webview itself
+        let body: any = await got(docUri).json();
+
+        // Salesforce includes "seealso" links, which usually go to internal anchors. Rewrite them to work for us
+        //  todo: this doesn't handle links that don't go to in-page anchors - such as "Namespace" pages in the doc
+        //   - possibilities include using Command URIs to run an appropriate command to load the right doc? https://code.visualstudio.com/api/extension-guides/command#command-uris
+        const docContentDOM: cheerio.CheerioAPI = cheerio.load(body.content);
+        const seeAlsoLinks: cheerio.Cheerio<cheerio.Element> = docContentDOM('#sfdc\\:seealso a');
+        seeAlsoLinks.each((index, element) => {
+            //Extract the fragment from the href, and set the link to ONLY be the fragment, so it works in our webview
+            docContentDOM(element).attr('href', '#' + vscode.Uri.parse(docContentDOM(element).attr('href')!).fragment);
+        });
+
+        return docContentDOM.xml();
     }
 
     /**
@@ -235,7 +298,7 @@ abstract class SalesforceReferenceDocType {
     }
 }
 
-class ApexSalesforceReferenceDocType extends SalesforceReferenceDocType {
+class ApexSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.APEX,
@@ -255,7 +318,7 @@ class ApexSalesforceReferenceDocType extends SalesforceReferenceDocType {
     }
 }
 
-class VisualforceSalesforceReferenceDocType extends SalesforceReferenceDocType {
+class VisualforceSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.VISUALFORCE,
@@ -275,7 +338,7 @@ class VisualforceSalesforceReferenceDocType extends SalesforceReferenceDocType {
     }
 }
 
-class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceDocType {
+class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.LIGHTNING_CONSOLE,
@@ -297,7 +360,7 @@ class LightningConsoleSalesforceReferenceDocType extends SalesforceReferenceDocT
     }
 }
 
-class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenceDocType {
+class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.CLASSIC_CONSOLE,
@@ -318,7 +381,7 @@ class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenceDocTyp
     }
 }
 
-class MetadataSalesforceReferenceDocType extends SalesforceReferenceDocType {
+class MetadataSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.METADATA,
@@ -338,7 +401,7 @@ class MetadataSalesforceReferenceDocType extends SalesforceReferenceDocType {
     }
 }
 
-class ObjectReferenceSalesforceReferenceDocType extends SalesforceReferenceDocType {
+class ObjectReferenceSalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.OBJECT_REFERENCE,
@@ -358,7 +421,7 @@ class ObjectReferenceSalesforceReferenceDocType extends SalesforceReferenceDocTy
     }
 }
 
-class RestAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
+class RestAPISalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.REST_API,
@@ -378,7 +441,7 @@ class RestAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
     }
 }
 
-class SOAPAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
+class SOAPAPISalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.SOAP_API,
@@ -398,7 +461,7 @@ class SOAPAPISalesforceReferenceDocType extends SalesforceReferenceDocType {
     }
 }
 
-class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceDocType {
+class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceAtlasBasedDocType {
     constructor() {
         super(
             DocTypeName.SFDX_CLI,
