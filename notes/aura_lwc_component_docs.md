@@ -235,7 +235,7 @@ So, moving to how we could possibly implement.
 
 This very stripped down request gets us what looks to me to be the sidebar list
 
-    var myResponse = await fetch("https://developer.salesforce.com/docs/component-library/aura?ui-lightning-docs-components-aura-components-controllers.ComponentLibraryDataProvider.getBundleDefinitionsList=1", {
+    var myResponse = await fetch("https://developer.salesforce.com/docs/component-library/aura", {
         "headers": {
             "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
         },
@@ -296,6 +296,13 @@ The next sidebar level comes from `name`. So following our last worked example:
 
 This allows us to build our breadcrumb for VSCode quick pick.
 
+Update: interestingly, the defTypes map in a slightly less obvious way in the UI, so implementation has a special mapping for how we display the defTypes, to match the UI ToC sidebar
+
+    component = 'Aura'
+    event = 'Events'
+    module = 'Lightning'
+    interface = 'Interfaces'
+
 In terms of URL building, we have the same base url as in [SalesforceReference.ts](SalesforceReference.ts)
 
     https://developer.salesforce.com/docs
@@ -316,9 +323,11 @@ So what do we do when the user wants to view documentation. Given our raw URL ab
 
     (componentBasePath + '/' + 'flexipage:availableForAllPageTypes' + '/documentation') == 'https://developer.salesforce.com/docs/component-library/bundle/flexipage:availableForAllPageTypes/documentation'
 
+Update: - not actually doing this. Some pages don't have a /documentation tab. However, the human-readable pages always show an appropriate tab, so we just don't add the /documentation to path
+
 And to display in the experimental webview? Can we pull the web page directly? No, the url itself just pulls in more javascript - the body itself is useless. Under the hood, when you go to load the documentation for something, it does an xhr request that, when copied from dev tools as fetch, should look pretty familiar when compared to the one we use to get the "ToC". The URL is the same, the URL params are irrelevent - it's really just the body>message that dictates what's happening
 
-    await fetch("https://developer.salesforce.com/docs/component-library/aura?r=1&aura.Label.getLabel=2&ui-lightning-docs-components-aura-components-controllers.ComponentLibraryDataProvider.getBundleDefinition=1", {
+    await fetch("https://developer.salesforce.com/docs/component-library/aura", {
         "credentials": "include",
         "headers": {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:89.0) Gecko/20100101 Firefox/89.0",
@@ -392,3 +401,8 @@ So, stripping our request down:
     myResponse.json().then(data=>console.log(data))
 
 This gives us the contents of [getBundleDefinition_fromurl.json](getBundleDefinition_fromurl.json). Again, we can use `responseObject.actions[0].returnValue`. Specifically `responseObject.actions[0].returnValue.docDef.descriptions[0]` gives us the actual help contents we can dump
+
+NB body of above in decoded format is:
+
+    message={"actions":[{"descriptor":"serviceComponent://ui.lightning.docs.components.aura.components.controllers.ComponentLibraryDataProviderController/ACTION$getBundleDefinition","params":{"descriptor":"flexipage:availableForAllPageTypes"}}]}&aura.context={"fwuid":"0lEhuHYJBRuSnxadQW0Iww"}&aura.token=aura
+
