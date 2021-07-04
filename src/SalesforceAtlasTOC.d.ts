@@ -1,10 +1,10 @@
 /**
- * Interfaces for the JSON nodes in the Salesforce Tables of Contents
+ * Interfaces for the JSON nodes in the Salesforce Atlas-based Tables of Contents
  */
-declare module SalesforceTOC {
+declare module SalesforceAtlasTOC {
     /**
      * An interface representing an object in one of the Salesforce
-     * Table of Contents Documentation pages.
+     * Atlas-based Table of Contents Documentation pages.
      */
     export interface DocumentationNode {
         /**
