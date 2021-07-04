@@ -10,14 +10,13 @@ Repository Home: https://github.com/Oblongmana/vscode-salesforce-doc-lookup
 
 VSCode Marketplace Install: https://marketplace.visualstudio.com/items?itemName=Oblongmana.vscode-salesforce-doc-lookup
 
-A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/sublime-salesforce-reference)
-
 ## Table of Contents
 - [Current Features](#current-features)
   - [Choose a documentation type, and type in your search](#choose-a-documentation-type-and-type-in-your-search)
   - [Search dev documentation for a word or selection in your editor](#search-dev-documentation-for-a-word-or-selection-in-your-editor)
 - [Experimental Features](#experimental-features)
   - [EXPERIMENTAL: Load Documentation in VSCode](#experimental-load-documentation-in-vscode)
+  - [EXPERIMENTAL: New Command: "Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)"](#experimental-new-command-salesforce-reference-lwc-and-aura-component-library-experimental)
 - [Installing](#installing)
   - [In VSCode or the Extension Marketplace](#in-vscode-or-the-extension-marketplace)
   - [Manually (with use cases/caveats)](#manually-with-use-casescaveats)
@@ -30,11 +29,12 @@ A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/su
 - [Design Notes](#design-notes)
 - [License](#license)
 - [Credits](#credits)
+- [History](#history)
 
 ## Current Features
 
 ### Choose a documentation type, and type in your search
-The following new commands allow you to search Salesforce Dev documentation in VSCode, and be taken directly to the corresponding entries in your browser:
+The following new commands allow you to search Salesforce Dev documentation in VSCode, and be taken directly to the corresponding entries in your browser (or with the experimental setting enabled, view it in a WebView in VSCode itself):
  - Salesforce Reference: Apex
  - Salesforce Reference: Visualforce
  - Salesforce Reference: Lightning Console
@@ -44,6 +44,7 @@ The following new commands allow you to search Salesforce Dev documentation in V
  - Salesforce Reference: REST API
  - Salesforce Reference: SOAP API
  - Salesforce Reference: SFDX CLI
+ - Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)
 
 ![Using the command - "Salesforce Reference: Apex"](images/ApexDocLookup2.gif)
 
@@ -65,6 +66,9 @@ With your cursor over a word in your editor, or with something in your editor se
 Load documentation directly in VSCode. Enable the "Use WebView" option in your Settings to use this. Please note this is in active development, and is not fully supported. If you encounter bugs, please post an issue on github.
 
 ![Using the command "Salesforce Reference: SFDX CLI" to access documentation in a VSCode Webview](images/WebviewDoc.gif)
+
+### EXPERIMENTAL: New Command: "Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)"
+This is a very experimental reference type - the LWC/Aura Component Library is built on an Aura app, quite different to the Angular App and ToC JSON underpinning other documentation. Report any bugs on github if you see them!
 
 ## Installing
 
@@ -145,3 +149,7 @@ All Salesforce Documentation is © Copyright 2000–2020 salesforce.com, inc.
 Thanks to [Marco Zeuli](https://github.com/maaaaarco) for his contributions in the [original repo](https://github.com/Oblongmana/sublime-salesforce-reference) to making extra types of documentation available in the plugin
 
 Credit to [Luke McFarlane](https://github.com/lukemcfarlane) for the inspiration!
+
+## History
+
+A port of my original [plugin for Sublime Text](https://github.com/Oblongmana/sublime-salesforce-reference)

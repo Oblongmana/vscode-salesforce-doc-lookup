@@ -3,6 +3,7 @@
 Notable changes to the Salesforce Reference Extension.
 
 ## Table of Contents
+- [1.3.0](#130)
 - [1.2.0](#120)
 - [1.1.0](#110)
 - [Unpublished](#unpublished)
@@ -11,6 +12,17 @@ Notable changes to the Salesforce Reference Extension.
 - [0.3.0 - Beta](#030---beta)
 - [0.2.0 - Beta](#020---beta)
 - [0.1.1 - Beta](#011---beta)
+
+
+## 1.3.0
+Date: 2021-07-04 (NZ)
+### Added
+ - New command: `Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)`
+  - Note that this is very experimental - the LWC/Aura Component Library is built on an Aura app, quite different to the Angular App and ToC JSON underpinning other documentation. Report any bugs on github if you see them!
+ - Enable searching of the Breadcrumb - this will allow even better support for fuzzy matching (e.g. a search for "String Methods" will give a much more full set of results now,  including the methods themselves, not just the containing page)
+ - Show a loading indicator when retrieving documentation for the experimental in-VSCode-WebView (also: a reminder that there is now a new experimental setting to enable this - `vscode-salesforce-doc-lookup.EXPERIMENTAL.useWebview`)
+### Changed
+ - Due to the changes that allow proper Breadcrumb searching, all existing documentation Table of Contents caches will be invalidated automatically on upgrade. These will automatically be retrieved as needed
 
 ## 1.2.0
 Date: 2021-06-28 (NZ)
