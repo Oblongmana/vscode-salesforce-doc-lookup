@@ -11,43 +11,8 @@ import * as semver from "semver";
 export async function activate(context: vscode.ExtensionContext) {
     // SalesforceReferenceOutputChannel.appendLine('Activate function running');
 
-    // Handle any upgrade-specific action
-    let existingVersionNumber: string | undefined = context.globalState.get(versionGlobalStateKey);
-    let currentVersionNumber: string = PackageJSON.version;
-    let isVersionChanging: boolean = false;
-    if (existingVersionNumber === undefined) {
-        SalesforceReferenceOutputChannel.appendLine(`No existing extension version, current version is ${currentVersionNumber}`);
-        //Store the current version in our global state
-        context.globalState.update(versionGlobalStateKey, currentVersionNumber);
-        isVersionChanging = true;
-    } else if (existingVersionNumber !== currentVersionNumber) {
-        SalesforceReferenceOutputChannel.appendLine(`Version changing from ${existingVersionNumber} to ${currentVersionNumber}`);
-        //check if we're upgrading, and update the stored version.
-        //  Technically could also be a downgrade. Distinction doesn't matter at the moment,
-        //  but we're putting this here just to be explicit (instead of combinined with the `undefined` case)
-        context.globalState.update(versionGlobalStateKey, currentVersionNumber);
-        isVersionChanging = true;
-    }
-
-
-    if (isVersionChanging) {
-        //Any specific actions we need to take - e.g. clearing cache due to breaking changes to the SF doc, or breaking changes to our extension
-        let normalisedExistingVersionNumber = existingVersionNumber || "0.0.0";
-        if (semver.gt(currentVersionNumber, normalisedExistingVersionNumber)) {
-            //Upgrading
-        } if (semver.lt(currentVersionNumber, normalisedExistingVersionNumber)) {
-            //Downgrading
-        }
-
-        //SF changed a few things between the 1.0.1 and 1.1.0 releases of this plugin
-        //   Anything before the 1.1.0 release needs the apex ref cache invalidated as address changed
-        //   Anything before the 1.1.0 release needs the Lightning console ref cache invalidated as toc was restructured
-        if (semver.lte(normalisedExistingVersionNumber, '1.1.0')) {
-            SalesforceReferenceOutputChannel.appendLine(`Extension version changed. Detected Apex Cache out of date after Salesforce relocated Reference doc. Force-clearing Apex Reference cache.`);
-            context.globalState.update(DocTypeName.APEX, undefined);
-            context.globalState.update(DocTypeName.LIGHTNING_CONSOLE, undefined);
-        }
-    }
+    // Handle any upgrade-specific things that need to be done
+    handleVersionChanges(context);
 
     //Build all of our User-facing commands
     let apexReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.APEX}`, async (prefillValue?: string) => {
@@ -112,6 +77,60 @@ export async function activate(context: vscode.ExtensionContext) {
         sfdxCliReferenceDisposable,
         lwcAuraComponentLibReferenceDisposable,
     );
+}
+
+function handleVersionChanges(context: vscode.ExtensionContext) {
+    let existingVersionNumber: string | undefined = context.globalState.get(versionGlobalStateKey);
+    let currentVersionNumber: string = PackageJSON.version;
+    let isVersionChanging: boolean = false;
+    if (existingVersionNumber === undefined) {
+        SalesforceReferenceOutputChannel.appendLine(`No existing extension version, current version is ${currentVersionNumber}`);
+        //Store the current version in our global state
+        context.globalState.update(versionGlobalStateKey, currentVersionNumber);
+        isVersionChanging = true;
+    } else if (existingVersionNumber !== currentVersionNumber) {
+        SalesforceReferenceOutputChannel.appendLine(`Version changing from ${existingVersionNumber} to ${currentVersionNumber}`);
+        //check if we're upgrading, and update the stored version.
+        //  Technically could also be a downgrade. Distinction doesn't matter at the moment,
+        //  but we're putting this here just to be explicit (instead of combinined with the `undefined` case)
+        context.globalState.update(versionGlobalStateKey, currentVersionNumber);
+        isVersionChanging = true;
+    }
+
+
+    if (isVersionChanging) {
+        //Any specific actions we need to take - e.g. clearing cache due to breaking changes to the SF doc, or breaking changes to our extension
+        let normalisedExistingVersionNumber = existingVersionNumber || "0.0.0";
+        if (semver.gt(currentVersionNumber, normalisedExistingVersionNumber)) {
+            //Upgrading
+        } if (semver.lt(currentVersionNumber, normalisedExistingVersionNumber)) {
+            //Downgrading
+        }
+
+        //SF changed a few things between the 1.0.1 and 1.1.0 releases of this plugin
+        //   Upgrading from anything lower than the 1.1.0 release needs the apex ref cache invalidated as address changed
+        //   Upgrading from anything lower than the 1.1.0 release needs the Lightning console ref cache invalidated as toc was restructured
+        if (semver.lte(normalisedExistingVersionNumber, '1.1.0')) {
+            SalesforceReferenceOutputChannel.appendLine(`Extension version changed. Detected Apex Cache out of date after Salesforce relocated Reference doc. Force-clearing Apex Reference cache.`);
+            context.globalState.update(DocTypeName.APEX, undefined);
+            context.globalState.update(DocTypeName.LIGHTNING_CONSOLE, undefined);
+        }
+
+        //In 1.3.0, we updated the Breadcrumb to allow proper searching of it.
+        //   Upgrading from anything lower than the 1.3.0 release means all cached DocTypes will be invalidated to support this
+        if (semver.lte(normalisedExistingVersionNumber, '1.3.0')) {
+            SalesforceReferenceOutputChannel.appendLine(`Extension version changed: prior was <=1.3.0. Invalidating all caches to support update that allows Breadcrumb searching.`);
+            context.globalState.update(DocTypeName.APEX, undefined);
+            context.globalState.update(DocTypeName.VISUALFORCE, undefined);
+            context.globalState.update(DocTypeName.LIGHTNING_CONSOLE, undefined);
+            context.globalState.update(DocTypeName.CLASSIC_CONSOLE, undefined);
+            context.globalState.update(DocTypeName.METADATA, undefined);
+            context.globalState.update(DocTypeName.OBJECT_REFERENCE, undefined);
+            context.globalState.update(DocTypeName.REST_API, undefined);
+            context.globalState.update(DocTypeName.SOAP_API, undefined);
+            context.globalState.update(DocTypeName.SFDX_CLI, undefined);
+        }
+    }
 }
 
 export function deactivate() {}
