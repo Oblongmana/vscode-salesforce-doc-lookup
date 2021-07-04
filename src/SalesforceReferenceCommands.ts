@@ -21,18 +21,26 @@ export async function openSalesforceDocQuickPick(context: vscode.ExtensionContex
         if (prefillValue !== undefined) {
             docTypeQuickPick.value = prefillValue;
         }
-        docTypeQuickPick.onDidAccept(() => {
-            const selectedReferenceItem = docTypeQuickPick.activeItems[0];
-            if (getConfig()?.EXPERIMENTAL?.useWebview) {
-                const rawDocURL = SalesforceReferenceDocTypes[docType].rawDocURL(selectedReferenceItem!);
-                const fragment = SalesforceReferenceDocTypes[docType].getFragment(selectedReferenceItem!);
-                showDocInWebView(context, vscode.Uri.parse(rawDocURL), fragment);
-            } else {
-                vscode.env.openExternal(vscode.Uri.parse(SalesforceReferenceDocTypes[docType].humanDocURL(selectedReferenceItem!)));
-            }
+        docTypeQuickPick.onDidAccept(async () => {
+            //Do nothing if the user didn't pick anything - e.g. if they typed random characters that didn't match anything
+            if (docTypeQuickPick.activeItems.length > 0) {
+                //Make it clear we're loading by removing all items and showing the busy indicator
+                docTypeQuickPick.enabled = false;
+                docTypeQuickPick.placeholder = 'Retrieving Documentation...';
+                docTypeQuickPick.items = [];
+                docTypeQuickPick.busy = true;
 
-            docTypeQuickPick.hide();
-            docTypeQuickPick.dispose();
+                const selectedReferenceItem = docTypeQuickPick.activeItems[0];
+                if (getConfig()?.EXPERIMENTAL?.useWebview) {
+                    const rawDocURL = SalesforceReferenceDocTypes[docType].rawDocURL(selectedReferenceItem!);
+                    const fragment = SalesforceReferenceDocTypes[docType].getFragment(selectedReferenceItem!);
+                    showDocInWebView(context, vscode.Uri.parse(rawDocURL), fragment);
+                } else {
+                    vscode.env.openExternal(vscode.Uri.parse(SalesforceReferenceDocTypes[docType].humanDocURL(selectedReferenceItem!)));
+                }
+                docTypeQuickPick.hide();
+                docTypeQuickPick.dispose();
+            }
         });
 
         docTypeQuickPick.show();
