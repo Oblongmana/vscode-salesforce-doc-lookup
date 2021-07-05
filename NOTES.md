@@ -183,6 +183,9 @@ VSCode Quickpick fuzzy matching kind of sucks. Possibly for performance reasons,
           $(arrow-small-right) resetPasswordWithEmailTemplate(userId, sendUserEmail, emailTemplateName
 
 ### Opening PDF Documentation? An offline mode of some sort?
+_Update_: Investigated the feasibility of opening pdf inside VSCode - pretty tough at this stage. There are a couple of extensions out there that open PDFs and use PDF.js to render them, but none of them expose anything we could use (e.g. commands to open a pdf, navigate to a specific page or anchor. As they're WebView-based, we could in theory fork them, potentially add some `postMessage` handling to take an anchor or something similar. Would be a bit rough - one of the leading actively maintained ones is closed source (https://marketplace.visualstudio.com/items?itemName=analytic-signal.preview-pdf&ssr=false#overview), the other is open source but looks to be inactive at the moment 2021-07 (https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf). Don't really want to incorporate the OS one in wholecloth - while it's license-compatible, that becomes effectively a second plugin to maintain. Possibly worth considering, or maintaining a fork? Some open issues with people who'd like similar API access: https://github.com/tomoki1207/vscode-pdfviewer/issues/109 & https://github.com/tomoki1207/vscode-pdfviewer/issues/108. Potential path of opening PDF in browser remains open though.
+
+
 Salesforce have traditionally published Developer documentation in PDFs as well. Not sure whether this is currently the case, but if it is, there's a very slim possibility we could
 get some sort of offline mode going by bundling a pdf.
 
