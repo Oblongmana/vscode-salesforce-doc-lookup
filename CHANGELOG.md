@@ -3,6 +3,7 @@
 Notable changes to the Salesforce Reference Extension.
 
 ## Table of Contents
+- [1.3.1](#131)
 - [1.3.0](#130)
 - [1.2.0](#120)
 - [1.1.0](#110)
@@ -13,6 +14,10 @@ Notable changes to the Salesforce Reference Extension.
 - [0.2.0 - Beta](#020---beta)
 - [0.1.1 - Beta](#011---beta)
 
+## 1.3.1
+Date: 2021-07-08 (NZ)
+### Changed
+ - Improve legibility of html tables in experimental WebView - uses current theme to provide a contrasting border, gives elements 5px of padding, and collapses cell borders together
 
 ## 1.3.0
 Date: 2021-07-04 (NZ)
