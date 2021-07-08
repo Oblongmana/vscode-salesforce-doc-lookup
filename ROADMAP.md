@@ -29,6 +29,12 @@ In rough priority order
 - [X] Implement LWC/Aura Component Reference - very different to all other docs - it's a "dogfood" aura app. See the feature branch [feature/lwc-aura-doc](https://github.com/Oblongmana/vscode-salesforce-doc-lookup/tree/feature/lwc-aura-doc) for details
 - [X] Show busy when loading raw doc - using the QuickPick `busy` prop
 - [X] Examine breadcrumb path searching - e.g. if I search String methods, can I see the actual methods, or just the "String Methods" page? Is there a way to enhance this? Is it desirable? Edit: not sure when this was added, or if was always there, but `matchOnDetail` does exactly this, and looks and feels great.
+- [ ] Make tables less impossible to read due to lack of borders (at least in dark themes, not sure on light themes)
+- [ ] Style \<pre\>/\<code\> blocks in html doc nicely
+  - [ ] Likely use Shiki
+    - [ ] VSCode unfortunately doesn't give a way to use the user's actual current theme: https://github.com/microsoft/vscode/issues/56356
+  - [ ] Dynamic detection of theme with mutators will allow us to swap out say a set of 3 shiki themes: https://stackoverflow.com/a/58695555
+    - [ ] LWC doc uses e.g. `<pre><code class="language-javascript">` - can inform us on what lang highlighting to use
 - [ ] Also implement LWC Dev Guide Reference - see above
 - [ ] VERY Wacky Idea: There is a full JSON index of all DocTypes at GET https://developer.salesforce.com/docs/get_index/en-us/000.0/false/All%20Services/all. This seems to include the props we've been deriving from the get_document info. Will include a sample ToC in ALL_REFERENCES_INDEX.json
   - This might possibly go hand-in-hand with a potential different approach to how we build ToC, which might also dovetail with some possible changes to SF approach (e.g. where they separated Apex Ref from Apex Dev Guide) - rather than drilling down to what I subjectively think is the most important ToC node, we might be able to simply take ALL ToC Nodes. This would need preeeeetty thorough investigation. Would also necessitate a full cache clobber. Also consider usability type issues - would we want to provide EVERY doc type? The content array indicates there's 135 of them as at 2021-07-02!
