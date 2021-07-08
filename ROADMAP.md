@@ -29,7 +29,7 @@ In rough priority order
 - [X] Implement LWC/Aura Component Reference - very different to all other docs - it's a "dogfood" aura app. See the feature branch [feature/lwc-aura-doc](https://github.com/Oblongmana/vscode-salesforce-doc-lookup/tree/feature/lwc-aura-doc) for details
 - [X] Show busy when loading raw doc - using the QuickPick `busy` prop
 - [X] Examine breadcrumb path searching - e.g. if I search String methods, can I see the actual methods, or just the "String Methods" page? Is there a way to enhance this? Is it desirable? Edit: not sure when this was added, or if was always there, but `matchOnDetail` does exactly this, and looks and feels great.
-- [ ] Make tables less impossible to read due to lack of borders (at least in dark themes, not sure on light themes)
+- [X] Make tables less impossible to read due to lack of borders (at least in dark themes, not sure on light themes)
 - [ ] Style \<pre\>/\<code\> blocks in html doc nicely
   - [ ] Likely use Shiki
     - [ ] VSCode unfortunately doesn't give a way to use the user's actual current theme: https://github.com/microsoft/vscode/issues/56356

@@ -81,6 +81,14 @@ function getWebviewContent(rawDoc: string) {
                     <meta charset="UTF-8">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Salesforce Doc View</title>
+                    <style>
+                        table, th, td {
+                            border: 1px solid var(--vscode-tree-indentGuidesStroke);
+                            border-collapse: collapse;
+                            vertical-align: top;
+                            padding: 5px;
+                        }
+                    </style>
                     <script type="application/javascript">
                         window.addEventListener('message', event => {
                             //The fragment to nav to
