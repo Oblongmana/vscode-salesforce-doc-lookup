@@ -30,6 +30,8 @@ In rough priority order
 - [X] Show busy when loading raw doc - using the QuickPick `busy` prop
 - [X] Examine breadcrumb path searching - e.g. if I search String methods, can I see the actual methods, or just the "String Methods" page? Is there a way to enhance this? Is it desirable? Edit: not sure when this was added, or if was always there, but `matchOnDetail` does exactly this, and looks and feels great.
 - [X] Make tables less impossible to read due to lack of borders (at least in dark themes, not sure on light themes)
+- [ ] Cut down size of README
+- [ ] Check formatting on CHANGELOG? Doesn't show multiple indent layers in VS Marketplace changelog page. Could just be a quirk of Marketplace though
 - [ ] Style \<pre\>/\<code\> blocks in html doc nicely
   - [ ] Likely use Shiki
     - [ ] VSCode unfortunately doesn't give a way to use the user's actual current theme: https://github.com/microsoft/vscode/issues/56356
