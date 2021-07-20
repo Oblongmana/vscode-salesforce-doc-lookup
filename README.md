@@ -19,7 +19,7 @@ VSCode Marketplace Install: https://marketplace.visualstudio.com/items?itemName=
   - [EXPERIMENTAL: New Command: "Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)"](#experimental-new-command-salesforce-reference-lwc-and-aura-component-library-experimental)
 - [Installing](#installing)
   - [In VSCode or the Extension Marketplace](#in-vscode-or-the-extension-marketplace)
-  - [Manually (with use cases/caveats)](#manually-with-use-casescaveats)
+  - [Manually](#manually)
 - [Known Issues](#known-issues)
   - [Adblockers and loading links in Browser - NOFIX:](#adblockers-and-loading-links-in-browser---nofix)
 - [Notable Differences to the original Sublime Text 3 version](#notable-differences-to-the-original-sublime-text-3-version)
@@ -75,25 +75,8 @@ This is a very experimental reference type - the LWC/Aura Component Library is b
 ### In VSCode or the Extension Marketplace
 Search for "Salesforce Reference" in the Extensions view (Ctrl + Shift + X) in VSCode, or install at [our VSCode Extension Marketplace page](https://marketplace.visualstudio.com/items?itemName=oblongmana.vscode-salesforce-doc-lookup)
 
-### Manually (with use cases/caveats)
-If you would prefer to install outside of the VSCode Marketplace, I'll try to make `vsix` files available with each release. If I forget, just open an issue on github.
-
-If you're doing this for use in an environment without an internet connection, or a limited connection, please note that this plugin interacts with the web in the following ways:
-1. When using any of the documentation commands for the first time after install or running the cache invalidation command, the documentation Table of Contents will be retrieved from developer.salesforce.com
-2. When choosing an item from a documentation command, the documentation page will open in your default web browser
-
-If you feel passionately about being able to access doc offline, note there are some ideas in [NOTES.md](NOTES.md) and [ROADMAP.md](ROADMAP.md)
-
-Go to https://github.com/Oblongmana/vscode-salesforce-doc-lookup/releases and download your desired version as a vsix file.
-
-Using the `Install from VSIX` command in the Extensions view command drop-down, or the `Extensions: Install from VSIX` command in the Command Palette, point to the .vsix file.
-
-Alternatively, install it using the following command, and **RESTART VSCode AFTERWARDS**.
-
-    code --install-extension [path to the downloaded vsix]
-
-Alternatively, you can build it yourself, but instructions for that are outside the scope of this README.
-
+### Manually
+VSIX files are available in the Version History tab of the [Marketplace listing](https://marketplace.visualstudio.com/items?itemName=Oblongmana.vscode-salesforce-doc-lookup)
 
 ## Known Issues
 
