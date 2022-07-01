@@ -139,7 +139,7 @@ export abstract class SalesforceReferenceAtlasDocType implements SalesforceRefer
      * @param selectedReferenceItem the ReferenceItem to get the raw doc for
      * @returns a promise that will resolve to a string of html that can be merged into a WebView
      */
-    public async rawDoc(selectedReferenceItem: ReferenceItem): Promise<string> {
+    public async asHTML(selectedReferenceItem: ReferenceItem): Promise<string> {
         //todo: original notes, will be useful when removing hardcoding of locale and version
         // private rawDocURL(folder: string, id: string, locale: string, version: string): string {
         // The required params can be obtained from the following things on the root Node.

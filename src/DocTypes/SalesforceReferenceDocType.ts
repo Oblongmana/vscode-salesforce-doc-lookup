@@ -12,6 +12,8 @@ export interface SalesforceReferenceDocType {
      */
     getSalesforceReferenceItems(context: vscode.ExtensionContext): Promise<ReferenceItem[]>;
 
+
+    //TODO: much of the below should likely be removed to the ReferenceItem itself
     /**
      * Get a URL for a human-readable page that can be loaded into the browser, for a given ReferenceItem
      *
@@ -25,7 +27,7 @@ export interface SalesforceReferenceDocType {
      * @param selectedReferenceItem the ReferenceItem to get the raw doc for
      * @returns a promise that will resolve to a string of html that can be merged into a WebView
      */
-    rawDoc(selectedReferenceItem: ReferenceItem): Promise<string>;
+    asHTML(selectedReferenceItem: ReferenceItem): Promise<string>;
 
     /**
      * Extract the fragment from a Salesforce Reference Item

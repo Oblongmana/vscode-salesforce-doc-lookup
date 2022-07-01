@@ -135,7 +135,7 @@ export abstract class SalesforceReferenceAuraDocType implements SalesforceRefere
      * @param selectedReferenceItem the ReferenceItem to get the raw doc for
      * @returns a promise that will resolve to a string of html that can be merged into a WebView
      */
-    public async rawDoc(selectedReferenceItem: ReferenceItem): Promise<string> {
+    public async asHTML(selectedReferenceItem: ReferenceItem): Promise<string> {
         //todo: when doing other locale/version things for Atlas, see if there are any locale/version options here
 
         const body = this.buildAuraActionBody(AuraAction.GET_RAW_DOC_MESSAGE, { "descriptor": selectedReferenceItem.label } );

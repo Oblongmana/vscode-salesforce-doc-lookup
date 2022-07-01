@@ -34,9 +34,9 @@ export async function openSalesforceDocQuickPick(context: vscode.ExtensionContex
 
                 const selectedReferenceItem = docTypeQuickPick.activeItems[0];
                 if (getConfig()?.EXPERIMENTAL?.useWebview) {
-                    const rawDoc = await SalesforceReferenceDocTypes[docType].rawDoc(selectedReferenceItem!);
+                    const htmlDoc = await SalesforceReferenceDocTypes[docType].asHTML(selectedReferenceItem!);
                     const fragment = SalesforceReferenceDocTypes[docType].getFragment(selectedReferenceItem!);
-                    showDocInWebView(context, rawDoc, fragment);
+                    showDocInWebView(context, htmlDoc, fragment);
                 } else {
                     vscode.env.openExternal(vscode.Uri.parse(SalesforceReferenceDocTypes[docType].humanDocURL(selectedReferenceItem!)));
                 }

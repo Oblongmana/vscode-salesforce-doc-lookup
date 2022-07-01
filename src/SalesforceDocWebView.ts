@@ -6,11 +6,11 @@ import { SalesforceReferenceOutputChannel } from './Logging';
 //Only support a single WebView for salesforce doc viewing
 let currentSFDocPanel: vscode.WebviewPanel | undefined = undefined;
 
-export function showDocInWebView(context: vscode.ExtensionContext, rawDoc: string, fragment?: string) {
-    // SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri: ' + rawDoc.toString());
+export function showDocInWebView(context: vscode.ExtensionContext, htmlDoc: string, fragment?: string) {
+    // SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri: ' + htmlDoc.toString());
     if (currentSFDocPanel) {
         currentSFDocPanel.reveal(vscode.ViewColumn.One);
-        populateWebView(rawDoc, fragment);
+        populateWebView(htmlDoc, fragment);
     } else {
         currentSFDocPanel = vscode.window.createWebviewPanel(
             'sfDocWebview',
@@ -22,7 +22,7 @@ export function showDocInWebView(context: vscode.ExtensionContext, rawDoc: strin
             }
 
         );
-        populateWebView(rawDoc, fragment);
+        populateWebView(htmlDoc, fragment);
         currentSFDocPanel.onDidDispose(
             () => {
                 currentSFDocPanel = undefined;
@@ -34,9 +34,9 @@ export function showDocInWebView(context: vscode.ExtensionContext, rawDoc: strin
 }
 
 
-function populateWebView(rawDoc: string, fragment?: string) {
+function populateWebView(htmlDoc: string, fragment?: string) {
     currentSFDocPanel!.webview.html = getLoadingWebviewContent();
-    currentSFDocPanel!.webview.html = getWebviewContent(rawDoc);
+    currentSFDocPanel!.webview.html = getWebviewContent(htmlDoc);
     //Disabling rule, so we can check for both null and undefined
     // eslint-disable-next-line eqeqeq
     if (fragment != null) {
@@ -66,7 +66,7 @@ function getLoadingWebviewContent() {
             </html>`;
 }
 
-function getWebviewContent(rawDoc: string) {
+function getWebviewContent(htmlDoc: string) {
 
     //Get a year for the Copyright notice
     let year: number = new Date().getUTCFullYear();
@@ -98,7 +98,7 @@ function getWebviewContent(rawDoc: string) {
                     </script>
                 </head>
                 <body>
-                    ${rawDoc}
+                    ${htmlDoc}
                     <div style="font-style: italic">Salesforce Documentation is © Copyright 2000–${year} salesforce.com, inc. Salesforce is a registered trademark of salesforce.com, inc., as are other names and marks. Other marks appearing herein may be trademarks of their respective owners.</div>
                 </body>
             </html>`;
