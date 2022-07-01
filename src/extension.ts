@@ -131,10 +131,10 @@ function handleVersionChanges(context: vscode.ExtensionContext) {
             context.globalState.update(DocTypeName.SFDX_CLI, undefined);
         }
 
-        //In 1.3.2, the FWUID used for Aura/LWC was updated to reflect Salesforce updating this on the Aura/LWC component site.
+        //In 1.3.3, the FWUID used for Aura/LWC was updated to reflect Salesforce updating this on the Aura/LWC component site.
         //   Invalidating cache to ensure everything is up to date.
-        if (semver.lte(normalisedExistingVersionNumber, '1.3.1')) {
-            SalesforceReferenceOutputChannel.appendLine(`Extension version changed: prior was <=1.3.1. Invalidating Aura/LWC cache - Salesforce's FWUID for this doc changed, so re-fetching to ensure we're all up to date.`);
+        if (semver.lte(normalisedExistingVersionNumber, '1.3.2')) {
+            SalesforceReferenceOutputChannel.appendLine(`Extension version changed: prior was <=1.3.2. Invalidating Aura/LWC cache - Salesforce's FWUID for this doc changed, so re-fetching to ensure we're all up to date.`);
             context.globalState.update(DocTypeName.LWC_AND_AURA_COMPONENT_LIBRARY, undefined);
         }
     }

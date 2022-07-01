@@ -3,7 +3,7 @@
 Notable changes to the Salesforce Reference Extension.
 
 ## Table of Contents
-- [1.3.2](#132)
+- [1.3.3](#133)
 - [1.3.1](#131)
 - [1.3.0](#130)
 - [1.2.0](#120)
@@ -15,7 +15,7 @@ Notable changes to the Salesforce Reference Extension.
 - [0.2.0 - Beta](#020---beta)
 - [0.1.1 - Beta](#011---beta)
 
-## 1.3.2
+## 1.3.3
 Date: 2022-07-01 (NZ)
 ### Changed
  - The "Framework Unique ID" (`fwuid`) for Salesforce's Aura/LWC Component Library site has recently changed. As such, this extension update invalidates (only) the "LWC and Aura Component Library" doc cache for re-fetching, and updates the request we send for documentation to reflect the `fwuid` change.
