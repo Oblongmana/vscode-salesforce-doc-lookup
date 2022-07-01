@@ -5,13 +5,21 @@ import { SalesforceReferenceOutputChannel } from './Logging';
 
 //Universal constants
 const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
+
 //Constants related to Atlas-based documentation
 const SF_ATLAS_TOC_PATH = '/get_document';
 const SF_ATLAS_RAW_DOC_PATH = '/get_document_content';
+
 //Constants related to Aura app based documentation
 const SF_AURA_PATH = '/component-library/aura';
 const SF_AURA_BUNDLE_PATH = '/component-library/bundle';
-const SF_AURA_FWUID = '0lEhuHYJBRuSnxadQW0Iww'; //Appears to be the current version of the Aura framework itself. Will likely need updating over time. See notes/aura_lwc_component_docs.md.
+//Appears to be the current version of the Aura framework itself.
+//  FWUID = "Framework Unique ID"
+//  Will likely need updating over time. Has changed once ~2022-06-27.
+//  See notes / aura_lwc_component_docs.md.
+//  cf.https://developer.salesforce.com/docs/atlas.en-us.192.0.lightning.meta/lightning/debug_network_traffic.htm
+//   - "The framework unique id is a hash that is used as a fingerprint to detect if the framework has changed."
+const SF_AURA_FWUID = 'Pr-qKsHgD-DywRc_bfPDDw';
 const SF_AURA_ACTION_DESCRIPTOR_URI = 'serviceComponent://ui.lightning.docs.components.aura.components.controllers.ComponentLibraryDataProviderController/ACTION$';
 const SF_AURA_TOC_ACTION = 'getBundleDefinitionsList';
 const SF_AURA_RAW_DOC_ACTION = 'getBundleDefinition';
