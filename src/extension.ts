@@ -1,11 +1,11 @@
 import * as vscode from 'vscode';
-import { DocTypeName } from './SalesforceReference';
 import { EXTENSION_NAME, DocCommands, UtilityCommands } from './PackageIntrospection';
 import { openSalesforceDocQuickPick, invalidateSalesforceReferenceCache, openCurrentWordSearchQuickPick } from './SalesforceReferenceCommands';
 import { SalesforceReferenceOutputChannel } from './Logging';
 import { versionGlobalStateKey } from './Config';
 import { PackageJSON } from './PackageIntrospection';
 import * as semver from "semver";
+import { DocTypeName } from './DocTypes/DocTypeNames';
 
 
 export async function activate(context: vscode.ExtensionContext) {

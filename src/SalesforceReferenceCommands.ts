@@ -1,9 +1,11 @@
 import * as vscode from 'vscode';
-import { DocTypeName, SalesforceReferenceItem, SalesforceReferenceDocTypes } from './SalesforceReference';
+import { SalesforceReferenceDocTypes } from './SalesforceReference';
 import { getDocCommandQuickPickItems } from './PackageIntrospection';
 import { SalesforceReferenceOutputChannel } from './Logging';
 import { showDocInWebView } from './SalesforceDocWebView';
 import { getConfig } from './Config';
+import { DocTypeName } from './DocTypes/DocTypeNames';
+import { ReferenceItem } from './ReferenceItems/ReferenceItem';
 
 //Minor design note - everything that can throw exceptions will generally be expected not to handle them unless it can recover.
 // Otherwise error handling is left to these top-level commands, which should give the user appropriate feedback
@@ -13,9 +15,9 @@ const HUMAN_MESSAGE_UNEXPECTED_ERROR = 'Unexpected error while trying to access 
 
 export async function openSalesforceDocQuickPick(context: vscode.ExtensionContext, docType: DocTypeName, prefillValue?: string) {
     try {
-        let salesforceReferenceItems: SalesforceReferenceItem[] = await SalesforceReferenceDocTypes[docType].getSalesforceReferenceItems(context);
+        let salesforceReferenceItems: ReferenceItem[] = await SalesforceReferenceDocTypes[docType].getSalesforceReferenceItems(context);
 
-        const docTypeQuickPick: vscode.QuickPick<SalesforceReferenceItem> = vscode.window.createQuickPick();;
+        const docTypeQuickPick: vscode.QuickPick<ReferenceItem> = vscode.window.createQuickPick();;
         docTypeQuickPick.items = salesforceReferenceItems;
         docTypeQuickPick.matchOnDetail = true;
         if (prefillValue !== undefined) {

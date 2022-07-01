@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import {DocTypeName} from './SalesforceReference';
+import { DocTypeName } from './DocTypes/DocTypeNames';
 
 export const EXTENSION_NAME = 'vscode-salesforce-doc-lookup';
 export const PUBLISHER = 'Oblongmana';
