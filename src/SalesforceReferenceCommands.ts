@@ -15,7 +15,7 @@ const HUMAN_MESSAGE_UNEXPECTED_ERROR = 'Unexpected error while trying to access 
 
 export async function openSalesforceDocQuickPick(context: vscode.ExtensionContext, docType: DocTypeName, prefillValue?: string) {
     try {
-        let salesforceReferenceItems: ReferenceItem[] = await SalesforceReferenceDocTypes[docType].getSalesforceReferenceItems(context);
+        let salesforceReferenceItems: ReferenceItem[] = await SalesforceReferenceDocTypes[docType].getReferenceItems(context);
 
         const docTypeQuickPick: vscode.QuickPick<ReferenceItem> = vscode.window.createQuickPick();;
         docTypeQuickPick.items = salesforceReferenceItems;
@@ -34,11 +34,11 @@ export async function openSalesforceDocQuickPick(context: vscode.ExtensionContex
 
                 const selectedReferenceItem = docTypeQuickPick.activeItems[0];
                 if (getConfig()?.EXPERIMENTAL?.useWebview) {
-                    const htmlDoc = await SalesforceReferenceDocTypes[docType].asHTML(selectedReferenceItem!);
-                    const fragment = SalesforceReferenceDocTypes[docType].getFragment(selectedReferenceItem!);
+                    const htmlDoc = await selectedReferenceItem.asHTML();
+                    const fragment = selectedReferenceItem.webViewNavFragment();
                     showDocInWebView(context, htmlDoc, fragment);
                 } else {
-                    vscode.env.openExternal(vscode.Uri.parse(SalesforceReferenceDocTypes[docType].humanDocURL(selectedReferenceItem!)));
+                    vscode.env.openExternal(vscode.Uri.parse(selectedReferenceItem.humanDocURL()));
                 }
                 docTypeQuickPick.hide();
                 docTypeQuickPick.dispose();
@@ -81,7 +81,7 @@ export function openCurrentWordSearchQuickPick(context: vscode.ExtensionContext,
         const currentWord = range ? document.getText(selection) || document.getText(range) : selection && document.getText(selection) || undefined;
         if (currentWord !== undefined) {
             vscode.window.showQuickPick(getDocCommandQuickPickItems(), {placeHolder: 'Which documentation would you like to search?'}).then((selectedDocCommandJSON) => {
-                vscode.commands.executeCommand(selectedDocCommandJSON!.command,currentWord);
+                vscode.commands.executeCommand(selectedDocCommandJSON!.command, /*prefillValue=*/ currentWord);
             });
         } else {
             vscode.window.showErrorMessage('No word selected or under cursor');

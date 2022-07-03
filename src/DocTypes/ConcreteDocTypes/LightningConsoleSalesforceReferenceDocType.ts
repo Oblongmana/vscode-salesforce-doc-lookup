@@ -5,8 +5,7 @@ export class LightningConsoleSalesforceReferenceDocType extends SalesforceRefere
     constructor() {
         super(
             DocTypeName.LIGHTNING_CONSOLE,
-            '/atlas.en-us.api_console.meta',
-            '/api_console'
+            'api_console'
         );
     }
     /**

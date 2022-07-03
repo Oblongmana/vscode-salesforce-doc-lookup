@@ -9,11 +9,12 @@ import { SFDXCLISalesforceReferenceDocType } from "./DocTypes/ConcreteDocTypes/S
 import { SOAPAPISalesforceReferenceDocType } from "./DocTypes/ConcreteDocTypes/SOAPAPISalesforceReferenceDocType";
 import { VisualforceSalesforceReferenceDocType } from "./DocTypes/ConcreteDocTypes/VisualforceSalesforceReferenceDocType";
 import { DocTypeName } from "./DocTypes/DocTypeNames";
-import { SalesforceReferenceDocType } from "./DocTypes/SalesforceReferenceDocType";
+import { DocumentationType } from "./DocTypes/DocumentationType";
 
-//TODO: slightly weird intermediate layer leftover from restructure.
+//TODO: slightly weird intermediate layer leftover from restructure. Consider implications for version/locale overrides - likely need something constructed every time
+//   May be worth renaming doc type here too
 
-export const SalesforceReferenceDocTypes: Record<DocTypeName, SalesforceReferenceDocType> = {
+export const SalesforceReferenceDocTypes: Record<DocTypeName, DocumentationType> = {
     APEX:                             new ApexSalesforceReferenceDocType(),
     VISUALFORCE:                      new VisualforceSalesforceReferenceDocType(),
     LIGHTNING_CONSOLE:                new LightningConsoleSalesforceReferenceDocType(),

@@ -5,8 +5,7 @@ export class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceAtlasD
     constructor() {
         super(
             DocTypeName.SFDX_CLI,
-            '/atlas.en-us.sfdx_cli_reference.meta',
-            '/sfdx_cli_reference'
+            'sfdx_cli_reference'
         );
     }
     /**

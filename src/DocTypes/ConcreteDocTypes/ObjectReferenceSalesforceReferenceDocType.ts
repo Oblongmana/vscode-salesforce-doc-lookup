@@ -5,8 +5,7 @@ export class ObjectReferenceSalesforceReferenceDocType extends SalesforceReferen
     constructor() {
         super(
             DocTypeName.OBJECT_REFERENCE,
-            '/atlas.en-us.object_reference.meta',
-            '/object_reference'
+            'object_reference'
         );
     }
     /**

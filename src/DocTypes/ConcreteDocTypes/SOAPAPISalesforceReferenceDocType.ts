@@ -5,8 +5,7 @@ export class SOAPAPISalesforceReferenceDocType extends SalesforceReferenceAtlasD
     constructor() {
         super(
             DocTypeName.SOAP_API,
-            '/atlas.en-us.api.meta',
-            '/api'
+            'api'
         );
     }
     /**

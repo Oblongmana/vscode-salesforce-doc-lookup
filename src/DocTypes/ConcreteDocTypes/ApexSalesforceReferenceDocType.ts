@@ -5,8 +5,7 @@ export class ApexSalesforceReferenceDocType extends SalesforceReferenceAtlasDocT
     constructor() {
         super(
             DocTypeName.APEX,
-            '/atlas.en-us.apexref.meta',
-            '/apexref'
+            'apexref'
         );
     }
     /**

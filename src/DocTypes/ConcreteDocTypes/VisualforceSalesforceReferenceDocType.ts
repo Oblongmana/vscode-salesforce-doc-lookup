@@ -5,8 +5,7 @@ export class VisualforceSalesforceReferenceDocType extends SalesforceReferenceAt
     constructor() {
         super(
             DocTypeName.VISUALFORCE,
-            '/atlas.en-us.pages.meta',
-            '/pages'
+            'pages'
         );
     }
     /**

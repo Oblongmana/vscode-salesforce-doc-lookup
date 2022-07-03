@@ -5,8 +5,7 @@ export class RestAPISalesforceReferenceDocType extends SalesforceReferenceAtlasD
     constructor() {
         super(
             DocTypeName.REST_API,
-            '/atlas.en-us.api_rest.meta',
-            '/api_rest'
+            'api_rest'
         );
     }
     /**

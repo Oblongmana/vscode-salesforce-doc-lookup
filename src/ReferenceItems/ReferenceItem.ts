@@ -1,29 +1,49 @@
 import * as vscode from 'vscode';
+import { ReferenceItemMemento } from './ReferenceItemMemento';
 
-/**
- * A Salesforce Reference Entry represents a Salesforce ToC entry that:
- * - we can open in a web browser;
- * - has a human-readable breadcrumb string indicating how we got to this node;
- * - can be displayed in a VSCode QuickPick
- *
- * todo: update doc to describe more generically
- */
-export interface ReferenceItem extends vscode.QuickPickItem {
-    //QuickPick Interface fields
-    label: string;
+export abstract class ReferenceItem implements vscode.QuickPickItem {
+
+    abstract label: string;
     description?: string | undefined;
     detail?: string | undefined;
     picked?: boolean | undefined;
     alwaysShow?: boolean | undefined;
 
+    abstract data: Record<string, string>;
+
+    public saveToMemento(): ReferenceItemMemento {
+        return new ReferenceItemMemento(this);
+    }
+
+    public restoreFromMemento(memento: ReferenceItemMemento) {
+        this.label = memento.label;
+        this.data = memento.data;
+        this.description = memento.description;
+        this.detail = memento.detail;
+        this.picked = memento.picked;
+        this.alwaysShow = memento.alwaysShow;
+    }
+
     /**
-     * The final part of the URL for a given reference item - from a technical perspective,
-     * this is the path, query, and fragment (cf. https://url.spec.whatwg.org/#example-url-components)
+     * Get a URL for a human-readable page that can be loaded into the browser
      *
-     * E.g. in https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dml_section.htm#apex_dml_undelete
-     *          this is `apex_dml_section.htm#apex_dml_undelete`
-     * E.g. in https://developer.salesforce.com/docs/component-library/bundle/lightning:carousel
-     *          this is `lightning:carousel`
+     * @returns string A URL that can be loaded into the browser
      */
-    resource: string;
+    public abstract humanDocURL(): string;
+
+    /**
+     * EXPERIMENTAL: Get the raw doc as HTML that can be displayed in a webview
+     *
+     * @returns a promise that will resolve to a string of html that can be merged into a WebView
+     */
+    public abstract asHTML(): Promise<string>;
+
+    /**
+     * EXPERIMENTAL: Get a value to use as a url fragment (e.g. https://url.com/path#fragment) when displaying
+     * content inside VSCode using the {@link asHTML()} method. When the WebView loads, it will attempt to navigate
+     * to this fragment (usually a header anchor in the page).
+     *
+     * If the fragment is undefined, the WebView won't do anything related to the fragment
+     */
+    public abstract webViewNavFragment(): string | undefined;
 }

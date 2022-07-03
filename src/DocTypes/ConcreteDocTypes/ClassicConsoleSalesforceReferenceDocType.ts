@@ -5,8 +5,7 @@ export class ClassicConsoleSalesforceReferenceDocType extends SalesforceReferenc
     constructor() {
         super(
             DocTypeName.CLASSIC_CONSOLE,
-            '/atlas.en-us.api_console.meta',
-            '/api_console'
+            'api_console'
         );
     }
     /**

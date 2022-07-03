@@ -83,7 +83,7 @@ VSIX files are available in the Version History tab of the [Marketplace listing]
 ### Adblockers and loading links in Browser - NOFIX:
 Because Salesforce's Doc website is an Angular app that dynamically loads content into the page after the page itself has loaded, anchor links
 appear to be managed in such a way that the Angular app (rather than the browser) handles the scrolling to the requested item.
-e.g. https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_methods_system_string.htm#apex_System_String_substring - the
+e.g. https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_methods_system_string.htm#apex_System_String_substring - the
 section after the `#` is the anchor link, trying to take you directly to substring. This Salesforce Angular App functionality may play a little
 poorly with some adblockers such as "uBlock Origin". If you find commands are not scrolling you to the item you request, this may be fixed
 by disabling your adblocker on the Salesforce doc site, if you are comfortable with doing so.

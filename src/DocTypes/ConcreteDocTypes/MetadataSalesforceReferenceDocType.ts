@@ -5,8 +5,7 @@ export class MetadataSalesforceReferenceDocType extends SalesforceReferenceAtlas
     constructor() {
         super(
             DocTypeName.METADATA,
-            '/atlas.en-us.api_meta.meta',
-            '/api_meta'
+            'api_meta'
         );
     }
     /**
