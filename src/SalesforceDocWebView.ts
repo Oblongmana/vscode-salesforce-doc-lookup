@@ -10,7 +10,6 @@ export function showDocInWebView(context: vscode.ExtensionContext, htmlDoc: stri
     // SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri: ' + htmlDoc.toString());
     if (currentSFDocPanel) {
         currentSFDocPanel.reveal(vscode.ViewColumn.One);
-        populateWebView(htmlDoc, fragment);
     } else {
         currentSFDocPanel = vscode.window.createWebviewPanel(
             'sfDocWebview',
@@ -22,7 +21,6 @@ export function showDocInWebView(context: vscode.ExtensionContext, htmlDoc: stri
             }
 
         );
-        populateWebView(htmlDoc, fragment);
         currentSFDocPanel.onDidDispose(
             () => {
                 currentSFDocPanel = undefined;
@@ -31,10 +29,12 @@ export function showDocInWebView(context: vscode.ExtensionContext, htmlDoc: stri
             context.subscriptions
         );
     }
+    populateWebView(htmlDoc, fragment);
 }
 
 
 function populateWebView(htmlDoc: string, fragment?: string) {
+    //TODO: review this - suspect the loading part might be a holdover from older async/await style? Whereas now we have the "loading" bar?
     currentSFDocPanel!.webview.html = getLoadingWebviewContent();
     currentSFDocPanel!.webview.html = getWebviewContent(htmlDoc);
     //Disabling rule, so we can check for both null and undefined
