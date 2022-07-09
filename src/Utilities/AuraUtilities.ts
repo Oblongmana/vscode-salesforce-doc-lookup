@@ -48,9 +48,9 @@ export function buildAuraActionBody(auraAction: AuraAction, params?: Record<stri
         Object.entries(params).forEach(([key, value]) => {
             message.actions[0].params[key] = value;
         });
-        // SalesforceReferenceOutputChannel.appendLine(''+message);
+        // Logging.appendLine(''+message);
     }
     const finalBody: string = `message=${encodeURIComponent(JSON.stringify(message))}&aura.context=${AURA_CONTEXT}&aura.token=${AURA_TOKEN}`;
-    // SalesforceReferenceOutputChannel.appendLine('buildAuraActionBody: ' + finalBody);
+    // Logging.appendLine('buildAuraActionBody: ' + finalBody);
     return finalBody;
 }

@@ -1,11 +1,11 @@
 import * as vscode from 'vscode';
-import { DocTypeName } from './DocTypes/DocTypeNames';
+import { DocType } from './DocTypes';
 
 export const EXTENSION_NAME = 'vscode-salesforce-doc-lookup';
 export const PUBLISHER = 'Oblongmana';
 
 //General Command Types
-export const DocCommands: Record<DocTypeName, string> = {
+export const DocCommands: Record<DocType, string> = {
     APEX                            : 'salesforce-reference-apex',
     VISUALFORCE                     : 'salesforce-reference-visualforce',
     LIGHTNING_CONSOLE               : 'salesforce-reference-lightning-console',

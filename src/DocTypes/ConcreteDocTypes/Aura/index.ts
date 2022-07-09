@@ -1,0 +1,1 @@
+export { AuraLWCComponentLibraryAuraDocType } from "./AuraLWCComponentLibraryAuraDocType";

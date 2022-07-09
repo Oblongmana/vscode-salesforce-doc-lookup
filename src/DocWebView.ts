@@ -1,13 +1,11 @@
-import * as cheerio from 'cheerio';
-import got from 'got/dist/source';
 import * as vscode from 'vscode';
-import { SalesforceReferenceOutputChannel } from './Logging';
+import { Logging } from './Logging';
 
 //Only support a single WebView for salesforce doc viewing
 let currentSFDocPanel: vscode.WebviewPanel | undefined = undefined;
 
 export function showDocInWebView(context: vscode.ExtensionContext, htmlDoc: string, fragment?: string) {
-    // SalesforceReferenceOutputChannel.appendLine('showDocInWebView uri: ' + htmlDoc.toString());
+    // Logging.appendLine('showDocInWebView uri: ' + htmlDoc.toString());
     if (currentSFDocPanel) {
         currentSFDocPanel.reveal(vscode.ViewColumn.One);
     } else {
@@ -40,7 +38,7 @@ function populateWebView(htmlDoc: string, fragment?: string) {
     //Disabling rule, so we can check for both null and undefined
     // eslint-disable-next-line eqeqeq
     if (fragment != null) {
-        // SalesforceReferenceOutputChannel.appendLine('attempting to nav to fragment: ' + fragment);
+        // Logging.appendLine('attempting to nav to fragment: ' + fragment);
         currentSFDocPanel!.webview.postMessage(fragment);
     }
 }

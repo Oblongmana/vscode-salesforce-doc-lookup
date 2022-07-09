@@ -1,13 +1,13 @@
 import got from "got/dist/source";
 import * as cheerio from 'cheerio';
 
-import { SF_DOC_ROOT_URL } from "../Constants";
 import { ReferenceItem } from "./ReferenceItem";
 import { ReferenceItemMemento } from "./ReferenceItemMemento";
+import { SF_DOC_ROOT_URL } from "../GlobalConstants";
 import { AuraAction, buildAuraActionBody, SF_AURA_BUNDLE_PATH, SF_AURA_PATH } from "../Utilities/AuraUtilities";
 
 
-export class SalesforceAuraReferenceItem extends ReferenceItem {
+export class AuraReferenceItem extends ReferenceItem {
     //#region Implemented base properties
     label!: string;
     data!: Record<string, string>;
@@ -17,24 +17,24 @@ export class SalesforceAuraReferenceItem extends ReferenceItem {
      * Build a new ReferenceItem instance from a Salesforce Aura-based doc node
      */
     constructor(memento: ReferenceItemMemento)
-    constructor(docNode: SalesforceAuraTOC.DocumentationNode)
-    constructor(mementoOrDocNode: ReferenceItemMemento | SalesforceAuraTOC.DocumentationNode) {
+    constructor(docNode: AuraTOC.DocumentationNode)
+    constructor(mementoOrDocNode: ReferenceItemMemento | AuraTOC.DocumentationNode) {
         super();
         if (mementoOrDocNode instanceof ReferenceItemMemento) {
             this.restoreFromMemento(mementoOrDocNode);
         } else {
-            let docNode = mementoOrDocNode as SalesforceAuraTOC.DocumentationNode;
+            let docNode = mementoOrDocNode as AuraTOC.DocumentationNode;
             if (!docNode.hasOwnProperty('descriptorName') || docNode.descriptorName === undefined) {
-                throw new Error('Supplied DocumentationNode had a missing or undefined `descriptorName`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+                throw new Error('Supplied DocumentationNode had a missing or undefined `descriptorName`. This CANNOT be used to build a ReferenceItem - these are used to build Quick Pick items and must have this populated');
             }
             if (!docNode.hasOwnProperty('namespace') || docNode.namespace === undefined) {
-                throw new Error('Supplied DocumentationNode had a missing or undefined `namespace`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+                throw new Error('Supplied DocumentationNode had a missing or undefined `namespace`. This CANNOT be used to build a ReferenceItem - these are used to build Quick Pick items and must have this populated');
             }
             if (!docNode.hasOwnProperty('name') || docNode.name === undefined) {
-                throw new Error('Supplied DocumentationNode had a missing or undefined `name`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+                throw new Error('Supplied DocumentationNode had a missing or undefined `name`. This CANNOT be used to build a ReferenceItem - these are used to build Quick Pick items and must have this populated');
             }
             if (!docNode.hasOwnProperty('defType') || docNode.defType === undefined) {
-                throw new Error('Supplied DocumentationNode had a missing or undefined `defType`. This CANNOT be used to build a SalesforceReferenceItem - these are used to build Quick Pick items and must have this populated');
+                throw new Error('Supplied DocumentationNode had a missing or undefined `defType`. This CANNOT be used to build a ReferenceItem - these are used to build Quick Pick items and must have this populated');
             }
 
             //DefTypes map a little differently in the interface, from their underlying strings to their display values. This transform reflects the display values
@@ -93,15 +93,15 @@ export class SalesforceAuraReferenceItem extends ReferenceItem {
         }).json();
 
         // //Useful debug
-        // SalesforceReferenceOutputChannel.appendLine((await myRequest).request.options.body as string);
+        // Logging.appendLine((await myRequest).request.options.body as string);
 
-        var parsedBundleResponse: SalesforceAuraTOC.GetBundleDefinitionResponse = tocResponse as SalesforceAuraTOC.GetBundleDefinitionResponse;
-        // SalesforceReferenceOutputChannel.appendLine(JSON.stringify(parsedBundleResponse));
-        var bundleDefinition: SalesforceAuraTOC.BundleDefinition = parsedBundleResponse.actions[0].returnValue;
+        var parsedBundleResponse: AuraTOC.GetBundleDefinitionResponse = tocResponse as AuraTOC.GetBundleDefinitionResponse;
+        // Logging.appendLine(JSON.stringify(parsedBundleResponse));
+        var bundleDefinition: AuraTOC.BundleDefinition = parsedBundleResponse.actions[0].returnValue;
 
         //docDef can be empty - docDef is specifically the documentation tab, which some things don't have (e.g.aura:componentEvent, which only has Specification)
         var documentationDoc = cheerio.load('', null, false); //start empty
-        // SalesforceReferenceOutputChannel.appendLine('bundleDefinition.docDef: ' + JSON.stringify(bundleDefinition.docDef));
+        // Logging.appendLine('bundleDefinition.docDef: ' + JSON.stringify(bundleDefinition.docDef));
         if (bundleDefinition.docDef !== undefined) {
             documentationDoc = cheerio.load('<div id="documentation"></div>', null, false); // run in fragment mode so it doesn't add html/head etc
             documentationDoc('#documentation').append(`<h1 style="font-weight: bold">Documentation</h1>`);// Add a Documentation Header to represent the tab
@@ -127,7 +127,7 @@ export class SalesforceAuraReferenceItem extends ReferenceItem {
             specificationDoc('#specification').append(`<table id="attributesTable"></table>`);
             specificationDoc('#attributesTable').append(`<thead><tr style="text-transform:uppercase"><th>Name</th><th>Type</th><th>Access</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>`);
             specificationDoc('#attributesTable').append(`<tbody id="attributesTableBody"></tbody>`);
-            bundleDefinition.attributes.forEach((attributeDefinition: SalesforceAuraTOC.BundleAttribute) => {
+            bundleDefinition.attributes.forEach((attributeDefinition: AuraTOC.BundleAttribute) => {
                 specificationDoc('#attributesTableBody').append(`
                     <tr>
                         <td>${attributeDefinition.name}</td>
@@ -146,7 +146,7 @@ export class SalesforceAuraReferenceItem extends ReferenceItem {
         finalDoc('#fullDoc').append(documentationDoc.html());
         finalDoc('#fullDoc').append(specificationDoc.html());
 
-        // SalesforceReferenceOutputChannel.appendLine('finalDoc: ' + finalDoc.html());
+        // Logging.appendLine('finalDoc: ' + finalDoc.html());
 
         return finalDoc.html();
     }

@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
 import { ReferenceItem } from '../ReferenceItems/ReferenceItem';
-import { DocTypeName } from './DocTypeNames';
+import { DocType } from './DocType';
 
-export interface DocumentationType {
+export interface IDocumentationType {
     /**
      * The DocTypeName this DocType is for. Must be unique across the extension
      */
-    readonly docTypeName: DocTypeName;
+    readonly docTypeName: DocType;
 
     /**
      * Get the ReferenceItem instances for this reference doc type.

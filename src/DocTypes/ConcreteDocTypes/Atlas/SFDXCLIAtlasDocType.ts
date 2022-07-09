@@ -1,11 +1,11 @@
-import { getAtlasVersionCodeOverride } from "../../Utilities/DocTypeConfig";
-import { SalesforceReferenceAtlasDocType } from "../AbstractDocTypes/SalesforceReferenceAtlasDocType";
-import { DocTypeName } from "../DocTypeNames";
+import { AtlasDocType } from "../../AbstractDocTypes/AtlasDocType";
+import { DocType } from "../../DocType";
+import { getAtlasVersionCodeOverride } from "../../DocTypeConfig";
 
-export class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceAtlasDocType {
+export class SFDXCLIAtlasDocType extends AtlasDocType {
     constructor() {
         super(
-            DocTypeName.SFDX_CLI,
+            DocType.SFDX_CLI,
             'sfdx_cli_reference'
         );
     }
@@ -15,7 +15,7 @@ export class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceAtlasD
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
-    protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
+    protected async getRootDocumentationNode(): Promise<AtlasTOC.DocumentationNode> {
         const docToc: any = await this.getDocTOC();
         const versionCode: number = parseFloat(getAtlasVersionCodeOverride(this.docTypeName));
         let rootNodeId: string = 'cli_reference_top';
@@ -24,6 +24,6 @@ export class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceAtlasD
             //  To do so, another root node layer was added above the the previous one: cli_reference_top
             rootNodeId = 'cli_reference';
         }
-        return docToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === rootNodeId);
+        return docToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === rootNodeId);
     }
 }

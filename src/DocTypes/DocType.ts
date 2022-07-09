@@ -1,4 +1,4 @@
-export enum DocTypeName {
+export enum DocType {
     APEX                            = 'APEX',
     VISUALFORCE                     = 'VISUALFORCE',
     LIGHTNING_CONSOLE               = 'LIGHTNING_CONSOLE',
@@ -12,8 +12,7 @@ export enum DocTypeName {
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
 }
 
-export function docTypeNameTitleCase(docTypeName: DocTypeName) {
-    //I hate regex :)
+export function docTypeNameTitleCase(docTypeName: DocType) {
     const recasedAndSpaced: string = docTypeName.replace(
         /([-_]*[a-zA-Z]*)/g,
         (group) => {

@@ -1,19 +1,18 @@
 import * as vscode from 'vscode';
-import { SalesforceReferenceDocTypes } from './SalesforceReference';
-import { getDocCommandQuickPickItems } from './PackageIntrospection';
-import { SalesforceReferenceOutputChannel } from './Logging';
-import { showDocInWebView } from './SalesforceDocWebView';
-import { getConfig } from './Config';
-import { DocTypeName } from './DocTypes/DocTypeNames';
+import { getDocCommandQuickPickItems } from './Introspection';
+import { Logging } from './Logging';
+import { showDocInWebView } from './DocWebView';
+import { getConfig } from './GlobalConfig';
+import { DocType, DocTypeFactory } from './DocTypes';
 import { ReferenceItem } from './ReferenceItems/ReferenceItem';
-import { ERROR_MESSAGES } from './Constants';
+import { ERROR_MESSAGES } from './GlobalConstants';
 
-export async function openSalesforceDocQuickPick(context: vscode.ExtensionContext, docType: DocTypeName, prefillValue?: string) {
+export async function openDocQuickPick(context: vscode.ExtensionContext, docType: DocType, prefillValue?: string) {
     try {
-        let salesforceReferenceItems: ReferenceItem[] = await SalesforceReferenceDocTypes[docType]().getReferenceItems(context);
+        let referenceItems: ReferenceItem[] = await DocTypeFactory[docType]().getReferenceItems(context);
 
         const docTypeQuickPick: vscode.QuickPick<ReferenceItem> = vscode.window.createQuickPick();;
-        docTypeQuickPick.items = salesforceReferenceItems;
+        docTypeQuickPick.items = referenceItems;
         docTypeQuickPick.matchOnDetail = true;
         if (prefillValue !== undefined) {
             docTypeQuickPick.value = prefillValue;
@@ -47,28 +46,28 @@ export async function openSalesforceDocQuickPick(context: vscode.ExtensionContex
         if (error instanceof Error) {
             //TODO, err handling is mostly duplicated with the curr word command below
             if (error.message.includes(ERROR_MESSAGES.EXCEPTION_OFFLINE_ERROR)) {
-                SalesforceReferenceOutputChannel.appendLine('Offline Error: ' + error + error.stack);
+                Logging.appendLine('Offline Error: ' + error + error.stack);
                 vscode.window.showErrorMessage(ERROR_MESSAGES.HUMAN_MESSAGE_OFFLINE_ERROR, 'OK');
             } else if (error.message.includes(ERROR_MESSAGES.TABLE_OF_CONTENTS_PREFACE)) {
-                SalesforceReferenceOutputChannel.appendLine('ToC Error: ' + error + error.stack);
+                Logging.appendLine('ToC Error: ' + error + error.stack);
                 vscode.window.showErrorMessage(error.message + ERROR_MESSAGES.HUMAN_MESSAGE_TABLE_OF_CONTENTS_SUFFIX, 'OK');
             } else {
-                SalesforceReferenceOutputChannel.appendLine('Unexpected Error: ' + error + error.stack);
+                Logging.appendLine('Unexpected Error: ' + error + error.stack);
                 vscode.window.showErrorMessage(ERROR_MESSAGES.HUMAN_MESSAGE_UNEXPECTED_ERROR,'OK');
             }
         } else {
-            SalesforceReferenceOutputChannel.appendLine('Unexpected Error: Caught error was not of type Error: ' + error);
+            Logging.appendLine('Unexpected Error: Caught error was not of type Error: ' + error);
             vscode.window.showErrorMessage(ERROR_MESSAGES.HUMAN_MESSAGE_UNEXPECTED_ERROR,'OK');
         }
     }
 }
 
-export function invalidateSalesforceReferenceCache(context: vscode.ExtensionContext) {
+export function invalidateEntireExtensionCache(context: vscode.ExtensionContext) {
     vscode.window.showWarningMessage("This will throw away the cached documentation index for each documentation type, " +
         "so your next documentation lookup for each documentation type will need to re-retrieve the index from Salesforce. " +
         "Do you want to proceed?",{modal: true},'OK').then((selectedButton: string | undefined)=>{
             if (selectedButton === 'OK') {
-                Object.values(DocTypeName).forEach((currDocTypeString: string) => {
+                Object.values(DocType).forEach((currDocTypeString: string) => {
                     context.globalState.update(currDocTypeString, undefined);
                 });
             }
@@ -90,17 +89,17 @@ export function openCurrentWordSearchQuickPick(context: vscode.ExtensionContext,
     } catch (error: unknown) {
         if (error instanceof Error) {
             if (error.message.includes(ERROR_MESSAGES.EXCEPTION_OFFLINE_ERROR)) {
-                SalesforceReferenceOutputChannel.appendLine('Offline Error: ' + error + error.stack);
+                Logging.appendLine('Offline Error: ' + error + error.stack);
                 vscode.window.showErrorMessage(ERROR_MESSAGES.HUMAN_MESSAGE_OFFLINE_ERROR,'OK');
             } else if (error.message.includes(ERROR_MESSAGES.TABLE_OF_CONTENTS_PREFACE)) {
-                SalesforceReferenceOutputChannel.appendLine('ToC Error: ' + error + error.stack);
+                Logging.appendLine('ToC Error: ' + error + error.stack);
                 vscode.window.showErrorMessage(error.message + ERROR_MESSAGES.HUMAN_MESSAGE_TABLE_OF_CONTENTS_SUFFIX, 'OK');
             } else {
-                SalesforceReferenceOutputChannel.appendLine('Unexpected Error: ' + error + error.stack);
+                Logging.appendLine('Unexpected Error: ' + error + error.stack);
                 vscode.window.showErrorMessage(ERROR_MESSAGES.HUMAN_MESSAGE_UNEXPECTED_ERROR,'OK');
             }
         } else {
-            SalesforceReferenceOutputChannel.appendLine('Unexpected Error: Caught error was not of type Error: ' + error);
+            Logging.appendLine('Unexpected Error: Caught error was not of type Error: ' + error);
             vscode.window.showErrorMessage(ERROR_MESSAGES.HUMAN_MESSAGE_UNEXPECTED_ERROR,'OK');
         }
     }

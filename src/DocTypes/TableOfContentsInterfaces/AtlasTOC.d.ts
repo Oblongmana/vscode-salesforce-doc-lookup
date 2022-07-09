@@ -1,7 +1,7 @@
 /**
  * Interfaces for the JSON nodes in the Salesforce Atlas-based Tables of Contents
  */
-declare module SalesforceAtlasTOC {
+declare module AtlasTOC {
     /**
      * An interface representing an object in one of the Salesforce
      * Atlas-based Table of Contents Documentation pages.

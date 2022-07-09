@@ -3,7 +3,7 @@
  *
  * todo: experimental - needs full doc
  */
-declare module SalesforceAuraTOC {
+declare module AuraTOC {
 
 
 

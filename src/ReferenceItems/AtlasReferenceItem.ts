@@ -3,10 +3,10 @@ import * as vscode from 'vscode';
 import got from 'got/dist/source';
 import * as cheerio from 'cheerio';
 
-import { SF_DOC_ROOT_URL } from '../Constants';
 import { ReferenceItem } from "./ReferenceItem";
 import { ReferenceItemMemento } from "./ReferenceItemMemento";
-import { SalesforceReferenceOutputChannel } from '../Logging';
+import { Logging } from '../Logging';
+import { SF_DOC_ROOT_URL } from '../GlobalConstants';
 
 //Constants related to Atlas-based documentation items
 const SF_ATLAS_RAW_DOC_PATH = '/get_document_content';
@@ -16,7 +16,7 @@ export const SF_ATLAS_DEFAULT_VERSION_FOR_URL = undefined;
 export const SF_ATLAS_DEFAULT_VERSION_FOR_HTML_CONTENT = '238.0';  //! Will need to be updated periodically as Salesforce releases new doc versions, or a dynamic solution setup
 
 
-export class SalesforceAtlasReferenceItem extends ReferenceItem {
+export class AtlasReferenceItem extends ReferenceItem {
     //#region Implemented base properties
     label!: string;
     data!: Record<string, string>;
@@ -71,13 +71,13 @@ export class SalesforceAtlasReferenceItem extends ReferenceItem {
      * @param versionCodeOverride a version code to use instead of the default latest version (e.g. '236.0')
      * @param langCodeOverride a lang code to use instead of the default 'en-us' (e.g. 'ja-jp')
      */
-    constructor(docNode: SalesforceAtlasTOC.DocumentationNode,                                 atlasIdentifier: string, breadcrumb?: string, versionCodeOverride?: string, langCodeOverride?: string)
-    constructor(mementoOrDocNode: ReferenceItemMemento | SalesforceAtlasTOC.DocumentationNode, atlasIdentifier: string, breadcrumb?: string, versionCodeOverride?: string, langCodeOverride?: string) {
+    constructor(docNode: AtlasTOC.DocumentationNode,                                 atlasIdentifier: string, breadcrumb?: string, versionCodeOverride?: string, langCodeOverride?: string)
+    constructor(mementoOrDocNode: ReferenceItemMemento | AtlasTOC.DocumentationNode, atlasIdentifier: string, breadcrumb?: string, versionCodeOverride?: string, langCodeOverride?: string) {
         super();
         if (mementoOrDocNode instanceof ReferenceItemMemento) {
             this.restoreFromMemento(mementoOrDocNode);
         } else {
-            let docNode = mementoOrDocNode as SalesforceAtlasTOC.DocumentationNode;
+            let docNode = mementoOrDocNode as AtlasTOC.DocumentationNode;
             if (!docNode.hasOwnProperty('text') || docNode.text === undefined) {
                 throw new Error('Supplied DocumentationNode had a missing or undefined `text`. This CANNOT be used to build a SalesforceAtlasReferenceItem - these are used to build Quick Pick items and must have this populated');
             }
@@ -126,7 +126,7 @@ export class SalesforceAtlasReferenceItem extends ReferenceItem {
         // e.g. override{VER,LANG}      https://developer.salesforce.com/docs/get_document_content/apexref/apex_class_Approval_LockResult.htm/ja-jp/232.0
 
 
-        //TODO: this is extremely experimental, see Notes in SalesforceReferenceDocType.rawDocURL for future path
+        //TODO: this is extremely experimental
         //  review security constraints, poss including CSP stuff on the webview itself
         let body: any = await got(docUri).json();
 

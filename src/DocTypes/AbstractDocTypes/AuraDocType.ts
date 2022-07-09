@@ -2,30 +2,30 @@ import * as vscode from 'vscode';
 
 import got from 'got/dist/source';
 
-import { DocTypeName, docTypeNameTitleCase } from "../DocTypeNames";
-import { DocumentationType } from "../DocumentationType";
-import { SF_DOC_ROOT_URL } from '../../Constants';
-import { SalesforceAuraReferenceItem } from '../../ReferenceItems/SalesforceAuraReferenceItem';
+import { DocType, docTypeNameTitleCase } from "../DocType";
+import { IDocumentationType } from "../IDocumentationType";
+import { SF_DOC_ROOT_URL } from '../../GlobalConstants';
+import { AuraReferenceItem } from '../../ReferenceItems/AuraReferenceItem';
 import { AuraAction, buildAuraActionBody, SF_AURA_PATH } from '../../Utilities/AuraUtilities';
 import { ReferenceItem } from '../../ReferenceItems/ReferenceItem';
 import { ReferenceItemMemento } from '../../ReferenceItems/ReferenceItemMemento';
-import { getStorageSubKey } from '../../Utilities/DocTypeConfig';
+import { getStorageSubKey } from '../DocTypeConfig';
 
 /**
  * EXPERIMENTAL
  */
-export abstract class SalesforceReferenceAuraDocType implements DocumentationType {
+export abstract class AuraDocType implements IDocumentationType {
 
     /**
      * @inheritdoc
      */
-     public readonly docTypeName: DocTypeName;
+     public readonly docTypeName: DocType;
 
     /**
      *
      * @param docTypeName the DocTypeName instance for this Documentation type - e.g. DocTypeName.LWC_AND_AURA_COMPONENT_LIBRARY
      */
-    constructor(docTypeName: DocTypeName) {
+    constructor(docTypeName: DocType) {
         this.docTypeName = docTypeName;
     }
 
@@ -58,17 +58,17 @@ export abstract class SalesforceReferenceAuraDocType implements DocumentationTyp
             }).json();
 
             // //Useful debugs
-            // SalesforceReferenceOutputChannel.appendLine((await myRequest).request.options.body as string);
-            // SalesforceReferenceOutputChannel.appendLine(JSON.stringify(tocResponse));
+            // Logging.appendLine((await myRequest).request.options.body as string);
+            // Logging.appendLine(JSON.stringify(tocResponse));
 
-            var parsedTocResponse: SalesforceAuraTOC.GetBundleDefinitionsListResponse = tocResponse as SalesforceAuraTOC.GetBundleDefinitionsListResponse;
+            var parsedTocResponse: AuraTOC.GetBundleDefinitionsListResponse = tocResponse as AuraTOC.GetBundleDefinitionsListResponse;
 
-            // SalesforceReferenceOutputChannel.appendLine(JSON.stringify(parsedTocResponse.actions[0].returnValue));
+            // Logging.appendLine(JSON.stringify(parsedTocResponse.actions[0].returnValue));
 
-            var bundleDefinitionList: SalesforceAuraTOC.BundleDefinitionList = parsedTocResponse.actions[0].returnValue;
+            var bundleDefinitionList: AuraTOC.BundleDefinitionList = parsedTocResponse.actions[0].returnValue;
             referenceItems = Object.entries(bundleDefinitionList).sort().map(([, currDocNode]) => {
-                // SalesforceReferenceOutputChannel.appendLine('currDocNode: ' + currDocNode);
-                return new SalesforceAuraReferenceItem(currDocNode);
+                // Logging.appendLine('currDocNode: ' + currDocNode);
+                return new AuraReferenceItem(currDocNode);
             });
 
             cachedDocType = cachedDocType || {};
@@ -76,7 +76,7 @@ export abstract class SalesforceReferenceAuraDocType implements DocumentationTyp
             context.globalState.update(this.docTypeName, cachedDocType);
         } else {
             // Create new in-memory ReferenceItems by rehydrating from the cached mementos
-            referenceItems = cachedMementos.map(cachedMemento => new SalesforceAuraReferenceItem(new ReferenceItemMemento(cachedMemento)));
+            referenceItems = cachedMementos.map(cachedMemento => new AuraReferenceItem(new ReferenceItemMemento(cachedMemento)));
         }
         return referenceItems;
     }
