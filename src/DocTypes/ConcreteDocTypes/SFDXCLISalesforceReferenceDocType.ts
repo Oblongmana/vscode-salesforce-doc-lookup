@@ -1,3 +1,4 @@
+import { getAtlasVersionCodeOverride } from "../../Utilities/DocTypeConfig";
 import { SalesforceReferenceAtlasDocType } from "../AbstractDocTypes/SalesforceReferenceAtlasDocType";
 import { DocTypeName } from "../DocTypeNames";
 
@@ -16,6 +17,13 @@ export class SFDXCLISalesforceReferenceDocType extends SalesforceReferenceAtlasD
      */
     protected async getRootDocumentationNode(): Promise<SalesforceAtlasTOC.DocumentationNode> {
         const docToc: any = await this.getDocTOC();
-        return docToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'cli_reference');
+        const versionCode: number = parseFloat(getAtlasVersionCodeOverride(this.docTypeName));
+        let rootNodeId: string = 'cli_reference_top';
+        if (!isNaN(versionCode) && versionCode < 234.0) {
+            //Salesforce add `sf` doc in Version 234/Winter 22/v53, so both `sf` and `sfdx` are included.
+            //  To do so, another root node layer was added above the the previous one: cli_reference_top
+            rootNodeId = 'cli_reference';
+        }
+        return docToc.toc.find((node: SalesforceAtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === rootNodeId);
     }
 }
