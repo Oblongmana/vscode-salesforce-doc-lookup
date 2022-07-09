@@ -6,9 +6,10 @@ import { DocTypeName, docTypeNameTitleCase } from "../DocTypeNames";
 import { DocumentationType } from "../DocumentationType";
 import { SF_DOC_ROOT_URL } from '../../Constants';
 import { SalesforceAuraReferenceItem } from '../../ReferenceItems/SalesforceAuraReferenceItem';
-import { AuraAction, buildAuraActionBody, SF_AURA_BUNDLE_PATH, SF_AURA_PATH } from '../../Utilities/AuraUtilities';
+import { AuraAction, buildAuraActionBody, SF_AURA_PATH } from '../../Utilities/AuraUtilities';
 import { ReferenceItem } from '../../ReferenceItems/ReferenceItem';
 import { ReferenceItemMemento } from '../../ReferenceItems/ReferenceItemMemento';
+import { getStorageSubKey } from '../../Utilities/DocTypeConfig';
 
 /**
  * EXPERIMENTAL
@@ -36,11 +37,16 @@ export abstract class SalesforceReferenceAuraDocType implements DocumentationTyp
     public async getReferenceItems(context: vscode.ExtensionContext): Promise<ReferenceItem[]> {
         //Try to use existing cached values, and populate the cache if not available
         let referenceItems: ReferenceItem[] = [];
-        let cachedMementos: object[] | undefined = context.globalState.get(this.docTypeName);
+        let versionCodeOverride: string | undefined = undefined; //TODO: Aura doc with versions/locales.
+        let langCodeOverride: string | undefined = undefined; //TODO: Aura doc with versions/locales.
+        let cacheSubKey: string = getStorageSubKey(versionCodeOverride, langCodeOverride);
+        let cachedDocType: any | undefined = context.globalState.get(this.docTypeName);
+        let cachedMementos: any[] | undefined = cachedDocType?.[cacheSubKey];
         if (cachedMementos === undefined) {
-            // Get fresh reference entries, build ReferenceItems, and cache their ReferenceItemMementos
-            console.log(`Cache miss for ${this.docTypeName} Salesforce Reference entries. Retrieving from web`);
-            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeNameTitleCase(this.docTypeName)} Reference Index...`, 'OK');
+            // Get fresh reference entries, build in-memory ReferenceItems, and cache their ReferenceItemMementos
+            let subKeyInfoForMessage = cacheSubKey !== "" ? `(${[versionCodeOverride, langCodeOverride].filter(x => x).join(", ")}) ` : "";
+            console.log(`Cache miss for ${this.docTypeName} ${subKeyInfoForMessage}Salesforce Reference entries. Retrieving from web`);
+            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeNameTitleCase(this.docTypeName)} ${subKeyInfoForMessage}Reference Index...`, 'OK');
 
             const body = buildAuraActionBody(AuraAction.GET_TOC_MESSAGE);
 
@@ -65,9 +71,11 @@ export abstract class SalesforceReferenceAuraDocType implements DocumentationTyp
                 return new SalesforceAuraReferenceItem(currDocNode);
             });
 
-            context.globalState.update(this.docTypeName, referenceItems.map(item => item.saveToMemento()));
+            cachedDocType = cachedDocType || {};
+            cachedDocType[cacheSubKey] = referenceItems.map(item => item.saveToMemento());
+            context.globalState.update(this.docTypeName, cachedDocType);
         } else {
-            // Create new ReferenceItems by rehydrating from the cached mementos
+            // Create new in-memory ReferenceItems by rehydrating from the cached mementos
             referenceItems = cachedMementos.map(cachedMemento => new SalesforceAuraReferenceItem(new ReferenceItemMemento(cachedMemento)));
         }
         return referenceItems;

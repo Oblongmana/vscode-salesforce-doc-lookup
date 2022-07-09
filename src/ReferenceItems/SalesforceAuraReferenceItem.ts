@@ -8,12 +8,13 @@ import { AuraAction, buildAuraActionBody, SF_AURA_BUNDLE_PATH, SF_AURA_PATH } fr
 
 
 export class SalesforceAuraReferenceItem extends ReferenceItem {
-    // Implemented base properties
+    //#region Implemented base properties
     label!: string;
     data!: Record<string, string>;
+    //#endregion
 
     /**
-     * Build a new ReferenceItem instance from a Salesforce Atlas-based doc node
+     * Build a new ReferenceItem instance from a Salesforce Aura-based doc node
      */
     constructor(memento: ReferenceItemMemento)
     constructor(docNode: SalesforceAuraTOC.DocumentationNode)

@@ -11,18 +11,17 @@ import { VisualforceSalesforceReferenceDocType } from "./DocTypes/ConcreteDocTyp
 import { DocTypeName } from "./DocTypes/DocTypeNames";
 import { DocumentationType } from "./DocTypes/DocumentationType";
 
-//TODO: slightly weird intermediate layer leftover from restructure. Consider implications for version/locale overrides - likely need something constructed every time
-//   May be worth renaming doc type here too
+//TODO: class/exports may need renaming here, purpose has shifted a bit over time
 
-export const SalesforceReferenceDocTypes: Record<DocTypeName, DocumentationType> = {
-    APEX:                             new ApexSalesforceReferenceDocType(),
-    VISUALFORCE:                      new VisualforceSalesforceReferenceDocType(),
-    LIGHTNING_CONSOLE:                new LightningConsoleSalesforceReferenceDocType(),
-    CLASSIC_CONSOLE:                  new ClassicConsoleSalesforceReferenceDocType(),
-    METADATA:                         new MetadataSalesforceReferenceDocType(),
-    OBJECT_REFERENCE:                 new ObjectReferenceSalesforceReferenceDocType(),
-    REST_API:                         new RestAPISalesforceReferenceDocType(),
-    SOAP_API:                         new SOAPAPISalesforceReferenceDocType(),
-    SFDX_CLI:                         new SFDXCLISalesforceReferenceDocType(),
-    LWC_AND_AURA_COMPONENT_LIBRARY:   new AuraLWCComponentLibrarySalesforceReferenceDocType(),
+export const SalesforceReferenceDocTypes: Record<DocTypeName, () => DocumentationType> = {
+    APEX:                             () => new ApexSalesforceReferenceDocType(),
+    VISUALFORCE:                      () => new VisualforceSalesforceReferenceDocType(),
+    LIGHTNING_CONSOLE:                () => new LightningConsoleSalesforceReferenceDocType(),
+    CLASSIC_CONSOLE:                  () => new ClassicConsoleSalesforceReferenceDocType(),
+    METADATA:                         () => new MetadataSalesforceReferenceDocType(),
+    OBJECT_REFERENCE:                 () => new ObjectReferenceSalesforceReferenceDocType(),
+    REST_API:                         () => new RestAPISalesforceReferenceDocType(),
+    SOAP_API:                         () => new SOAPAPISalesforceReferenceDocType(),
+    SFDX_CLI:                         () => new SFDXCLISalesforceReferenceDocType(),
+    LWC_AND_AURA_COMPONENT_LIBRARY:   () => new AuraLWCComponentLibrarySalesforceReferenceDocType(),
 };

@@ -11,10 +11,9 @@ import { SalesforceReferenceOutputChannel } from '../Logging';
 //Constants related to Atlas-based documentation items
 const SF_ATLAS_RAW_DOC_PATH = '/get_document_content';
 
-//TODO this may need to be exposed for use at docType level too
-const SF_ATLAS_DEFAULT_LANG = 'en-us';
-const SF_ATLAS_DEFAULT_VERSION_FOR_URL = undefined;
-const SF_ATLAS_DEFAULT_VERSION_FOR_CONTENT = '238.0';
+export const SF_ATLAS_DEFAULT_LANG = 'en-us';
+export const SF_ATLAS_DEFAULT_VERSION_FOR_URL = undefined;
+export const SF_ATLAS_DEFAULT_VERSION_FOR_HTML_CONTENT = '238.0';  //! Will need to be updated periodically as Salesforce releases new doc versions, or a dynamic solution setup
 
 
 export class SalesforceAtlasReferenceItem extends ReferenceItem {
@@ -34,7 +33,7 @@ export class SalesforceAtlasReferenceItem extends ReferenceItem {
 
     /**
      * A SF version code (e.g. 236.0) to use - default for human links is NO version code, which gives the latest doc; default for
-     * html doc retrieved to display inside VSCode is {@link SF_ATLAS_DEFAULT_VERSION_FOR_CONTENT}
+     * html doc retrieved to display inside VSCode is {@link SF_ATLAS_DEFAULT_VERSION_FOR_HTML_CONTENT}
      *
      * e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.236.0.apexref.meta/apexref/apex_dml_section.htm#apex_dml_undelete"
      *    this is "236.0"
@@ -104,7 +103,7 @@ export class SalesforceAtlasReferenceItem extends ReferenceItem {
      */
     public humanDocURL(): string {
         let versionOverrideForMerge: string | undefined = this.versionCodeOverride || SF_ATLAS_DEFAULT_VERSION_FOR_URL;
-        versionOverrideForMerge = versionOverrideForMerge !== undefined ? `.${this.versionCodeOverride}` : '';
+        versionOverrideForMerge = (versionOverrideForMerge !== null && versionOverrideForMerge !== undefined)  ? `.${this.versionCodeOverride}` : '';
         return `${SF_DOC_ROOT_URL}/atlas.${this.langCodeOverride || SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta/${this.atlasIdentifier}/${this.data.resource}`;
         // e.g. override{}              https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_dml_section.htm#apex_dml_undelete
         // e.g. override{VER}           https://developer.salesforce.com/docs/atlas.en-us.236.0.apexref.meta/apexref/apex_dml_section.htm#apex_dml_undelete
@@ -116,22 +115,11 @@ export class SalesforceAtlasReferenceItem extends ReferenceItem {
      * @inheritdoc
      */
     public async asHTML(): Promise<string> {
-        //todo: original notes, will be useful when removing hardcoding of locale and version. Currently in progress!
-        // private rawDocURL(folder: string, id: string, locale: string, version: string): string {
-        // The required params can be obtained from the following things on the root Node.
-        //  See the NOTES.md file for further detail on possible future plans
-
-        // const vfFolder: string = sfJSONDoc.deliverable;
-        // const vfLocale: string = sfJSONDoc.language.locale;
-        // const vfDocVersion: string = sfJSONDoc.version.doc_version;
-
-        // return `${SF_DOC_ROOT_URL}${SF_RAW_DOC_PATH}/${folder}/${id}/${locale}/${version}`;
-
         const resourceHrefWithoutFragment = vscode.Uri.parse(this.data.resource).path;
 
-        //TODO: unfortunately retrieving actual doc content requires a version code - it can't be left unspecified to get latest. At some stage, likely need to make this a config/pref item
-        //      and give the user the ability to have this automatically update in some way.
-        const docUri = `${SF_DOC_ROOT_URL}${SF_ATLAS_RAW_DOC_PATH}/${this.atlasIdentifier}/${resourceHrefWithoutFragment}/${this.langCodeOverride || SF_ATLAS_DEFAULT_LANG}/${this.versionCodeOverride || SF_ATLAS_DEFAULT_VERSION_FOR_CONTENT}`;
+        // Unfortunately retrieving actual doc content requires a version code - it can't be left unspecified to get latest. This can be updated by user in config,
+        //  and we'll need to periodically update the extension as new doc releases, setting a new SF_ATLAS_DEFAULT_VERSION_FOR_CONTENT
+        const docUri = `${SF_DOC_ROOT_URL}${SF_ATLAS_RAW_DOC_PATH}/${this.atlasIdentifier}/${resourceHrefWithoutFragment}/${this.langCodeOverride || SF_ATLAS_DEFAULT_LANG}/${this.versionCodeOverride || SF_ATLAS_DEFAULT_VERSION_FOR_HTML_CONTENT}`;
         // e.g. override{}              https://developer.salesforce.com/docs/get_document_content/apexref/apex_class_Approval_LockResult.htm/en-us/238.0
         // e.g. override{VER}           https://developer.salesforce.com/docs/get_document_content/apexref/apex_class_Approval_LockResult.htm/en-us/232.0
         // e.g. override{LANG}          https://developer.salesforce.com/docs/get_document_content/apexref/apex_class_Approval_LockResult.htm/ja-jp/238.0
