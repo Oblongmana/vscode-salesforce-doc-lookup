@@ -40,6 +40,8 @@ In rough priority order
 - [ ] Also implement LWC Dev Guide Reference - see above
 - [ ] VERY Wacky Idea: There is a full JSON index of all DocTypes at GET https://developer.salesforce.com/docs/get_index/en-us/000.0/false/All%20Services/all. This seems to include the props we've been deriving from the get_document info. Will include a sample ToC in ALL_REFERENCES_INDEX.json
   - This might possibly go hand-in-hand with a potential different approach to how we build ToC, which might also dovetail with some possible changes to SF approach (e.g. where they separated Apex Ref from Apex Dev Guide) - rather than drilling down to what I subjectively think is the most important ToC node, we might be able to simply take ALL ToC Nodes. This would need preeeeetty thorough investigation. Would also necessitate a full cache clobber. Also consider usability type issues - would we want to provide EVERY doc type? The content array indicates there's 135 of them as at 2021-07-02!
+  - An update to this though as at 2022-07. We could possibly use this at least as the source of our lang and version values - it does enumerate them under `available_languages` and `available_versions`
+    - This doesn't mean they're all valid for all doc types, but we could use it to give users options
 - [ ] The QuickPick appears to accept a list of Promise<string> as an alternative to a list of plain strings, and shows a loading bouncer on that basis. Can we use that to remove the toast popup when dealing with uncached doc
 - [ ] Improve WebView approach, especially noting it's currently locked to ver 232
 - [ ] Examine possibility of alternative languages - see the notes in NOTES.md. Oriented towards a different end, but could likely be used for allowing user to switch to JP mode
