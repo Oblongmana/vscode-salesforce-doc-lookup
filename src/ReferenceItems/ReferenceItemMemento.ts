@@ -30,7 +30,7 @@ export /*NB: "sealed"*/ class ReferenceItemMemento implements vscode.QuickPickIt
      * - E.g. in https://developer.salesforce.com/docs/component-library/bundle/lightning:carousel
      *          this is `lightning:carousel`
      */
-    public readonly data!: Record<string, string>; //TODO BREAKING CHANGE. INCREMENT MAJOR VERSION AND INVALIDATE CACHE
+    public readonly data!: Record<string, string>;
     public readonly description?: string | undefined;
     public readonly detail?: string | undefined;
     public readonly picked?: boolean | undefined;

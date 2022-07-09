@@ -137,6 +137,13 @@ function handleVersionChanges(context: vscode.ExtensionContext) {
             SalesforceReferenceOutputChannel.appendLine(`Extension version changed: prior was <=1.3.2. Invalidating Aura/LWC cache - Salesforce's FWUID for this doc changed, so re-fetching to ensure we're all up to date.`);
             context.globalState.update(DocTypeName.LWC_AND_AURA_COMPONENT_LIBRARY, undefined);
         }
+
+        //In 2.0.0, the plugin was updated to support language/version overrides for Atlas-based docTypes, including caching
+        //  of entries for different lang/version combos. Due to the structural change of the cache, everthing must be invalidated.
+        if (semver.lt(normalisedExistingVersionNumber, '2.0.0')) {
+            SalesforceReferenceOutputChannel.appendLine(`Extension version changed: prior was <2.0.0. Invalidating all caches - cache format has been updated`);
+            Object.values(DocTypeName).forEach(docTypeKey => context.globalState.update(docTypeKey, undefined));
+        }
     }
 }
 

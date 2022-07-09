@@ -79,7 +79,7 @@ export abstract class SalesforceReferenceAtlasDocType implements DocumentationTy
             context.globalState.update(this.docTypeName, cachedDocType);
         } else {
             // Create new in-memory ReferenceItems by rehydrating from the cached mementos
-            referenceItems = cachedMementos.map(cachedMemento => new SalesforceAtlasReferenceItem(new ReferenceItemMemento(cachedMemento), this.atlasIdentifier, undefined, versionCodeOverride, langCodeOverride)); //TODO account for version/lang overrides once we get to that point - load from settings
+            referenceItems = cachedMementos.map(cachedMemento => new SalesforceAtlasReferenceItem(new ReferenceItemMemento(cachedMemento), this.atlasIdentifier, undefined, versionCodeOverride, langCodeOverride));
         }
         return referenceItems;
     }
@@ -98,7 +98,7 @@ export abstract class SalesforceReferenceAtlasDocType implements DocumentationTy
         // SalesforceReferenceOutputChannel.appendLine('documentationNode: ' + documentationNode);
         //Convert this node into a ReferenceItem, after run-time checking it has appropriate properties
         if (documentationNode.hasOwnProperty('a_attr')) {
-            referenceItems.push(new SalesforceAtlasReferenceItem(documentationNode, this.atlasIdentifier, breadcrumbString, getAtlasVersionCodeOverride(this.docTypeName), getLangCodeOverride(this.docTypeName))); //TODO account for version/lang overrides once we get to that point - load from settings
+            referenceItems.push(new SalesforceAtlasReferenceItem(documentationNode, this.atlasIdentifier, breadcrumbString, getAtlasVersionCodeOverride(this.docTypeName), getLangCodeOverride(this.docTypeName)));
         }
         //Recursively convert children into SalesforceReferenceItems and add them to our list
         if (documentationNode.hasOwnProperty('children') && documentationNode.children !== undefined) {
