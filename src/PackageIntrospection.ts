@@ -15,6 +15,7 @@ export const DocCommands: Record<DocTypeName, string> = {
     REST_API                        : 'salesforce-reference-rest-api',
     SOAP_API                        : 'salesforce-reference-soap-api',
     SFDX_CLI                        : 'salesforce-reference-sfdx-cli',
+    APEX_DEV_GUIDE                  : 'salesforce-reference-apex-dev-guide',
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
 };
 const DocCommandsValues: string[] = Object.values(DocCommands);

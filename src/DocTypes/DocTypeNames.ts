@@ -8,6 +8,7 @@ export enum DocTypeName {
     REST_API                        = 'REST_API',
     SOAP_API                        = 'SOAP_API',
     SFDX_CLI                        = 'SFDX_CLI',
+    APEX_DEV_GUIDE                  = 'APEX_DEV_GUIDE',
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
 }
 

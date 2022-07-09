@@ -1,3 +1,4 @@
+import { ApexDevGuideSalesforceReferenceDocType } from "./DocTypes/ConcreteDocTypes/ApexDevGuideSalesforceReferenceDocType";
 import { ApexSalesforceReferenceDocType } from "./DocTypes/ConcreteDocTypes/ApexSalesforceReferenceDocType";
 import { AuraLWCComponentLibrarySalesforceReferenceDocType } from "./DocTypes/ConcreteDocTypes/AuraLWCComponentLibrarySalesforceReferenceDocType";
 import { ClassicConsoleSalesforceReferenceDocType } from "./DocTypes/ConcreteDocTypes/ClassicConsoleSalesforceReferenceDocType";
@@ -24,4 +25,5 @@ export const SalesforceReferenceDocTypes: Record<DocTypeName, () => Documentatio
     SOAP_API:                         () => new SOAPAPISalesforceReferenceDocType(),
     SFDX_CLI:                         () => new SFDXCLISalesforceReferenceDocType(),
     LWC_AND_AURA_COMPONENT_LIBRARY:   () => new AuraLWCComponentLibrarySalesforceReferenceDocType(),
+    APEX_DEV_GUIDE:                   () => new ApexDevGuideSalesforceReferenceDocType(),
 };

@@ -15,6 +15,7 @@ export async function activate(context: vscode.ExtensionContext) {
     handleVersionChanges(context);
 
     //Build all of our User-facing commands
+    //TODO: can almost certainly do this with fewer LoC!
     let apexReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.APEX}`, async (prefillValue?: string) => {
         openSalesforceDocQuickPick(context, DocTypeName.APEX, prefillValue);
     });
@@ -51,6 +52,10 @@ export async function activate(context: vscode.ExtensionContext) {
         openSalesforceDocQuickPick(context, DocTypeName.SFDX_CLI, prefillValue);
     });
 
+    let apexDevGuideReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.APEX_DEV_GUIDE}`, async (prefillValue?: string) => {
+        openSalesforceDocQuickPick(context, DocTypeName.APEX_DEV_GUIDE, prefillValue);
+    });
+
     let lwcAuraComponentLibReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.LWC_AND_AURA_COMPONENT_LIBRARY}`, async (prefillValue?: string) => {
         openSalesforceDocQuickPick(context, DocTypeName.LWC_AND_AURA_COMPONENT_LIBRARY, prefillValue);
     });
@@ -75,6 +80,7 @@ export async function activate(context: vscode.ExtensionContext) {
         restApiReferenceDisposable,
         soapApiReferenceDisposable,
         sfdxCliReferenceDisposable,
+        apexDevGuideReferenceDisposable,
         lwcAuraComponentLibReferenceDisposable,
     );
 }

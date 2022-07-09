@@ -42,6 +42,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-soap-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
@@ -50,7 +51,7 @@
         "commands": [
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-apex",
-                "title": "Salesforce Reference: Apex"
+                "title": "Salesforce Reference: Apex Reference"
             },
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-visualforce",
@@ -87,6 +88,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
                 "title": "Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-apex-dev-guide",
+                "title": "Salesforce Reference: Apex Developer Guide"
             },
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
@@ -137,15 +142,16 @@
                                 "type": "string",
                         "title": "DocType to customise language/version code for",
                                 "enum": [
+                            "APEX_DEV_GUIDE",
                                     "APEX",
-                                    "VISUALFORCE",
+                            "CLASSIC_CONSOLE",
                                     "LIGHTNING_CONSOLE",
-                                    "CLASSIC_CONSOLE",
                                     "METADATA",
                                     "OBJECT_REFERENCE",
                                     "REST_API",
+                            "SFDX_CLI",
                                     "SOAP_API",
-                            "SFDX_CLI"
+                            "VISUALFORCE"
                         ],
                         "TODO": "LWC_AND_AURA_COMPONENT_LIBRARY is excluded from above, SF docs don't have configurable language/version at present 2022-07"
                             },
