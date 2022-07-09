@@ -103,8 +103,76 @@
             "properties": {
                 "vscode-salesforce-doc-lookup.EXPERIMENTAL.useWebview": {
                     "type": "boolean",
+                    "order": 1,
                     "default": false,
                     "markdownDescription": "EXPERIMENTAL: If set to `true`, results will be retrieved and rendered in a WebView inside VSCode."
+                },
+                "vscode-salesforce-doc-lookup.EXPERIMENTAL.ADVANCED.languageAndVersionPreferences.languageCode": {
+                    "type": "string",
+                    "order": 2,
+                    "description": "ADVANCED, EXPERIMENTAL OPTION. Language code to request documentation. Please note that most non-'en-us' languages will not be available for most Salesforce release versions, and documentation retrieval will fail. If you have specific requirements, suggest using the perDocType settings. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
+                    "default": "en-us",
+                    "enum": ["en-us", "ja-jp"],
+                    "enumDescriptions": [
+                        "English (United States)",
+                        "Japanese"
+                    ]
+                },
+                "vscode-salesforce-doc-lookup.EXPERIMENTAL.ADVANCED.languageAndVersionPreferences.atlasDocVersionCode": {
+                    "type": "string",
+                    "order": 3,
+                    "description": "ADVANCED, EXPERIMENTAL OPTION (Default: Leave blank to retrieve latest). Version code to request Atlas-type documentation. Please note that some version codes will not be available for many doc types, and documentation retrieval will fail. For Atlas type docs this is generally in the format e.g. '236.0', for Aura docs this is in format e.g. '52.0'. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
+                    "default": ""
+                },
+                "vscode-salesforce-doc-lookup.EXPERIMENTAL.ADVANCED.languageAndVersionPreferences.auraDocVersionCode": {
+                    "type": "string",
+                    "order": 4,
+                    "description": "ADVANCED, EXPERIMENTAL OPTION (Default: Leave blank to retrieve latest). Version code to request Aura-type documentation. Please note that some version codes will not be available for many doc types, and documentation retrieval will fail. For Atlas type docs this is generally in the format e.g. '236.0', for Aura docs this is in format e.g. '52.0'. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
+                    "default": ""
+                },
+                "vscode-salesforce-doc-lookup.EXPERIMENTAL.ADVANCED.languageAndVersionPreferences.perDocType": {
+                        "type": "object",
+                    "order": 5,
+                    "propertyNames": {
+                                "type": "string",
+                        "title": "DocType to customise language/version code for",
+                                "enum": [
+                                    "APEX",
+                                    "VISUALFORCE",
+                                    "LIGHTNING_CONSOLE",
+                                    "CLASSIC_CONSOLE",
+                                    "METADATA",
+                                    "OBJECT_REFERENCE",
+                                    "REST_API",
+                                    "SOAP_API",
+                            "SFDX_CLI"
+                        ],
+                        "TODO": "LWC_AND_AURA_COMPONENT_LIBRARY is excluded from above, SF docs don't have configurable language/version at present 2022-07"
+                            },
+                    "additionalProperties": {
+                        "type": "object",
+                        "order": 1,
+                        "title": "Language/Version Overrides for a specific DocType.",
+                        "properties": {
+                            "languageCode": {
+                                "type": "string",
+                                "order": 2,
+                                "description": "ADVANCED, EXPERIMENTAL OPTION. Language code to request documentation. Please note that most non-'en-us' languages will not be available for most Salesforce release versions, and documentation retrieval will fail. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
+                                "default": "en-us",
+                                "enum": ["en-us", "ja-jp"],
+                                "enumDescriptions": [
+                                    "English (United States)",
+                                    "Japanese"
+                                ]
+                            },
+                            "versionCode": {
+                                "type": "string",
+                                "order": 3,
+                                "description": "ADVANCED, EXPERIMENTAL OPTION (Default: Leave blank to retrieve latest). Version code to request documentation. Please note that some version codes will not be available for many doc types, and documentation retrieval will fail. For Atlas type docs this is generally in the format e.g. '236.0', for Aura docs this is in format e.g. '52.0'. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
+                                "default": ""
+                            }
+                        }
+                    }
                 }
             }
         }
