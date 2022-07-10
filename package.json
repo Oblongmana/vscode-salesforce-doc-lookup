@@ -137,7 +137,10 @@
                     "order": 2,
                     "description": "ADVANCED, EXPERIMENTAL OPTION. Language code to request documentation. Please note that most non-'en-us' languages will not be available for most Salesforce release versions, and documentation retrieval will fail. If you have specific requirements, suggest using the perDocType settings. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
                     "default": "en-us",
-                    "enum": ["en-us", "ja-jp"],
+                    "enum": [
+                        "en-us",
+                        "ja-jp"
+                    ],
                     "enumDescriptions": [
                         "English (United States)",
                         "Japanese"
@@ -190,7 +193,10 @@
                                 "order": 2,
                                 "description": "ADVANCED, EXPERIMENTAL OPTION. Language code to request documentation. Please note that most non-'en-us' languages will not be available for most Salesforce release versions, and documentation retrieval will fail. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
                                 "default": "en-us",
-                                "enum": ["en-us", "ja-jp"],
+                                "enum": [
+                                    "en-us",
+                                    "ja-jp"
+                                ],
                                 "enumDescriptions": [
                                     "English (United States)",
                                     "Japanese"
@@ -217,18 +223,15 @@
         "test": "node ./out/test/runTest.js"
     },
     "devDependencies": {
-        "@types/glob": "^7.1.1",
-        "@types/mocha": "^7.0.2",
         "@types/node": "^13.11.0",
         "@types/semver": "^7.3.6",
         "@types/vscode": "^1.45.0",
         "@typescript-eslint/eslint-plugin": "^2.30.0",
         "@typescript-eslint/parser": "^2.30.0",
         "eslint": "^6.8.0",
-        "glob": "^7.1.6",
-        "mocha": "^7.1.2",
         "typescript": "^4.2.2",
-        "vscode-test": "^1.3.0"
+        "vscode-test": "^1.3.0",
+        "yarn-audit-fix": "^9.3.2"
     },
     "dependencies": {
         "cheerio": "^1.0.0-rc.10",
