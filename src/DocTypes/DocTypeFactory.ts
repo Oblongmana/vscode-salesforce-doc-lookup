@@ -10,7 +10,8 @@ import {
     SOAPAPIAtlasDocType,
     SFDXCLIAtlasDocType,
     AuraLWCComponentLibraryAuraDocType,
-    ApexDevGuideAtlasDocType
+    ApexDevGuideAtlasDocType,
+    AjaxDevGuideAtlasDocType,
 } from "./ConcreteDocTypes";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
@@ -28,4 +29,5 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     SFDX_CLI:                         () => new SFDXCLIAtlasDocType(),
     LWC_AND_AURA_COMPONENT_LIBRARY:   () => new AuraLWCComponentLibraryAuraDocType(),
     APEX_DEV_GUIDE:                   () => new ApexDevGuideAtlasDocType(),
+    AJAX:                             () => new AjaxDevGuideAtlasDocType(),
 };

@@ -8,3 +8,4 @@ export { RestAPIAtlasDocType } from "./RestAPIAtlasDocType";
 export { SFDXCLIAtlasDocType } from "./SFDXCLIAtlasDocType";
 export { SOAPAPIAtlasDocType } from "./SOAPAPIAtlasDocType";
 export { VisualforceAtlasDocType } from "./VisualforceAtlasDocType";
+export { AjaxDevGuideAtlasDocType } from "./AjaxDevGuideAtlasDocType";

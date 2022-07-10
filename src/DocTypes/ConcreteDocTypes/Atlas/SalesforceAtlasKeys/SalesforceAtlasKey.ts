@@ -7,5 +7,6 @@ export enum SalesforceAtlasKey {
     API_REST           = 'api_rest',
     SFDX_CLI_REFERENCE = 'sfdx_cli_reference',
     API                = 'api',
-    PAGES              = 'pages'
+    PAGES              = 'pages',
+    AJAX               = 'ajax',
 }

@@ -43,6 +43,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex-dev-guide",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-ajax-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
@@ -92,6 +93,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-apex-dev-guide",
                 "title": "Salesforce Reference: Apex Developer Guide"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-ajax-dev-guide",
+                "title": "Salesforce Reference: Ajax Toolkit Developer Guide"
             },
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
@@ -151,9 +156,11 @@
                             "REST_API",
                             "SFDX_CLI",
                             "SOAP_API",
-                            "VISUALFORCE"
+                            "VISUALFORCE",
+                            "AJAX"
                         ],
-                        "TODO": "LWC_AND_AURA_COMPONENT_LIBRARY is excluded from above, SF docs don't have configurable language/version at present 2022-07"
+                        "TODO": "LWC_AND_AURA_COMPONENT_LIBRARY is excluded from above, SF docs don't have configurable language/version at present 2022-07",
+                        "NOTE": "Any given one of these values must EXACTLY match an entry in the DocTypeID enum"
                     },
                     "additionalProperties": {
                         "type": "object",

@@ -1,4 +1,5 @@
 export enum DocTypeID {
+    //Atlas Types
     APEX                            = 'APEX',
     VISUALFORCE                     = 'VISUALFORCE',
     LIGHTNING_CONSOLE               = 'LIGHTNING_CONSOLE',
@@ -9,6 +10,8 @@ export enum DocTypeID {
     SOAP_API                        = 'SOAP_API',
     SFDX_CLI                        = 'SFDX_CLI',
     APEX_DEV_GUIDE                  = 'APEX_DEV_GUIDE',
+    AJAX                            = 'AJAX',
+    //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
 }
 

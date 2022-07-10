@@ -17,6 +17,7 @@ export const DocCommands: Record<DocTypeID, string> = {
     SFDX_CLI                        : 'salesforce-reference-sfdx-cli',
     APEX_DEV_GUIDE                  : 'salesforce-reference-apex-dev-guide',
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
+    AJAX                            : 'salesforce-reference-ajax-dev-guide',
 };
 const DocCommandsValues: string[] = Object.values(DocCommands);
 

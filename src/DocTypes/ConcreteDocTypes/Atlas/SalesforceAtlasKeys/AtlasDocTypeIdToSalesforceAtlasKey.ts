@@ -11,5 +11,6 @@ export const AtlasDocTypeIdToSalesforceAtlasKey: Record<AtlasDocTypeID, Salesfor
     REST_API                       : SalesforceAtlasKey.API_REST,
     SOAP_API                       : SalesforceAtlasKey.API,
     SFDX_CLI                       : SalesforceAtlasKey.SFDX_CLI_REFERENCE,
-    APEX_DEV_GUIDE                 : SalesforceAtlasKey.APEXCODE
+    APEX_DEV_GUIDE                 : SalesforceAtlasKey.APEXCODE,
+    AJAX                           : SalesforceAtlasKey.AJAX,
 };
