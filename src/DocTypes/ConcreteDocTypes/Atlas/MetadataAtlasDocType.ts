@@ -1,11 +1,10 @@
 import { AtlasDocType } from "../../AbstractDocTypes/AtlasDocType";
-import { DocType } from "../../DocType";
+import { DocTypeID } from "../../DocTypeID";
 
 export class MetadataAtlasDocType extends AtlasDocType {
     constructor() {
         super(
-            DocType.METADATA,
-            'api_meta'
+            DocTypeID.METADATA
         );
     }
     /**

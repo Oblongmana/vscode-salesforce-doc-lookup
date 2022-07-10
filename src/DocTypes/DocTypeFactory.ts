@@ -12,11 +12,11 @@ import {
     AuraLWCComponentLibraryAuraDocType,
     ApexDevGuideAtlasDocType
 } from "./ConcreteDocTypes";
-import { DocType } from "./DocType";
+import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
 
 
-export const DocTypeFactory: Record<DocType, () => IDocumentationType> = {
+export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     APEX:                             () => new ApexAtlasDocType(),
     VISUALFORCE:                      () => new VisualforceAtlasDocType(),
     LIGHTNING_CONSOLE:                () => new LightningConsoleAtlasDocType(),

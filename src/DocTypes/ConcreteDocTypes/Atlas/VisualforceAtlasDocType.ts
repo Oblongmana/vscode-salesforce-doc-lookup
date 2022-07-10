@@ -1,11 +1,10 @@
 import { AtlasDocType } from "../../AbstractDocTypes/AtlasDocType";
-import { DocType } from "../../DocType";
+import { DocTypeID } from "../../DocTypeID";
 
 export class VisualforceAtlasDocType extends AtlasDocType {
     constructor() {
         super(
-            DocType.VISUALFORCE,
-            'pages'
+            DocTypeID.VISUALFORCE
         );
     }
     /**

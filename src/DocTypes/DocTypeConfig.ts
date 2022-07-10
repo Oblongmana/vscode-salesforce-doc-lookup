@@ -1,14 +1,14 @@
 import { version } from "os";
 import { getConfig } from "../GlobalConfig";
-import { DocType } from "./DocType";
+import { DocTypeID } from "./DocTypeID";
 
-export function getLangCodeOverride(docType: DocType) {
+export function getLangCodeOverride(docType: DocTypeID) {
     return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perDocType?.[docType]?.languageCode
         || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.languageCode
         || null;
 }
 
-export function getAtlasVersionCodeOverride(docType: DocType) {
+export function getAtlasVersionCodeOverride(docType: DocTypeID) {
     return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perDocType?.[docType]?.versionCode
         || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasDocVersionCode
         || null;

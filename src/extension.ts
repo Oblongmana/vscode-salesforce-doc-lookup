@@ -5,7 +5,7 @@ import { Logging } from './Logging';
 import { versionGlobalStateKey } from './GlobalConfig';
 import { PackageJSON } from './Introspection';
 import * as semver from "semver";
-import { DocType } from './DocTypes';
+import { DocTypeID } from './DocTypes';
 import { enumKeys } from './Utilities/EnumUtilities';
 
 
@@ -17,9 +17,9 @@ export async function activate(context: vscode.ExtensionContext) {
 
     //Build all of our User-facing commands and add to extension subscriptions
     let docPickerDisposables: vscode.Disposable[] = [];
-    for (const docTypeKey of enumKeys(DocType)) {
+    for (const docTypeKey of enumKeys(DocTypeID)) {
         vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands[docTypeKey]}`, async (prefillValue?: string) => {
-            openDocQuickPick(context, DocType[docTypeKey], prefillValue);
+            openDocQuickPick(context, DocTypeID[docTypeKey], prefillValue);
         });
     }
 
@@ -71,37 +71,37 @@ function handleVersionChanges(context: vscode.ExtensionContext) {
         //   Upgrading from anything lower than the 1.1.0 release needs the Lightning console ref cache invalidated as toc was restructured
         if (semver.lte(normalisedExistingVersionNumber, '1.1.0')) {
             Logging.appendLine(`Extension version changed. Detected Apex Cache out of date after Salesforce relocated Reference doc. Force-clearing Apex Reference cache.`);
-            context.globalState.update(DocType.APEX, undefined);
-            context.globalState.update(DocType.LIGHTNING_CONSOLE, undefined);
+            context.globalState.update(DocTypeID.APEX, undefined);
+            context.globalState.update(DocTypeID.LIGHTNING_CONSOLE, undefined);
         }
 
         //In 1.3.0, we updated the Breadcrumb to allow proper searching of it.
         //   Upgrading from anything lower than the 1.3.0 release means all cached DocTypes will be invalidated to support this
         if (semver.lte(normalisedExistingVersionNumber, '1.3.0')) {
             Logging.appendLine(`Extension version changed: prior was <=1.3.0. Invalidating all caches to support update that allows Breadcrumb searching.`);
-            context.globalState.update(DocType.APEX, undefined);
-            context.globalState.update(DocType.VISUALFORCE, undefined);
-            context.globalState.update(DocType.LIGHTNING_CONSOLE, undefined);
-            context.globalState.update(DocType.CLASSIC_CONSOLE, undefined);
-            context.globalState.update(DocType.METADATA, undefined);
-            context.globalState.update(DocType.OBJECT_REFERENCE, undefined);
-            context.globalState.update(DocType.REST_API, undefined);
-            context.globalState.update(DocType.SOAP_API, undefined);
-            context.globalState.update(DocType.SFDX_CLI, undefined);
+            context.globalState.update(DocTypeID.APEX, undefined);
+            context.globalState.update(DocTypeID.VISUALFORCE, undefined);
+            context.globalState.update(DocTypeID.LIGHTNING_CONSOLE, undefined);
+            context.globalState.update(DocTypeID.CLASSIC_CONSOLE, undefined);
+            context.globalState.update(DocTypeID.METADATA, undefined);
+            context.globalState.update(DocTypeID.OBJECT_REFERENCE, undefined);
+            context.globalState.update(DocTypeID.REST_API, undefined);
+            context.globalState.update(DocTypeID.SOAP_API, undefined);
+            context.globalState.update(DocTypeID.SFDX_CLI, undefined);
         }
 
         //In 1.3.3, the FWUID used for Aura/LWC was updated to reflect Salesforce updating this on the Aura/LWC component site.
         //   Invalidating cache to ensure everything is up to date.
         if (semver.lte(normalisedExistingVersionNumber, '1.3.2')) {
             Logging.appendLine(`Extension version changed: prior was <=1.3.2. Invalidating Aura/LWC cache - Salesforce's FWUID for this doc changed, so re-fetching to ensure we're all up to date.`);
-            context.globalState.update(DocType.LWC_AND_AURA_COMPONENT_LIBRARY, undefined);
+            context.globalState.update(DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY, undefined);
         }
 
         //In 2.0.0, the plugin was updated to support language/version overrides for Atlas-based docTypes, including caching
         //  of entries for different lang/version combos. Due to the structural change of the cache, everthing must be invalidated.
         if (semver.lt(normalisedExistingVersionNumber, '2.0.0')) {
             Logging.appendLine(`Extension version changed: prior was <2.0.0. Invalidating all caches - cache format has been updated`);
-            Object.values(DocType).forEach(docTypeKey => context.globalState.update(docTypeKey, undefined));
+            Object.values(DocTypeID).forEach(docTypeKey => context.globalState.update(docTypeKey, undefined));
         }
     }
 }

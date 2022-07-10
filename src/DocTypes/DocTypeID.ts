@@ -1,4 +1,4 @@
-export enum DocType {
+export enum DocTypeID {
     APEX                            = 'APEX',
     VISUALFORCE                     = 'VISUALFORCE',
     LIGHTNING_CONSOLE               = 'LIGHTNING_CONSOLE',
@@ -12,7 +12,11 @@ export enum DocType {
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
 }
 
-export function docTypeTitleCaseName(docType: DocType): string {
+export type AtlasDocTypeID = Exclude<DocTypeID, DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY>;
+
+export type AuraDocTypeID = Exclude<DocTypeID, AtlasDocTypeID>;
+
+export function docTypeIDTitleCaseName(docType: DocTypeID): string {
     const recasedAndSpaced: string = docType.replace(
         /([-_]*[a-zA-Z]*)/g,
         (group) => {

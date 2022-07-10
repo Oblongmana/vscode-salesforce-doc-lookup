@@ -1,11 +1,10 @@
 import { AtlasDocType } from "../../AbstractDocTypes/AtlasDocType";
-import { DocType } from "../../DocType";
+import { DocTypeID } from "../../DocTypeID";
 
 export class RestAPIAtlasDocType extends AtlasDocType {
     constructor() {
         super(
-            DocType.REST_API,
-            'api_rest'
+            DocTypeID.REST_API
         );
     }
     /**

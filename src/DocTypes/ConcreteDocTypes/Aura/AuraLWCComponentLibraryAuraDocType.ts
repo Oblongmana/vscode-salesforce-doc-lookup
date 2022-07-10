@@ -1,10 +1,10 @@
 import { AuraDocType } from "../../AbstractDocTypes/AuraDocType";
-import { DocType } from "../../DocType";
+import { DocTypeID } from "../../DocTypeID";
 
 export class AuraLWCComponentLibraryAuraDocType extends AuraDocType {
     constructor() {
         super(
-            DocType.LWC_AND_AURA_COMPONENT_LIBRARY
+            DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY
         );
     }
 }

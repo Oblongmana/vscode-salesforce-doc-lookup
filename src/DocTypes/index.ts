@@ -1,2 +1,2 @@
-export * from "./DocType";
+export * from "./DocTypeID";
 export * from "./DocTypeFactory";

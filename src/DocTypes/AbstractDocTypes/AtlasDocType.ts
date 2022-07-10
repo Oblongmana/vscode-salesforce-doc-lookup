@@ -4,27 +4,28 @@ import got, { CancelableRequest, Response } from 'got/dist/source';
 
 import { ERROR_MESSAGES, SF_DOC_ROOT_URL } from "../../GlobalConstants";
 import { AtlasReferenceItem, SF_ATLAS_DEFAULT_LANG } from '../../ReferenceItems/AtlasReferenceItem';
-import { DocType, docTypeTitleCaseName } from "../DocType";
+import { AtlasDocTypeID, docTypeIDTitleCaseName } from "../DocTypeID";
 import { IDocumentationType } from "../IDocumentationType";
 import { ReferenceItemMemento } from '../../ReferenceItems/ReferenceItemMemento';
 import { ReferenceItem } from '../../ReferenceItems/ReferenceItem';
 import { getLangCodeOverride, getAtlasVersionCodeOverride, getStorageSubKey } from '../DocTypeConfig';
 import { Logging } from '../../Logging';
+import { AtlasDocTypeIdToSalesforceAtlasKey, SalesforceAtlasKey } from '../ConcreteDocTypes/Atlas/SalesforceAtlasKeys';
 
 
 const SF_ATLAS_TOC_PATH = '/get_document';
 
 export abstract class AtlasDocType implements IDocumentationType {
-
+    //#region Implemented Fields
+    /**
+     * @inheritdoc
+     */
+    public readonly docType: AtlasDocTypeID;
+    //#endregion Implemented Fields
     /**
      * The full URL to get the Table of Contents
      */
     private readonly docTOCUrl: string;
-
-    /**
-     * @inheritdoc
-     */
-    public readonly docType: DocType;
 
     /**
      * The string that identifies the "atlas" for this doc type
@@ -32,7 +33,7 @@ export abstract class AtlasDocType implements IDocumentationType {
      * e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_dml_section.htm#apex_dml_undelete"
      *    this is "apexref"
      */
-    private readonly atlasIdentifier: string;
+    private readonly atlasIdentifier: SalesforceAtlasKey;
 
     /**
      * todo: finish this documentation
@@ -42,13 +43,13 @@ export abstract class AtlasDocType implements IDocumentationType {
      *                        e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_dml_section.htm#apex_dml_undelete"
      *                           this is "apexref"
      */
-    constructor(docType: DocType, atlasIdentifier: string) {
-        this.docType = docType;
-        this.atlasIdentifier = atlasIdentifier;
+    constructor(atlasDocType: AtlasDocTypeID) {
+        this.docType = atlasDocType;
+        this.atlasIdentifier = AtlasDocTypeIdToSalesforceAtlasKey[this.docType];
 
-        let versionOverrideForMerge: string | null = getAtlasVersionCodeOverride(docType);
+        let versionOverrideForMerge: string | null = getAtlasVersionCodeOverride(this.docType);
         versionOverrideForMerge = (versionOverrideForMerge !== null) ? `.${versionOverrideForMerge}` : ''; //Optional in ToC url, so blank string if not present, otherwise must be prefixed with'.'
-        this.docTOCUrl = `${SF_DOC_ROOT_URL}${SF_ATLAS_TOC_PATH}/atlas.${getLangCodeOverride(docType) || SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta`;//TODO some de-dup to do here with ReferenceItem approach
+        this.docTOCUrl = `${SF_DOC_ROOT_URL}${SF_ATLAS_TOC_PATH}/atlas.${getLangCodeOverride(this.docType) || SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta`;//TODO some de-dup to do here with ReferenceItem approach
     }
 
     /**
@@ -69,7 +70,7 @@ export abstract class AtlasDocType implements IDocumentationType {
             // Get fresh reference entries, build in-memory ReferenceItems, and cache their ReferenceItemMementos
             let subKeyInfoForMessage = cacheSubKey !== "" ? `(${[versionCodeOverride, langCodeOverride].filter(x => x).join(", ")}) ` : "";
             console.log(`Cache miss for ${this.docType} ${subKeyInfoForMessage}Salesforce Reference entries. Retrieving from web`);
-            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeTitleCaseName(this.docType)} ${subKeyInfoForMessage}Reference Index...`, 'OK');
+            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeIDTitleCaseName(this.docType)} ${subKeyInfoForMessage}Reference Index...`, 'OK');
 
             const rootDocumentationNode: any = await this.getRootDocumentationNode();
             referenceItems = this.convertDocNodeToReferenceItems(rootDocumentationNode, '$(home)');

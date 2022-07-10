@@ -3,11 +3,11 @@ import { getDocCommandQuickPickItems } from './Introspection';
 import { Logging } from './Logging';
 import { showDocInWebView } from './DocWebView';
 import { getConfig } from './GlobalConfig';
-import { DocType, DocTypeFactory } from './DocTypes';
+import { DocTypeID, DocTypeFactory } from './DocTypes';
 import { ReferenceItem } from './ReferenceItems/ReferenceItem';
 import { ERROR_MESSAGES } from './GlobalConstants';
 
-export async function openDocQuickPick(context: vscode.ExtensionContext, docType: DocType, prefillValue?: string) {
+export async function openDocQuickPick(context: vscode.ExtensionContext, docType: DocTypeID, prefillValue?: string) {
     try {
         let referenceItems: ReferenceItem[] = await DocTypeFactory[docType]().getReferenceItems(context);
 
@@ -67,7 +67,7 @@ export function invalidateEntireExtensionCache(context: vscode.ExtensionContext)
         "so your next documentation lookup for each documentation type will need to re-retrieve the index from Salesforce. " +
         "Do you want to proceed?",{modal: true},'OK').then((selectedButton: string | undefined)=>{
             if (selectedButton === 'OK') {
-                Object.values(DocType).forEach((currDocTypeString: string) => {
+                Object.values(DocTypeID).forEach((currDocTypeString: string) => {
                     context.globalState.update(currDocTypeString, undefined);
                 });
             }

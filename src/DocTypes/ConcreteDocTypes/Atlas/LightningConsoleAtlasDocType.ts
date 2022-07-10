@@ -1,11 +1,10 @@
 import { AtlasDocType } from "../../AbstractDocTypes/AtlasDocType";
-import { DocType } from "../../DocType";
+import { DocTypeID } from "../../DocTypeID";
 
 export class LightningConsoleAtlasDocType extends AtlasDocType {
     constructor() {
         super(
-            DocType.LIGHTNING_CONSOLE,
-            'api_console'
+            DocTypeID.LIGHTNING_CONSOLE
         );
     }
     /**

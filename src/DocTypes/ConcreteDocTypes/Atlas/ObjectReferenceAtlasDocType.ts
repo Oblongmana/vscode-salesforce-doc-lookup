@@ -1,11 +1,10 @@
 import { AtlasDocType } from "../../AbstractDocTypes/AtlasDocType";
-import { DocType } from "../../DocType";
+import { DocTypeID } from "../../DocTypeID";
 
 export class ObjectReferenceAtlasDocType extends AtlasDocType {
     constructor() {
         super(
-            DocType.OBJECT_REFERENCE,
-            'object_reference'
+            DocTypeID.OBJECT_REFERENCE
         );
     }
     /**

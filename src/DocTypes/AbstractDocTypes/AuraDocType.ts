@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 
 import got from 'got/dist/source';
 
-import { DocType, docTypeTitleCaseName } from "../DocType";
+import { AuraDocTypeID, docTypeIDTitleCaseName } from "../DocTypeID";
 import { IDocumentationType } from "../IDocumentationType";
 import { SF_DOC_ROOT_URL } from '../../GlobalConstants';
 import { AuraReferenceItem } from '../../ReferenceItems/AuraReferenceItem';
@@ -15,18 +15,19 @@ import { getStorageSubKey } from '../DocTypeConfig';
  * EXPERIMENTAL
  */
 export abstract class AuraDocType implements IDocumentationType {
-
+    //#region Implemented Fields
     /**
      * @inheritdoc
      */
-     public readonly docType: DocType;
+    public readonly docType: AuraDocTypeID;
+    //#endregion Implemented Fields
 
     /**
      *
      * @param docType the DocType instance for this Documentation type - e.g. DocType.LWC_AND_AURA_COMPONENT_LIBRARY
      */
-    constructor(docType: DocType) {
-        this.docType = docType;
+    constructor(auraDocType: AuraDocTypeID) {
+        this.docType = auraDocType;
     }
 
     /**
@@ -46,7 +47,7 @@ export abstract class AuraDocType implements IDocumentationType {
             // Get fresh reference entries, build in-memory ReferenceItems, and cache their ReferenceItemMementos
             let subKeyInfoForMessage = cacheSubKey !== "" ? `(${[versionCodeOverride, langCodeOverride].filter(x => x).join(", ")}) ` : "";
             console.log(`Cache miss for ${this.docType} ${subKeyInfoForMessage}Salesforce Reference entries. Retrieving from web`);
-            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeTitleCaseName(this.docType)} ${subKeyInfoForMessage}Reference Index...`, 'OK');
+            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeIDTitleCaseName(this.docType)} ${subKeyInfoForMessage}Reference Index...`, 'OK');
 
             const body = buildAuraActionBody(AuraAction.GET_TOC_MESSAGE);
 

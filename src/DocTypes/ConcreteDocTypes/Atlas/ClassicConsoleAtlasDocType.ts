@@ -1,11 +1,10 @@
 import { AtlasDocType } from "../../AbstractDocTypes/AtlasDocType";
-import { DocType } from "../../DocType";
+import { DocTypeID } from "../../DocTypeID";
 
 export class ClassicConsoleAtlasDocType extends AtlasDocType {
     constructor() {
         super(
-            DocType.CLASSIC_CONSOLE,
-            'api_console'
+            DocTypeID.CLASSIC_CONSOLE
         );
     }
     /**
