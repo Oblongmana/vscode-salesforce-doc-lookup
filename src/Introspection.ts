@@ -20,6 +20,7 @@ export const DocCommands: Record<DocTypeID, string> = {
     AJAX                            : 'salesforce-reference-ajax-dev-guide',
     ANT_MIGRATION_TOOL              : 'salesforce-reference-ant-tool-guide',
     BIG_OBJECTS                     : 'salesforce-reference-big-objects',
+    BULK_API                        : 'salesforce-reference-bulk-api',
     //Aura doc commands
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
 };

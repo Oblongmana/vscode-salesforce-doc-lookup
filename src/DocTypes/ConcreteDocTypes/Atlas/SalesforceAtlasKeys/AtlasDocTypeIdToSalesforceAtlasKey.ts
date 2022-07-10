@@ -15,4 +15,5 @@ export const AtlasDocTypeIdToSalesforceAtlasKey: Record<AtlasDocTypeID, Salesfor
     AJAX                : SalesforceAtlasKey.AJAX,
     ANT_MIGRATION_TOOL  : SalesforceAtlasKey.ANT_MIGRATION_TOOL,
     BIG_OBJECTS         : SalesforceAtlasKey.BIG_OBJECTS,
+    BULK_API            : SalesforceAtlasKey.BULK_API,
 };

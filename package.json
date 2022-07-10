@@ -46,6 +46,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-ajax-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-ant-tool-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-big-objects",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-bulk-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
@@ -109,6 +110,10 @@
                 "title": "Salesforce Reference: Big Objects Implementation Guide"
             },
             {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-bulk-api",
+                "title": "Salesforce Reference: Bulk API 2.0 and Bulk API Developer Guide"
+            },
+            {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
                 "title": "Salesforce Reference: Invalidate Cache"
             },
@@ -169,7 +174,8 @@
                             "VISUALFORCE",
                             "AJAX",
                             "ANT_MIGRATION_TOOL",
-                            "BIG_OBJECTS"
+                            "BIG_OBJECTS",
+                            "BULK_API"
                         ],
                         "TODO": "LWC_AND_AURA_COMPONENT_LIBRARY is excluded from above, SF docs don't have configurable language/version at present 2022-07",
                         "NOTE": "Any given one of these values must EXACTLY match an entry in the DocTypeID.ts enum"

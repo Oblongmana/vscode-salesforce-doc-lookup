@@ -13,6 +13,7 @@ export enum DocTypeID {
     AJAX                            = 'AJAX',
     ANT_MIGRATION_TOOL              = 'ANT_MIGRATION_TOOL',
     BIG_OBJECTS                     = 'BIG_OBJECTS',
+    BULK_API                        = 'BULK_API',
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
 }

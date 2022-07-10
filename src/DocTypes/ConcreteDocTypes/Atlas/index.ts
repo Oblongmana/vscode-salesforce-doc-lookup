@@ -11,3 +11,4 @@ export { VisualforceAtlasDocType } from "./VisualforceAtlasDocType";
 export { AjaxDevGuideAtlasDocType } from "./AjaxDevGuideAtlasDocType";
 export { AntGuideAtlasDocType } from "./AntGuideAtlasDocType";
 export { BigObjectsAtlasDocType } from "./BigObjectsAtlasDocType";
+export { BulkAPIAtlasDocType } from "./BulkAPIAtlasDocType";

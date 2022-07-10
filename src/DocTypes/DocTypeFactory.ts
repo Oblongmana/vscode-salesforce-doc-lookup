@@ -14,6 +14,7 @@ import {
     AjaxDevGuideAtlasDocType,
     AntGuideAtlasDocType,
     BigObjectsAtlasDocType,
+    BulkAPIAtlasDocType,
 } from "./ConcreteDocTypes";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
@@ -34,4 +35,5 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     AJAX:                               () => new AjaxDevGuideAtlasDocType(),
     ANT_MIGRATION_TOOL:                 () => new AntGuideAtlasDocType(),
     BIG_OBJECTS:                        () => new BigObjectsAtlasDocType(),
+    BULK_API:                           () => new BulkAPIAtlasDocType(),
 };

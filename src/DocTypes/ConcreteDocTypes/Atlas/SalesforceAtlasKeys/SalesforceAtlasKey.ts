@@ -18,4 +18,5 @@ export enum SalesforceAtlasKey {
     AJAX               = 'ajax',
     ANT_MIGRATION_TOOL = 'daas',
     BIG_OBJECTS        = 'bigobjects',
+    BULK_API           = 'api_asynch',
 }
