@@ -6,6 +6,7 @@ import { versionGlobalStateKey } from './GlobalConfig';
 import { PackageJSON } from './Introspection';
 import * as semver from "semver";
 import { DocType } from './DocTypes';
+import { enumKeys } from './Utilities/EnumUtilities';
 
 
 export async function activate(context: vscode.ExtensionContext) {
@@ -14,51 +15,13 @@ export async function activate(context: vscode.ExtensionContext) {
     // Handle any upgrade-specific things that need to be done
     handleVersionChanges(context);
 
-    //Build all of our User-facing commands
-    //TODO: can almost certainly do this with fewer LoC!
-    let apexReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.APEX}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.APEX, prefillValue);
-    });
-
-    let vfReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.VISUALFORCE}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.VISUALFORCE, prefillValue);
-    });
-
-    let lightningconsoleReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.LIGHTNING_CONSOLE}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.LIGHTNING_CONSOLE, prefillValue);
-    });
-
-    let classicconsoleReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.CLASSIC_CONSOLE}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.CLASSIC_CONSOLE, prefillValue);
-    });
-
-    let metadataReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.METADATA}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.METADATA, prefillValue);
-    });
-
-    let objectReferenceReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.OBJECT_REFERENCE}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.OBJECT_REFERENCE, prefillValue);
-    });
-
-    let restApiReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.REST_API}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.REST_API, prefillValue);
-    });
-
-    let soapApiReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.SOAP_API}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.SOAP_API, prefillValue);
-    });
-
-    let sfdxCliReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.SFDX_CLI}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.SFDX_CLI, prefillValue);
-    });
-
-    let apexDevGuideReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.APEX_DEV_GUIDE}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.APEX_DEV_GUIDE, prefillValue);
-    });
-
-    let lwcAuraComponentLibReferenceDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands.LWC_AND_AURA_COMPONENT_LIBRARY}`, async (prefillValue?: string) => {
-        openDocQuickPick(context, DocType.LWC_AND_AURA_COMPONENT_LIBRARY, prefillValue);
-    });
+    //Build all of our User-facing commands and add to extension subscriptions
+    let docPickerDisposables: vscode.Disposable[] = [];
+    for (const docTypeKey of enumKeys(DocType)) {
+        vscode.commands.registerCommand(`${EXTENSION_NAME}.${DocCommands[docTypeKey]}`, async (prefillValue?: string) => {
+            openDocQuickPick(context, DocType[docTypeKey], prefillValue);
+        });
+    }
 
     let invalidateCacheDisposable: vscode.Disposable = vscode.commands.registerCommand(`${EXTENSION_NAME}.${UtilityCommands.INVALIDATE_CACHE}`, async () => {
         invalidateEntireExtensionCache(context);
@@ -69,19 +32,9 @@ export async function activate(context: vscode.ExtensionContext) {
     });
 
     context.subscriptions.push(
-        apexReferenceDisposable,
-        vfReferenceDisposable,
-        classicconsoleReferenceDisposable,
-        lightningconsoleReferenceDisposable,
-        metadataReferenceDisposable,
-        objectReferenceReferenceDisposable,
+        ...docPickerDisposables,
         invalidateCacheDisposable,
         currentWordSearchDisposable,
-        restApiReferenceDisposable,
-        soapApiReferenceDisposable,
-        sfdxCliReferenceDisposable,
-        apexDevGuideReferenceDisposable,
-        lwcAuraComponentLibReferenceDisposable,
     );
 }
 
