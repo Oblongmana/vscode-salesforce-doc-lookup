@@ -161,17 +161,17 @@ An entry is composed of:
     - Used to populate the various checkboxes in the table
     - ! FOOTNOTE: IFF `unlockedPackagingWithoutNamespace`=true and `unlockedPackagingWithNamespace`= false, adds a (1) superscript to the "Unlocked Packaging" column stating in a footnote: "(1) This component can only be included in a package without a namespace."
     - ! FOOTNOTE: there is a more obscure footnote that may only apply to "ConnectedApp" (not trawling past doc to see if that's actually the case! We can handle it as a general case). IFF `classicManagedPackaging`=true but `classicUnmanagedPackaging`=false, you get a superscript (2) in the "1GP Managed Packaging" column indicating: "(2) Applies to first-generation managed packages only.".
-      - the keys and their corresponding human-readable columns/checkboxes are:
-        - "unlockedPackagingWithoutNamespace": "Unlocked Packaging" (see footnote note above)
-        - "unlockedPackagingWithNamespace": "Unlocked Packaging" (see footnote note above)
-        - "toolingApi": UNUSED - which is a bit odd. We can probably still cache it in case it's visually exposed in future?
-        - "sourceTracking": "Source Tracking"
-        - "metadataApi": "Metadata API"
-        - "managedPackaging": "2GP Managed Packaging"
-        - "classicUnmanagedPackaging": "1GP Managed Packaging" (see footnote note above)
-        - "classicManagedPackaging": "1GP Managed Packaging" (see footnote note above)
-        - "changeSets": "Change Sets"
-        - "apexMetadataApi": "Apex Metadata API""
+    - the keys and their corresponding human-readable columns/checkboxes are:
+      - "unlockedPackagingWithoutNamespace": "Unlocked Packaging" (see footnote note above)
+      - "unlockedPackagingWithNamespace": "Unlocked Packaging" (see footnote note above)
+      - "toolingApi": UNUSED - which is a bit odd. We can probably still cache it in case it's visually exposed in future?
+      - "sourceTracking": "Source Tracking"
+      - "metadataApi": "Metadata API"
+      - "managedPackaging": "2GP Managed Packaging"
+      - "classicUnmanagedPackaging": "1GP Managed Packaging" (see footnote note above)
+      - "classicManagedPackaging": "1GP Managed Packaging" (see footnote note above)
+      - "changeSets": "Change Sets"
+      - "apexMetadataApi": "Apex Metadata API""
 
 ### Useful Sample
 See METADATA_COVERAGE_SAMPLE.json for full dump
