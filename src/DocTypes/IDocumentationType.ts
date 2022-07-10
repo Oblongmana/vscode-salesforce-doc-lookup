@@ -4,9 +4,9 @@ import { DocType } from './DocType';
 
 export interface IDocumentationType {
     /**
-     * The DocTypeName this DocType is for. Must be unique across the extension
+     * The DocType this DocType is for. Must be unique across the extension
      */
-    readonly docTypeName: DocType;
+    readonly docType: DocType;
 
     /**
      * Get the ReferenceItem instances for this reference doc type.

@@ -12,7 +12,7 @@
         "type": "git",
         "url": "https://github.com/Oblongmana/vscode-salesforce-doc-lookup"
     },
-    "version": "1.3.3",
+    "version": "1.3.10",
     "license": "GPL-3.0-only",
     "homepage": "https://github.com/Oblongmana/vscode-salesforce-doc-lookup",
     "bugs": {
@@ -136,25 +136,25 @@
                     "default": ""
                 },
                 "vscode-salesforce-doc-lookup.EXPERIMENTAL.ADVANCED.languageAndVersionPreferences.perDocType": {
-                        "type": "object",
+                    "type": "object",
                     "order": 5,
                     "propertyNames": {
-                                "type": "string",
+                        "type": "string",
                         "title": "DocType to customise language/version code for",
-                                "enum": [
+                        "enum": [
                             "APEX_DEV_GUIDE",
-                                    "APEX",
+                            "APEX",
                             "CLASSIC_CONSOLE",
-                                    "LIGHTNING_CONSOLE",
-                                    "METADATA",
-                                    "OBJECT_REFERENCE",
-                                    "REST_API",
+                            "LIGHTNING_CONSOLE",
+                            "METADATA",
+                            "OBJECT_REFERENCE",
+                            "REST_API",
                             "SFDX_CLI",
-                                    "SOAP_API",
+                            "SOAP_API",
                             "VISUALFORCE"
                         ],
                         "TODO": "LWC_AND_AURA_COMPONENT_LIBRARY is excluded from above, SF docs don't have configurable language/version at present 2022-07"
-                            },
+                    },
                     "additionalProperties": {
                         "type": "object",
                         "order": 1,

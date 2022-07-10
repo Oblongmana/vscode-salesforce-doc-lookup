@@ -12,8 +12,8 @@ export enum DocType {
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
 }
 
-export function docTypeNameTitleCase(docTypeName: DocType) {
-    const recasedAndSpaced: string = docTypeName.replace(
+export function docTypeTitleCaseName(docType: DocType): string {
+    const recasedAndSpaced: string = docType.replace(
         /([-_]*[a-zA-Z]*)/g,
         (group) => {
             const stripped: string = group.replace('-', '').replace('_', '');

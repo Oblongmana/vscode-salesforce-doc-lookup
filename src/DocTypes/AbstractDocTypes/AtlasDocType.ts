@@ -4,7 +4,7 @@ import got, { CancelableRequest, Response } from 'got/dist/source';
 
 import { ERROR_MESSAGES, SF_DOC_ROOT_URL } from "../../GlobalConstants";
 import { AtlasReferenceItem, SF_ATLAS_DEFAULT_LANG } from '../../ReferenceItems/AtlasReferenceItem';
-import { DocType, docTypeNameTitleCase } from "../DocType";
+import { DocType, docTypeTitleCaseName } from "../DocType";
 import { IDocumentationType } from "../IDocumentationType";
 import { ReferenceItemMemento } from '../../ReferenceItems/ReferenceItemMemento';
 import { ReferenceItem } from '../../ReferenceItems/ReferenceItem';
@@ -24,7 +24,7 @@ export abstract class AtlasDocType implements IDocumentationType {
     /**
      * @inheritdoc
      */
-    public readonly docTypeName: DocType;
+    public readonly docType: DocType;
 
     /**
      * The string that identifies the "atlas" for this doc type
@@ -37,18 +37,18 @@ export abstract class AtlasDocType implements IDocumentationType {
     /**
      * todo: finish this documentation
      *
-     * @param docTypeName DocTypeName used in this plugin to uniquely and consistently identify this doc type
+     * @param docType DocType used in this plugin to uniquely and consistently identify this doc type
      * @param atlasIdentifier The string that identifies the "atlas" for this doc type
      *                        e.g. in the URL "https://developer.salesforce.com/docs/atlas.en-us.apexref.meta/apexref/apex_dml_section.htm#apex_dml_undelete"
      *                           this is "apexref"
      */
-    constructor(docTypeName: DocType, atlasIdentifier: string) {
-        this.docTypeName = docTypeName;
+    constructor(docType: DocType, atlasIdentifier: string) {
+        this.docType = docType;
         this.atlasIdentifier = atlasIdentifier;
 
-        let versionOverrideForMerge: string | null = getAtlasVersionCodeOverride(docTypeName);
+        let versionOverrideForMerge: string | null = getAtlasVersionCodeOverride(docType);
         versionOverrideForMerge = (versionOverrideForMerge !== null) ? `.${versionOverrideForMerge}` : ''; //Optional in ToC url, so blank string if not present, otherwise must be prefixed with'.'
-        this.docTOCUrl = `${SF_DOC_ROOT_URL}${SF_ATLAS_TOC_PATH}/atlas.${getLangCodeOverride(docTypeName) || SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta`;//TODO some de-dup to do here with ReferenceItem approach
+        this.docTOCUrl = `${SF_DOC_ROOT_URL}${SF_ATLAS_TOC_PATH}/atlas.${getLangCodeOverride(docType) || SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta`;//TODO some de-dup to do here with ReferenceItem approach
     }
 
     /**
@@ -60,23 +60,23 @@ export abstract class AtlasDocType implements IDocumentationType {
     public async getReferenceItems(context: vscode.ExtensionContext): Promise<ReferenceItem[]> {
         //Try to use existing cached values, and populate the cache if not available
         let referenceItems: ReferenceItem[] = [];
-        let versionCodeOverride: string = getAtlasVersionCodeOverride(this.docTypeName);
-        let langCodeOverride: string = getLangCodeOverride(this.docTypeName);
+        let versionCodeOverride: string = getAtlasVersionCodeOverride(this.docType);
+        let langCodeOverride: string = getLangCodeOverride(this.docType);
         let cacheSubKey: string = getStorageSubKey(versionCodeOverride, langCodeOverride);
-        let cachedDocType: any | undefined = context.globalState.get(this.docTypeName);
+        let cachedDocType: any | undefined = context.globalState.get(this.docType);
         let cachedMementos: any[] | undefined = cachedDocType?.[cacheSubKey];
         if (cachedMementos === undefined) {
             // Get fresh reference entries, build in-memory ReferenceItems, and cache their ReferenceItemMementos
             let subKeyInfoForMessage = cacheSubKey !== "" ? `(${[versionCodeOverride, langCodeOverride].filter(x => x).join(", ")}) ` : "";
-            console.log(`Cache miss for ${this.docTypeName} ${subKeyInfoForMessage}Salesforce Reference entries. Retrieving from web`);
-            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeNameTitleCase(this.docTypeName)} ${subKeyInfoForMessage}Reference Index...`, 'OK');
+            console.log(`Cache miss for ${this.docType} ${subKeyInfoForMessage}Salesforce Reference entries. Retrieving from web`);
+            vscode.window.showInformationMessage(`Retrieving Salesforce ${docTypeTitleCaseName(this.docType)} ${subKeyInfoForMessage}Reference Index...`, 'OK');
 
             const rootDocumentationNode: any = await this.getRootDocumentationNode();
             referenceItems = this.convertDocNodeToReferenceItems(rootDocumentationNode, '$(home)');
 
             cachedDocType = cachedDocType || {};
             cachedDocType[cacheSubKey] = referenceItems.map(item => item.saveToMemento());
-            context.globalState.update(this.docTypeName, cachedDocType);
+            context.globalState.update(this.docType, cachedDocType);
         } else {
             // Create new in-memory ReferenceItems by rehydrating from the cached mementos
             referenceItems = cachedMementos.map(cachedMemento => new AtlasReferenceItem(new ReferenceItemMemento(cachedMemento), this.atlasIdentifier, undefined, versionCodeOverride, langCodeOverride));
@@ -98,7 +98,7 @@ export abstract class AtlasDocType implements IDocumentationType {
         // Logging.appendLine('documentationNode: ' + documentationNode);
         //Convert this node into a ReferenceItem, after run-time checking it has appropriate properties
         if (documentationNode.hasOwnProperty('a_attr')) {
-            referenceItems.push(new AtlasReferenceItem(documentationNode, this.atlasIdentifier, breadcrumbString, getAtlasVersionCodeOverride(this.docTypeName), getLangCodeOverride(this.docTypeName)));
+            referenceItems.push(new AtlasReferenceItem(documentationNode, this.atlasIdentifier, breadcrumbString, getAtlasVersionCodeOverride(this.docType), getLangCodeOverride(this.docType)));
         }
         //Recursively convert children into ReferenceItems and add them to our list
         if (documentationNode.hasOwnProperty('children') && documentationNode.children !== undefined) {
@@ -133,7 +133,7 @@ export abstract class AtlasDocType implements IDocumentationType {
         let response: Response = await promise;
         if (response.rawBody.length === 0) {
             // Salesforce returns 200 in all circumstances for these pages, so we have to examine body length instead
-            throw new Error(`${ERROR_MESSAGES.TABLE_OF_CONTENTS_PREFACE} for ${this.docTypeName}: received body was 0 length.`);
+            throw new Error(`${ERROR_MESSAGES.TABLE_OF_CONTENTS_PREFACE} for ${this.docType}: received body was 0 length.`);
         }
         let jsonPromise = await promise.json();
         // Logging.appendLine('getDocToc statusCode?: ' + response.statusCode);

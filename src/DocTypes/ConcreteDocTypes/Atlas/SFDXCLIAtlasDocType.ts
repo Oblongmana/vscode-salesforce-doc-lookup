@@ -17,7 +17,7 @@ export class SFDXCLIAtlasDocType extends AtlasDocType {
      */
     protected async getRootDocumentationNode(): Promise<AtlasTOC.DocumentationNode> {
         const docToc: any = await this.getDocTOC();
-        const versionCode: number = parseFloat(getAtlasVersionCodeOverride(this.docTypeName));
+        const versionCode: number = parseFloat(getAtlasVersionCodeOverride(this.docType));
         let rootNodeId: string = 'cli_reference_top';
         if (!isNaN(versionCode) && versionCode < 234.0) {
             //Salesforce add `sf` doc in Version 234/Winter 22/v53, so both `sf` and `sfdx` are included.
