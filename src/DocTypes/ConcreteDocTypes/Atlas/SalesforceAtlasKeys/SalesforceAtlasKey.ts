@@ -1,3 +1,10 @@
+/**
+ * The Atlas Key (known as "deliverable" in the SF JSON ToC) used
+ * to get the ToC for that doc type.
+ *
+ * e.g. in https://developer.salesforce.com/docs/get_document/atlas.en-us.bigobjects.meta,
+ *      this is "bigobjects"
+ */
 export enum SalesforceAtlasKey {
     APEXREF            = 'apexref',
     APEXCODE           = 'apexcode',
@@ -10,4 +17,5 @@ export enum SalesforceAtlasKey {
     PAGES              = 'pages',
     AJAX               = 'ajax',
     ANT_MIGRATION_TOOL = 'daas',
+    BIG_OBJECTS        = 'bigobjects',
 }

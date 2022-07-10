@@ -11,9 +11,10 @@ export enum DocTypeID {
     SFDX_CLI                        = 'SFDX_CLI',
     APEX_DEV_GUIDE                  = 'APEX_DEV_GUIDE',
     AJAX                            = 'AJAX',
+    ANT_MIGRATION_TOOL              = 'ANT_MIGRATION_TOOL',
+    BIG_OBJECTS                     = 'BIG_OBJECTS',
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
-    ANT_MIGRATION_TOOL              = 'ANT_MIGRATION_TOOL',
 }
 
 export type AtlasDocTypeID = Exclude<DocTypeID, DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY>;

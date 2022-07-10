@@ -45,6 +45,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-ajax-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-ant-tool-guide",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-big-objects",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
@@ -102,6 +103,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-ant-tool-guide",
                 "title": "Salesforce Reference: Ant Migration Tool Guide"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-big-objects",
+                "title": "Salesforce Reference: Big Objects Implementation Guide"
             },
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
@@ -163,10 +168,11 @@
                             "SOAP_API",
                             "VISUALFORCE",
                             "AJAX",
-                            "ANT_MIGRATION_TOOL"
+                            "ANT_MIGRATION_TOOL",
+                            "BIG_OBJECTS"
                         ],
                         "TODO": "LWC_AND_AURA_COMPONENT_LIBRARY is excluded from above, SF docs don't have configurable language/version at present 2022-07",
-                        "NOTE": "Any given one of these values must EXACTLY match an entry in the DocTypeID enum"
+                        "NOTE": "Any given one of these values must EXACTLY match an entry in the DocTypeID.ts enum"
                     },
                     "additionalProperties": {
                         "type": "object",
