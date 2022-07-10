@@ -1,8 +1,9 @@
 # ROADMAP
 A fairly rough roadmap/stream of consciousness :)
 
-- [Roadmap](#roadmap)
-- [Removed from roadmap](#removed-from-roadmap)
+- [ROADMAP](#roadmap)
+  - [Roadmap](#roadmap-1)
+  - [Removed from roadmap](#removed-from-roadmap)
 
 ## Roadmap
 In rough priority order
@@ -54,6 +55,7 @@ In rough priority order
 - [ ] Bundle the extension to reduce size (https://code.visualstudio.com/api/working-with-extensions/bundling-extension)
 - [ ] Write some tests 😱
 - [ ] Wacky ideas: Also examine the feasibility of some sort of offline mode
+- [ ] See notes on Metadata Coverage, specifically around per-org functionality that are being excluded in first cut. Related to lwc components potential expansion too
 
 ## Removed from roadmap
 - [ ] Examine feasibility of caching indices in the background on first extension load. Will look at further after release if not easy
