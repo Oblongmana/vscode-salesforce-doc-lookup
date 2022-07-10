@@ -102,76 +102,76 @@ As the schema contains EVERYTHING including content, slightly more "full" than o
 The sample below includes QuickAction, a "complete" entry, as well as other misc supporting partial entries
 
 An entry is composed of:
-    - `details`
-      - non-null
-      - array of objects
-        - pseudo-schema for those objects:
-          - `url` : string
-            - may be null
-            - always present
-          - `detailText` : string
-            - may be null
-            - may be omitted
-          - `detailRichText` : string (ESCAPED HTML!)
-            - may be null
-            - may be omitted
-          - `name` : string
-            - non-null
-            - used as title for section
-    - `scratchDefinitions`
-      - MAY BE NULL
-      - object mapping string to string
-        - pseudo-schema for those KV pairs:
-          - KEYS one of "professional" | "group" | "enterprise" | "developer", any or all of which may be omitted
-          - OBJECTS = string containing escaped JSON
-            - this JSON can be dumped straight into a code block, we don't need to know about the contents, this is a sample for the user
-    - `knownIssues`
-      - array of objects
-      - used to put a little extra info in the main table - count of known fixed/open issues
+  - `details`
+    - non-null
+    - array of objects
       - pseudo-schema for those objects:
-        - ! ALL OF THESE FIELDS ARE ALWAYS PRESENT
-        - "url"
-          - string
-          - non-null
-        - "lastUpdated"
-          - string
-          - non-null
-          - yyyy-mm-dd
-        - "affectedUsers"
-          - number
-          - non-null
-        - "tags"
+        - `url` : string
           - may be null
-          - string
-          - comma-separated list of tags. No need to process further
-        - "status"
-          - string
+          - always present
+        - `detailText` : string
+          - may be null
+          - may be omitted
+        - `detailRichText` : string (ESCAPED HTML!)
+          - may be null
+          - may be omitted
+        - `name` : string
           - non-null
-        - "summary"
-          - string
-          - non-null
-        - "title"
-          - string
-          - non-null
-    - `channels`
-      - object
-      - non-null
-      - KV Pairs of string,bool
-      - ALL named pairs ALWAYS present and populated
-      - Used to populate the various checkboxes in the table
-      - ! FOOTNOTE: IFF `unlockedPackagingWithoutNamespace`=true and `unlockedPackagingWithNamespace`= false, adds a (1) superscript to the "Unlocked Packaging" column stating in a footnote: "(1) This component can only be included in a package without a namespace."
-      - ! FOOTNOTE: there is a more obscure footnote that may only apply to "ConnectedApp" (not trawling past doc to see if that's actually the case! We can handle it as a general case). IFF `classicManagedPackaging`=true but `classicUnmanagedPackaging`=false, you get a superscript (2) in the "1GP Managed Packaging" column indicating: "(2) Applies to first-generation managed packages only.".
-        - the keys and their corresponding human-readable columns/checkboxes are:
-          - "unlockedPackagingWithoutNamespace": "Unlocked Packaging" (see footnote note above)
-          - "unlockedPackagingWithNamespace": "Unlocked Packaging" (see footnote note above)
-          - "toolingApi": UNUSED - which is a bit odd. We can probably still cache it in case it's visually exposed in future?
-          - "sourceTracking": "Source Tracking"
-          - "metadataApi": "Metadata API"
-          - "managedPackaging": "2GP Managed Packaging"
-          - "classicUnmanagedPackaging": "1GP Managed Packaging" (see footnote note above)
-          - "classicManagedPackaging": "1GP Managed Packaging" (see footnote note above)
-          - "changeSets": "Change Sets"
-          - "apexMetadataApi": "Apex Metadata API""
+          - used as title for section
+  - `scratchDefinitions`
+    - MAY BE NULL
+    - object mapping string to string
+      - pseudo-schema for those KV pairs:
+        - KEYS one of "professional" | "group" | "enterprise" | "developer", any or all of which may be omitted
+        - OBJECTS = string containing escaped JSON
+          - this JSON can be dumped straight into a code block, we don't need to know about the contents, this is a sample for the user
+  - `knownIssues`
+    - array of objects
+    - used to put a little extra info in the main table - count of known fixed/open issues
+    - pseudo-schema for those objects:
+      - ! ALL OF THESE FIELDS ARE ALWAYS PRESENT
+      - "url"
+        - string
+        - non-null
+      - "lastUpdated"
+        - string
+        - non-null
+        - yyyy-mm-dd
+      - "affectedUsers"
+        - number
+        - non-null
+      - "tags"
+        - may be null
+        - string
+        - comma-separated list of tags. No need to process further
+      - "status"
+        - string
+        - non-null
+      - "summary"
+        - string
+        - non-null
+      - "title"
+        - string
+        - non-null
+  - `channels`
+    - object
+    - non-null
+    - KV Pairs of string,bool
+    - ALL named pairs ALWAYS present and populated
+    - Used to populate the various checkboxes in the table
+    - ! FOOTNOTE: IFF `unlockedPackagingWithoutNamespace`=true and `unlockedPackagingWithNamespace`= false, adds a (1) superscript to the "Unlocked Packaging" column stating in a footnote: "(1) This component can only be included in a package without a namespace."
+    - ! FOOTNOTE: there is a more obscure footnote that may only apply to "ConnectedApp" (not trawling past doc to see if that's actually the case! We can handle it as a general case). IFF `classicManagedPackaging`=true but `classicUnmanagedPackaging`=false, you get a superscript (2) in the "1GP Managed Packaging" column indicating: "(2) Applies to first-generation managed packages only.".
+      - the keys and their corresponding human-readable columns/checkboxes are:
+        - "unlockedPackagingWithoutNamespace": "Unlocked Packaging" (see footnote note above)
+        - "unlockedPackagingWithNamespace": "Unlocked Packaging" (see footnote note above)
+        - "toolingApi": UNUSED - which is a bit odd. We can probably still cache it in case it's visually exposed in future?
+        - "sourceTracking": "Source Tracking"
+        - "metadataApi": "Metadata API"
+        - "managedPackaging": "2GP Managed Packaging"
+        - "classicUnmanagedPackaging": "1GP Managed Packaging" (see footnote note above)
+        - "classicManagedPackaging": "1GP Managed Packaging" (see footnote note above)
+        - "changeSets": "Change Sets"
+        - "apexMetadataApi": "Apex Metadata API""
 
 ### Useful Sample
 See METADATA_COVERAGE_SAMPLE.json for full dump
