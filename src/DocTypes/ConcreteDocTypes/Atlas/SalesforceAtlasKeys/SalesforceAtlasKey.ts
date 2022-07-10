@@ -9,4 +9,5 @@ export enum SalesforceAtlasKey {
     API                = 'api',
     PAGES              = 'pages',
     AJAX               = 'ajax',
+    ANT_MIGRATION_TOOL = 'daas',
 }

@@ -13,4 +13,5 @@ export const AtlasDocTypeIdToSalesforceAtlasKey: Record<AtlasDocTypeID, Salesfor
     SFDX_CLI                       : SalesforceAtlasKey.SFDX_CLI_REFERENCE,
     APEX_DEV_GUIDE                 : SalesforceAtlasKey.APEXCODE,
     AJAX                           : SalesforceAtlasKey.AJAX,
+    ANT_MIGRATION_TOOL             : SalesforceAtlasKey.ANT_MIGRATION_TOOL,
 };

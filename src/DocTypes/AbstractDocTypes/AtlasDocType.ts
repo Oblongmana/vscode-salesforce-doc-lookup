@@ -115,8 +115,9 @@ export abstract class AtlasDocType implements IDocumentationType {
      * Get the root documentation node for this Documentation Type - its children
      * will be the actual documentation we want to obtain
      *
-     * TODO: In the event that we decide to expand what we pull from Docs in future,
-     *       this may need to account for multiple "root" nodes, if we find such a doc type!
+     * If you encounter a doc type with no singular root node (e.g. the Ant Migration Toolkit doc, which has a
+     * with 4 root nodes), simple construct a holding AtlasTOC.DocumentationNode with only the `text` and `children`
+     * properties populated.
      *
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails
      */

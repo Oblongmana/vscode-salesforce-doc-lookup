@@ -13,6 +13,7 @@ export enum DocTypeID {
     AJAX                            = 'AJAX',
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
+    ANT_MIGRATION_TOOL              = 'ANT_MIGRATION_TOOL',
 }
 
 export type AtlasDocTypeID = Exclude<DocTypeID, DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY>;

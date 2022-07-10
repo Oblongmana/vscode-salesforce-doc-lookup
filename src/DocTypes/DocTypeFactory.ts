@@ -12,6 +12,7 @@ import {
     AuraLWCComponentLibraryAuraDocType,
     ApexDevGuideAtlasDocType,
     AjaxDevGuideAtlasDocType,
+    AntGuideAtlasDocType,
 } from "./ConcreteDocTypes";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
@@ -30,4 +31,5 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     LWC_AND_AURA_COMPONENT_LIBRARY:   () => new AuraLWCComponentLibraryAuraDocType(),
     APEX_DEV_GUIDE:                   () => new ApexDevGuideAtlasDocType(),
     AJAX:                             () => new AjaxDevGuideAtlasDocType(),
+    ANT_MIGRATION_TOOL:               () => new AntGuideAtlasDocType(),
 };

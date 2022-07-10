@@ -18,6 +18,7 @@ export const DocCommands: Record<DocTypeID, string> = {
     APEX_DEV_GUIDE                  : 'salesforce-reference-apex-dev-guide',
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
     AJAX                            : 'salesforce-reference-ajax-dev-guide',
+    ANT_MIGRATION_TOOL              : 'salesforce-reference-ant-tool-guide',
 };
 const DocCommandsValues: string[] = Object.values(DocCommands);
 
