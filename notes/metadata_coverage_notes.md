@@ -268,6 +268,7 @@ a specific tab. There doesn't appear to be any workaround sadly, the internal ro
 
 In terms of memento-ised data, we might as well cache the full ToC given:
 - the relatively constrained data - primarily machine data rather than the lengthy prose of Atlas/Aura docs
+- the json being completely per se - whereas for Atlas/Aura doc the ToC is closer to a useful index over further URLs, this json contains ALL the data needed to construct the page content
 - the overall reasonable size: ~486kb at time of writing. Chonky, but not toooo chonky
 - the alternative would require more consideration about what is retrieved at run-time and what is memoised (vs chunking everything in)
 - I'm more inclined to have (for heavy users) frequent disk access of 1/2mb than frequent web calls of 1/2mb. Overall latency will be lower, and at that scale disk feels cheaper than web data
