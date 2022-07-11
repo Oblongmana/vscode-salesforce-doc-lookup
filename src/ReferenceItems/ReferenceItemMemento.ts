@@ -21,7 +21,7 @@ export /*NB: "sealed"*/ class ReferenceItemMemento implements vscode.QuickPickIt
      */
     public readonly label!: string; //QuickPickItem field, used to store the breadcrumb
     /**
-     * Domain-specific string Key-Value pairs for the ReferenceItem. Generally this will be some sort of identifier.
+     * Domain-specific Key-Value pairs for the ReferenceItem.
      *
      * As examples, for Salesforce documentation ReferenceItems, the final part of the doc URL is stored
      * (path, query, and fragment (cf. https://url.spec.whatwg.org/#example-url-components)) with key="resource"
@@ -30,7 +30,7 @@ export /*NB: "sealed"*/ class ReferenceItemMemento implements vscode.QuickPickIt
      * - E.g. in https://developer.salesforce.com/docs/component-library/bundle/lightning:carousel
      *          this is `lightning:carousel`
      */
-    public readonly data!: Record<string, string>;
+    public readonly data!: Record<string, any>; //TODO: as noted in concrete ref types, need to improve discoverability on what this contains for those concrete types
     public readonly description?: string | undefined;
     public readonly detail?: string | undefined;
     public readonly picked?: boolean | undefined;

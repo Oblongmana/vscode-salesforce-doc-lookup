@@ -3,13 +3,14 @@ import { ReferenceItemMemento } from './ReferenceItemMemento';
 
 export abstract class ReferenceItem implements vscode.QuickPickItem {
 
-    abstract label: string;
+    abstract label: string; //NB: Abstract to force subclasses to impl and assign these mandatory fields
     description?: string | undefined;
     detail?: string | undefined;
     picked?: boolean | undefined;
     alwaysShow?: boolean | undefined;
 
-    abstract data: Record<string, string>;
+    //TODO: as noted in concrete ref types, need to improve discoverability on what this contains for those concrete types
+    abstract data: Record<string, any>; //NB: Abstract to force subclasses to impl and assign these mandatory fields
 
     public saveToMemento(): ReferenceItemMemento {
         return new ReferenceItemMemento(this);
