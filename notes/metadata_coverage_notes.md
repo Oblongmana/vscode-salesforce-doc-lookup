@@ -276,11 +276,12 @@ In terms of memento-ised data, we might as well cache the full ToC given:
 
 For structure and doc-searchable content, we'll keep our initial model simple:
 - One special root report node
-  - For link-out that's straightforward: https://mdcoverage.secure.force.com/docs/metadata-coverage/{|VERSION|e.g.55}/
+  - For link-out that's straightforward: https://mdcoverage.secure.force.com/docs/metadata-coverage/{|VERSION|e.g.55}/ or https://mdcoverage.secure.force.com/docs/metadata-coverage for latest version
   - For webView: special behaviour that builds a full (albeit simplistic i.e. no SPA functionality) replica of the web table
 - Each "type" inside `types` itself
-  - For link-out: https://mdcoverage.secure.force.com/docs/metadata-coverage/{|VERSION|e.g.55}/{|TYPE|e.g.AccessControlPolicy}/
+  - For link-out: https://mdcoverage.secure.force.com/docs/metadata-coverage/{|VERSION|e.g.55}/{|TYPE|e.g.AccessControlPolicy}/details
     - NOTE THE TRAILING SLASH IS CRITICAL - OMITTING IT TAKES YOU TO THE FULL REPORT WITH NO POPUP
+      - Indeed it's worse, you have to specify *something* (any valid text) afterwards. It'll always route to `/details`, but some string must be provided
   - for webView
     - Build the content of it's children:
       - direct children become headers
