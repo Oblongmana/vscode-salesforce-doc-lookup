@@ -8,7 +8,7 @@ import { AtlasDocTypeID, docTypeIDTitleCaseName } from "../DocTypeID";
 import { IDocumentationType } from "../IDocumentationType";
 import { ReferenceItemMemento } from '../../ReferenceItems/ReferenceItemMemento';
 import { ReferenceItem } from '../../ReferenceItems/ReferenceItem';
-import { getLangCodeOverride, getAtlasVersionCodeOverride, getStorageSubKey } from '../DocTypeConfig';
+import { getAtlasLangCodeOverride, getAtlasVersionCodeOverride, getStorageSubKey } from '../DocTypeConfig';
 import { Logging } from '../../Logging';
 import { AtlasDocTypeIdToSalesforceAtlasKey, SalesforceAtlasKey } from '../ConcreteDocTypes/Atlas/SalesforceAtlasKeys';
 
@@ -49,7 +49,7 @@ export abstract class AtlasDocType implements IDocumentationType {
 
         let versionOverrideForMerge: string | null = getAtlasVersionCodeOverride(this.docType);
         versionOverrideForMerge = (versionOverrideForMerge !== null) ? `.${versionOverrideForMerge}` : ''; //Optional in ToC url, so blank string if not present, otherwise must be prefixed with'.'
-        this.docTOCUrl = `${SF_DOC_ROOT_URL}${SF_ATLAS_TOC_PATH}/atlas.${getLangCodeOverride(this.docType) || SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta`;//TODO some de-dup to do here with ReferenceItem approach
+        this.docTOCUrl = `${SF_DOC_ROOT_URL}${SF_ATLAS_TOC_PATH}/atlas.${getAtlasLangCodeOverride(this.docType) || SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta`;//TODO some de-dup to do here with ReferenceItem approach
     }
 
     /**
@@ -62,7 +62,7 @@ export abstract class AtlasDocType implements IDocumentationType {
         //Try to use existing cached values, and populate the cache if not available
         let referenceItems: ReferenceItem[] = [];
         let versionCodeOverride: string = getAtlasVersionCodeOverride(this.docType);
-        let langCodeOverride: string = getLangCodeOverride(this.docType);
+        let langCodeOverride: string = getAtlasLangCodeOverride(this.docType);
         let cacheSubKey: string = getStorageSubKey(versionCodeOverride, langCodeOverride);
         let cachedDocType: any | undefined = context.globalState.get(this.docType);
         let cachedMementos: any[] | undefined = cachedDocType?.[cacheSubKey];
@@ -99,7 +99,7 @@ export abstract class AtlasDocType implements IDocumentationType {
         // Logging.appendLine('documentationNode: ' + documentationNode);
         //Convert this node into a ReferenceItem, after run-time checking it has appropriate properties
         if (documentationNode.hasOwnProperty('a_attr')) {
-            referenceItems.push(new AtlasReferenceItem(documentationNode, this.atlasIdentifier, breadcrumbString, getAtlasVersionCodeOverride(this.docType), getLangCodeOverride(this.docType)));
+            referenceItems.push(new AtlasReferenceItem(documentationNode, this.atlasIdentifier, breadcrumbString, getAtlasVersionCodeOverride(this.docType), getAtlasLangCodeOverride(this.docType)));
         }
         //Recursively convert children into ReferenceItems and add them to our list
         if (documentationNode.hasOwnProperty('children') && documentationNode.children !== undefined) {

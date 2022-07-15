@@ -1,16 +1,16 @@
 import { version } from "os";
 import { getConfig } from "../GlobalConfig";
-import { DocTypeID } from "./DocTypeID";
+import { AtlasDocTypeID } from "./DocTypeID";
 
-export function getLangCodeOverride(docType: DocTypeID) {
-    return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perDocType?.[docType]?.languageCode
-        || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.languageCode
+export function getAtlasLangCodeOverride(docType: AtlasDocTypeID) {
+    return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perAtlasBasedDocType?.[docType]?.languageCode
+        || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasLanguageCode
         || null;
 }
 
-export function getAtlasVersionCodeOverride(docType: DocTypeID) {
+export function getAtlasVersionCodeOverride(docType: AtlasDocTypeID) {
     return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perDocType?.[docType]?.versionCode
-        || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasDocVersionCode
+        || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasVersionCode
         || null;
 }
 
