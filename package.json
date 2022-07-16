@@ -48,6 +48,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-bulk-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-data-loader",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-tooling-api",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli-plugins",
 
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
 
@@ -93,7 +94,7 @@
             },
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli",
-                "title": "Salesforce Reference: SFDX CLI"
+                "title": "Salesforce Reference: SFDX CLI Command Reference"
             },
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-apex-dev-guide",
@@ -122,6 +123,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-tooling-api",
                 "title": "Salesforce Reference: Tooling API"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli-plugins",
+                "title": "Salesforce Reference: SFDX CLI Plugin Developer Guide"
             },
 
 
@@ -204,7 +209,8 @@
                             "BIG_OBJECTS",
                             "BULK_API",
                             "DATA_LOADER",
-                            "TOOLING_API"
+                            "TOOLING_API",
+                            "SFDX_CLI_PLUGINS"
                         ],
                         "NOTE": "Any given one of these enum value definitions must EXACTLY match an entry in the DocTypeID.ts enum"
                     },

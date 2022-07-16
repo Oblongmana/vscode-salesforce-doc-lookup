@@ -23,6 +23,7 @@ export const DocCommands: Record<DocTypeID, string> = {
     BULK_API                        : 'salesforce-reference-bulk-api',
     DATA_LOADER                     : 'salesforce-reference-data-loader',
     TOOLING_API                     : 'salesforce-reference-tooling-api',
+    SFDX_CLI_PLUGINS                : 'salesforce-reference-sfdx-cli-plugins',
     //Aura doc commands
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
     //Metadata Coverage Report doc commands

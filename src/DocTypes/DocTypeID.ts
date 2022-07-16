@@ -16,6 +16,7 @@ export enum DocTypeID {
     BULK_API                        = 'BULK_API',
     DATA_LOADER                     = 'DATA_LOADER',
     TOOLING_API                     = 'TOOLING_API',
+    SFDX_CLI_PLUGINS                = 'SFDX_CLI_PLUGINS',
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
     //Metadata Coverage Report Types

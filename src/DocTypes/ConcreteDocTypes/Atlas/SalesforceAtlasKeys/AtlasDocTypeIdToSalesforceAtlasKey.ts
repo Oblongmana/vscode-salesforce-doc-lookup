@@ -18,4 +18,5 @@ export const AtlasDocTypeIdToSalesforceAtlasKey: Record<AtlasDocTypeID, Salesfor
     BULK_API            : SalesforceAtlasKey.BULK_API,
     DATA_LOADER         : SalesforceAtlasKey.DATA_LOADER,
     TOOLING_API         : SalesforceAtlasKey.TOOLING_API,
+    SFDX_CLI_PLUGINS    : SalesforceAtlasKey.SFDX_CLI_PLUGINS,
 };
