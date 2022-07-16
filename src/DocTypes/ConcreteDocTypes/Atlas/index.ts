@@ -13,3 +13,4 @@ export { AntGuideAtlasDocType } from "./AntGuideAtlasDocType";
 export { BigObjectsAtlasDocType } from "./BigObjectsAtlasDocType";
 export { BulkAPIAtlasDocType } from "./BulkAPIAtlasDocType";
 export { DataLoaderAtlasDocType } from "./DataLoaderAtlasDocType";
+export { ToolingAPIAtlasDocType } from "./ToolingAPIAtlasDocType";

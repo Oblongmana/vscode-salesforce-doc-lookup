@@ -47,6 +47,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-big-objects",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-bulk-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-data-loader",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-tooling-api",
 
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
 
@@ -117,6 +118,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-data-loader",
                 "title": "Salesforce Reference: Data Loader Guide"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-tooling-api",
+                "title": "Salesforce Reference: Tooling API"
             },
 
 
@@ -198,7 +203,8 @@
                             "ANT_MIGRATION_TOOL",
                             "BIG_OBJECTS",
                             "BULK_API",
-                            "DATA_LOADER"
+                            "DATA_LOADER",
+                            "TOOLING_API"
                         ],
                         "NOTE": "Any given one of these enum value definitions must EXACTLY match an entry in the DocTypeID.ts enum"
                     },

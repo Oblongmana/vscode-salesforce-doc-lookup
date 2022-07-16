@@ -17,6 +17,7 @@ import {
     BulkAPIAtlasDocType,
     MetadataCoverageDocType,
     DataLoaderAtlasDocType,
+    ToolingAPIAtlasDocType,
 } from "./ConcreteDocTypes";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
@@ -39,6 +40,7 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     BIG_OBJECTS:                        () => new BigObjectsAtlasDocType(),
     BULK_API:                           () => new BulkAPIAtlasDocType(),
     DATA_LOADER:                        () => new DataLoaderAtlasDocType(),
+    TOOLING_API:                        () => new ToolingAPIAtlasDocType(),
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY:     () => new AuraLWCComponentLibraryAuraDocType(),
     //Metadata Coverage Report Type

@@ -20,4 +20,5 @@ export enum SalesforceAtlasKey {
     BIG_OBJECTS        = 'bigobjects',
     BULK_API           = 'api_asynch',
     DATA_LOADER        = 'dataLoader',
+    TOOLING_API        = 'api_tooling',
 }
