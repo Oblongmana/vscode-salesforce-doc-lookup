@@ -16,3 +16,4 @@ export { DataLoaderAtlasDocType } from "./DataLoaderAtlasDocType";
 export { ToolingAPIAtlasDocType } from "./ToolingAPIAtlasDocType";
 export { SFDXCLIPluginsAtlasDocType } from "./SFDXCLIPluginsAtlasDocType";
 export { MobileSDKAtlasDocType } from "./MobileSDKAtlasDocType";
+export { SFDXDevGuideAtlasDocType } from "./SFDXDevGuideAtlasDocType";

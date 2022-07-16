@@ -26,6 +26,7 @@ export const DocCommands: Record<DocTypeID, string> = {
     SFDX_CLI_PLUGINS                : 'salesforce-reference-sfdx-cli-plugins',
     MOBILE_SDK                      : 'salesforce-reference-mobile-sdk',
     API_ACTION                      : 'salesforce-reference-actions-api',
+    SFDX_DEV                        : 'salesforce-reference-sfdx-dev-guide',
     //Aura doc commands
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
     //Metadata Coverage Report doc commands

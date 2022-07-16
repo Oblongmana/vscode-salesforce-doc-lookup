@@ -21,4 +21,5 @@ export const AtlasDocTypeIdToSalesforceAtlasKey: Record<AtlasDocTypeID, Salesfor
     SFDX_CLI_PLUGINS    : SalesforceAtlasKey.SFDX_CLI_PLUGINS,
     MOBILE_SDK          : SalesforceAtlasKey.MOBILE_SDK,
     API_ACTION          : SalesforceAtlasKey.API_ACTION,
+    SFDX_DEV            : SalesforceAtlasKey.SFDX_DEV,
 };

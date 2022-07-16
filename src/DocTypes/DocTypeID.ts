@@ -18,6 +18,7 @@ export enum DocTypeID {
     TOOLING_API                     = 'TOOLING_API',
     SFDX_CLI_PLUGINS                = 'SFDX_CLI_PLUGINS',
     API_ACTION                      = 'API_ACTION',
+    SFDX_DEV                        = 'SFDX_DEV',
     //Atlas Types: "Unversioned" subtypes that don't support version codes
     MOBILE_SDK                      = 'MOBILE_SDK',
     //Aura Types
