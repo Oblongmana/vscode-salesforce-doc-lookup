@@ -14,6 +14,7 @@ export enum DocTypeID {
     ANT_MIGRATION_TOOL              = 'ANT_MIGRATION_TOOL',
     BIG_OBJECTS                     = 'BIG_OBJECTS',
     BULK_API                        = 'BULK_API',
+    DATA_LOADER                     = 'DATA_LOADER',
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
     //Metadata Coverage Report Types

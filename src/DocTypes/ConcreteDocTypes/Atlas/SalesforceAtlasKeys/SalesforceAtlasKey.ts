@@ -19,4 +19,5 @@ export enum SalesforceAtlasKey {
     ANT_MIGRATION_TOOL = 'daas',
     BIG_OBJECTS        = 'bigobjects',
     BULK_API           = 'api_asynch',
+    DATA_LOADER        = 'dataLoader',
 }

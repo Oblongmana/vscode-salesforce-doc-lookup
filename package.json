@@ -12,7 +12,7 @@
         "type": "git",
         "url": "https://github.com/Oblongmana/vscode-salesforce-doc-lookup"
     },
-    "version": "1.3.10",
+    "version": "1.3.12",
     "license": "GPL-3.0-only",
     "homepage": "https://github.com/Oblongmana/vscode-salesforce-doc-lookup",
     "bugs": {
@@ -41,13 +41,17 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-rest-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-soap-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli",
-        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-apex-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-ajax-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-ant-tool-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-big-objects",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-bulk-api",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-data-loader",
+
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
+
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-metadata-coverage-report",
+
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
@@ -91,10 +95,6 @@
                 "title": "Salesforce Reference: SFDX CLI"
             },
             {
-                "command": "vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
-                "title": "Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)"
-            },
-            {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-apex-dev-guide",
                 "title": "Salesforce Reference: Apex Developer Guide"
             },
@@ -115,9 +115,23 @@
                 "title": "Salesforce Reference: Bulk API 2.0 and Bulk API Developer Guide"
             },
             {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-data-loader",
+                "title": "Salesforce Reference: Data Loader Guide"
+            },
+
+
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
+                "title": "Salesforce Reference: LWC and Aura Component Library (EXPERIMENTAL)"
+            },
+
+
+            {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-metadata-coverage-report",
                 "title": "Salesforce Reference: Metadata Coverage Report"
             },
+
+
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
                 "title": "Salesforce Reference: Invalidate Cache"
@@ -183,7 +197,8 @@
                             "AJAX",
                             "ANT_MIGRATION_TOOL",
                             "BIG_OBJECTS",
-                            "BULK_API"
+                            "BULK_API",
+                            "DATA_LOADER"
                         ],
                         "NOTE": "Any given one of these enum value definitions must EXACTLY match an entry in the DocTypeID.ts enum"
                     },

@@ -21,6 +21,7 @@ export const DocCommands: Record<DocTypeID, string> = {
     ANT_MIGRATION_TOOL              : 'salesforce-reference-ant-tool-guide',
     BIG_OBJECTS                     : 'salesforce-reference-big-objects',
     BULK_API                        : 'salesforce-reference-bulk-api',
+    DATA_LOADER                     : 'salesforce-reference-data-loader',
     //Aura doc commands
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
     //Metadata Coverage Report doc commands

@@ -16,12 +16,14 @@ import {
     BigObjectsAtlasDocType,
     BulkAPIAtlasDocType,
     MetadataCoverageDocType,
+    DataLoaderAtlasDocType,
 } from "./ConcreteDocTypes";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
 
 
 export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
+    //Atlas Types
     APEX:                               () => new ApexAtlasDocType(),
     VISUALFORCE:                        () => new VisualforceAtlasDocType(),
     LIGHTNING_CONSOLE:                  () => new LightningConsoleAtlasDocType(),
@@ -31,11 +33,14 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     REST_API:                           () => new RestAPIAtlasDocType(),
     SOAP_API:                           () => new SOAPAPIAtlasDocType(),
     SFDX_CLI:                           () => new SFDXCLIAtlasDocType(),
-    LWC_AND_AURA_COMPONENT_LIBRARY:     () => new AuraLWCComponentLibraryAuraDocType(),
     APEX_DEV_GUIDE:                     () => new ApexDevGuideAtlasDocType(),
     AJAX:                               () => new AjaxDevGuideAtlasDocType(),
     ANT_MIGRATION_TOOL:                 () => new AntGuideAtlasDocType(),
     BIG_OBJECTS:                        () => new BigObjectsAtlasDocType(),
     BULK_API:                           () => new BulkAPIAtlasDocType(),
+    DATA_LOADER:                        () => new DataLoaderAtlasDocType(),
+    //Aura Types
+    LWC_AND_AURA_COMPONENT_LIBRARY:     () => new AuraLWCComponentLibraryAuraDocType(),
+    //Metadata Coverage Report Type
     METADATA_COVERAGE_REPORT:           () => new MetadataCoverageDocType(),
 };
