@@ -50,6 +50,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-tooling-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-cli-plugins",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-mobile-sdk",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-actions-api",
 
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
 
@@ -132,6 +133,10 @@
             {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-mobile-sdk",
                 "title": "Salesforce Reference: Mobile SDK Development Guide"
+            },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-actions-api",
+                "title": "Salesforce Reference: Actions API Developer Guide"
             },
 
 
@@ -216,7 +221,8 @@
                             "DATA_LOADER",
                             "TOOLING_API",
                             "SFDX_CLI_PLUGINS",
-                            "MOBILE_SDK"
+                            "MOBILE_SDK",
+                            "API_ACTION"
                         ],
                         "NOTE": "Any given one of these enum value definitions must EXACTLY match an entry in the DocTypeID.ts enum"
                     },
