@@ -22,8 +22,8 @@ import {
     MobileSDKAtlasDocType,
     SFDXDevGuideAtlasDocType,
     SoqlSoslReferenceAtlasDocType,
+    ActionsAPIAtlasDocType,
 } from "./ConcreteDocTypes";
-import { ActionsAPIAtlasDocType } from "./ConcreteDocTypes/Atlas/ActionsAPIAtlasDocType";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
 
