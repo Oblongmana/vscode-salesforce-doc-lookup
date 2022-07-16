@@ -83,13 +83,15 @@ function generateKnownIssues(knownIssues: Array<MetadataCoverageTOC.MetadataCove
     return knownIssuesHtml.html();
 }
 
-export async function generateHtmlTable(referenceItems: Array<MetadataCoverageReferenceItem>): Promise<string>
+export async function generateHtmlTable(referenceItems: Array<MetadataCoverageReferenceItem>, versionCodeOverride?: string): Promise<string>
 {
-    let documentationDoc: cheerio.CheerioAPI = cheerio.load('<div id="documentation"></div>', null, false); // run in fragment mode so it doesn't add html/head etc
+    const documentationDoc: cheerio.CheerioAPI = cheerio.load('<div id="documentation"></div>', null, false); // run in fragment mode so it doesn't add html/head etc
+
+    const versionCodeOverrideForDisplay = versionCodeOverride !== null && versionCodeOverride !== undefined ? ` (v${versionCodeOverride})` : '';
 
     // Header, with status info
     documentationDoc('#documentation').append(`<header id="header">`);
-    documentationDoc('#header').append(`<h1 style="font-weight: bold">Metadata Coverage</h1>`);
+    documentationDoc('#header').append(`<h1 style="font-weight: bold">Metadata Coverage${versionCodeOverrideForDisplay}</h1>`);
     documentationDoc('#header').append(`<div id="reportStatus">`);
     documentationDoc('#reportStatus').append(`<p id="typeCount">${referenceItems.length} Total Types • Sorted by Metadata Type</p>`);
 

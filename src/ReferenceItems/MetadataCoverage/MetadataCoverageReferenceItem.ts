@@ -81,7 +81,7 @@ export class MetadataCoverageReferenceItem extends ReferenceItem {
      * @inheritdoc
      */
     public async asHTML(): Promise<string> {
-        return generateHtmlTable([this]);
+        return generateHtmlTable([this], this.versionCodeOverride);
     }
 
     /**
