@@ -100,8 +100,10 @@ function handleVersionChanges(context: vscode.ExtensionContext) {
         //In 2.0.0, the plugin was updated to support language/version overrides for Atlas-based docTypes, including caching
         //  of entries for different lang/version combos. Due to the structural change of the cache, everthing must be invalidated.
         if (semver.lt(normalisedExistingVersionNumber, '2.0.0')) {
-            Logging.appendLine(`Extension version changed: prior was <2.0.0. Invalidating all caches - cache format has been updated`);
-            Object.values(DocTypeID).forEach(docTypeKey => context.globalState.update(docTypeKey, undefined));
+            Logging.appendLine(`Extension version changed: prior was <2.0.0. Invalidating all caches - cache format has been updated to support per-lang/version-combination caching`);
+            for (const docTypeKey of enumKeys(DocTypeID)) {
+                context.globalState.update(docTypeKey, undefined);
+            }
         }
     }
 }
