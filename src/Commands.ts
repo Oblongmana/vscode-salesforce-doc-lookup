@@ -6,6 +6,7 @@ import { getConfig } from './GlobalConfig';
 import { DocTypeID, DocTypeFactory } from './DocTypes';
 import { ReferenceItem } from './ReferenceItems';
 import { ERROR_MESSAGES } from './GlobalConstants';
+import { enumKeys } from './Utilities/EnumUtilities';
 
 export async function openDocQuickPick(context: vscode.ExtensionContext, docType: DocTypeID, prefillValue?: string) {
     try {
@@ -67,9 +68,9 @@ export function invalidateEntireExtensionCache(context: vscode.ExtensionContext)
         "so your next documentation lookup for each documentation type will need to re-retrieve the index from Salesforce. " +
         "Do you want to proceed?",{modal: true},'OK').then((selectedButton: string | undefined)=>{
             if (selectedButton === 'OK') {
-                Object.values(DocTypeID).forEach((currDocTypeString: string) => {
-                    context.globalState.update(currDocTypeString, undefined);
-                });
+                for (const docTypeKey of enumKeys(DocTypeID)) {
+                    context.globalState.update(docTypeKey, undefined);
+                };
             }
         });
 }
