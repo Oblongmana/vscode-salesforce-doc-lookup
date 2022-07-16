@@ -21,3 +21,4 @@ export { SFDXDevGuideAtlasDocType } from "./SFDXDevGuideAtlasDocType";
 export { SoqlSoslReferenceAtlasDocType } from "./SoqlSoslReferenceAtlasDocType";
 export { AuraComponentsDevGuideAtlasDocType } from "./AuraComponentsDevGuideAtlasDocType";
 export { ConnectChatterAPIAtlasDocType } from "./ConnectChatterAPIAtlasDocType";
+export { FieldReferenceAtlasDocType } from "./FieldReferenceAtlasDocType";

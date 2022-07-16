@@ -28,5 +28,6 @@ export enum SalesforceAtlasKey {
     SOQL_SOSL                  = 'soql_sosl',
     AURA_COMP_DEV              = 'lightning',
     CONNECT_CHATTER_API        = 'chatterapi',
+    FIELD_REFERENCE            = 'sfFieldRef',
 
 }
