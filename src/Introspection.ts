@@ -31,6 +31,7 @@ export const DocCommands: Record<DocTypeID, string> = {
     AURA_COMP_DEV                   : 'salesforce-reference-aura-components-dev-guide',
     CONNECT_CHATTER_API             : 'salesforce-reference-connect-chatter-api-guide',
     FIELD_REFERENCE                 : 'salesforce-reference-field-reference',
+    SECURE_CODING_GUIDE             : 'salesforce-reference-secure-coding-guide',
     //Aura doc commands
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
     //Metadata Coverage Report doc commands

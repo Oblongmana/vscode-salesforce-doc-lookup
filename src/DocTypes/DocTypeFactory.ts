@@ -26,6 +26,7 @@ import {
     AuraComponentsDevGuideAtlasDocType,
     ConnectChatterAPIAtlasDocType,
     FieldReferenceAtlasDocType,
+    SecureCodingGuideAtlasDocType,
 } from "./ConcreteDocTypes";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
@@ -57,6 +58,7 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     AURA_COMP_DEV:                      () => new AuraComponentsDevGuideAtlasDocType(),
     CONNECT_CHATTER_API:                () => new ConnectChatterAPIAtlasDocType(),
     FIELD_REFERENCE:                    () => new FieldReferenceAtlasDocType(),
+    SECURE_CODING_GUIDE:                () => new SecureCodingGuideAtlasDocType(),
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY:     () => new AuraLWCComponentLibraryAuraDocType(),
     //Metadata Coverage Report Type

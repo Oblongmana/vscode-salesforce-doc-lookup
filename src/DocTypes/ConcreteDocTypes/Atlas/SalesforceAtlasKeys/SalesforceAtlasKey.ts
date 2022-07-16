@@ -29,5 +29,6 @@ export enum SalesforceAtlasKey {
     AURA_COMP_DEV              = 'lightning',
     CONNECT_CHATTER_API        = 'chatterapi',
     FIELD_REFERENCE            = 'sfFieldRef',
+    SECURE_CODING_GUIDE        = 'secure_coding_guide',
 
 }

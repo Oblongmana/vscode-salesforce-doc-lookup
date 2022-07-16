@@ -26,4 +26,5 @@ export const AtlasDocTypeIdToSalesforceAtlasKey: Record<AtlasDocTypeID, Salesfor
     AURA_COMP_DEV       : SalesforceAtlasKey.AURA_COMP_DEV,
     CONNECT_CHATTER_API : SalesforceAtlasKey.CONNECT_CHATTER_API,
     FIELD_REFERENCE     : SalesforceAtlasKey.FIELD_REFERENCE,
+    SECURE_CODING_GUIDE : SalesforceAtlasKey.SECURE_CODING_GUIDE,
 };
