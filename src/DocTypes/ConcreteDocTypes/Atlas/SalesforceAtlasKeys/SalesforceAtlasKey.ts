@@ -22,4 +22,5 @@ export enum SalesforceAtlasKey {
     DATA_LOADER        = 'dataLoader',
     TOOLING_API        = 'api_tooling',
     SFDX_CLI_PLUGINS   = 'sfdx_cli_plugins',
+    MOBILE_SDK         = 'mobile_sdk',
 }

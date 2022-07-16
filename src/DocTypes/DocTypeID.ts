@@ -17,6 +17,8 @@ export enum DocTypeID {
     DATA_LOADER                     = 'DATA_LOADER',
     TOOLING_API                     = 'TOOLING_API',
     SFDX_CLI_PLUGINS                = 'SFDX_CLI_PLUGINS',
+    //Atlas Types: "Unversioned" subtypes that don't support version codes
+    MOBILE_SDK                      = 'MOBILE_SDK',
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
     //Metadata Coverage Report Types
@@ -31,7 +33,7 @@ export type MetadataCoverageDocTypeID = DocTypeID.METADATA_COVERAGE_REPORT;
 
 
 //The whole awful construct below is necessary for type-checking AtlasUnversionedDocTypeID cf. https://stackoverflow.com/a/51529486
-const atlasUnversionedDocTypeID = [] as const;
+const atlasUnversionedDocTypeID = [DocTypeID.MOBILE_SDK] as const;
 /**
  * A special sub-type of AtlasDocTypeID, these rare Atlas doc types DO NOT have Salesforce Release Versions
  */
