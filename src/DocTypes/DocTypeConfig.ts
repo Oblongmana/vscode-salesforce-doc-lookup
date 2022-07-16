@@ -3,12 +3,12 @@ import { AtlasDocTypeID } from "./DocTypeID";
 
 export function getAtlasLangCodeOverride(docType: AtlasDocTypeID) {
     return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perAtlasBasedDocType?.[docType]?.languageCode
-        || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasLanguageCode
-        || null;
+    || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasLanguageCode
+    || null;
 }
 
 export function getAtlasVersionCodeOverride(docType: AtlasDocTypeID) {
-    return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perDocType?.[docType]?.versionCode
+    return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perAtlasBasedDocType?.[docType]?.versionCode
         || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasVersionCode
         || null;
 }
