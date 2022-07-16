@@ -22,4 +22,5 @@ export const AtlasDocTypeIdToSalesforceAtlasKey: Record<AtlasDocTypeID, Salesfor
     MOBILE_SDK          : SalesforceAtlasKey.MOBILE_SDK,
     API_ACTION          : SalesforceAtlasKey.API_ACTION,
     SFDX_DEV            : SalesforceAtlasKey.SFDX_DEV,
+    SOQL_SOSL           : SalesforceAtlasKey.SOQL_SOSL,
 };

@@ -17,3 +17,4 @@ export { ToolingAPIAtlasDocType } from "./ToolingAPIAtlasDocType";
 export { SFDXCLIPluginsAtlasDocType } from "./SFDXCLIPluginsAtlasDocType";
 export { MobileSDKAtlasDocType } from "./MobileSDKAtlasDocType";
 export { SFDXDevGuideAtlasDocType } from "./SFDXDevGuideAtlasDocType";
+export { SoqlSoslReferenceAtlasDocType } from "./SoqlSoslReferenceAtlasDocType";

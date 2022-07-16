@@ -21,6 +21,7 @@ import {
     SFDXCLIPluginsAtlasDocType,
     MobileSDKAtlasDocType,
     SFDXDevGuideAtlasDocType,
+    SoqlSoslReferenceAtlasDocType,
 } from "./ConcreteDocTypes";
 import { ActionsAPIAtlasDocType } from "./ConcreteDocTypes/Atlas/ActionsAPIAtlasDocType";
 import { DocTypeID } from "./DocTypeID";
@@ -49,6 +50,7 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     MOBILE_SDK:                         () => new MobileSDKAtlasDocType(),
     API_ACTION:                         () => new ActionsAPIAtlasDocType(),
     SFDX_DEV:                           () => new SFDXDevGuideAtlasDocType(),
+    SOQL_SOSL:                          () => new SoqlSoslReferenceAtlasDocType(),
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY:     () => new AuraLWCComponentLibraryAuraDocType(),
     //Metadata Coverage Report Type

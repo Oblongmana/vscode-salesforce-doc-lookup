@@ -52,6 +52,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-mobile-sdk",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-actions-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-dev-guide",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-soql-sosl-reference",
 
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
 
@@ -143,6 +144,10 @@
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-sfdx-dev-guide",
                 "title": "Salesforce Reference: SFDX Developer Guide"
             },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-soql-sosl-reference",
+                "title": "Salesforce Reference: SOQL & SOSL Reference"
+            },
 
 
             {
@@ -228,7 +233,8 @@
                             "SFDX_CLI_PLUGINS",
                             "MOBILE_SDK",
                             "API_ACTION",
-                            "SFDX_DEV"
+                            "SFDX_DEV",
+                            "SOQL_SOSL"
                         ],
                         "NOTE": "Any given one of these enum value definitions must EXACTLY match an entry in the DocTypeID.ts enum"
                     },

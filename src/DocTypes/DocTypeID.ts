@@ -19,6 +19,7 @@ export enum DocTypeID {
     SFDX_CLI_PLUGINS                = 'SFDX_CLI_PLUGINS',
     API_ACTION                      = 'API_ACTION',
     SFDX_DEV                        = 'SFDX_DEV',
+    SOQL_SOSL                       = 'SOQL_SOSL',
     //Atlas Types: "Unversioned" subtypes that don't support version codes
     MOBILE_SDK                      = 'MOBILE_SDK',
     //Aura Types

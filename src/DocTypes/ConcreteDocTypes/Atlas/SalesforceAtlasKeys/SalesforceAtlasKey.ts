@@ -25,4 +25,5 @@ export enum SalesforceAtlasKey {
     MOBILE_SDK         = 'mobile_sdk',
     API_ACTION         = 'api_action',
     SFDX_DEV           = 'sfdx_dev',
+    SOQL_SOSL          = 'soql_sosl',
 }
