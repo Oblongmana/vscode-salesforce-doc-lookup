@@ -14,7 +14,7 @@ export class ApexDevGuideAtlasDocType extends AtlasDocType {
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
     protected async getRootDocumentationNode(): Promise<AtlasTOC.DocumentationNode> {
-        const apexDocToc: any = await this.getDocTOC();
-        return apexDocToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'apex_dev_guide');
+        const docToc: any = await this.getDocTOC();
+        return docToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'apex_dev_guide');
     }
 }

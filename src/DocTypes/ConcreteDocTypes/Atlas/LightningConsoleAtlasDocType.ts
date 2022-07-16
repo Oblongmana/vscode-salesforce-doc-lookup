@@ -14,9 +14,9 @@ export class LightningConsoleAtlasDocType extends AtlasDocType {
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
     protected async getRootDocumentationNode(): Promise<AtlasTOC.DocumentationNode> {
-        const lightningConsoleDocToc: any = await this.getDocTOC();
-        const lightningconsoleTopLevelToc: any = lightningConsoleDocToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_lex_getting_started');
-        const lightningconsoleJSAPILevelToc: any = lightningconsoleTopLevelToc.children.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
-        return lightningconsoleJSAPILevelToc.children.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
+        const docToc: any = await this.getDocTOC();
+        const topLevelToc: any = docToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_lex_getting_started');
+        const jsAPILevelToc: any = topLevelToc.children.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_js_getting_started');
+        return jsAPILevelToc.children.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_lightning');
     }
 }

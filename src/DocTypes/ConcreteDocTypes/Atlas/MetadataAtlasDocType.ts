@@ -14,7 +14,7 @@ export class MetadataAtlasDocType extends AtlasDocType {
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
     protected async getRootDocumentationNode(): Promise<AtlasTOC.DocumentationNode> {
-        const metadataDocToc: any = await this.getDocTOC();
-        return metadataDocToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
+        const docToc: any = await this.getDocTOC();
+        return docToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('text') && node.text === 'Reference');
     }
 }

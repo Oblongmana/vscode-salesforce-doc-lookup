@@ -14,7 +14,7 @@ export class VisualforceAtlasDocType extends AtlasDocType {
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
     protected async getRootDocumentationNode(): Promise<AtlasTOC.DocumentationNode> {
-        const vfDocToc: any = await this.getDocTOC();
-        return vfDocToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'pages_compref');
+        const docToc: any = await this.getDocTOC();
+        return docToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'pages_compref');
     }
 }

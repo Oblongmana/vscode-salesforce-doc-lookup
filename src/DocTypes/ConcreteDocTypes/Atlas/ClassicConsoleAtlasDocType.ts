@@ -14,8 +14,8 @@ export class ClassicConsoleAtlasDocType extends AtlasDocType {
      * @throws An error with `message` containing "getaddrinfo ENOTFOUND developer.salesforce.com" if it fails due to a connection issue
      */
     protected async getRootDocumentationNode(): Promise<AtlasTOC.DocumentationNode> {
-        const classicConsoleDocToc: any = await this.getDocTOC();
-        const classicconsoleTopLevelToc: any = classicConsoleDocToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_intro');
-        return classicconsoleTopLevelToc.children.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_classic');
+        const docToc: any = await this.getDocTOC();
+        const topLevelToc: any = docToc.toc.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_intro');
+        return topLevelToc.children.find((node: AtlasTOC.DocumentationNode) => node.hasOwnProperty('id') && node.id === 'sforce_api_console_methods_classic');
     }
 }
