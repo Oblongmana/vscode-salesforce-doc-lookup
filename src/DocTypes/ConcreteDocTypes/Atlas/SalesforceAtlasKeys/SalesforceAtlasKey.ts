@@ -27,4 +27,5 @@ export enum SalesforceAtlasKey {
     SFDX_DEV           = 'sfdx_dev',
     SOQL_SOSL          = 'soql_sosl',
     AURA_COMP_DEV      = 'lightning',
+    CONNECT_CHATTER_API= 'chatterapi',
 }

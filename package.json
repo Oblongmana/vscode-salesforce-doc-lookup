@@ -54,6 +54,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-soql-sosl-reference",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-aura-components-dev-guide",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-connect-chatter-api-guide",
 
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
 
@@ -153,6 +154,10 @@
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-aura-components-dev-guide",
                 "title": "Salesforce Reference: Aura Components Developer Guide"
             },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-connect-chatter-api-guide",
+                "title": "Salesforce Reference: Connect/Chatter REST API Guide"
+            },
 
 
             {
@@ -240,7 +245,8 @@
                             "API_ACTION",
                             "SFDX_DEV",
                             "SOQL_SOSL",
-                            "AURA_COMP_DEV"
+                            "AURA_COMP_DEV",
+                            "CONNECT_CHATTER_API"
                         ],
                         "NOTE": "Any given one of these enum value definitions must EXACTLY match an entry in the DocTypeID.ts enum"
                     },

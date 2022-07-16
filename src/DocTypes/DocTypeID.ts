@@ -21,6 +21,7 @@ export enum DocTypeID {
     SFDX_DEV                        = 'SFDX_DEV',
     SOQL_SOSL                       = 'SOQL_SOSL',
     AURA_COMP_DEV                   = 'AURA_COMP_DEV',
+    CONNECT_CHATTER_API             = 'CONNECT_CHATTER_API',
     //Atlas Types: "Unversioned" subtypes that don't support version codes
     MOBILE_SDK                      = 'MOBILE_SDK',
     //Aura Types

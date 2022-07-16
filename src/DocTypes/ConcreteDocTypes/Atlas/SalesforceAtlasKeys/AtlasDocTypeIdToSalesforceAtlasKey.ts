@@ -24,4 +24,5 @@ export const AtlasDocTypeIdToSalesforceAtlasKey: Record<AtlasDocTypeID, Salesfor
     SFDX_DEV            : SalesforceAtlasKey.SFDX_DEV,
     SOQL_SOSL           : SalesforceAtlasKey.SOQL_SOSL,
     AURA_COMP_DEV       : SalesforceAtlasKey.AURA_COMP_DEV,
+    CONNECT_CHATTER_API : SalesforceAtlasKey.CONNECT_CHATTER_API,
 };

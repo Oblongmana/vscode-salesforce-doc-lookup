@@ -24,6 +24,7 @@ import {
     SoqlSoslReferenceAtlasDocType,
     ActionsAPIAtlasDocType,
     AuraComponentsDevGuideAtlasDocType,
+    ConnectChatterAPIAtlasDocType,
 } from "./ConcreteDocTypes";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
@@ -53,6 +54,7 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     SFDX_DEV:                           () => new SFDXDevGuideAtlasDocType(),
     SOQL_SOSL:                          () => new SoqlSoslReferenceAtlasDocType(),
     AURA_COMP_DEV:                      () => new AuraComponentsDevGuideAtlasDocType(),
+    CONNECT_CHATTER_API:                () => new ConnectChatterAPIAtlasDocType(),
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY:     () => new AuraLWCComponentLibraryAuraDocType(),
     //Metadata Coverage Report Type
