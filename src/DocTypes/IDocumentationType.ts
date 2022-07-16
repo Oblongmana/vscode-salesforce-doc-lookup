@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { ReferenceItem } from '../ReferenceItems/ReferenceItem';
+import { ReferenceItem } from '../ReferenceItems';
 import { DocTypeID } from './DocTypeID';
 
 export interface IDocumentationType {

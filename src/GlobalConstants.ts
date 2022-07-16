@@ -1,7 +1,3 @@
-//TODO: attempt to get rid of this - if not possible, add justification. Ideally, at min we move Atlas stuff to relevant location, Aura to relevant location
-// Previously these were constants just in SalesforceReference.ts, now in a Constants file as an intermediate measure
-
-//Universal constants
 export const SF_DOC_ROOT_URL = 'https://developer.salesforce.com/docs';
 
 export const ERROR_MESSAGES = {
@@ -11,3 +7,9 @@ export const ERROR_MESSAGES = {
     TABLE_OF_CONTENTS_PREFACE: 'Error getting Table of Contents. DocType was',
     HUMAN_MESSAGE_TABLE_OF_CONTENTS_SUFFIX: ' Check your language or version settings, you may have entered an invalid Lang/Version combination for this doc type. If you can\'t resolve  the issue please log an issue and repro steps at https://github.com/Oblongmana/vscode-salesforce-doc-lookup/issues'
 };
+
+export const ATLAS_CONSTS = {
+    SF_ATLAS_DEFAULT_LANG: 'en-us',
+    SF_ATLAS_DEFAULT_VERSION_FOR_URL: undefined,
+    SF_ATLAS_DEFAULT_VERSION_FOR_HTML_CONTENT: '238.0',  //! Will need to be updated periodically as Salesforce releases new doc versions, or a dynamic solution setup
+}

@@ -4,7 +4,7 @@ import { Logging } from './Logging';
 import { showDocInWebView } from './DocWebView';
 import { getConfig } from './GlobalConfig';
 import { DocTypeID, DocTypeFactory } from './DocTypes';
-import { ReferenceItem } from './ReferenceItems/ReferenceItem';
+import { ReferenceItem } from './ReferenceItems';
 import { ERROR_MESSAGES } from './GlobalConstants';
 
 export async function openDocQuickPick(context: vscode.ExtensionContext, docType: DocTypeID, prefillValue?: string) {

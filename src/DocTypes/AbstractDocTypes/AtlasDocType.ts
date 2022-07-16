@@ -2,12 +2,10 @@ import * as vscode from 'vscode';
 
 import got, { CancelableRequest, Response } from 'got/dist/source';
 
-import { ERROR_MESSAGES, SF_DOC_ROOT_URL } from "../../GlobalConstants";
-import { AtlasReferenceItem, SF_ATLAS_DEFAULT_LANG } from '../../ReferenceItems/AtlasReferenceItem';
+import { ERROR_MESSAGES, SF_DOC_ROOT_URL, ATLAS_CONSTS } from "../../GlobalConstants";
 import { AtlasDocTypeID, docTypeIDTitleCaseName } from "../DocTypeID";
 import { IDocumentationType } from "../IDocumentationType";
-import { ReferenceItemMemento } from '../../ReferenceItems/ReferenceItemMemento';
-import { ReferenceItem } from '../../ReferenceItems/ReferenceItem';
+import { AtlasReferenceItem, ReferenceItem, ReferenceItemMemento } from '../../ReferenceItems';
 import { getAtlasLangCodeOverride, getAtlasVersionCodeOverride, getStorageSubKey } from '../DocTypeConfig';
 import { Logging } from '../../Logging';
 import { AtlasDocTypeIdToSalesforceAtlasKey, SalesforceAtlasKey } from '../ConcreteDocTypes/Atlas/SalesforceAtlasKeys';
@@ -49,7 +47,7 @@ export abstract class AtlasDocType implements IDocumentationType {
 
         let versionOverrideForMerge: string | null = getAtlasVersionCodeOverride(this.docType);
         versionOverrideForMerge = (versionOverrideForMerge !== null) ? `.${versionOverrideForMerge}` : ''; //Optional in ToC url, so blank string if not present, otherwise must be prefixed with'.'
-        this.docTOCUrl = `${SF_DOC_ROOT_URL}${SF_ATLAS_TOC_PATH}/atlas.${getAtlasLangCodeOverride(this.docType) || SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta`;//TODO some de-dup to do here with ReferenceItem approach
+        this.docTOCUrl = `${SF_DOC_ROOT_URL}${SF_ATLAS_TOC_PATH}/atlas.${getAtlasLangCodeOverride(this.docType) || ATLAS_CONSTS.SF_ATLAS_DEFAULT_LANG}${versionOverrideForMerge}.${this.atlasIdentifier}.meta`;//TODO some de-dup to do here with ReferenceItem approach
     }
 
     /**

@@ -5,10 +5,8 @@ import got from 'got/dist/source';
 import { AuraDocTypeID, docTypeIDTitleCaseName } from "../DocTypeID";
 import { IDocumentationType } from "../IDocumentationType";
 import { SF_DOC_ROOT_URL } from '../../GlobalConstants';
-import { AuraReferenceItem } from '../../ReferenceItems/AuraReferenceItem';
 import { AuraAction, buildAuraActionBody, SF_AURA_PATH } from '../../Utilities/AuraUtilities';
-import { ReferenceItem } from '../../ReferenceItems/ReferenceItem';
-import { ReferenceItemMemento } from '../../ReferenceItems/ReferenceItemMemento';
+import { AuraReferenceItem, ReferenceItem, ReferenceItemMemento } from '../../ReferenceItems';
 import { getStorageSubKey } from '../DocTypeConfig';
 
 /**
