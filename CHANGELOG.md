@@ -3,17 +3,46 @@
 Notable changes to the Salesforce Reference Extension.
 
 ## Table of Contents
-- [1.3.3](#133)
-- [1.3.1](#131)
-- [1.3.0](#130)
-- [1.2.0](#120)
-- [1.1.0](#110)
-- [Unpublished](#unpublished)
-- [1.0.0 - Initial Release](#100---initial-release)
-- [0.4.0 - Beta](#040---beta)
-- [0.3.0 - Beta](#030---beta)
-- [0.2.0 - Beta](#020---beta)
-- [0.1.1 - Beta](#011---beta)
+- [Salesforce Reference Extension - Change Log](#salesforce-reference-extension---change-log)
+  - [2.0.0](#200)
+  - [1.3.3](#133)
+  - [1.3.1](#131)
+  - [1.3.0](#130)
+  - [1.2.0](#120)
+  - [1.1.0](#110)
+  - [Unpublished](#unpublished)
+  - [1.0.0 - Initial Release](#100---initial-release)
+  - [0.4.0 - Beta](#040---beta)
+  - [0.3.0 - Beta](#030---beta)
+  - [0.2.0 - Beta](#020---beta)
+  - [0.1.1 - Beta](#011---beta)
+
+## 2.0.0
+Date: 2022-07-16 (NZ)
+
+### Added
+- New Commands:
+  - Salesforce Reference: Actions API Developer Guide
+  - Salesforce Reference: Ajax Toolkit Developer Guide
+  - Salesforce Reference: Ant Migration Tool Guide
+  - Salesforce Reference: Apex Developer Guide
+  - Salesforce Reference: Aura Components Developer Guide
+  - Salesforce Reference: Big Objects Implementation Guide
+  - Salesforce Reference: Bulk API 2.0 and Bulk API Developer Guide
+  - Salesforce Reference: Connect/Chatter REST API Guide
+  - Salesforce Reference: Data Loader Guide
+  - Salesforce Reference: Field Reference Guide
+  - Salesforce Reference: Metadata Coverage Report
+  - Salesforce Reference: Mobile SDK Development Guide
+  - Salesforce Reference: Secure Coding Guide
+  - Salesforce Reference: SFDX CLI Plugin Developer Guide
+  - Salesforce Reference: SFDX Developer Guide
+  - Salesforce Reference: SOQL & SOSL Reference
+  - Salesforce Reference: Tooling API
+- EXPERIMENTAL, ADVANCED: Language/Version override settings. See README for details
+### Changed
+- The extension has had a significant internal restructure, and all caches will be invalidated on upgrade
+- Some existing commands renamed slightly to disambiguate with new commands (e.g. Apex => Apex Reference | Apex Developer Guide)
 
 ## 1.3.3
 Date: 2022-07-01 (NZ)
