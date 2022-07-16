@@ -15,7 +15,7 @@ export class DataLoaderAtlasDocType extends AtlasDocType {
      */
     protected async getRootDocumentationNode(): Promise<AtlasTOC.DocumentationNode> {
         const apexDocToc: any = await this.getDocTOC();
-        // The Data Loader Guide doc has (at time of writing 2022-07), 4 root nodes. So we simply create
+        // The Data Loader Guide doc has (at time of writing 2022-07), multiple root nodes. So we simply create
         //  our own root node with no href, just text, and assign our "real" root nodes as children
         const fakeRootNode: AtlasTOC.DocumentationNode = {
             text: "Data Loader Guide",
