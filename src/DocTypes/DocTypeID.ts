@@ -16,11 +16,15 @@ export enum DocTypeID {
     BULK_API                        = 'BULK_API',
     //Aura Types
     LWC_AND_AURA_COMPONENT_LIBRARY  = 'LWC_AND_AURA_COMPONENT_LIBRARY',
+    //Metadata Coverage Report Types
+    METADATA_COVERAGE_REPORT        = 'METADATA_COVERAGE_REPORT',
 }
 
-export type AtlasDocTypeID = Exclude<DocTypeID, DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY>;
+export type AtlasDocTypeID = Exclude<DocTypeID, DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY | DocTypeID.METADATA_COVERAGE_REPORT>;
 
-export type AuraDocTypeID = Exclude<DocTypeID, AtlasDocTypeID>;
+export type AuraDocTypeID = DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY;
+
+export type MetadataCoverageDocTypeID = DocTypeID.METADATA_COVERAGE_REPORT;
 
 export function docTypeIDTitleCaseName(docType: DocTypeID): string {
     const recasedAndSpaced: string = docType.replace(

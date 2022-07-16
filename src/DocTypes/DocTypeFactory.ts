@@ -15,6 +15,7 @@ import {
     AntGuideAtlasDocType,
     BigObjectsAtlasDocType,
     BulkAPIAtlasDocType,
+    MetadataCoverageDocType,
 } from "./ConcreteDocTypes";
 import { DocTypeID } from "./DocTypeID";
 import { IDocumentationType } from "./IDocumentationType";
@@ -36,4 +37,5 @@ export const DocTypeFactory: Record<DocTypeID, () => IDocumentationType> = {
     ANT_MIGRATION_TOOL:                 () => new AntGuideAtlasDocType(),
     BIG_OBJECTS:                        () => new BigObjectsAtlasDocType(),
     BULK_API:                           () => new BulkAPIAtlasDocType(),
+    METADATA_COVERAGE_REPORT:           () => new MetadataCoverageDocType(),
 };

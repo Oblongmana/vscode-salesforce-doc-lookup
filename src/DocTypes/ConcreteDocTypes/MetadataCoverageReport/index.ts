@@ -1,0 +1,1 @@
+export { MetadataCoverageDocType } from "./MetadataCoverageDocType";

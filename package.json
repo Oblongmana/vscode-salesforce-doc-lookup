@@ -47,6 +47,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-ant-tool-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-big-objects",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-bulk-api",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-metadata-coverage-report",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-current-word-search"
     ],
@@ -114,6 +115,10 @@
                 "title": "Salesforce Reference: Bulk API 2.0 and Bulk API Developer Guide"
             },
             {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-metadata-coverage-report",
+                "title": "Salesforce Reference: Metadata Coverage Report"
+            },
+            {
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-invalidate-cache",
                 "title": "Salesforce Reference: Invalidate Cache"
             },
@@ -152,10 +157,10 @@
                     "description": "ADVANCED, EXPERIMENTAL OPTION (Default: Leave blank to retrieve latest). Version code to request all Atlas-type documentation. Can be overriden by `perAtlasBasedDocType` settings. Please note that some version codes will not be available for many doc types, and documentation retrieval will fail. For Atlas type docs this is in the format e.g. '236.0'. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
                     "default": ""
                 },
-                "vscode-salesforce-doc-lookup.EXPERIMENTAL.ADVANCED.languageAndVersionPreferences.auraDocVersionCode": {
+                "vscode-salesforce-doc-lookup.EXPERIMENTAL.ADVANCED.languageAndVersionPreferences.metadataCoverageReportVersionCode": {
                     "type": "string",
-                    "order": 4,
-                    "description": "ADVANCED, EXPERIMENTAL OPTION (Default: Leave blank to retrieve latest). Version code to request Aura-type documentation. Please note that some version codes will not be available for many doc types, and documentation retrieval will fail. For Atlas type docs this is generally in the format e.g. '236.0', for Aura docs this is in format e.g. '52.0'. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
+                    "order": 5,
+                    "description": "ADVANCED, EXPERIMENTAL OPTION (Default: Leave blank to retrieve latest). Version code to request Metadata Coverage Report. Please note that some version codes will not be available for many doc types, and documentation retrieval will fail. For Metadata Coverage Report docs this is in format e.g. '55'. In future, the plugin may be updated to pre-check if a version is valid, and fall-back if not.",
                     "default": ""
                 },
                 "vscode-salesforce-doc-lookup.EXPERIMENTAL.ADVANCED.languageAndVersionPreferences.perAtlasBasedDocType": {

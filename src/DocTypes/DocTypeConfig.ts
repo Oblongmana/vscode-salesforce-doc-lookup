@@ -1,4 +1,3 @@
-import { version } from "os";
 import { getConfig } from "../GlobalConfig";
 import { AtlasDocTypeID } from "./DocTypeID";
 
@@ -11,6 +10,11 @@ export function getAtlasLangCodeOverride(docType: AtlasDocTypeID) {
 export function getAtlasVersionCodeOverride(docType: AtlasDocTypeID) {
     return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perDocType?.[docType]?.versionCode
         || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasVersionCode
+        || null;
+}
+
+export function getMetadataCoverageReportVersionCode() {
+    return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.metadataCoverageReportVersionCode
         || null;
 }
 

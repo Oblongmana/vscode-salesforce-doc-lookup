@@ -23,6 +23,8 @@ export const DocCommands: Record<DocTypeID, string> = {
     BULK_API                        : 'salesforce-reference-bulk-api',
     //Aura doc commands
     LWC_AND_AURA_COMPONENT_LIBRARY  : 'salesforce-reference-lwc-aura-component-library',
+    //Metadata Coverage Report doc commands
+    METADATA_COVERAGE_REPORT        : 'salesforce-reference-metadata-coverage-report',
 };
 const DocCommandsValues: string[] = Object.values(DocCommands);
 
