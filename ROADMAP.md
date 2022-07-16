@@ -33,6 +33,7 @@ In rough priority order
 - [X] Make tables less impossible to read due to lack of borders (at least in dark themes, not sure on light themes)
 - [ ] A strange new Doc Type appears to be emerging - see e.g. https://developer.salesforce.com/docs/marketing/marketing-cloud/overview. This appears to replace e.g. API documentation that was formerly Atlas typed (see e.g. https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/ - which is still publically visible, but not exposed on the SF Docs site https://developer.salesforce.com/docs?filter_text=market&lang=en-us&page=1)
 - [ ] Use the Progress API for things like retrieval if poss: https://code.visualstudio.com/api/references/vscode-api#Progress, https://github.com/microsoft/vscode-extension-samples/tree/main/progress-sample
+- [ ] A "what's new" type tab for updates - if this feature ever ships: https://github.com/microsoft/vscode/issues/102139
 - [ ] Cut down size of README
 - [ ] Check formatting on CHANGELOG? Doesn't show multiple indent layers in VS Marketplace changelog page. Could just be a quirk of Marketplace though
 - [ ] Style \<pre\>/\<code\> blocks in html doc nicely
