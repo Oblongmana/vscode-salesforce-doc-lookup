@@ -136,18 +136,6 @@ export abstract class AtlasDocType implements IDocumentationType {
             throw new Error(`${ERROR_MESSAGES.TABLE_OF_CONTENTS_PREFACE} for ${this.docType}: received body was 0 length.`);
         }
         let jsonPromise = await promise.json();
-        // Logging.appendLine('getDocToc statusCode?: ' + response.statusCode);
-        // Logging.appendLine('getDocToc body: ' + response.body);
-        // Logging.appendLine(`getDocToc body === null: ${response.body === null}`);
-        // Logging.appendLine(`getDocToc body === undefined: ${response.body === undefined}`);
-        // Logging.appendLine(`getDocToc body === "": ${response.body === ""}`);
-        // Logging.appendLine(`getDocToc rawBody === null: ${response.rawBody === null}`);
-        // Logging.appendLine(`getDocToc rawBody === undefined: ${response.rawBody === undefined}`);
-        // Logging.appendLine(`getDocToc rawBody.length: ${response.rawBody.length}`);
-        // Logging.appendLine('getDocToc json: ' + jsonPromise);
-        // Logging.appendLine(`getDocToc json === null: ${jsonPromise === null}`);
-        // Logging.appendLine(`getDocToc json === undefined: ${jsonPromise === undefined}`);
-        // Logging.appendLine(`getDocToc json === "": ${jsonPromise === ""}`);
         return jsonPromise;
     }
 }

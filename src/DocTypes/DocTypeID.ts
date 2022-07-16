@@ -29,6 +29,19 @@ export type AuraDocTypeID = DocTypeID.LWC_AND_AURA_COMPONENT_LIBRARY;
 
 export type MetadataCoverageDocTypeID = DocTypeID.METADATA_COVERAGE_REPORT;
 
+
+//The whole awful construct below is necessary for type-checking AtlasUnversionedDocTypeID cf. https://stackoverflow.com/a/51529486
+const atlasUnversionedDocTypeID = [] as const;
+/**
+ * A special sub-type of AtlasDocTypeID, these rare Atlas doc types DO NOT have Salesforce Release Versions
+ */
+export type AtlasUnversionedDocTypeID = (typeof atlasUnversionedDocTypeID)[number];
+/**
+ * Custom Type Guard to check if x is a AtlasUnversionedDocTypeID
+ */
+export const isAtlasUnversionedDocTypeID = (x: any): x is AtlasUnversionedDocTypeID => atlasUnversionedDocTypeID.includes(x);
+
+
 export function docTypeIDTitleCaseName(docType: DocTypeID): string {
     const recasedAndSpaced: string = docType.replace(
         /([-_]*[a-zA-Z]*)/g,

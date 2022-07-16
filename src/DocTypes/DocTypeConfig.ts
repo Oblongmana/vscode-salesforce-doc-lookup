@@ -1,5 +1,6 @@
 import { getConfig } from "../GlobalConfig";
-import { AtlasDocTypeID } from "./DocTypeID";
+import { ATLAS_CONSTS } from "../GlobalConstants";
+import { AtlasDocTypeID, isAtlasUnversionedDocTypeID } from "./DocTypeID";
 
 export function getAtlasLangCodeOverride(docType: AtlasDocTypeID) {
     return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perAtlasBasedDocType?.[docType]?.languageCode
@@ -8,6 +9,9 @@ export function getAtlasLangCodeOverride(docType: AtlasDocTypeID) {
 }
 
 export function getAtlasVersionCodeOverride(docType: AtlasDocTypeID) {
+    if (isAtlasUnversionedDocTypeID(docType)) {
+        return ATLAS_CONSTS.SF_ATLAS_UNVERSIONED; //Special string that must be included when retrieving unversioned doc
+    }
     return getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.perAtlasBasedDocType?.[docType]?.versionCode
         || getConfig()?.EXPERIMENTAL?.ADVANCED?.languageAndVersionPreferences?.atlasVersionCode
         || null;

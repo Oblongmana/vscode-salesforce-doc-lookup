@@ -12,4 +12,5 @@ export const ATLAS_CONSTS = {
     SF_ATLAS_DEFAULT_LANG: 'en-us',
     SF_ATLAS_DEFAULT_VERSION_FOR_URL: undefined,
     SF_ATLAS_DEFAULT_VERSION_FOR_HTML_CONTENT: '238.0',  //! Will need to be updated periodically as Salesforce releases new doc versions, or a dynamic solution setup
+    SF_ATLAS_UNVERSIONED: 'noversion',
 };
