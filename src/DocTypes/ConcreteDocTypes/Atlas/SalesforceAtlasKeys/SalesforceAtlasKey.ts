@@ -26,4 +26,5 @@ export enum SalesforceAtlasKey {
     API_ACTION         = 'api_action',
     SFDX_DEV           = 'sfdx_dev',
     SOQL_SOSL          = 'soql_sosl',
+    AURA_COMP_DEV      = 'lightning',
 }

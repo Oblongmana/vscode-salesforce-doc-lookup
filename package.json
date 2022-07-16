@@ -53,6 +53,7 @@
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-actions-api",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-sfdx-dev-guide",
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-soql-sosl-reference",
+        "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-aura-components-dev-guide",
 
         "onCommand:vscode-salesforce-doc-lookup.salesforce-reference-lwc-aura-component-library",
 
@@ -148,6 +149,10 @@
                 "command": "vscode-salesforce-doc-lookup.salesforce-reference-soql-sosl-reference",
                 "title": "Salesforce Reference: SOQL & SOSL Reference"
             },
+            {
+                "command": "vscode-salesforce-doc-lookup.salesforce-reference-aura-components-dev-guide",
+                "title": "Salesforce Reference: Aura Components Developer Guide"
+            },
 
 
             {
@@ -234,7 +239,8 @@
                             "MOBILE_SDK",
                             "API_ACTION",
                             "SFDX_DEV",
-                            "SOQL_SOSL"
+                            "SOQL_SOSL",
+                            "AURA_COMP_DEV"
                         ],
                         "NOTE": "Any given one of these enum value definitions must EXACTLY match an entry in the DocTypeID.ts enum"
                     },
